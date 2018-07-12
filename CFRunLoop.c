@@ -2328,7 +2328,10 @@ static void __CFRunLoopTimeout(void *arg) {
 }
 
 /* rl, rlm are locked on entrance and exit */
-static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInterval seconds, Boolean stopAfterHandle, CFRunLoopModeRef previousMode) {
+static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm,
+                              CFTimeInterval seconds,
+                              Boolean stopAfterHandle,
+                              CFRunLoopModeRef previousMode) {
     uint64_t startTSR = mach_absolute_time();
 
     if (__CFRunLoopIsStopped(rl)) {
