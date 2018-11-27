@@ -7,105 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D54E6D6E20B7A826004B2DE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D6D20B7A826004B2DE1 /* AppDelegate.m */; };
-		D54E6D7120B7A826004B2DE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D7020B7A826004B2DE1 /* ViewController.m */; };
-		D54E6D7420B7A827004B2DE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D54E6D7220B7A827004B2DE1 /* Main.storyboard */; };
-		D54E6D7620B7A827004B2DE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54E6D7520B7A827004B2DE1 /* Assets.xcassets */; };
-		D54E6D7920B7A827004B2DE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D54E6D7720B7A827004B2DE1 /* LaunchScreen.storyboard */; };
-		D54E6D7C20B7A827004B2DE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D7B20B7A827004B2DE1 /* main.m */; };
-		D54E6D8620B7A828004B2DE1 /* CFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D8520B7A828004B2DE1 /* CFTests.m */; };
-		D54E6D9120B7A828004B2DE1 /* CFUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D9020B7A828004B2DE1 /* CFUITests.m */; };
-		D54E6E4620B7A88E004B2DE1 /* CFBinaryPList.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6D9F20B7A866004B2DE1 /* CFBinaryPList.c */; };
-		D54E6E4720B7A88E004B2DE1 /* CFBundle_Strings.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA120B7A866004B2DE1 /* CFBundle_Strings.c */; };
-		D54E6E4820B7A88E004B2DE1 /* CFURL.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA220B7A866004B2DE1 /* CFURL.c */; };
-		D54E6E4920B7A88E004B2DE1 /* CFURLAccess.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA320B7A866004B2DE1 /* CFURLAccess.c */; };
-		D54E6E4A20B7A88E004B2DE1 /* CFStringUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA520B7A867004B2DE1 /* CFStringUtilities.c */; };
-		D54E6E4B20B7A88E004B2DE1 /* CFLocaleKeys.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA620B7A867004B2DE1 /* CFLocaleKeys.c */; };
-		D54E6E4C20B7A88E004B2DE1 /* CFUnicodePrecomposition.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA720B7A867004B2DE1 /* CFUnicodePrecomposition.c */; };
-		D54E6E4D20B7A88E004B2DE1 /* CFTimeZone.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DA820B7A868004B2DE1 /* CFTimeZone.c */; };
-		D54E6E4E20B7A88E004B2DE1 /* MakefileVersion in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DA920B7A868004B2DE1 /* MakefileVersion */; };
-		D54E6E4F20B7A88E004B2DE1 /* CFStringEncodingConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DAA20B7A868004B2DE1 /* CFStringEncodingConverter.c */; };
-		D54E6E5020B7A88E004B2DE1 /* CFPropertyList.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DAC20B7A869004B2DE1 /* CFPropertyList.c */; };
-		D54E6E5120B7A88E004B2DE1 /* CFBuiltinConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DAF20B7A869004B2DE1 /* CFBuiltinConverters.c */; };
-		D54E6E5220B7A88E004B2DE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DB320B7A86A004B2DE1 /* Info.plist */; };
-		D54E6E5320B7A88E004B2DE1 /* APPLE_LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DB520B7A86B004B2DE1 /* APPLE_LICENSE */; };
-		D54E6E5420B7A88E004B2DE1 /* CFCalendar.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DB620B7A86C004B2DE1 /* CFCalendar.c */; };
-		D54E6E5520B7A88E004B2DE1 /* CFPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DB820B7A86D004B2DE1 /* CFPreferences.c */; };
-		D54E6E5620B7A88E004B2DE1 /* CFBundle_Locale.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DBA20B7A86E004B2DE1 /* CFBundle_Locale.c */; };
-		D54E6E5720B7A88E004B2DE1 /* CFTree.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DBC20B7A86F004B2DE1 /* CFTree.c */; };
-		D54E6E5820B7A88E004B2DE1 /* CFDate.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DBE20B7A870004B2DE1 /* CFDate.c */; };
-		D54E6E5920B7A88E004B2DE1 /* CFUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DBF20B7A870004B2DE1 /* CFUtilities.c */; };
-		D54E6E5A20B7A88E004B2DE1 /* PropertyList.dtd in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DC120B7A871004B2DE1 /* PropertyList.dtd */; };
-		D54E6E5B20B7A88E004B2DE1 /* CFXMLNode.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DC420B7A871004B2DE1 /* CFXMLNode.c */; };
-		D54E6E5C20B7A88E004B2DE1 /* CFSortFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DC520B7A872004B2DE1 /* CFSortFunctions.c */; };
-		D54E6E5D20B7A88E004B2DE1 /* CFPlatform.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DC820B7A872004B2DE1 /* CFPlatform.c */; };
-		D54E6E5E20B7A88E004B2DE1 /* CFSocketStream.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DCD20B7A873004B2DE1 /* CFSocketStream.c */; };
-		D54E6E5F20B7A88E004B2DE1 /* CFApplicationPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DCE20B7A873004B2DE1 /* CFApplicationPreferences.c */; };
-		D54E6E6020B7A88E004B2DE1 /* CFUnicodeData-B.mapping in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DD020B7A874004B2DE1 /* CFUnicodeData-B.mapping */; };
-		D54E6E6120B7A88E004B2DE1 /* CFBundle_InfoPlist.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DD320B7A874004B2DE1 /* CFBundle_InfoPlist.c */; };
-		D54E6E6220B7A88E004B2DE1 /* CFBase.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DD620B7A875004B2DE1 /* CFBase.c */; };
-		D54E6E6320B7A88E004B2DE1 /* CFBinaryHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DD820B7A876004B2DE1 /* CFBinaryHeap.c */; };
-		D54E6E6420B7A88E004B2DE1 /* CFUniCharPropertyDatabase.data in Resources */ = {isa = PBXBuildFile; fileRef = D54E6DDA20B7A876004B2DE1 /* CFUniCharPropertyDatabase.data */; };
-		D54E6E6520B7A88E004B2DE1 /* CFUnicodeDecomposition.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DDD20B7A877004B2DE1 /* CFUnicodeDecomposition.c */; };
-		D54E6E6620B7A88E004B2DE1 /* CFBigNumber.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DDE20B7A877004B2DE1 /* CFBigNumber.c */; };
-		D54E6E6720B7A88E004B2DE1 /* CFXMLParser.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DDF20B7A877004B2DE1 /* CFXMLParser.c */; };
-		D54E6E6820B7A88E004B2DE1 /* CFBag.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE120B7A877004B2DE1 /* CFBag.c */; };
-		D54E6E6920B7A88E004B2DE1 /* CFXMLInputStream.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE220B7A878004B2DE1 /* CFXMLInputStream.c */; };
-		D54E6E6A20B7A88E004B2DE1 /* CFStream.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE320B7A878004B2DE1 /* CFStream.c */; };
-		D54E6E6B20B7A88E004B2DE1 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE420B7A878004B2DE1 /* Makefile */; };
-		D54E6E6C20B7A88E004B2DE1 /* CFUserNotification.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE520B7A878004B2DE1 /* CFUserNotification.c */; };
-		D54E6E6D20B7A88E004B2DE1 /* CFPlugIn.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE620B7A878004B2DE1 /* CFPlugIn.c */; };
-		D54E6E6E20B7A88E004B2DE1 /* CFICUConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE720B7A879004B2DE1 /* CFICUConverters.c */; };
-		D54E6E6F20B7A88E004B2DE1 /* CFPlugIn_Instance.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DE920B7A879004B2DE1 /* CFPlugIn_Instance.c */; };
-		D54E6E7020B7A88E004B2DE1 /* CFRuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DED20B7A87A004B2DE1 /* CFRuntime.c */; };
-		D54E6E7120B7A88E004B2DE1 /* CFStringEncodings.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DEE20B7A87A004B2DE1 /* CFStringEncodings.c */; };
-		D54E6E7220B7A88E004B2DE1 /* CFStringScanner.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DEF20B7A87A004B2DE1 /* CFStringScanner.c */; };
-		D54E6E7320B7A88E004B2DE1 /* CFConcreteStreams.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DF020B7A87A004B2DE1 /* CFConcreteStreams.c */; };
-		D54E6E7420B7A88E004B2DE1 /* CFError.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DF220B7A87B004B2DE1 /* CFError.c */; };
-		D54E6E7520B7A88E004B2DE1 /* CFWindowsUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DF420B7A87B004B2DE1 /* CFWindowsUtilities.c */; };
-		D54E6E7620B7A88E004B2DE1 /* CFStringEncodingDatabase.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DF620B7A87B004B2DE1 /* CFStringEncodingDatabase.c */; };
-		D54E6E7720B7A88E004B2DE1 /* CFBitVector.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DF920B7A87C004B2DE1 /* CFBitVector.c */; };
-		D54E6E7820B7A88E004B2DE1 /* CFBurstTrie.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DFB20B7A87C004B2DE1 /* CFBurstTrie.c */; };
-		D54E6E7920B7A88E004B2DE1 /* CFOldStylePList.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6DFF20B7A87D004B2DE1 /* CFOldStylePList.c */; };
-		D54E6E7A20B7A88E004B2DE1 /* CFBundle_Grok.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0420B7A87E004B2DE1 /* CFBundle_Grok.c */; };
-		D54E6E7B20B7A88E004B2DE1 /* CFLocale.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0820B7A87F004B2DE1 /* CFLocale.c */; };
-		D54E6E7C20B7A88E004B2DE1 /* CFSystemDirectories.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0920B7A87F004B2DE1 /* CFSystemDirectories.c */; };
-		D54E6E7D20B7A88E004B2DE1 /* CFBundle_Resources.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0A20B7A87F004B2DE1 /* CFBundle_Resources.c */; };
-		D54E6E7E20B7A88E004B2DE1 /* CFVersion.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0B20B7A87F004B2DE1 /* CFVersion.c */; };
-		D54E6E7F20B7A88E004B2DE1 /* CFPlatformConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0D20B7A880004B2DE1 /* CFPlatformConverters.c */; };
-		D54E6E8020B7A88E004B2DE1 /* CFXMLTree.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E0E20B7A880004B2DE1 /* CFXMLTree.c */; };
-		D54E6E8120B7A88E004B2DE1 /* plconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E1220B7A880004B2DE1 /* plconvert.c */; };
-		D54E6E8220B7A88E004B2DE1 /* CFPlugIn_PlugIn.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E1320B7A881004B2DE1 /* CFPlugIn_PlugIn.c */; };
-		D54E6E8320B7A88E004B2DE1 /* CFCharacterSetBitmaps.bitmap in Resources */ = {isa = PBXBuildFile; fileRef = D54E6E1420B7A881004B2DE1 /* CFCharacterSetBitmaps.bitmap */; };
-		D54E6E8420B7A88E004B2DE1 /* CFLocaleIdentifier.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E1620B7A881004B2DE1 /* CFLocaleIdentifier.c */; };
-		D54E6E8520B7A88E004B2DE1 /* CFMachPort.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E1720B7A881004B2DE1 /* CFMachPort.c */; };
-		D54E6E8620B7A88E004B2DE1 /* CFPlugIn_Factory.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E1C20B7A882004B2DE1 /* CFPlugIn_Factory.c */; };
-		D54E6E8720B7A88E004B2DE1 /* README_CFLITE in Resources */ = {isa = PBXBuildFile; fileRef = D54E6E2020B7A883004B2DE1 /* README_CFLITE */; };
-		D54E6E8820B7A88E004B2DE1 /* CFBasicHash.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2120B7A883004B2DE1 /* CFBasicHash.c */; };
-		D54E6E8920B7A88E004B2DE1 /* CFSet.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2220B7A883004B2DE1 /* CFSet.c */; };
-		D54E6E8A20B7A88E004B2DE1 /* CFRunLoop.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2420B7A884004B2DE1 /* CFRunLoop.c */; };
-		D54E6E8B20B7A88E004B2DE1 /* plconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2520B7A884004B2DE1 /* plconvert.c */; };
-		D54E6E8C20B7A88E004B2DE1 /* CFXMLPreferencesDomain.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2620B7A884004B2DE1 /* CFXMLPreferencesDomain.c */; };
-		D54E6E8D20B7A88E004B2DE1 /* CFBundle_Binary.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2720B7A884004B2DE1 /* CFBundle_Binary.c */; };
-		D54E6E8E20B7A88E004B2DE1 /* CFStorage.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2820B7A885004B2DE1 /* CFStorage.c */; };
-		D54E6E8F20B7A88E004B2DE1 /* CFBasicHashFindBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2D20B7A885004B2DE1 /* CFBasicHashFindBucket.m */; };
-		D54E6E9020B7A88E004B2DE1 /* CFString.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E2F20B7A886004B2DE1 /* CFString.c */; };
-		D54E6E9120B7A88E004B2DE1 /* CFBundle.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3120B7A887004B2DE1 /* CFBundle.c */; };
-		D54E6E9220B7A88E004B2DE1 /* CFNumberFormatter.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3220B7A887004B2DE1 /* CFNumberFormatter.c */; };
-		D54E6E9320B7A88E004B2DE1 /* CFUniChar.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3320B7A887004B2DE1 /* CFUniChar.c */; };
-		D54E6E9420B7A88E004B2DE1 /* CFArray.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3420B7A887004B2DE1 /* CFArray.c */; };
-		D54E6E9520B7A88E004B2DE1 /* CFCharacterSet.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3520B7A888004B2DE1 /* CFCharacterSet.c */; };
-		D54E6E9620B7A88E004B2DE1 /* CFFileUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3620B7A888004B2DE1 /* CFFileUtilities.c */; };
-		D54E6E9720B7A88E004B2DE1 /* CFUUID.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3720B7A888004B2DE1 /* CFUUID.c */; };
-		D54E6E9820B7A88E004B2DE1 /* CFMessagePort.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3820B7A889004B2DE1 /* CFMessagePort.c */; };
-		D54E6E9920B7A88E004B2DE1 /* CFUnicodeData-L.mapping in Resources */ = {isa = PBXBuildFile; fileRef = D54E6E3B20B7A88A004B2DE1 /* CFUnicodeData-L.mapping */; };
-		D54E6E9A20B7A88E004B2DE1 /* CFNumber.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3D20B7A88A004B2DE1 /* CFNumber.c */; };
-		D54E6E9B20B7A88E004B2DE1 /* CFData.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3E20B7A88B004B2DE1 /* CFData.c */; };
-		D54E6E9C20B7A88E004B2DE1 /* CFDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E3F20B7A88B004B2DE1 /* CFDictionary.c */; };
-		D54E6E9D20B7A88E004B2DE1 /* CFDateFormatter.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E4020B7A88C004B2DE1 /* CFDateFormatter.c */; };
-		D54E6E9E20B7A88E004B2DE1 /* SymbolAliases in Resources */ = {isa = PBXBuildFile; fileRef = D54E6E4320B7A88D004B2DE1 /* SymbolAliases */; };
-		D54E6E9F20B7A88E004B2DE1 /* MakefileLinux in Resources */ = {isa = PBXBuildFile; fileRef = D54E6E4420B7A88D004B2DE1 /* MakefileLinux */; };
-		D54E6EA020B7A88E004B2DE1 /* CFSocket.c in Sources */ = {isa = PBXBuildFile; fileRef = D54E6E4520B7A88D004B2DE1 /* CFSocket.c */; };
+		BB28E8D621A7B232005FAFC8 /* CFData.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E82F21A7B22C005FAFC8 /* CFData.c */; };
+		BB28E8D721A7B232005FAFC8 /* CFBundle_Strings.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83021A7B22C005FAFC8 /* CFBundle_Strings.c */; };
+		BB28E8D821A7B232005FAFC8 /* CFArray.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83221A7B22C005FAFC8 /* CFArray.c */; };
+		BB28E8D921A7B232005FAFC8 /* CFTree.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83421A7B22C005FAFC8 /* CFTree.c */; };
+		BB28E8DA21A7B232005FAFC8 /* CFURLAccess.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83721A7B22C005FAFC8 /* CFURLAccess.c */; };
+		BB28E8DB21A7B232005FAFC8 /* CFVersion.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83821A7B22C005FAFC8 /* CFVersion.c */; };
+		BB28E8DC21A7B232005FAFC8 /* CFURL.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83921A7B22C005FAFC8 /* CFURL.c */; };
+		BB28E8DD21A7B232005FAFC8 /* CFUnicodeData-L.mapping in Resources */ = {isa = PBXBuildFile; fileRef = BB28E83B21A7B22C005FAFC8 /* CFUnicodeData-L.mapping */; };
+		BB28E8DE21A7B232005FAFC8 /* CFBundle_Binary.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83D21A7B22C005FAFC8 /* CFBundle_Binary.c */; };
+		BB28E8DF21A7B232005FAFC8 /* CFBitVector.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E83E21A7B22C005FAFC8 /* CFBitVector.c */; };
+		BB28E8E021A7B232005FAFC8 /* CFBinaryPList.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84121A7B22D005FAFC8 /* CFBinaryPList.c */; };
+		BB28E8E121A7B232005FAFC8 /* CFError.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84221A7B22D005FAFC8 /* CFError.c */; };
+		BB28E8E221A7B232005FAFC8 /* PropertyList.dtd in Resources */ = {isa = PBXBuildFile; fileRef = BB28E84621A7B22D005FAFC8 /* PropertyList.dtd */; };
+		BB28E8E321A7B232005FAFC8 /* CFCharacterSet.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84821A7B22D005FAFC8 /* CFCharacterSet.c */; };
+		BB28E8E421A7B232005FAFC8 /* CFNumberFormatter.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84921A7B22D005FAFC8 /* CFNumberFormatter.c */; };
+		BB28E8E521A7B232005FAFC8 /* CFDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84A21A7B22D005FAFC8 /* CFDictionary.c */; };
+		BB28E8E621A7B232005FAFC8 /* CFStream.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84B21A7B22D005FAFC8 /* CFStream.c */; };
+		BB28E8E721A7B232005FAFC8 /* CFStringScanner.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E84D21A7B22D005FAFC8 /* CFStringScanner.c */; };
+		BB28E8E821A7B232005FAFC8 /* CFSocket.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85221A7B22D005FAFC8 /* CFSocket.c */; };
+		BB28E8E921A7B232005FAFC8 /* CFStringEncodings.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85421A7B22E005FAFC8 /* CFStringEncodings.c */; };
+		BB28E8EA21A7B232005FAFC8 /* CFPlatformConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85521A7B22E005FAFC8 /* CFPlatformConverters.c */; };
+		BB28E8EB21A7B232005FAFC8 /* MakefileVersion in Resources */ = {isa = PBXBuildFile; fileRef = BB28E85621A7B22E005FAFC8 /* MakefileVersion */; };
+		BB28E8EC21A7B232005FAFC8 /* CFSortFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85A21A7B22E005FAFC8 /* CFSortFunctions.c */; };
+		BB28E8ED21A7B232005FAFC8 /* CFXMLParser.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85C21A7B22E005FAFC8 /* CFXMLParser.c */; };
+		BB28E8EE21A7B232005FAFC8 /* CFPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E85E21A7B22E005FAFC8 /* CFPreferences.c */; };
+		BB28E8EF21A7B232005FAFC8 /* CFXMLPreferencesDomain.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86021A7B22E005FAFC8 /* CFXMLPreferencesDomain.c */; };
+		BB28E8F021A7B232005FAFC8 /* CFLocale.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86521A7B22F005FAFC8 /* CFLocale.c */; };
+		BB28E8F121A7B232005FAFC8 /* CFBigNumber.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86621A7B22F005FAFC8 /* CFBigNumber.c */; };
+		BB28E8F221A7B232005FAFC8 /* CFPlugIn_Factory.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86A21A7B22F005FAFC8 /* CFPlugIn_Factory.c */; };
+		BB28E8F321A7B232005FAFC8 /* CFBundle_Resources.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86C21A7B22F005FAFC8 /* CFBundle_Resources.c */; };
+		BB28E8F421A7B232005FAFC8 /* CFBasicHash.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E86F21A7B22F005FAFC8 /* CFBasicHash.c */; };
+		BB28E8F521A7B232005FAFC8 /* CFConcreteStreams.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87021A7B22F005FAFC8 /* CFConcreteStreams.c */; };
+		BB28E8F621A7B232005FAFC8 /* CFBuiltinConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87121A7B22F005FAFC8 /* CFBuiltinConverters.c */; };
+		BB28E8F721A7B232005FAFC8 /* CFNumber.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87221A7B22F005FAFC8 /* CFNumber.c */; };
+		BB28E8F821A7B232005FAFC8 /* CFPlugIn_PlugIn.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87321A7B22F005FAFC8 /* CFPlugIn_PlugIn.c */; };
+		BB28E8F921A7B232005FAFC8 /* CFStringEncodingDatabase.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87521A7B230005FAFC8 /* CFStringEncodingDatabase.c */; };
+		BB28E8FA21A7B232005FAFC8 /* CFLocaleIdentifier.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87621A7B230005FAFC8 /* CFLocaleIdentifier.c */; };
+		BB28E8FB21A7B232005FAFC8 /* CFUUID.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87A21A7B230005FAFC8 /* CFUUID.c */; };
+		BB28E8FC21A7B232005FAFC8 /* CFXMLNode.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87B21A7B230005FAFC8 /* CFXMLNode.c */; };
+		BB28E8FD21A7B232005FAFC8 /* CFDateFormatter.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87C21A7B230005FAFC8 /* CFDateFormatter.c */; };
+		BB28E8FE21A7B232005FAFC8 /* CFCharacterSetBitmaps.bitmap in Resources */ = {isa = PBXBuildFile; fileRef = BB28E87D21A7B230005FAFC8 /* CFCharacterSetBitmaps.bitmap */; };
+		BB28E8FF21A7B232005FAFC8 /* CFWindowsUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E87E21A7B230005FAFC8 /* CFWindowsUtilities.c */; };
+		BB28E90021A7B232005FAFC8 /* MakefileLinux in Resources */ = {isa = PBXBuildFile; fileRef = BB28E88021A7B230005FAFC8 /* MakefileLinux */; };
+		BB28E90121A7B232005FAFC8 /* CFBasicHashFindBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88121A7B230005FAFC8 /* CFBasicHashFindBucket.m */; };
+		BB28E90221A7B232005FAFC8 /* APPLE_LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */; };
+		BB28E90321A7B232005FAFC8 /* CFBinaryHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88621A7B230005FAFC8 /* CFBinaryHeap.c */; };
+		BB28E90421A7B232005FAFC8 /* CFUnicodePrecomposition.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88821A7B230005FAFC8 /* CFUnicodePrecomposition.c */; };
+		BB28E90521A7B232005FAFC8 /* CFStorage.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88A21A7B230005FAFC8 /* CFStorage.c */; };
+		BB28E90621A7B232005FAFC8 /* CFXMLTree.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88B21A7B231005FAFC8 /* CFXMLTree.c */; };
+		BB28E90721A7B232005FAFC8 /* plconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E88E21A7B231005FAFC8 /* plconvert.c */; };
+		BB28E90821A7B232005FAFC8 /* CFUnicodeDecomposition.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E89021A7B231005FAFC8 /* CFUnicodeDecomposition.c */; };
+		BB28E90921A7B232005FAFC8 /* CFFileUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E89121A7B231005FAFC8 /* CFFileUtilities.c */; };
+		BB28E90A21A7B232005FAFC8 /* CFBurstTrie.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E89421A7B231005FAFC8 /* CFBurstTrie.c */; };
+		BB28E90B21A7B232005FAFC8 /* CFCalendar.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E89921A7B231005FAFC8 /* CFCalendar.c */; };
+		BB28E90C21A7B232005FAFC8 /* CFDate.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E89A21A7B231005FAFC8 /* CFDate.c */; };
+		BB28E90D21A7B232005FAFC8 /* README_CFLITE in Resources */ = {isa = PBXBuildFile; fileRef = BB28E89C21A7B231005FAFC8 /* README_CFLITE */; };
+		BB28E90E21A7B232005FAFC8 /* CFOldStylePList.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8A021A7B231005FAFC8 /* CFOldStylePList.c */; };
+		BB28E90F21A7B232005FAFC8 /* SymbolAliases in Resources */ = {isa = PBXBuildFile; fileRef = BB28E8A121A7B231005FAFC8 /* SymbolAliases */; };
+		BB28E91021A7B232005FAFC8 /* CFStringEncodingConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8A321A7B231005FAFC8 /* CFStringEncodingConverter.c */; };
+		BB28E91121A7B232005FAFC8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB28E8A621A7B231005FAFC8 /* Info.plist */; };
+		BB28E91221A7B232005FAFC8 /* plconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8A721A7B231005FAFC8 /* plconvert.c */; };
+		BB28E91321A7B232005FAFC8 /* CFSystemDirectories.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8A821A7B231005FAFC8 /* CFSystemDirectories.c */; };
+		BB28E91421A7B232005FAFC8 /* CFBag.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8A921A7B231005FAFC8 /* CFBag.c */; };
+		BB28E91521A7B232005FAFC8 /* CFRunLoop.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8AD21A7B231005FAFC8 /* CFRunLoop.c */; };
+		BB28E91621A7B232005FAFC8 /* CFRuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8AF21A7B231005FAFC8 /* CFRuntime.c */; };
+		BB28E91721A7B232005FAFC8 /* CFLocaleKeys.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8B121A7B231005FAFC8 /* CFLocaleKeys.c */; };
+		BB28E91821A7B232005FAFC8 /* CFPlatform.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8B221A7B231005FAFC8 /* CFPlatform.c */; };
+		BB28E91921A7B232005FAFC8 /* CFMessagePort.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8B321A7B231005FAFC8 /* CFMessagePort.c */; };
+		BB28E91A21A7B232005FAFC8 /* CFUnicodeData-B.mapping in Resources */ = {isa = PBXBuildFile; fileRef = BB28E8B421A7B231005FAFC8 /* CFUnicodeData-B.mapping */; };
+		BB28E91B21A7B232005FAFC8 /* CFBase.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8B721A7B231005FAFC8 /* CFBase.c */; };
+		BB28E91C21A7B232005FAFC8 /* CFPropertyList.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8B821A7B231005FAFC8 /* CFPropertyList.c */; };
+		BB28E91D21A7B232005FAFC8 /* CFTimeZone.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BA21A7B231005FAFC8 /* CFTimeZone.c */; };
+		BB28E91E21A7B232005FAFC8 /* CFSocketStream.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */; };
+		BB28E91F21A7B232005FAFC8 /* CFSet.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BC21A7B231005FAFC8 /* CFSet.c */; };
+		BB28E92021A7B232005FAFC8 /* CFPlugIn_Instance.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BD21A7B231005FAFC8 /* CFPlugIn_Instance.c */; };
+		BB28E92121A7B232005FAFC8 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BE21A7B231005FAFC8 /* Makefile */; };
+		BB28E92221A7B232005FAFC8 /* CFXMLInputStream.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8BF21A7B232005FAFC8 /* CFXMLInputStream.c */; };
+		BB28E92321A7B232005FAFC8 /* CFBundle.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C021A7B232005FAFC8 /* CFBundle.c */; };
+		BB28E92421A7B232005FAFC8 /* CFBundle_Grok.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C121A7B232005FAFC8 /* CFBundle_Grok.c */; };
+		BB28E92521A7B232005FAFC8 /* CFUniChar.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C321A7B232005FAFC8 /* CFUniChar.c */; };
+		BB28E92621A7B232005FAFC8 /* CFStringUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C421A7B232005FAFC8 /* CFStringUtilities.c */; };
+		BB28E92721A7B232005FAFC8 /* CFPlugIn.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C621A7B232005FAFC8 /* CFPlugIn.c */; };
+		BB28E92821A7B232005FAFC8 /* CFBundle_InfoPlist.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C721A7B232005FAFC8 /* CFBundle_InfoPlist.c */; };
+		BB28E92921A7B232005FAFC8 /* CFUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8C821A7B232005FAFC8 /* CFUtilities.c */; };
+		BB28E92A21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data in Resources */ = {isa = PBXBuildFile; fileRef = BB28E8CA21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data */; };
+		BB28E92B21A7B232005FAFC8 /* CFString.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8CC21A7B232005FAFC8 /* CFString.c */; };
+		BB28E92C21A7B232005FAFC8 /* CFMachPort.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8CF21A7B232005FAFC8 /* CFMachPort.c */; };
+		BB28E92D21A7B232005FAFC8 /* CFUserNotification.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8D021A7B232005FAFC8 /* CFUserNotification.c */; };
+		BB28E92E21A7B232005FAFC8 /* CFBundle_Locale.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8D121A7B232005FAFC8 /* CFBundle_Locale.c */; };
+		BB28E92F21A7B232005FAFC8 /* CFICUConverters.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8D221A7B232005FAFC8 /* CFICUConverters.c */; };
+		BB28E93021A7B232005FAFC8 /* CFApplicationPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E8D321A7B232005FAFC8 /* CFApplicationPreferences.c */; };
+		BB28E93421A7B3BC005FAFC8 /* CFRunLoop_Timer.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E93321A7B3BC005FAFC8 /* CFRunLoop_Timer.c */; };
+		BB28E93821A7B635005FAFC8 /* CFRunLoop_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E93721A7B635005FAFC8 /* CFRunLoop_Utils.c */; };
+		BB28E93C21A7D8C9005FAFC8 /* CFRunLoop_Observers.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E93B21A7D8C9005FAFC8 /* CFRunLoop_Observers.c */; };
+		BB28E93F21A7DA19005FAFC8 /* CFRunLoop_Clean.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E93E21A7DA19005FAFC8 /* CFRunLoop_Clean.c */; };
+		BB28E94221ABA19A005FAFC8 /* CFRunLoop_Run.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E94121ABA19A005FAFC8 /* CFRunLoop_Run.c */; };
+		BB28E94521ABABF7005FAFC8 /* CFRunLoop_Source.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E94421ABABF7005FAFC8 /* CFRunLoop_Source.c */; };
+		BB28E94921ABC015005FAFC8 /* CFRunLoop_Mode.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E94821ABC015005FAFC8 /* CFRunLoop_Mode.c */; };
+		BB28E94C21ABC16C005FAFC8 /* CFRunLoop_Block.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E94B21ABC16C005FAFC8 /* CFRunLoop_Block.c */; };
+		BB28E94F21ABC3A8005FAFC8 /* CFRunLoop_Do.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E94E21ABC3A8005FAFC8 /* CFRunLoop_Do.c */; };
+		BB28E95221ABC581005FAFC8 /* CFRunLoop_main queue.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E95121ABC581005FAFC8 /* CFRunLoop_main queue.c */; };
+		BB28E95521ABEB77005FAFC8 /* CFRunLoop_Lock.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E95421ABEB77005FAFC8 /* CFRunLoop_Lock.c */; };
+		BB28E95821ABECAA005FAFC8 /* CF_Mach.c in Sources */ = {isa = PBXBuildFile; fileRef = BB28E95721ABECAA005FAFC8 /* CF_Mach.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,188 +130,199 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D54E6D6920B7A826004B2DE1 /* CF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CF.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D54E6D6C20B7A826004B2DE1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D54E6D6D20B7A826004B2DE1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D54E6D6F20B7A826004B2DE1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D54E6D7020B7A826004B2DE1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D54E6D7320B7A827004B2DE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D54E6D7520B7A827004B2DE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D54E6D7820B7A827004B2DE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D54E6D7A20B7A827004B2DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D54E6D7B20B7A827004B2DE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D54E6D8120B7A828004B2DE1 /* CFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D54E6D8520B7A828004B2DE1 /* CFTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFTests.m; sourceTree = "<group>"; };
-		D54E6D8720B7A828004B2DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D54E6D8C20B7A828004B2DE1 /* CFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D54E6D9020B7A828004B2DE1 /* CFUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFUITests.m; sourceTree = "<group>"; };
-		D54E6D9220B7A828004B2DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D54E6D9F20B7A866004B2DE1 /* CFBinaryPList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBinaryPList.c; path = ../../../CFBinaryPList.c; sourceTree = "<group>"; };
-		D54E6DA020B7A866004B2DE1 /* CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUtilities.h; path = ../../../CFUtilities.h; sourceTree = "<group>"; };
-		D54E6DA120B7A866004B2DE1 /* CFBundle_Strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_Strings.c; path = ../../../CFBundle_Strings.c; sourceTree = "<group>"; };
-		D54E6DA220B7A866004B2DE1 /* CFURL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFURL.c; path = ../../../CFURL.c; sourceTree = "<group>"; };
-		D54E6DA320B7A866004B2DE1 /* CFURLAccess.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFURLAccess.c; path = ../../../CFURLAccess.c; sourceTree = "<group>"; };
-		D54E6DA420B7A866004B2DE1 /* CFBigNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBigNumber.h; path = ../../../CFBigNumber.h; sourceTree = "<group>"; };
-		D54E6DA520B7A867004B2DE1 /* CFStringUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringUtilities.c; path = ../../../CFStringUtilities.c; sourceTree = "<group>"; };
-		D54E6DA620B7A867004B2DE1 /* CFLocaleKeys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocaleKeys.c; path = ../../../CFLocaleKeys.c; sourceTree = "<group>"; };
-		D54E6DA720B7A867004B2DE1 /* CFUnicodePrecomposition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnicodePrecomposition.c; path = ../../../CFUnicodePrecomposition.c; sourceTree = "<group>"; };
-		D54E6DA820B7A868004B2DE1 /* CFTimeZone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFTimeZone.c; path = ../../../CFTimeZone.c; sourceTree = "<group>"; };
-		D54E6DA920B7A868004B2DE1 /* MakefileVersion */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MakefileVersion; path = ../../../MakefileVersion; sourceTree = "<group>"; };
-		D54E6DAA20B7A868004B2DE1 /* CFStringEncodingConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodingConverter.c; path = ../../../CFStringEncodingConverter.c; sourceTree = "<group>"; };
-		D54E6DAB20B7A868004B2DE1 /* CFRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFRuntime.h; path = ../../../CFRuntime.h; sourceTree = "<group>"; };
-		D54E6DAC20B7A869004B2DE1 /* CFPropertyList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPropertyList.c; path = ../../../CFPropertyList.c; sourceTree = "<group>"; };
-		D54E6DAD20B7A869004B2DE1 /* CFBinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBinaryHeap.h; path = ../../../CFBinaryHeap.h; sourceTree = "<group>"; };
-		D54E6DAE20B7A869004B2DE1 /* CFLogUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLogUtilities.h; path = ../../../CFLogUtilities.h; sourceTree = "<group>"; };
-		D54E6DAF20B7A869004B2DE1 /* CFBuiltinConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBuiltinConverters.c; path = ../../../CFBuiltinConverters.c; sourceTree = "<group>"; };
-		D54E6DB020B7A86A004B2DE1 /* CFNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFNumberFormatter.h; path = ../../../CFNumberFormatter.h; sourceTree = "<group>"; };
-		D54E6DB120B7A86A004B2DE1 /* CFPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPriv.h; path = ../../../CFPriv.h; sourceTree = "<group>"; };
-		D54E6DB220B7A86A004B2DE1 /* CFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLParser.h; path = ../../../CFXMLParser.h; sourceTree = "<group>"; };
-		D54E6DB320B7A86A004B2DE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../Info.plist; sourceTree = "<group>"; };
-		D54E6DB420B7A86B004B2DE1 /* CFUniCharPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUniCharPriv.h; path = ../../../CFUniCharPriv.h; sourceTree = "<group>"; };
-		D54E6DB520B7A86B004B2DE1 /* APPLE_LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = APPLE_LICENSE; path = ../../../APPLE_LICENSE; sourceTree = "<group>"; };
-		D54E6DB620B7A86C004B2DE1 /* CFCalendar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFCalendar.c; path = ../../../CFCalendar.c; sourceTree = "<group>"; };
-		D54E6DB720B7A86D004B2DE1 /* CFMachPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFMachPort.h; path = ../../../CFMachPort.h; sourceTree = "<group>"; };
-		D54E6DB820B7A86D004B2DE1 /* CFPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPreferences.c; path = ../../../CFPreferences.c; sourceTree = "<group>"; };
-		D54E6DB920B7A86E004B2DE1 /* CFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFString.h; path = ../../../CFString.h; sourceTree = "<group>"; };
-		D54E6DBA20B7A86E004B2DE1 /* CFBundle_Locale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_Locale.c; path = ../../../CFBundle_Locale.c; sourceTree = "<group>"; };
-		D54E6DBB20B7A86E004B2DE1 /* CFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTree.h; path = ../../../CFTree.h; sourceTree = "<group>"; };
-		D54E6DBC20B7A86F004B2DE1 /* CFTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFTree.c; path = ../../../CFTree.c; sourceTree = "<group>"; };
-		D54E6DBD20B7A86F004B2DE1 /* CFURL.inc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURL.inc.h; path = ../../../CFURL.inc.h; sourceTree = "<group>"; };
-		D54E6DBE20B7A870004B2DE1 /* CFDate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFDate.c; path = ../../../CFDate.c; sourceTree = "<group>"; };
-		D54E6DBF20B7A870004B2DE1 /* CFUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUtilities.c; path = ../../../CFUtilities.c; sourceTree = "<group>"; };
-		D54E6DC020B7A870004B2DE1 /* CoreFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreFoundation.h; path = ../../../CoreFoundation.h; sourceTree = "<group>"; };
-		D54E6DC120B7A871004B2DE1 /* PropertyList.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PropertyList.dtd; path = ../../../PropertyList.dtd; sourceTree = "<group>"; };
-		D54E6DC220B7A871004B2DE1 /* CoreFoundation_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreFoundation_Prefix.h; path = ../../../CoreFoundation_Prefix.h; sourceTree = "<group>"; };
-		D54E6DC320B7A871004B2DE1 /* CFBundle_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBundle_Internal.h; path = ../../../CFBundle_Internal.h; sourceTree = "<group>"; };
-		D54E6DC420B7A871004B2DE1 /* CFXMLNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLNode.c; path = ../../../CFXMLNode.c; sourceTree = "<group>"; };
-		D54E6DC520B7A872004B2DE1 /* CFSortFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSortFunctions.c; path = ../../../CFSortFunctions.c; sourceTree = "<group>"; };
-		D54E6DC620B7A872004B2DE1 /* CFICULogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFICULogging.h; path = ../../../CFICULogging.h; sourceTree = "<group>"; };
-		D54E6DC720B7A872004B2DE1 /* CFError_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFError_Private.h; path = ../../../CFError_Private.h; sourceTree = "<group>"; };
-		D54E6DC820B7A872004B2DE1 /* CFPlatform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlatform.c; path = ../../../CFPlatform.c; sourceTree = "<group>"; };
-		D54E6DC920B7A872004B2DE1 /* CFStringEncodingDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingDatabase.h; path = ../../../CFStringEncodingDatabase.h; sourceTree = "<group>"; };
-		D54E6DCA20B7A873004B2DE1 /* CFPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPropertyList.h; path = ../../../CFPropertyList.h; sourceTree = "<group>"; };
-		D54E6DCB20B7A873004B2DE1 /* CFSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSet.h; path = ../../../CFSet.h; sourceTree = "<group>"; };
-		D54E6DCC20B7A873004B2DE1 /* CFTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTimeZone.h; path = ../../../CFTimeZone.h; sourceTree = "<group>"; };
-		D54E6DCD20B7A873004B2DE1 /* CFSocketStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocketStream.c; path = ../../../CFSocketStream.c; sourceTree = "<group>"; };
-		D54E6DCE20B7A873004B2DE1 /* CFApplicationPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFApplicationPreferences.c; path = ../../../CFApplicationPreferences.c; sourceTree = "<group>"; };
-		D54E6DCF20B7A874004B2DE1 /* CFStreamInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamInternal.h; path = ../../../CFStreamInternal.h; sourceTree = "<group>"; };
-		D54E6DD020B7A874004B2DE1 /* CFUnicodeData-B.mapping */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CFUnicodeData-B.mapping"; path = "../../../CFUnicodeData-B.mapping"; sourceTree = "<group>"; };
-		D54E6DD120B7A874004B2DE1 /* CFBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBag.h; path = ../../../CFBag.h; sourceTree = "<group>"; };
-		D54E6DD220B7A874004B2DE1 /* CFData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFData.h; path = ../../../CFData.h; sourceTree = "<group>"; };
-		D54E6DD320B7A874004B2DE1 /* CFBundle_InfoPlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_InfoPlist.c; path = ../../../CFBundle_InfoPlist.c; sourceTree = "<group>"; };
-		D54E6DD420B7A875004B2DE1 /* CFInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFInternal.h; path = ../../../CFInternal.h; sourceTree = "<group>"; };
-		D54E6DD520B7A875004B2DE1 /* CFLocaleInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLocaleInternal.h; path = ../../../CFLocaleInternal.h; sourceTree = "<group>"; };
-		D54E6DD620B7A875004B2DE1 /* CFBase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBase.c; path = ../../../CFBase.c; sourceTree = "<group>"; };
-		D54E6DD720B7A875004B2DE1 /* CFStreamPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamPriv.h; path = ../../../CFStreamPriv.h; sourceTree = "<group>"; };
-		D54E6DD820B7A876004B2DE1 /* CFBinaryHeap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBinaryHeap.c; path = ../../../CFBinaryHeap.c; sourceTree = "<group>"; };
-		D54E6DD920B7A876004B2DE1 /* CFUniChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUniChar.h; path = ../../../CFUniChar.h; sourceTree = "<group>"; };
-		D54E6DDA20B7A876004B2DE1 /* CFUniCharPropertyDatabase.data */ = {isa = PBXFileReference; lastKnownFileType = file; name = CFUniCharPropertyDatabase.data; path = ../../../CFUniCharPropertyDatabase.data; sourceTree = "<group>"; };
-		D54E6DDB20B7A876004B2DE1 /* CFCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCalendar.h; path = ../../../CFCalendar.h; sourceTree = "<group>"; };
-		D54E6DDC20B7A877004B2DE1 /* CFPlugIn_Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugIn_Factory.h; path = ../../../CFPlugIn_Factory.h; sourceTree = "<group>"; };
-		D54E6DDD20B7A877004B2DE1 /* CFUnicodeDecomposition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnicodeDecomposition.c; path = ../../../CFUnicodeDecomposition.c; sourceTree = "<group>"; };
-		D54E6DDE20B7A877004B2DE1 /* CFBigNumber.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBigNumber.c; path = ../../../CFBigNumber.c; sourceTree = "<group>"; };
-		D54E6DDF20B7A877004B2DE1 /* CFXMLParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLParser.c; path = ../../../CFXMLParser.c; sourceTree = "<group>"; };
-		D54E6DE020B7A877004B2DE1 /* CFDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDateFormatter.h; path = ../../../CFDateFormatter.h; sourceTree = "<group>"; };
-		D54E6DE120B7A877004B2DE1 /* CFBag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBag.c; path = ../../../CFBag.c; sourceTree = "<group>"; };
-		D54E6DE220B7A878004B2DE1 /* CFXMLInputStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLInputStream.c; path = ../../../CFXMLInputStream.c; sourceTree = "<group>"; };
-		D54E6DE320B7A878004B2DE1 /* CFStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStream.c; path = ../../../CFStream.c; sourceTree = "<group>"; };
-		D54E6DE420B7A878004B2DE1 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../../Makefile; sourceTree = "<group>"; };
-		D54E6DE520B7A878004B2DE1 /* CFUserNotification.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUserNotification.c; path = ../../../CFUserNotification.c; sourceTree = "<group>"; };
-		D54E6DE620B7A878004B2DE1 /* CFPlugIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn.c; path = ../../../CFPlugIn.c; sourceTree = "<group>"; };
-		D54E6DE720B7A879004B2DE1 /* CFICUConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFICUConverters.c; path = ../../../CFICUConverters.c; sourceTree = "<group>"; };
-		D54E6DE820B7A879004B2DE1 /* CFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPreferences.h; path = ../../../CFPreferences.h; sourceTree = "<group>"; };
-		D54E6DE920B7A879004B2DE1 /* CFPlugIn_Instance.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_Instance.c; path = ../../../CFPlugIn_Instance.c; sourceTree = "<group>"; };
-		D54E6DEA20B7A879004B2DE1 /* CFStringEncodingExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingExt.h; path = ../../../CFStringEncodingExt.h; sourceTree = "<group>"; };
-		D54E6DEB20B7A879004B2DE1 /* CFBundle_BinaryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBundle_BinaryTypes.h; path = ../../../CFBundle_BinaryTypes.h; sourceTree = "<group>"; };
-		D54E6DEC20B7A879004B2DE1 /* CFBasicHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBasicHash.h; path = ../../../CFBasicHash.h; sourceTree = "<group>"; };
-		D54E6DED20B7A87A004B2DE1 /* CFRuntime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFRuntime.c; path = ../../../CFRuntime.c; sourceTree = "<group>"; };
-		D54E6DEE20B7A87A004B2DE1 /* CFStringEncodings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodings.c; path = ../../../CFStringEncodings.c; sourceTree = "<group>"; };
-		D54E6DEF20B7A87A004B2DE1 /* CFStringScanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringScanner.c; path = ../../../CFStringScanner.c; sourceTree = "<group>"; };
-		D54E6DF020B7A87A004B2DE1 /* CFConcreteStreams.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFConcreteStreams.c; path = ../../../CFConcreteStreams.c; sourceTree = "<group>"; };
-		D54E6DF120B7A87A004B2DE1 /* CFURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURL.h; path = ../../../CFURL.h; sourceTree = "<group>"; };
-		D54E6DF220B7A87B004B2DE1 /* CFError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFError.c; path = ../../../CFError.c; sourceTree = "<group>"; };
-		D54E6DF320B7A87B004B2DE1 /* CFURLPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURLPriv.h; path = ../../../CFURLPriv.h; sourceTree = "<group>"; };
-		D54E6DF420B7A87B004B2DE1 /* CFWindowsUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFWindowsUtilities.c; path = ../../../CFWindowsUtilities.c; sourceTree = "<group>"; };
-		D54E6DF520B7A87B004B2DE1 /* CFStreamAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamAbstract.h; path = ../../../CFStreamAbstract.h; sourceTree = "<group>"; };
-		D54E6DF620B7A87B004B2DE1 /* CFStringEncodingDatabase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodingDatabase.c; path = ../../../CFStringEncodingDatabase.c; sourceTree = "<group>"; };
-		D54E6DF720B7A87B004B2DE1 /* CFByteOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFByteOrder.h; path = ../../../CFByteOrder.h; sourceTree = "<group>"; };
-		D54E6DF820B7A87C004B2DE1 /* CFStringEncodingConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverter.h; path = ../../../CFStringEncodingConverter.h; sourceTree = "<group>"; };
-		D54E6DF920B7A87C004B2DE1 /* CFBitVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBitVector.c; path = ../../../CFBitVector.c; sourceTree = "<group>"; };
-		D54E6DFA20B7A87C004B2DE1 /* CFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFArray.h; path = ../../../CFArray.h; sourceTree = "<group>"; };
-		D54E6DFB20B7A87C004B2DE1 /* CFBurstTrie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBurstTrie.c; path = ../../../CFBurstTrie.c; sourceTree = "<group>"; };
-		D54E6DFC20B7A87C004B2DE1 /* CFStringDefaultEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringDefaultEncoding.h; path = ../../../CFStringDefaultEncoding.h; sourceTree = "<group>"; };
-		D54E6DFD20B7A87D004B2DE1 /* ForFoundationOnly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForFoundationOnly.h; path = ../../../ForFoundationOnly.h; sourceTree = "<group>"; };
-		D54E6DFE20B7A87D004B2DE1 /* CFCharacterSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCharacterSet.h; path = ../../../CFCharacterSet.h; sourceTree = "<group>"; };
-		D54E6DFF20B7A87D004B2DE1 /* CFOldStylePList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFOldStylePList.c; path = ../../../CFOldStylePList.c; sourceTree = "<group>"; };
-		D54E6E0020B7A87D004B2DE1 /* CFRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFRunLoop.h; path = ../../../CFRunLoop.h; sourceTree = "<group>"; };
-		D54E6E0120B7A87D004B2DE1 /* CFUnicodePrecomposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnicodePrecomposition.h; path = ../../../CFUnicodePrecomposition.h; sourceTree = "<group>"; };
-		D54E6E0220B7A87E004B2DE1 /* CFBundlePriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBundlePriv.h; path = ../../../CFBundlePriv.h; sourceTree = "<group>"; };
-		D54E6E0320B7A87E004B2DE1 /* CFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFError.h; path = ../../../CFError.h; sourceTree = "<group>"; };
-		D54E6E0420B7A87E004B2DE1 /* CFBundle_Grok.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_Grok.c; path = ../../../CFBundle_Grok.c; sourceTree = "<group>"; };
-		D54E6E0520B7A87E004B2DE1 /* CFICUConverters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFICUConverters.h; path = ../../../CFICUConverters.h; sourceTree = "<group>"; };
-		D54E6E0620B7A87E004B2DE1 /* CFXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLNode.h; path = ../../../CFXMLNode.h; sourceTree = "<group>"; };
-		D54E6E0720B7A87E004B2DE1 /* CFPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugIn.h; path = ../../../CFPlugIn.h; sourceTree = "<group>"; };
-		D54E6E0820B7A87F004B2DE1 /* CFLocale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocale.c; path = ../../../CFLocale.c; sourceTree = "<group>"; };
-		D54E6E0920B7A87F004B2DE1 /* CFSystemDirectories.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSystemDirectories.c; path = ../../../CFSystemDirectories.c; sourceTree = "<group>"; };
-		D54E6E0A20B7A87F004B2DE1 /* CFBundle_Resources.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_Resources.c; path = ../../../CFBundle_Resources.c; sourceTree = "<group>"; };
-		D54E6E0B20B7A87F004B2DE1 /* CFVersion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFVersion.c; path = ../../../CFVersion.c; sourceTree = "<group>"; };
-		D54E6E0C20B7A87F004B2DE1 /* TargetConditionals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetConditionals.h; path = ../../../TargetConditionals.h; sourceTree = "<group>"; };
-		D54E6E0D20B7A880004B2DE1 /* CFPlatformConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlatformConverters.c; path = ../../../CFPlatformConverters.c; sourceTree = "<group>"; };
-		D54E6E0E20B7A880004B2DE1 /* CFXMLTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLTree.c; path = ../../../CFXMLTree.c; sourceTree = "<group>"; };
-		D54E6E0F20B7A880004B2DE1 /* CFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDictionary.h; path = ../../../CFDictionary.h; sourceTree = "<group>"; };
-		D54E6E1020B7A880004B2DE1 /* CFPlugInCOM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugInCOM.h; path = ../../../CFPlugInCOM.h; sourceTree = "<group>"; };
-		D54E6E1220B7A880004B2DE1 /* plconvert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = plconvert.c; sourceTree = "<group>"; };
-		D54E6E1320B7A881004B2DE1 /* CFPlugIn_PlugIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_PlugIn.c; path = ../../../CFPlugIn_PlugIn.c; sourceTree = "<group>"; };
-		D54E6E1420B7A881004B2DE1 /* CFCharacterSetBitmaps.bitmap */ = {isa = PBXFileReference; lastKnownFileType = file; name = CFCharacterSetBitmaps.bitmap; path = ../../../CFCharacterSetBitmaps.bitmap; sourceTree = "<group>"; };
-		D54E6E1520B7A881004B2DE1 /* CFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFNumber.h; path = ../../../CFNumber.h; sourceTree = "<group>"; };
-		D54E6E1620B7A881004B2DE1 /* CFLocaleIdentifier.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocaleIdentifier.c; path = ../../../CFLocaleIdentifier.c; sourceTree = "<group>"; };
-		D54E6E1720B7A881004B2DE1 /* CFMachPort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFMachPort.c; path = ../../../CFMachPort.c; sourceTree = "<group>"; };
-		D54E6E1820B7A881004B2DE1 /* CFSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSocket.h; path = ../../../CFSocket.h; sourceTree = "<group>"; };
-		D54E6E1920B7A882004B2DE1 /* CFStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStorage.h; path = ../../../CFStorage.h; sourceTree = "<group>"; };
-		D54E6E1A20B7A882004B2DE1 /* CFAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAvailability.h; path = ../../../CFAvailability.h; sourceTree = "<group>"; };
-		D54E6E1B20B7A882004B2DE1 /* CFCharacterSetPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCharacterSetPriv.h; path = ../../../CFCharacterSetPriv.h; sourceTree = "<group>"; };
-		D54E6E1C20B7A882004B2DE1 /* CFPlugIn_Factory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_Factory.c; path = ../../../CFPlugIn_Factory.c; sourceTree = "<group>"; };
-		D54E6E1D20B7A882004B2DE1 /* CFUnicodeDecomposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnicodeDecomposition.h; path = ../../../CFUnicodeDecomposition.h; sourceTree = "<group>"; };
-		D54E6E1E20B7A883004B2DE1 /* CFLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLocale.h; path = ../../../CFLocale.h; sourceTree = "<group>"; };
-		D54E6E1F20B7A883004B2DE1 /* CFBurstTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBurstTrie.h; path = ../../../CFBurstTrie.h; sourceTree = "<group>"; };
-		D54E6E2020B7A883004B2DE1 /* README_CFLITE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README_CFLITE; path = ../../../README_CFLITE; sourceTree = "<group>"; };
-		D54E6E2120B7A883004B2DE1 /* CFBasicHash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBasicHash.c; path = ../../../CFBasicHash.c; sourceTree = "<group>"; };
-		D54E6E2220B7A883004B2DE1 /* CFSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSet.c; path = ../../../CFSet.c; sourceTree = "<group>"; };
-		D54E6E2320B7A884004B2DE1 /* CFStringEncodingConverterExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverterExt.h; path = ../../../CFStringEncodingConverterExt.h; sourceTree = "<group>"; };
-		D54E6E2420B7A884004B2DE1 /* CFRunLoop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFRunLoop.c; path = ../../../CFRunLoop.c; sourceTree = "<group>"; };
-		D54E6E2520B7A884004B2DE1 /* plconvert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = plconvert.c; path = ../../../plconvert.c; sourceTree = "<group>"; };
-		D54E6E2620B7A884004B2DE1 /* CFXMLPreferencesDomain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLPreferencesDomain.c; path = ../../../CFXMLPreferencesDomain.c; sourceTree = "<group>"; };
-		D54E6E2720B7A884004B2DE1 /* CFBundle_Binary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle_Binary.c; path = ../../../CFBundle_Binary.c; sourceTree = "<group>"; };
-		D54E6E2820B7A885004B2DE1 /* CFStorage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStorage.c; path = ../../../CFStorage.c; sourceTree = "<group>"; };
-		D54E6E2920B7A885004B2DE1 /* CFBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBase.h; path = ../../../CFBase.h; sourceTree = "<group>"; };
-		D54E6E2A20B7A885004B2DE1 /* CFURLAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURLAccess.h; path = ../../../CFURLAccess.h; sourceTree = "<group>"; };
-		D54E6E2B20B7A885004B2DE1 /* CFUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUUID.h; path = ../../../CFUUID.h; sourceTree = "<group>"; };
-		D54E6E2C20B7A885004B2DE1 /* CFDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDate.h; path = ../../../CFDate.h; sourceTree = "<group>"; };
-		D54E6E2D20B7A885004B2DE1 /* CFBasicHashFindBucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFBasicHashFindBucket.m; path = ../../../CFBasicHashFindBucket.m; sourceTree = "<group>"; };
-		D54E6E2E20B7A886004B2DE1 /* CFBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBundle.h; path = ../../../CFBundle.h; sourceTree = "<group>"; };
-		D54E6E2F20B7A886004B2DE1 /* CFString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFString.c; path = ../../../CFString.c; sourceTree = "<group>"; };
-		D54E6E3020B7A886004B2DE1 /* CFBitVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBitVector.h; path = ../../../CFBitVector.h; sourceTree = "<group>"; };
-		D54E6E3120B7A887004B2DE1 /* CFBundle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBundle.c; path = ../../../CFBundle.c; sourceTree = "<group>"; };
-		D54E6E3220B7A887004B2DE1 /* CFNumberFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFNumberFormatter.c; path = ../../../CFNumberFormatter.c; sourceTree = "<group>"; };
-		D54E6E3320B7A887004B2DE1 /* CFUniChar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUniChar.c; path = ../../../CFUniChar.c; sourceTree = "<group>"; };
-		D54E6E3420B7A887004B2DE1 /* CFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFArray.c; path = ../../../CFArray.c; sourceTree = "<group>"; };
-		D54E6E3520B7A888004B2DE1 /* CFCharacterSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFCharacterSet.c; path = ../../../CFCharacterSet.c; sourceTree = "<group>"; };
-		D54E6E3620B7A888004B2DE1 /* CFFileUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFFileUtilities.c; path = ../../../CFFileUtilities.c; sourceTree = "<group>"; };
-		D54E6E3720B7A888004B2DE1 /* CFUUID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUUID.c; path = ../../../CFUUID.c; sourceTree = "<group>"; };
-		D54E6E3820B7A889004B2DE1 /* CFMessagePort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFMessagePort.c; path = ../../../CFMessagePort.c; sourceTree = "<group>"; };
-		D54E6E3920B7A889004B2DE1 /* CFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStream.h; path = ../../../CFStream.h; sourceTree = "<group>"; };
-		D54E6E3A20B7A88A004B2DE1 /* CFXMLInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLInputStream.h; path = ../../../CFXMLInputStream.h; sourceTree = "<group>"; };
-		D54E6E3B20B7A88A004B2DE1 /* CFUnicodeData-L.mapping */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CFUnicodeData-L.mapping"; path = "../../../CFUnicodeData-L.mapping"; sourceTree = "<group>"; };
-		D54E6E3C20B7A88A004B2DE1 /* CFStringEncodingConverterPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverterPriv.h; path = ../../../CFStringEncodingConverterPriv.h; sourceTree = "<group>"; };
-		D54E6E3D20B7A88A004B2DE1 /* CFNumber.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFNumber.c; path = ../../../CFNumber.c; sourceTree = "<group>"; };
-		D54E6E3E20B7A88B004B2DE1 /* CFData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFData.c; path = ../../../CFData.c; sourceTree = "<group>"; };
-		D54E6E3F20B7A88B004B2DE1 /* CFDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFDictionary.c; path = ../../../CFDictionary.c; sourceTree = "<group>"; };
-		D54E6E4020B7A88C004B2DE1 /* CFDateFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFDateFormatter.c; path = ../../../CFDateFormatter.c; sourceTree = "<group>"; };
-		D54E6E4120B7A88C004B2DE1 /* CFUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUserNotification.h; path = ../../../CFUserNotification.h; sourceTree = "<group>"; };
-		D54E6E4220B7A88D004B2DE1 /* CFMessagePort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFMessagePort.h; path = ../../../CFMessagePort.h; sourceTree = "<group>"; };
-		D54E6E4320B7A88D004B2DE1 /* SymbolAliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SymbolAliases; path = ../../../SymbolAliases; sourceTree = "<group>"; };
-		D54E6E4420B7A88D004B2DE1 /* MakefileLinux */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MakefileLinux; path = ../../../MakefileLinux; sourceTree = "<group>"; };
-		D54E6E4520B7A88D004B2DE1 /* CFSocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocket.c; path = ../../../CFSocket.c; sourceTree = "<group>"; };
+		BB28E82F21A7B22C005FAFC8 /* CFData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFData.c; path = ../../CFData.c; sourceTree = "<group>"; };
+		BB28E83021A7B22C005FAFC8 /* CFBundle_Strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_Strings.c; sourceTree = "<group>"; };
+		BB28E83121A7B22C005FAFC8 /* CFNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFNumber.h; path = ../../CFNumber.h; sourceTree = "<group>"; };
+		BB28E83221A7B22C005FAFC8 /* CFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFArray.c; path = ../../CFArray.c; sourceTree = "<group>"; };
+		BB28E83321A7B22C005FAFC8 /* CFAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAvailability.h; path = ../../CFAvailability.h; sourceTree = "<group>"; };
+		BB28E83421A7B22C005FAFC8 /* CFTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFTree.c; path = ../../CFTree.c; sourceTree = "<group>"; };
+		BB28E83521A7B22C005FAFC8 /* CFUniCharPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUniCharPriv.h; path = ../../CFUniCharPriv.h; sourceTree = "<group>"; };
+		BB28E83621A7B22C005FAFC8 /* CFURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURL.h; path = ../../CFURL.h; sourceTree = "<group>"; };
+		BB28E83721A7B22C005FAFC8 /* CFURLAccess.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFURLAccess.c; path = ../../CFURLAccess.c; sourceTree = "<group>"; };
+		BB28E83821A7B22C005FAFC8 /* CFVersion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFVersion.c; path = ../../CFVersion.c; sourceTree = "<group>"; };
+		BB28E83921A7B22C005FAFC8 /* CFURL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFURL.c; path = ../../CFURL.c; sourceTree = "<group>"; };
+		BB28E83A21A7B22C005FAFC8 /* CFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFArray.h; path = ../../CFArray.h; sourceTree = "<group>"; };
+		BB28E83B21A7B22C005FAFC8 /* CFUnicodeData-L.mapping */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CFUnicodeData-L.mapping"; path = "../../CFUnicodeData-L.mapping"; sourceTree = "<group>"; };
+		BB28E83C21A7B22C005FAFC8 /* CFICUConverters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFICUConverters.h; path = ../../CFICUConverters.h; sourceTree = "<group>"; };
+		BB28E83D21A7B22C005FAFC8 /* CFBundle_Binary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_Binary.c; sourceTree = "<group>"; };
+		BB28E83E21A7B22C005FAFC8 /* CFBitVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBitVector.c; path = ../../CFBitVector.c; sourceTree = "<group>"; };
+		BB28E83F21A7B22D005FAFC8 /* CFCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCalendar.h; path = ../../CFCalendar.h; sourceTree = "<group>"; };
+		BB28E84021A7B22D005FAFC8 /* CFData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFData.h; path = ../../CFData.h; sourceTree = "<group>"; };
+		BB28E84121A7B22D005FAFC8 /* CFBinaryPList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBinaryPList.c; path = ../../CFBinaryPList.c; sourceTree = "<group>"; };
+		BB28E84221A7B22D005FAFC8 /* CFError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFError.c; path = ../../CFError.c; sourceTree = "<group>"; };
+		BB28E84321A7B22D005FAFC8 /* ForFoundationOnly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForFoundationOnly.h; path = ../../ForFoundationOnly.h; sourceTree = "<group>"; };
+		BB28E84421A7B22D005FAFC8 /* CFURL.inc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURL.inc.h; path = ../../CFURL.inc.h; sourceTree = "<group>"; };
+		BB28E84521A7B22D005FAFC8 /* CFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTree.h; path = ../../CFTree.h; sourceTree = "<group>"; };
+		BB28E84621A7B22D005FAFC8 /* PropertyList.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PropertyList.dtd; path = ../../PropertyList.dtd; sourceTree = "<group>"; };
+		BB28E84721A7B22D005FAFC8 /* CFPlugInCOM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugInCOM.h; path = ../../CFPlugInCOM.h; sourceTree = "<group>"; };
+		BB28E84821A7B22D005FAFC8 /* CFCharacterSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFCharacterSet.c; path = ../../CFCharacterSet.c; sourceTree = "<group>"; };
+		BB28E84921A7B22D005FAFC8 /* CFNumberFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFNumberFormatter.c; path = ../../CFNumberFormatter.c; sourceTree = "<group>"; };
+		BB28E84A21A7B22D005FAFC8 /* CFDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFDictionary.c; sourceTree = "<group>"; };
+		BB28E84B21A7B22D005FAFC8 /* CFStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStream.c; path = ../../CFStream.c; sourceTree = "<group>"; };
+		BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamInternal.h; path = ../../CFStreamInternal.h; sourceTree = "<group>"; };
+		BB28E84D21A7B22D005FAFC8 /* CFStringScanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringScanner.c; path = ../../CFStringScanner.c; sourceTree = "<group>"; };
+		BB28E84E21A7B22D005FAFC8 /* CFPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPriv.h; path = ../../CFPriv.h; sourceTree = "<group>"; };
+		BB28E84F21A7B22D005FAFC8 /* CFStringEncodingDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingDatabase.h; path = ../../CFStringEncodingDatabase.h; sourceTree = "<group>"; };
+		BB28E85021A7B22D005FAFC8 /* CFBigNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBigNumber.h; path = ../../CFBigNumber.h; sourceTree = "<group>"; };
+		BB28E85121A7B22D005FAFC8 /* CFBinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBinaryHeap.h; path = ../../CFBinaryHeap.h; sourceTree = "<group>"; };
+		BB28E85221A7B22D005FAFC8 /* CFSocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocket.c; path = ../../CFSocket.c; sourceTree = "<group>"; };
+		BB28E85321A7B22D005FAFC8 /* CFStringEncodingExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingExt.h; path = ../../CFStringEncodingExt.h; sourceTree = "<group>"; };
+		BB28E85421A7B22E005FAFC8 /* CFStringEncodings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodings.c; path = ../../CFStringEncodings.c; sourceTree = "<group>"; };
+		BB28E85521A7B22E005FAFC8 /* CFPlatformConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlatformConverters.c; path = ../../CFPlatformConverters.c; sourceTree = "<group>"; };
+		BB28E85621A7B22E005FAFC8 /* MakefileVersion */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MakefileVersion; path = ../../MakefileVersion; sourceTree = "<group>"; };
+		BB28E85721A7B22E005FAFC8 /* CFLocaleInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLocaleInternal.h; path = ../../CFLocaleInternal.h; sourceTree = "<group>"; };
+		BB28E85821A7B22E005FAFC8 /* CFBurstTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBurstTrie.h; path = ../../CFBurstTrie.h; sourceTree = "<group>"; };
+		BB28E85921A7B22E005FAFC8 /* CFRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRuntime.h; sourceTree = "<group>"; };
+		BB28E85A21A7B22E005FAFC8 /* CFSortFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSortFunctions.c; path = ../../CFSortFunctions.c; sourceTree = "<group>"; };
+		BB28E85B21A7B22E005FAFC8 /* CFNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFNumberFormatter.h; path = ../../CFNumberFormatter.h; sourceTree = "<group>"; };
+		BB28E85C21A7B22E005FAFC8 /* CFXMLParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLParser.c; path = ../../CFXMLParser.c; sourceTree = "<group>"; };
+		BB28E85D21A7B22E005FAFC8 /* CFMessagePort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMessagePort.h; sourceTree = "<group>"; };
+		BB28E85E21A7B22E005FAFC8 /* CFPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPreferences.c; path = ../../CFPreferences.c; sourceTree = "<group>"; };
+		BB28E85F21A7B22E005FAFC8 /* CFInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFInternal.h; path = ../../CFInternal.h; sourceTree = "<group>"; };
+		BB28E86021A7B22E005FAFC8 /* CFXMLPreferencesDomain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLPreferencesDomain.c; path = ../../CFXMLPreferencesDomain.c; sourceTree = "<group>"; };
+		BB28E86121A7B22E005FAFC8 /* CFBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBag.h; path = ../../CFBag.h; sourceTree = "<group>"; };
+		BB28E86221A7B22E005FAFC8 /* CFStringDefaultEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringDefaultEncoding.h; path = ../../CFStringDefaultEncoding.h; sourceTree = "<group>"; };
+		BB28E86321A7B22E005FAFC8 /* CFUnicodeDecomposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnicodeDecomposition.h; path = ../../CFUnicodeDecomposition.h; sourceTree = "<group>"; };
+		BB28E86421A7B22E005FAFC8 /* CFPlugIn_Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugIn_Factory.h; path = ../../CFPlugIn_Factory.h; sourceTree = "<group>"; };
+		BB28E86521A7B22F005FAFC8 /* CFLocale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocale.c; path = ../../CFLocale.c; sourceTree = "<group>"; };
+		BB28E86621A7B22F005FAFC8 /* CFBigNumber.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBigNumber.c; path = ../../CFBigNumber.c; sourceTree = "<group>"; };
+		BB28E86721A7B22F005FAFC8 /* CFUniChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUniChar.h; path = ../../CFUniChar.h; sourceTree = "<group>"; };
+		BB28E86821A7B22F005FAFC8 /* CFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPreferences.h; path = ../../CFPreferences.h; sourceTree = "<group>"; };
+		BB28E86921A7B22F005FAFC8 /* TargetConditionals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetConditionals.h; path = ../../TargetConditionals.h; sourceTree = "<group>"; };
+		BB28E86A21A7B22F005FAFC8 /* CFPlugIn_Factory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_Factory.c; path = ../../CFPlugIn_Factory.c; sourceTree = "<group>"; };
+		BB28E86B21A7B22F005FAFC8 /* CFStringEncodingConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverter.h; path = ../../CFStringEncodingConverter.h; sourceTree = "<group>"; };
+		BB28E86C21A7B22F005FAFC8 /* CFBundle_Resources.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_Resources.c; sourceTree = "<group>"; };
+		BB28E86D21A7B22F005FAFC8 /* CFBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBundle.h; sourceTree = "<group>"; };
+		BB28E86E21A7B22F005FAFC8 /* CFBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBase.h; sourceTree = "<group>"; };
+		BB28E86F21A7B22F005FAFC8 /* CFBasicHash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBasicHash.c; sourceTree = "<group>"; };
+		BB28E87021A7B22F005FAFC8 /* CFConcreteStreams.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFConcreteStreams.c; path = ../../CFConcreteStreams.c; sourceTree = "<group>"; };
+		BB28E87121A7B22F005FAFC8 /* CFBuiltinConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBuiltinConverters.c; path = ../../CFBuiltinConverters.c; sourceTree = "<group>"; };
+		BB28E87221A7B22F005FAFC8 /* CFNumber.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFNumber.c; path = ../../CFNumber.c; sourceTree = "<group>"; };
+		BB28E87321A7B22F005FAFC8 /* CFPlugIn_PlugIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_PlugIn.c; path = ../../CFPlugIn_PlugIn.c; sourceTree = "<group>"; };
+		BB28E87421A7B22F005FAFC8 /* CFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFString.h; path = ../../CFString.h; sourceTree = "<group>"; };
+		BB28E87521A7B230005FAFC8 /* CFStringEncodingDatabase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodingDatabase.c; path = ../../CFStringEncodingDatabase.c; sourceTree = "<group>"; };
+		BB28E87621A7B230005FAFC8 /* CFLocaleIdentifier.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocaleIdentifier.c; path = ../../CFLocaleIdentifier.c; sourceTree = "<group>"; };
+		BB28E87721A7B230005FAFC8 /* CFStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStorage.h; path = ../../CFStorage.h; sourceTree = "<group>"; };
+		BB28E87821A7B230005FAFC8 /* CFURLPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURLPriv.h; path = ../../CFURLPriv.h; sourceTree = "<group>"; };
+		BB28E87921A7B230005FAFC8 /* CFUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUserNotification.h; path = ../../CFUserNotification.h; sourceTree = "<group>"; };
+		BB28E87A21A7B230005FAFC8 /* CFUUID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUUID.c; path = ../../CFUUID.c; sourceTree = "<group>"; };
+		BB28E87B21A7B230005FAFC8 /* CFXMLNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLNode.c; path = ../../CFXMLNode.c; sourceTree = "<group>"; };
+		BB28E87C21A7B230005FAFC8 /* CFDateFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFDateFormatter.c; path = ../../CFDateFormatter.c; sourceTree = "<group>"; };
+		BB28E87D21A7B230005FAFC8 /* CFCharacterSetBitmaps.bitmap */ = {isa = PBXFileReference; lastKnownFileType = file; name = CFCharacterSetBitmaps.bitmap; path = ../../CFCharacterSetBitmaps.bitmap; sourceTree = "<group>"; };
+		BB28E87E21A7B230005FAFC8 /* CFWindowsUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFWindowsUtilities.c; path = ../../CFWindowsUtilities.c; sourceTree = "<group>"; };
+		BB28E87F21A7B230005FAFC8 /* CFXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLNode.h; path = ../../CFXMLNode.h; sourceTree = "<group>"; };
+		BB28E88021A7B230005FAFC8 /* MakefileLinux */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MakefileLinux; path = ../../MakefileLinux; sourceTree = "<group>"; };
+		BB28E88121A7B230005FAFC8 /* CFBasicHashFindBucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFBasicHashFindBucket.m; sourceTree = "<group>"; };
+		BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = APPLE_LICENSE; path = ../../APPLE_LICENSE; sourceTree = "<group>"; };
+		BB28E88321A7B230005FAFC8 /* CFError_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFError_Private.h; path = ../../CFError_Private.h; sourceTree = "<group>"; };
+		BB28E88421A7B230005FAFC8 /* CFLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLocale.h; path = ../../CFLocale.h; sourceTree = "<group>"; };
+		BB28E88521A7B230005FAFC8 /* CFByteOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFByteOrder.h; path = ../../CFByteOrder.h; sourceTree = "<group>"; };
+		BB28E88621A7B230005FAFC8 /* CFBinaryHeap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBinaryHeap.c; path = ../../CFBinaryHeap.c; sourceTree = "<group>"; };
+		BB28E88721A7B230005FAFC8 /* CFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStream.h; path = ../../CFStream.h; sourceTree = "<group>"; };
+		BB28E88821A7B230005FAFC8 /* CFUnicodePrecomposition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnicodePrecomposition.c; path = ../../CFUnicodePrecomposition.c; sourceTree = "<group>"; };
+		BB28E88921A7B230005FAFC8 /* CFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLParser.h; path = ../../CFXMLParser.h; sourceTree = "<group>"; };
+		BB28E88A21A7B230005FAFC8 /* CFStorage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStorage.c; path = ../../CFStorage.c; sourceTree = "<group>"; };
+		BB28E88B21A7B231005FAFC8 /* CFXMLTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLTree.c; path = ../../CFXMLTree.c; sourceTree = "<group>"; };
+		BB28E88C21A7B231005FAFC8 /* CFCharacterSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCharacterSet.h; path = ../../CFCharacterSet.h; sourceTree = "<group>"; };
+		BB28E88E21A7B231005FAFC8 /* plconvert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = plconvert.c; sourceTree = "<group>"; };
+		BB28E88F21A7B231005FAFC8 /* CFCharacterSetPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFCharacterSetPriv.h; path = ../../CFCharacterSetPriv.h; sourceTree = "<group>"; };
+		BB28E89021A7B231005FAFC8 /* CFUnicodeDecomposition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnicodeDecomposition.c; path = ../../CFUnicodeDecomposition.c; sourceTree = "<group>"; };
+		BB28E89121A7B231005FAFC8 /* CFFileUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFFileUtilities.c; path = ../../CFFileUtilities.c; sourceTree = "<group>"; };
+		BB28E89221A7B231005FAFC8 /* CFICULogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFICULogging.h; path = ../../CFICULogging.h; sourceTree = "<group>"; };
+		BB28E89321A7B231005FAFC8 /* CFTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTimeZone.h; path = ../../CFTimeZone.h; sourceTree = "<group>"; };
+		BB28E89421A7B231005FAFC8 /* CFBurstTrie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBurstTrie.c; path = ../../CFBurstTrie.c; sourceTree = "<group>"; };
+		BB28E89521A7B231005FAFC8 /* CFStringEncodingConverterExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverterExt.h; path = ../../CFStringEncodingConverterExt.h; sourceTree = "<group>"; };
+		BB28E89621A7B231005FAFC8 /* CFDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDateFormatter.h; path = ../../CFDateFormatter.h; sourceTree = "<group>"; };
+		BB28E89721A7B231005FAFC8 /* CFUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUUID.h; path = ../../CFUUID.h; sourceTree = "<group>"; };
+		BB28E89821A7B231005FAFC8 /* CFRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRunLoop.h; sourceTree = "<group>"; };
+		BB28E89921A7B231005FAFC8 /* CFCalendar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFCalendar.c; path = ../../CFCalendar.c; sourceTree = "<group>"; };
+		BB28E89A21A7B231005FAFC8 /* CFDate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFDate.c; path = ../../CFDate.c; sourceTree = "<group>"; };
+		BB28E89B21A7B231005FAFC8 /* CFBundle_BinaryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBundle_BinaryTypes.h; sourceTree = "<group>"; };
+		BB28E89C21A7B231005FAFC8 /* README_CFLITE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README_CFLITE; path = ../../README_CFLITE; sourceTree = "<group>"; };
+		BB28E89D21A7B231005FAFC8 /* CFPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugIn.h; path = ../../CFPlugIn.h; sourceTree = "<group>"; };
+		BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamPriv.h; path = ../../CFStreamPriv.h; sourceTree = "<group>"; };
+		BB28E89F21A7B231005FAFC8 /* CFLogUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLogUtilities.h; path = ../../CFLogUtilities.h; sourceTree = "<group>"; };
+		BB28E8A021A7B231005FAFC8 /* CFOldStylePList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFOldStylePList.c; path = ../../CFOldStylePList.c; sourceTree = "<group>"; };
+		BB28E8A121A7B231005FAFC8 /* SymbolAliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SymbolAliases; path = ../../SymbolAliases; sourceTree = "<group>"; };
+		BB28E8A221A7B231005FAFC8 /* CFBundle_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBundle_Internal.h; sourceTree = "<group>"; };
+		BB28E8A321A7B231005FAFC8 /* CFStringEncodingConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodingConverter.c; path = ../../CFStringEncodingConverter.c; sourceTree = "<group>"; };
+		BB28E8A421A7B231005FAFC8 /* CFError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFError.h; path = ../../CFError.h; sourceTree = "<group>"; };
+		BB28E8A521A7B231005FAFC8 /* CFURLAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFURLAccess.h; path = ../../CFURLAccess.h; sourceTree = "<group>"; };
+		BB28E8A621A7B231005FAFC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
+		BB28E8A721A7B231005FAFC8 /* plconvert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = plconvert.c; path = ../../plconvert.c; sourceTree = "<group>"; };
+		BB28E8A821A7B231005FAFC8 /* CFSystemDirectories.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSystemDirectories.c; path = ../../CFSystemDirectories.c; sourceTree = "<group>"; };
+		BB28E8A921A7B231005FAFC8 /* CFBag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBag.c; path = ../../CFBag.c; sourceTree = "<group>"; };
+		BB28E8AA21A7B231005FAFC8 /* CFStringEncodingConverterPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverterPriv.h; path = ../../CFStringEncodingConverterPriv.h; sourceTree = "<group>"; };
+		BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamAbstract.h; path = ../../CFStreamAbstract.h; sourceTree = "<group>"; };
+		BB28E8AC21A7B231005FAFC8 /* CoreFoundation_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreFoundation_Prefix.h; path = ../../CoreFoundation_Prefix.h; sourceTree = "<group>"; };
+		BB28E8AD21A7B231005FAFC8 /* CFRunLoop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFRunLoop.c; sourceTree = "<group>"; };
+		BB28E8AE21A7B231005FAFC8 /* CFBitVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBitVector.h; path = ../../CFBitVector.h; sourceTree = "<group>"; };
+		BB28E8AF21A7B231005FAFC8 /* CFRuntime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFRuntime.c; sourceTree = "<group>"; };
+		BB28E8B021A7B231005FAFC8 /* CFDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDate.h; path = ../../CFDate.h; sourceTree = "<group>"; };
+		BB28E8B121A7B231005FAFC8 /* CFLocaleKeys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFLocaleKeys.c; path = ../../CFLocaleKeys.c; sourceTree = "<group>"; };
+		BB28E8B221A7B231005FAFC8 /* CFPlatform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlatform.c; path = ../../CFPlatform.c; sourceTree = "<group>"; };
+		BB28E8B321A7B231005FAFC8 /* CFMessagePort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFMessagePort.c; sourceTree = "<group>"; };
+		BB28E8B421A7B231005FAFC8 /* CFUnicodeData-B.mapping */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CFUnicodeData-B.mapping"; path = "../../CFUnicodeData-B.mapping"; sourceTree = "<group>"; };
+		BB28E8B521A7B231005FAFC8 /* CFBasicHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBasicHash.h; sourceTree = "<group>"; };
+		BB28E8B621A7B231005FAFC8 /* CFMachPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMachPort.h; sourceTree = "<group>"; };
+		BB28E8B721A7B231005FAFC8 /* CFBase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBase.c; sourceTree = "<group>"; };
+		BB28E8B821A7B231005FAFC8 /* CFPropertyList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPropertyList.c; path = ../../CFPropertyList.c; sourceTree = "<group>"; };
+		BB28E8B921A7B231005FAFC8 /* CFUnicodePrecomposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnicodePrecomposition.h; path = ../../CFUnicodePrecomposition.h; sourceTree = "<group>"; };
+		BB28E8BA21A7B231005FAFC8 /* CFTimeZone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFTimeZone.c; path = ../../CFTimeZone.c; sourceTree = "<group>"; };
+		BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocketStream.c; path = ../../CFSocketStream.c; sourceTree = "<group>"; };
+		BB28E8BC21A7B231005FAFC8 /* CFSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSet.c; path = ../../CFSet.c; sourceTree = "<group>"; };
+		BB28E8BD21A7B231005FAFC8 /* CFPlugIn_Instance.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_Instance.c; path = ../../CFPlugIn_Instance.c; sourceTree = "<group>"; };
+		BB28E8BE21A7B231005FAFC8 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
+		BB28E8BF21A7B232005FAFC8 /* CFXMLInputStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFXMLInputStream.c; path = ../../CFXMLInputStream.c; sourceTree = "<group>"; };
+		BB28E8C021A7B232005FAFC8 /* CFBundle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle.c; sourceTree = "<group>"; };
+		BB28E8C121A7B232005FAFC8 /* CFBundle_Grok.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_Grok.c; sourceTree = "<group>"; };
+		BB28E8C221A7B232005FAFC8 /* CFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDictionary.h; sourceTree = "<group>"; };
+		BB28E8C321A7B232005FAFC8 /* CFUniChar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUniChar.c; path = ../../CFUniChar.c; sourceTree = "<group>"; };
+		BB28E8C421A7B232005FAFC8 /* CFStringUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringUtilities.c; path = ../../CFStringUtilities.c; sourceTree = "<group>"; };
+		BB28E8C521A7B232005FAFC8 /* CoreFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreFoundation.h; path = ../../CoreFoundation.h; sourceTree = "<group>"; };
+		BB28E8C621A7B232005FAFC8 /* CFPlugIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn.c; path = ../../CFPlugIn.c; sourceTree = "<group>"; };
+		BB28E8C721A7B232005FAFC8 /* CFBundle_InfoPlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_InfoPlist.c; sourceTree = "<group>"; };
+		BB28E8C821A7B232005FAFC8 /* CFUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUtilities.c; path = ../../CFUtilities.c; sourceTree = "<group>"; };
+		BB28E8C921A7B232005FAFC8 /* CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUtilities.h; path = ../../CFUtilities.h; sourceTree = "<group>"; };
+		BB28E8CA21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data */ = {isa = PBXFileReference; lastKnownFileType = file; name = CFUniCharPropertyDatabase.data; path = ../../CFUniCharPropertyDatabase.data; sourceTree = "<group>"; };
+		BB28E8CB21A7B232005FAFC8 /* CFSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSocket.h; path = ../../CFSocket.h; sourceTree = "<group>"; };
+		BB28E8CC21A7B232005FAFC8 /* CFString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFString.c; path = ../../CFString.c; sourceTree = "<group>"; };
+		BB28E8CD21A7B232005FAFC8 /* CFXMLInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLInputStream.h; path = ../../CFXMLInputStream.h; sourceTree = "<group>"; };
+		BB28E8CE21A7B232005FAFC8 /* CFSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSet.h; path = ../../CFSet.h; sourceTree = "<group>"; };
+		BB28E8CF21A7B232005FAFC8 /* CFMachPort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFMachPort.c; sourceTree = "<group>"; };
+		BB28E8D021A7B232005FAFC8 /* CFUserNotification.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUserNotification.c; path = ../../CFUserNotification.c; sourceTree = "<group>"; };
+		BB28E8D121A7B232005FAFC8 /* CFBundle_Locale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBundle_Locale.c; sourceTree = "<group>"; };
+		BB28E8D221A7B232005FAFC8 /* CFICUConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFICUConverters.c; path = ../../CFICUConverters.c; sourceTree = "<group>"; };
+		BB28E8D321A7B232005FAFC8 /* CFApplicationPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFApplicationPreferences.c; path = ../../CFApplicationPreferences.c; sourceTree = "<group>"; };
+		BB28E8D421A7B232005FAFC8 /* CFPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPropertyList.h; path = ../../CFPropertyList.h; sourceTree = "<group>"; };
+		BB28E8D521A7B232005FAFC8 /* CFBundlePriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBundlePriv.h; sourceTree = "<group>"; };
+		BB28E93221A7B3BC005FAFC8 /* CFRunLoop_Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Timer.h; sourceTree = "<group>"; };
+		BB28E93321A7B3BC005FAFC8 /* CFRunLoop_Timer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Timer.c; sourceTree = "<group>"; };
+		BB28E93621A7B635005FAFC8 /* CFRunLoop_Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Utils.h; sourceTree = "<group>"; };
+		BB28E93721A7B635005FAFC8 /* CFRunLoop_Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Utils.c; sourceTree = "<group>"; };
+		BB28E93A21A7D8C9005FAFC8 /* CFRunLoop_Observers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Observers.h; sourceTree = "<group>"; };
+		BB28E93B21A7D8C9005FAFC8 /* CFRunLoop_Observers.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Observers.c; sourceTree = "<group>"; };
+		BB28E93D21A7DA19005FAFC8 /* CFRunLoop_Clean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Clean.h; sourceTree = "<group>"; };
+		BB28E93E21A7DA19005FAFC8 /* CFRunLoop_Clean.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Clean.c; sourceTree = "<group>"; };
+		BB28E94021ABA19A005FAFC8 /* CFRunLoop_Run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Run.h; sourceTree = "<group>"; };
+		BB28E94121ABA19A005FAFC8 /* CFRunLoop_Run.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Run.c; sourceTree = "<group>"; };
+		BB28E94321ABABF7005FAFC8 /* CFRunLoop_Source.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Source.h; sourceTree = "<group>"; };
+		BB28E94421ABABF7005FAFC8 /* CFRunLoop_Source.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Source.c; sourceTree = "<group>"; };
+		BB28E94721ABC015005FAFC8 /* CFRunLoop_Mode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Mode.h; sourceTree = "<group>"; };
+		BB28E94821ABC015005FAFC8 /* CFRunLoop_Mode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Mode.c; sourceTree = "<group>"; };
+		BB28E94A21ABC16C005FAFC8 /* CFRunLoop_Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Block.h; sourceTree = "<group>"; };
+		BB28E94B21ABC16C005FAFC8 /* CFRunLoop_Block.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Block.c; sourceTree = "<group>"; };
+		BB28E94D21ABC3A8005FAFC8 /* CFRunLoop_Do.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Do.h; sourceTree = "<group>"; };
+		BB28E94E21ABC3A8005FAFC8 /* CFRunLoop_Do.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Do.c; sourceTree = "<group>"; };
+		BB28E95021ABC581005FAFC8 /* CFRunLoop_main queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFRunLoop_main queue.h"; sourceTree = "<group>"; };
+		BB28E95121ABC581005FAFC8 /* CFRunLoop_main queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "CFRunLoop_main queue.c"; sourceTree = "<group>"; };
+		BB28E95321ABEB77005FAFC8 /* CFRunLoop_Lock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFRunLoop_Lock.h; sourceTree = "<group>"; };
+		BB28E95421ABEB77005FAFC8 /* CFRunLoop_Lock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFRunLoop_Lock.c; sourceTree = "<group>"; };
+		BB28E95621ABECAA005FAFC8 /* CF_Mach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CF_Mach.h; sourceTree = "<group>"; };
+		BB28E95721ABECAA005FAFC8 /* CF_Mach.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CF_Mach.c; sourceTree = "<group>"; };
+		BB28E95921ABEE5F005FAFC8 /* CF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CF.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB28E95A21ABEE5F005FAFC8 /* CFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB28E95B21ABEE5F005FAFC8 /* CFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,241 +350,252 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB28E82E21A7B21C005FAFC8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E94621ABBB6B005FAFC8 /* Base */,
+				BB28E93921A7C580005FAFC8 /* collection */,
+				BB28E93521A7B557005FAFC8 /* bundle */,
+				BB28E93121A7B36D005FAFC8 /* runloop */,
+				BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */,
+				BB28E8D321A7B232005FAFC8 /* CFApplicationPreferences.c */,
+				BB28E83221A7B22C005FAFC8 /* CFArray.c */,
+				BB28E83A21A7B22C005FAFC8 /* CFArray.h */,
+				BB28E83321A7B22C005FAFC8 /* CFAvailability.h */,
+				BB28E8A921A7B231005FAFC8 /* CFBag.c */,
+				BB28E86121A7B22E005FAFC8 /* CFBag.h */,
+				BB28E86621A7B22F005FAFC8 /* CFBigNumber.c */,
+				BB28E85021A7B22D005FAFC8 /* CFBigNumber.h */,
+				BB28E88621A7B230005FAFC8 /* CFBinaryHeap.c */,
+				BB28E85121A7B22D005FAFC8 /* CFBinaryHeap.h */,
+				BB28E84121A7B22D005FAFC8 /* CFBinaryPList.c */,
+				BB28E83E21A7B22C005FAFC8 /* CFBitVector.c */,
+				BB28E8AE21A7B231005FAFC8 /* CFBitVector.h */,
+				BB28E87121A7B22F005FAFC8 /* CFBuiltinConverters.c */,
+				BB28E89421A7B231005FAFC8 /* CFBurstTrie.c */,
+				BB28E85821A7B22E005FAFC8 /* CFBurstTrie.h */,
+				BB28E88521A7B230005FAFC8 /* CFByteOrder.h */,
+				BB28E89921A7B231005FAFC8 /* CFCalendar.c */,
+				BB28E83F21A7B22D005FAFC8 /* CFCalendar.h */,
+				BB28E84821A7B22D005FAFC8 /* CFCharacterSet.c */,
+				BB28E88C21A7B231005FAFC8 /* CFCharacterSet.h */,
+				BB28E87D21A7B230005FAFC8 /* CFCharacterSetBitmaps.bitmap */,
+				BB28E88F21A7B231005FAFC8 /* CFCharacterSetPriv.h */,
+				BB28E87021A7B22F005FAFC8 /* CFConcreteStreams.c */,
+				BB28E82F21A7B22C005FAFC8 /* CFData.c */,
+				BB28E84021A7B22D005FAFC8 /* CFData.h */,
+				BB28E89A21A7B231005FAFC8 /* CFDate.c */,
+				BB28E8B021A7B231005FAFC8 /* CFDate.h */,
+				BB28E87C21A7B230005FAFC8 /* CFDateFormatter.c */,
+				BB28E89621A7B231005FAFC8 /* CFDateFormatter.h */,
+				BB28E88321A7B230005FAFC8 /* CFError_Private.h */,
+				BB28E84221A7B22D005FAFC8 /* CFError.c */,
+				BB28E8A421A7B231005FAFC8 /* CFError.h */,
+				BB28E89121A7B231005FAFC8 /* CFFileUtilities.c */,
+				BB28E8D221A7B232005FAFC8 /* CFICUConverters.c */,
+				BB28E83C21A7B22C005FAFC8 /* CFICUConverters.h */,
+				BB28E89221A7B231005FAFC8 /* CFICULogging.h */,
+				BB28E85F21A7B22E005FAFC8 /* CFInternal.h */,
+				BB28E86521A7B22F005FAFC8 /* CFLocale.c */,
+				BB28E88421A7B230005FAFC8 /* CFLocale.h */,
+				BB28E87621A7B230005FAFC8 /* CFLocaleIdentifier.c */,
+				BB28E85721A7B22E005FAFC8 /* CFLocaleInternal.h */,
+				BB28E8B121A7B231005FAFC8 /* CFLocaleKeys.c */,
+				BB28E89F21A7B231005FAFC8 /* CFLogUtilities.h */,
+				BB28E87221A7B22F005FAFC8 /* CFNumber.c */,
+				BB28E83121A7B22C005FAFC8 /* CFNumber.h */,
+				BB28E84921A7B22D005FAFC8 /* CFNumberFormatter.c */,
+				BB28E85B21A7B22E005FAFC8 /* CFNumberFormatter.h */,
+				BB28E8A021A7B231005FAFC8 /* CFOldStylePList.c */,
+				BB28E8B221A7B231005FAFC8 /* CFPlatform.c */,
+				BB28E85521A7B22E005FAFC8 /* CFPlatformConverters.c */,
+				BB28E86A21A7B22F005FAFC8 /* CFPlugIn_Factory.c */,
+				BB28E86421A7B22E005FAFC8 /* CFPlugIn_Factory.h */,
+				BB28E8BD21A7B231005FAFC8 /* CFPlugIn_Instance.c */,
+				BB28E87321A7B22F005FAFC8 /* CFPlugIn_PlugIn.c */,
+				BB28E8C621A7B232005FAFC8 /* CFPlugIn.c */,
+				BB28E89D21A7B231005FAFC8 /* CFPlugIn.h */,
+				BB28E84721A7B22D005FAFC8 /* CFPlugInCOM.h */,
+				BB28E85E21A7B22E005FAFC8 /* CFPreferences.c */,
+				BB28E86821A7B22F005FAFC8 /* CFPreferences.h */,
+				BB28E84E21A7B22D005FAFC8 /* CFPriv.h */,
+				BB28E8B821A7B231005FAFC8 /* CFPropertyList.c */,
+				BB28E8D421A7B232005FAFC8 /* CFPropertyList.h */,
+				BB28E8BC21A7B231005FAFC8 /* CFSet.c */,
+				BB28E8CE21A7B232005FAFC8 /* CFSet.h */,
+				BB28E85221A7B22D005FAFC8 /* CFSocket.c */,
+				BB28E8CB21A7B232005FAFC8 /* CFSocket.h */,
+				BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */,
+				BB28E85A21A7B22E005FAFC8 /* CFSortFunctions.c */,
+				BB28E88A21A7B230005FAFC8 /* CFStorage.c */,
+				BB28E87721A7B230005FAFC8 /* CFStorage.h */,
+				BB28E84B21A7B22D005FAFC8 /* CFStream.c */,
+				BB28E88721A7B230005FAFC8 /* CFStream.h */,
+				BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */,
+				BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */,
+				BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */,
+				BB28E8CC21A7B232005FAFC8 /* CFString.c */,
+				BB28E87421A7B22F005FAFC8 /* CFString.h */,
+				BB28E86221A7B22E005FAFC8 /* CFStringDefaultEncoding.h */,
+				BB28E8A321A7B231005FAFC8 /* CFStringEncodingConverter.c */,
+				BB28E86B21A7B22F005FAFC8 /* CFStringEncodingConverter.h */,
+				BB28E89521A7B231005FAFC8 /* CFStringEncodingConverterExt.h */,
+				BB28E8AA21A7B231005FAFC8 /* CFStringEncodingConverterPriv.h */,
+				BB28E87521A7B230005FAFC8 /* CFStringEncodingDatabase.c */,
+				BB28E84F21A7B22D005FAFC8 /* CFStringEncodingDatabase.h */,
+				BB28E85321A7B22D005FAFC8 /* CFStringEncodingExt.h */,
+				BB28E85421A7B22E005FAFC8 /* CFStringEncodings.c */,
+				BB28E84D21A7B22D005FAFC8 /* CFStringScanner.c */,
+				BB28E8C421A7B232005FAFC8 /* CFStringUtilities.c */,
+				BB28E8A821A7B231005FAFC8 /* CFSystemDirectories.c */,
+				BB28E8BA21A7B231005FAFC8 /* CFTimeZone.c */,
+				BB28E89321A7B231005FAFC8 /* CFTimeZone.h */,
+				BB28E83421A7B22C005FAFC8 /* CFTree.c */,
+				BB28E84521A7B22D005FAFC8 /* CFTree.h */,
+				BB28E8C321A7B232005FAFC8 /* CFUniChar.c */,
+				BB28E86721A7B22F005FAFC8 /* CFUniChar.h */,
+				BB28E83521A7B22C005FAFC8 /* CFUniCharPriv.h */,
+				BB28E8CA21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data */,
+				BB28E8B421A7B231005FAFC8 /* CFUnicodeData-B.mapping */,
+				BB28E83B21A7B22C005FAFC8 /* CFUnicodeData-L.mapping */,
+				BB28E89021A7B231005FAFC8 /* CFUnicodeDecomposition.c */,
+				BB28E86321A7B22E005FAFC8 /* CFUnicodeDecomposition.h */,
+				BB28E88821A7B230005FAFC8 /* CFUnicodePrecomposition.c */,
+				BB28E8B921A7B231005FAFC8 /* CFUnicodePrecomposition.h */,
+				BB28E83921A7B22C005FAFC8 /* CFURL.c */,
+				BB28E83621A7B22C005FAFC8 /* CFURL.h */,
+				BB28E84421A7B22D005FAFC8 /* CFURL.inc.h */,
+				BB28E83721A7B22C005FAFC8 /* CFURLAccess.c */,
+				BB28E8A521A7B231005FAFC8 /* CFURLAccess.h */,
+				BB28E87821A7B230005FAFC8 /* CFURLPriv.h */,
+				BB28E8D021A7B232005FAFC8 /* CFUserNotification.c */,
+				BB28E87921A7B230005FAFC8 /* CFUserNotification.h */,
+				BB28E8C821A7B232005FAFC8 /* CFUtilities.c */,
+				BB28E8C921A7B232005FAFC8 /* CFUtilities.h */,
+				BB28E87A21A7B230005FAFC8 /* CFUUID.c */,
+				BB28E89721A7B231005FAFC8 /* CFUUID.h */,
+				BB28E83821A7B22C005FAFC8 /* CFVersion.c */,
+				BB28E87E21A7B230005FAFC8 /* CFWindowsUtilities.c */,
+				BB28E8BF21A7B232005FAFC8 /* CFXMLInputStream.c */,
+				BB28E8CD21A7B232005FAFC8 /* CFXMLInputStream.h */,
+				BB28E87B21A7B230005FAFC8 /* CFXMLNode.c */,
+				BB28E87F21A7B230005FAFC8 /* CFXMLNode.h */,
+				BB28E85C21A7B22E005FAFC8 /* CFXMLParser.c */,
+				BB28E88921A7B230005FAFC8 /* CFXMLParser.h */,
+				BB28E86021A7B22E005FAFC8 /* CFXMLPreferencesDomain.c */,
+				BB28E88B21A7B231005FAFC8 /* CFXMLTree.c */,
+				BB28E8AC21A7B231005FAFC8 /* CoreFoundation_Prefix.h */,
+				BB28E8C521A7B232005FAFC8 /* CoreFoundation.h */,
+				BB28E88D21A7B231005FAFC8 /* Examples */,
+				BB28E84321A7B22D005FAFC8 /* ForFoundationOnly.h */,
+				BB28E8A621A7B231005FAFC8 /* Info.plist */,
+				BB28E8BE21A7B231005FAFC8 /* Makefile */,
+				BB28E88021A7B230005FAFC8 /* MakefileLinux */,
+				BB28E85621A7B22E005FAFC8 /* MakefileVersion */,
+				BB28E8A721A7B231005FAFC8 /* plconvert.c */,
+				BB28E84621A7B22D005FAFC8 /* PropertyList.dtd */,
+				BB28E89C21A7B231005FAFC8 /* README_CFLITE */,
+				BB28E8A121A7B231005FAFC8 /* SymbolAliases */,
+				BB28E86921A7B22F005FAFC8 /* TargetConditionals.h */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		BB28E88D21A7B231005FAFC8 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E88E21A7B231005FAFC8 /* plconvert.c */,
+			);
+			name = Examples;
+			path = ../../Examples;
+			sourceTree = "<group>";
+		};
+		BB28E93121A7B36D005FAFC8 /* runloop */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E8CF21A7B232005FAFC8 /* CFMachPort.c */,
+				BB28E8B621A7B231005FAFC8 /* CFMachPort.h */,
+				BB28E8B321A7B231005FAFC8 /* CFMessagePort.c */,
+				BB28E85D21A7B22E005FAFC8 /* CFMessagePort.h */,
+				BB28E8AD21A7B231005FAFC8 /* CFRunLoop.c */,
+				BB28E89821A7B231005FAFC8 /* CFRunLoop.h */,
+				BB28E93221A7B3BC005FAFC8 /* CFRunLoop_Timer.h */,
+				BB28E93321A7B3BC005FAFC8 /* CFRunLoop_Timer.c */,
+				BB28E93A21A7D8C9005FAFC8 /* CFRunLoop_Observers.h */,
+				BB28E93B21A7D8C9005FAFC8 /* CFRunLoop_Observers.c */,
+				BB28E93D21A7DA19005FAFC8 /* CFRunLoop_Clean.h */,
+				BB28E93E21A7DA19005FAFC8 /* CFRunLoop_Clean.c */,
+				BB28E94321ABABF7005FAFC8 /* CFRunLoop_Source.h */,
+				BB28E94421ABABF7005FAFC8 /* CFRunLoop_Source.c */,
+				BB28E94721ABC015005FAFC8 /* CFRunLoop_Mode.h */,
+				BB28E94821ABC015005FAFC8 /* CFRunLoop_Mode.c */,
+				BB28E95021ABC581005FAFC8 /* CFRunLoop_main queue.h */,
+				BB28E95121ABC581005FAFC8 /* CFRunLoop_main queue.c */,
+				BB28E94021ABA19A005FAFC8 /* CFRunLoop_Run.h */,
+				BB28E94121ABA19A005FAFC8 /* CFRunLoop_Run.c */,
+				BB28E93621A7B635005FAFC8 /* CFRunLoop_Utils.h */,
+				BB28E93721A7B635005FAFC8 /* CFRunLoop_Utils.c */,
+				BB28E94A21ABC16C005FAFC8 /* CFRunLoop_Block.h */,
+				BB28E94B21ABC16C005FAFC8 /* CFRunLoop_Block.c */,
+				BB28E94D21ABC3A8005FAFC8 /* CFRunLoop_Do.h */,
+				BB28E94E21ABC3A8005FAFC8 /* CFRunLoop_Do.c */,
+				BB28E95321ABEB77005FAFC8 /* CFRunLoop_Lock.h */,
+				BB28E95421ABEB77005FAFC8 /* CFRunLoop_Lock.c */,
+				BB28E95621ABECAA005FAFC8 /* CF_Mach.h */,
+				BB28E95721ABECAA005FAFC8 /* CF_Mach.c */,
+			);
+			path = runloop;
+			sourceTree = "<group>";
+		};
+		BB28E93521A7B557005FAFC8 /* bundle */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E83D21A7B22C005FAFC8 /* CFBundle_Binary.c */,
+				BB28E89B21A7B231005FAFC8 /* CFBundle_BinaryTypes.h */,
+				BB28E8C121A7B232005FAFC8 /* CFBundle_Grok.c */,
+				BB28E8C721A7B232005FAFC8 /* CFBundle_InfoPlist.c */,
+				BB28E8A221A7B231005FAFC8 /* CFBundle_Internal.h */,
+				BB28E8D121A7B232005FAFC8 /* CFBundle_Locale.c */,
+				BB28E86C21A7B22F005FAFC8 /* CFBundle_Resources.c */,
+				BB28E83021A7B22C005FAFC8 /* CFBundle_Strings.c */,
+				BB28E8C021A7B232005FAFC8 /* CFBundle.c */,
+				BB28E86D21A7B22F005FAFC8 /* CFBundle.h */,
+				BB28E8D521A7B232005FAFC8 /* CFBundlePriv.h */,
+			);
+			path = bundle;
+			sourceTree = "<group>";
+		};
+		BB28E93921A7C580005FAFC8 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E84A21A7B22D005FAFC8 /* CFDictionary.c */,
+				BB28E8C221A7B232005FAFC8 /* CFDictionary.h */,
+			);
+			path = collection;
+			sourceTree = "<group>";
+		};
+		BB28E94621ABBB6B005FAFC8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BB28E8AF21A7B231005FAFC8 /* CFRuntime.c */,
+				BB28E85921A7B22E005FAFC8 /* CFRuntime.h */,
+				BB28E8B721A7B231005FAFC8 /* CFBase.c */,
+				BB28E86E21A7B22F005FAFC8 /* CFBase.h */,
+				BB28E86F21A7B22F005FAFC8 /* CFBasicHash.c */,
+				BB28E8B521A7B231005FAFC8 /* CFBasicHash.h */,
+				BB28E88121A7B230005FAFC8 /* CFBasicHashFindBucket.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		D54E6D6020B7A826004B2DE1 = {
 			isa = PBXGroup;
 			children = (
-				D54E6D6B20B7A826004B2DE1 /* CF */,
-				D54E6D8420B7A828004B2DE1 /* CFTests */,
-				D54E6D8F20B7A828004B2DE1 /* CFUITests */,
-				D54E6D6A20B7A826004B2DE1 /* Products */,
+				BB28E82E21A7B21C005FAFC8 /* New Group */,
+				BB28E95921ABEE5F005FAFC8 /* CF.app */,
+				BB28E95A21ABEE5F005FAFC8 /* CFTests.xctest */,
+				BB28E95B21ABEE5F005FAFC8 /* CFUITests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		D54E6D6A20B7A826004B2DE1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6D6920B7A826004B2DE1 /* CF.app */,
-				D54E6D8120B7A828004B2DE1 /* CFTests.xctest */,
-				D54E6D8C20B7A828004B2DE1 /* CFUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D54E6D6B20B7A826004B2DE1 /* CF */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6D9E20B7A842004B2DE1 /* CF */,
-				D54E6D6C20B7A826004B2DE1 /* AppDelegate.h */,
-				D54E6D6D20B7A826004B2DE1 /* AppDelegate.m */,
-				D54E6D6F20B7A826004B2DE1 /* ViewController.h */,
-				D54E6D7020B7A826004B2DE1 /* ViewController.m */,
-				D54E6D7220B7A827004B2DE1 /* Main.storyboard */,
-				D54E6D7520B7A827004B2DE1 /* Assets.xcassets */,
-				D54E6D7720B7A827004B2DE1 /* LaunchScreen.storyboard */,
-				D54E6D7A20B7A827004B2DE1 /* Info.plist */,
-				D54E6D7B20B7A827004B2DE1 /* main.m */,
-			);
-			path = CF;
-			sourceTree = "<group>";
-		};
-		D54E6D8420B7A828004B2DE1 /* CFTests */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6D8520B7A828004B2DE1 /* CFTests.m */,
-				D54E6D8720B7A828004B2DE1 /* Info.plist */,
-			);
-			path = CFTests;
-			sourceTree = "<group>";
-		};
-		D54E6D8F20B7A828004B2DE1 /* CFUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6D9020B7A828004B2DE1 /* CFUITests.m */,
-				D54E6D9220B7A828004B2DE1 /* Info.plist */,
-			);
-			path = CFUITests;
-			sourceTree = "<group>";
-		};
-		D54E6D9E20B7A842004B2DE1 /* CF */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6DB520B7A86B004B2DE1 /* APPLE_LICENSE */,
-				D54E6DCE20B7A873004B2DE1 /* CFApplicationPreferences.c */,
-				D54E6E3420B7A887004B2DE1 /* CFArray.c */,
-				D54E6DFA20B7A87C004B2DE1 /* CFArray.h */,
-				D54E6E1A20B7A882004B2DE1 /* CFAvailability.h */,
-				D54E6DE120B7A877004B2DE1 /* CFBag.c */,
-				D54E6DD120B7A874004B2DE1 /* CFBag.h */,
-				D54E6DD620B7A875004B2DE1 /* CFBase.c */,
-				D54E6E2920B7A885004B2DE1 /* CFBase.h */,
-				D54E6E2120B7A883004B2DE1 /* CFBasicHash.c */,
-				D54E6DEC20B7A879004B2DE1 /* CFBasicHash.h */,
-				D54E6E2D20B7A885004B2DE1 /* CFBasicHashFindBucket.m */,
-				D54E6DDE20B7A877004B2DE1 /* CFBigNumber.c */,
-				D54E6DA420B7A866004B2DE1 /* CFBigNumber.h */,
-				D54E6DD820B7A876004B2DE1 /* CFBinaryHeap.c */,
-				D54E6DAD20B7A869004B2DE1 /* CFBinaryHeap.h */,
-				D54E6D9F20B7A866004B2DE1 /* CFBinaryPList.c */,
-				D54E6DF920B7A87C004B2DE1 /* CFBitVector.c */,
-				D54E6E3020B7A886004B2DE1 /* CFBitVector.h */,
-				D54E6DAF20B7A869004B2DE1 /* CFBuiltinConverters.c */,
-				D54E6E2720B7A884004B2DE1 /* CFBundle_Binary.c */,
-				D54E6DEB20B7A879004B2DE1 /* CFBundle_BinaryTypes.h */,
-				D54E6E0420B7A87E004B2DE1 /* CFBundle_Grok.c */,
-				D54E6DD320B7A874004B2DE1 /* CFBundle_InfoPlist.c */,
-				D54E6DC320B7A871004B2DE1 /* CFBundle_Internal.h */,
-				D54E6DBA20B7A86E004B2DE1 /* CFBundle_Locale.c */,
-				D54E6E0A20B7A87F004B2DE1 /* CFBundle_Resources.c */,
-				D54E6DA120B7A866004B2DE1 /* CFBundle_Strings.c */,
-				D54E6E3120B7A887004B2DE1 /* CFBundle.c */,
-				D54E6E2E20B7A886004B2DE1 /* CFBundle.h */,
-				D54E6E0220B7A87E004B2DE1 /* CFBundlePriv.h */,
-				D54E6DFB20B7A87C004B2DE1 /* CFBurstTrie.c */,
-				D54E6E1F20B7A883004B2DE1 /* CFBurstTrie.h */,
-				D54E6DF720B7A87B004B2DE1 /* CFByteOrder.h */,
-				D54E6DB620B7A86C004B2DE1 /* CFCalendar.c */,
-				D54E6DDB20B7A876004B2DE1 /* CFCalendar.h */,
-				D54E6E3520B7A888004B2DE1 /* CFCharacterSet.c */,
-				D54E6DFE20B7A87D004B2DE1 /* CFCharacterSet.h */,
-				D54E6E1420B7A881004B2DE1 /* CFCharacterSetBitmaps.bitmap */,
-				D54E6E1B20B7A882004B2DE1 /* CFCharacterSetPriv.h */,
-				D54E6DF020B7A87A004B2DE1 /* CFConcreteStreams.c */,
-				D54E6E3E20B7A88B004B2DE1 /* CFData.c */,
-				D54E6DD220B7A874004B2DE1 /* CFData.h */,
-				D54E6DBE20B7A870004B2DE1 /* CFDate.c */,
-				D54E6E2C20B7A885004B2DE1 /* CFDate.h */,
-				D54E6E4020B7A88C004B2DE1 /* CFDateFormatter.c */,
-				D54E6DE020B7A877004B2DE1 /* CFDateFormatter.h */,
-				D54E6E3F20B7A88B004B2DE1 /* CFDictionary.c */,
-				D54E6E0F20B7A880004B2DE1 /* CFDictionary.h */,
-				D54E6DC720B7A872004B2DE1 /* CFError_Private.h */,
-				D54E6DF220B7A87B004B2DE1 /* CFError.c */,
-				D54E6E0320B7A87E004B2DE1 /* CFError.h */,
-				D54E6E3620B7A888004B2DE1 /* CFFileUtilities.c */,
-				D54E6DE720B7A879004B2DE1 /* CFICUConverters.c */,
-				D54E6E0520B7A87E004B2DE1 /* CFICUConverters.h */,
-				D54E6DC620B7A872004B2DE1 /* CFICULogging.h */,
-				D54E6DD420B7A875004B2DE1 /* CFInternal.h */,
-				D54E6E0820B7A87F004B2DE1 /* CFLocale.c */,
-				D54E6E1E20B7A883004B2DE1 /* CFLocale.h */,
-				D54E6E1620B7A881004B2DE1 /* CFLocaleIdentifier.c */,
-				D54E6DD520B7A875004B2DE1 /* CFLocaleInternal.h */,
-				D54E6DA620B7A867004B2DE1 /* CFLocaleKeys.c */,
-				D54E6DAE20B7A869004B2DE1 /* CFLogUtilities.h */,
-				D54E6E1720B7A881004B2DE1 /* CFMachPort.c */,
-				D54E6DB720B7A86D004B2DE1 /* CFMachPort.h */,
-				D54E6E3820B7A889004B2DE1 /* CFMessagePort.c */,
-				D54E6E4220B7A88D004B2DE1 /* CFMessagePort.h */,
-				D54E6E3D20B7A88A004B2DE1 /* CFNumber.c */,
-				D54E6E1520B7A881004B2DE1 /* CFNumber.h */,
-				D54E6E3220B7A887004B2DE1 /* CFNumberFormatter.c */,
-				D54E6DB020B7A86A004B2DE1 /* CFNumberFormatter.h */,
-				D54E6DFF20B7A87D004B2DE1 /* CFOldStylePList.c */,
-				D54E6DC820B7A872004B2DE1 /* CFPlatform.c */,
-				D54E6E0D20B7A880004B2DE1 /* CFPlatformConverters.c */,
-				D54E6E1C20B7A882004B2DE1 /* CFPlugIn_Factory.c */,
-				D54E6DDC20B7A877004B2DE1 /* CFPlugIn_Factory.h */,
-				D54E6DE920B7A879004B2DE1 /* CFPlugIn_Instance.c */,
-				D54E6E1320B7A881004B2DE1 /* CFPlugIn_PlugIn.c */,
-				D54E6DE620B7A878004B2DE1 /* CFPlugIn.c */,
-				D54E6E0720B7A87E004B2DE1 /* CFPlugIn.h */,
-				D54E6E1020B7A880004B2DE1 /* CFPlugInCOM.h */,
-				D54E6DB820B7A86D004B2DE1 /* CFPreferences.c */,
-				D54E6DE820B7A879004B2DE1 /* CFPreferences.h */,
-				D54E6DB120B7A86A004B2DE1 /* CFPriv.h */,
-				D54E6DAC20B7A869004B2DE1 /* CFPropertyList.c */,
-				D54E6DCA20B7A873004B2DE1 /* CFPropertyList.h */,
-				D54E6E2420B7A884004B2DE1 /* CFRunLoop.c */,
-				D54E6E0020B7A87D004B2DE1 /* CFRunLoop.h */,
-				D54E6DED20B7A87A004B2DE1 /* CFRuntime.c */,
-				D54E6DAB20B7A868004B2DE1 /* CFRuntime.h */,
-				D54E6E2220B7A883004B2DE1 /* CFSet.c */,
-				D54E6DCB20B7A873004B2DE1 /* CFSet.h */,
-				D54E6E4520B7A88D004B2DE1 /* CFSocket.c */,
-				D54E6E1820B7A881004B2DE1 /* CFSocket.h */,
-				D54E6DCD20B7A873004B2DE1 /* CFSocketStream.c */,
-				D54E6DC520B7A872004B2DE1 /* CFSortFunctions.c */,
-				D54E6E2820B7A885004B2DE1 /* CFStorage.c */,
-				D54E6E1920B7A882004B2DE1 /* CFStorage.h */,
-				D54E6DE320B7A878004B2DE1 /* CFStream.c */,
-				D54E6E3920B7A889004B2DE1 /* CFStream.h */,
-				D54E6DF520B7A87B004B2DE1 /* CFStreamAbstract.h */,
-				D54E6DCF20B7A874004B2DE1 /* CFStreamInternal.h */,
-				D54E6DD720B7A875004B2DE1 /* CFStreamPriv.h */,
-				D54E6E2F20B7A886004B2DE1 /* CFString.c */,
-				D54E6DB920B7A86E004B2DE1 /* CFString.h */,
-				D54E6DFC20B7A87C004B2DE1 /* CFStringDefaultEncoding.h */,
-				D54E6DAA20B7A868004B2DE1 /* CFStringEncodingConverter.c */,
-				D54E6DF820B7A87C004B2DE1 /* CFStringEncodingConverter.h */,
-				D54E6E2320B7A884004B2DE1 /* CFStringEncodingConverterExt.h */,
-				D54E6E3C20B7A88A004B2DE1 /* CFStringEncodingConverterPriv.h */,
-				D54E6DF620B7A87B004B2DE1 /* CFStringEncodingDatabase.c */,
-				D54E6DC920B7A872004B2DE1 /* CFStringEncodingDatabase.h */,
-				D54E6DEA20B7A879004B2DE1 /* CFStringEncodingExt.h */,
-				D54E6DEE20B7A87A004B2DE1 /* CFStringEncodings.c */,
-				D54E6DEF20B7A87A004B2DE1 /* CFStringScanner.c */,
-				D54E6DA520B7A867004B2DE1 /* CFStringUtilities.c */,
-				D54E6E0920B7A87F004B2DE1 /* CFSystemDirectories.c */,
-				D54E6DA820B7A868004B2DE1 /* CFTimeZone.c */,
-				D54E6DCC20B7A873004B2DE1 /* CFTimeZone.h */,
-				D54E6DBC20B7A86F004B2DE1 /* CFTree.c */,
-				D54E6DBB20B7A86E004B2DE1 /* CFTree.h */,
-				D54E6E3320B7A887004B2DE1 /* CFUniChar.c */,
-				D54E6DD920B7A876004B2DE1 /* CFUniChar.h */,
-				D54E6DB420B7A86B004B2DE1 /* CFUniCharPriv.h */,
-				D54E6DDA20B7A876004B2DE1 /* CFUniCharPropertyDatabase.data */,
-				D54E6DD020B7A874004B2DE1 /* CFUnicodeData-B.mapping */,
-				D54E6E3B20B7A88A004B2DE1 /* CFUnicodeData-L.mapping */,
-				D54E6DDD20B7A877004B2DE1 /* CFUnicodeDecomposition.c */,
-				D54E6E1D20B7A882004B2DE1 /* CFUnicodeDecomposition.h */,
-				D54E6DA720B7A867004B2DE1 /* CFUnicodePrecomposition.c */,
-				D54E6E0120B7A87D004B2DE1 /* CFUnicodePrecomposition.h */,
-				D54E6DA220B7A866004B2DE1 /* CFURL.c */,
-				D54E6DF120B7A87A004B2DE1 /* CFURL.h */,
-				D54E6DBD20B7A86F004B2DE1 /* CFURL.inc.h */,
-				D54E6DA320B7A866004B2DE1 /* CFURLAccess.c */,
-				D54E6E2A20B7A885004B2DE1 /* CFURLAccess.h */,
-				D54E6DF320B7A87B004B2DE1 /* CFURLPriv.h */,
-				D54E6DE520B7A878004B2DE1 /* CFUserNotification.c */,
-				D54E6E4120B7A88C004B2DE1 /* CFUserNotification.h */,
-				D54E6DBF20B7A870004B2DE1 /* CFUtilities.c */,
-				D54E6DA020B7A866004B2DE1 /* CFUtilities.h */,
-				D54E6E3720B7A888004B2DE1 /* CFUUID.c */,
-				D54E6E2B20B7A885004B2DE1 /* CFUUID.h */,
-				D54E6E0B20B7A87F004B2DE1 /* CFVersion.c */,
-				D54E6DF420B7A87B004B2DE1 /* CFWindowsUtilities.c */,
-				D54E6DE220B7A878004B2DE1 /* CFXMLInputStream.c */,
-				D54E6E3A20B7A88A004B2DE1 /* CFXMLInputStream.h */,
-				D54E6DC420B7A871004B2DE1 /* CFXMLNode.c */,
-				D54E6E0620B7A87E004B2DE1 /* CFXMLNode.h */,
-				D54E6DDF20B7A877004B2DE1 /* CFXMLParser.c */,
-				D54E6DB220B7A86A004B2DE1 /* CFXMLParser.h */,
-				D54E6E2620B7A884004B2DE1 /* CFXMLPreferencesDomain.c */,
-				D54E6E0E20B7A880004B2DE1 /* CFXMLTree.c */,
-				D54E6DC220B7A871004B2DE1 /* CoreFoundation_Prefix.h */,
-				D54E6DC020B7A870004B2DE1 /* CoreFoundation.h */,
-				D54E6E1120B7A880004B2DE1 /* Examples */,
-				D54E6DFD20B7A87D004B2DE1 /* ForFoundationOnly.h */,
-				D54E6DB320B7A86A004B2DE1 /* Info.plist */,
-				D54E6DE420B7A878004B2DE1 /* Makefile */,
-				D54E6E4420B7A88D004B2DE1 /* MakefileLinux */,
-				D54E6DA920B7A868004B2DE1 /* MakefileVersion */,
-				D54E6E2520B7A884004B2DE1 /* plconvert.c */,
-				D54E6DC120B7A871004B2DE1 /* PropertyList.dtd */,
-				D54E6E2020B7A883004B2DE1 /* README_CFLITE */,
-				D54E6E4320B7A88D004B2DE1 /* SymbolAliases */,
-				D54E6E0C20B7A87F004B2DE1 /* TargetConditionals.h */,
-			);
-			path = CF;
-			sourceTree = "<group>";
-		};
-		D54E6E1120B7A880004B2DE1 /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-				D54E6E1220B7A880004B2DE1 /* plconvert.c */,
-			);
-			name = Examples;
-			path = ../../../Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,7 +615,7 @@
 			);
 			name = CF;
 			productName = CF;
-			productReference = D54E6D6920B7A826004B2DE1 /* CF.app */;
+			productReference = BB28E95921ABEE5F005FAFC8 /* CF.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D54E6D8020B7A828004B2DE1 /* CFTests */ = {
@@ -607,7 +633,7 @@
 			);
 			name = CFTests;
 			productName = CFTests;
-			productReference = D54E6D8120B7A828004B2DE1 /* CFTests.xctest */;
+			productReference = BB28E95A21ABEE5F005FAFC8 /* CFTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D54E6D8B20B7A828004B2DE1 /* CFUITests */ = {
@@ -625,7 +651,7 @@
 			);
 			name = CFUITests;
 			productName = CFUITests;
-			productReference = D54E6D8C20B7A828004B2DE1 /* CFUITests.xctest */;
+			productReference = BB28E95B21ABEE5F005FAFC8 /* CFUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -662,7 +688,7 @@
 				Base,
 			);
 			mainGroup = D54E6D6020B7A826004B2DE1;
-			productRefGroup = D54E6D6A20B7A826004B2DE1 /* Products */;
+			productRefGroup = D54E6D6020B7A826004B2DE1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -678,20 +704,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54E6E9920B7A88E004B2DE1 /* CFUnicodeData-L.mapping in Resources */,
-				D54E6E8720B7A88E004B2DE1 /* README_CFLITE in Resources */,
-				D54E6D7920B7A827004B2DE1 /* LaunchScreen.storyboard in Resources */,
-				D54E6E8320B7A88E004B2DE1 /* CFCharacterSetBitmaps.bitmap in Resources */,
-				D54E6E6420B7A88E004B2DE1 /* CFUniCharPropertyDatabase.data in Resources */,
-				D54E6E9F20B7A88E004B2DE1 /* MakefileLinux in Resources */,
-				D54E6E5320B7A88E004B2DE1 /* APPLE_LICENSE in Resources */,
-				D54E6E6020B7A88E004B2DE1 /* CFUnicodeData-B.mapping in Resources */,
-				D54E6D7620B7A827004B2DE1 /* Assets.xcassets in Resources */,
-				D54E6E9E20B7A88E004B2DE1 /* SymbolAliases in Resources */,
-				D54E6D7420B7A827004B2DE1 /* Main.storyboard in Resources */,
-				D54E6E5A20B7A88E004B2DE1 /* PropertyList.dtd in Resources */,
-				D54E6E5220B7A88E004B2DE1 /* Info.plist in Resources */,
-				D54E6E4E20B7A88E004B2DE1 /* MakefileVersion in Resources */,
+				BB28E8DD21A7B232005FAFC8 /* CFUnicodeData-L.mapping in Resources */,
+				BB28E90221A7B232005FAFC8 /* APPLE_LICENSE in Resources */,
+				BB28E91A21A7B232005FAFC8 /* CFUnicodeData-B.mapping in Resources */,
+				BB28E91121A7B232005FAFC8 /* Info.plist in Resources */,
+				BB28E8FE21A7B232005FAFC8 /* CFCharacterSetBitmaps.bitmap in Resources */,
+				BB28E90D21A7B232005FAFC8 /* README_CFLITE in Resources */,
+				BB28E8E221A7B232005FAFC8 /* PropertyList.dtd in Resources */,
+				BB28E92A21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data in Resources */,
+				BB28E90F21A7B232005FAFC8 /* SymbolAliases in Resources */,
+				BB28E8EB21A7B232005FAFC8 /* MakefileVersion in Resources */,
+				BB28E90021A7B232005FAFC8 /* MakefileLinux in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,89 +739,98 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54E6E8520B7A88E004B2DE1 /* CFMachPort.c in Sources */,
-				D54E6E6C20B7A88E004B2DE1 /* CFUserNotification.c in Sources */,
-				D54E6E7C20B7A88E004B2DE1 /* CFSystemDirectories.c in Sources */,
-				D54E6E8920B7A88E004B2DE1 /* CFSet.c in Sources */,
-				D54E6E4A20B7A88E004B2DE1 /* CFStringUtilities.c in Sources */,
-				D54E6E7B20B7A88E004B2DE1 /* CFLocale.c in Sources */,
-				D54E6E8E20B7A88E004B2DE1 /* CFStorage.c in Sources */,
-				D54E6E8420B7A88E004B2DE1 /* CFLocaleIdentifier.c in Sources */,
-				D54E6E8D20B7A88E004B2DE1 /* CFBundle_Binary.c in Sources */,
-				D54E6E9D20B7A88E004B2DE1 /* CFDateFormatter.c in Sources */,
-				D54E6E7520B7A88E004B2DE1 /* CFWindowsUtilities.c in Sources */,
-				D54E6E9220B7A88E004B2DE1 /* CFNumberFormatter.c in Sources */,
-				D54E6E5F20B7A88E004B2DE1 /* CFApplicationPreferences.c in Sources */,
-				D54E6E5420B7A88E004B2DE1 /* CFCalendar.c in Sources */,
-				D54E6E6520B7A88E004B2DE1 /* CFUnicodeDecomposition.c in Sources */,
-				D54E6E5C20B7A88E004B2DE1 /* CFSortFunctions.c in Sources */,
-				D54E6E6B20B7A88E004B2DE1 /* Makefile in Sources */,
-				D54E6E5B20B7A88E004B2DE1 /* CFXMLNode.c in Sources */,
-				D54E6E9820B7A88E004B2DE1 /* CFMessagePort.c in Sources */,
-				D54E6E4C20B7A88E004B2DE1 /* CFUnicodePrecomposition.c in Sources */,
-				D54E6E7D20B7A88E004B2DE1 /* CFBundle_Resources.c in Sources */,
-				D54E6E4820B7A88E004B2DE1 /* CFURL.c in Sources */,
-				D54E6E9720B7A88E004B2DE1 /* CFUUID.c in Sources */,
-				D54E6E7820B7A88E004B2DE1 /* CFBurstTrie.c in Sources */,
-				D54E6E7620B7A88E004B2DE1 /* CFStringEncodingDatabase.c in Sources */,
-				D54E6E9020B7A88E004B2DE1 /* CFString.c in Sources */,
-				D54E6E4F20B7A88E004B2DE1 /* CFStringEncodingConverter.c in Sources */,
-				D54E6E8820B7A88E004B2DE1 /* CFBasicHash.c in Sources */,
-				D54E6EA020B7A88E004B2DE1 /* CFSocket.c in Sources */,
-				D54E6E7120B7A88E004B2DE1 /* CFStringEncodings.c in Sources */,
-				D54E6E9B20B7A88E004B2DE1 /* CFData.c in Sources */,
-				D54E6E9420B7A88E004B2DE1 /* CFArray.c in Sources */,
-				D54E6E5E20B7A88E004B2DE1 /* CFSocketStream.c in Sources */,
-				D54E6D7120B7A826004B2DE1 /* ViewController.m in Sources */,
-				D54E6E7220B7A88E004B2DE1 /* CFStringScanner.c in Sources */,
-				D54E6E6820B7A88E004B2DE1 /* CFBag.c in Sources */,
-				D54E6E9A20B7A88E004B2DE1 /* CFNumber.c in Sources */,
-				D54E6E9620B7A88E004B2DE1 /* CFFileUtilities.c in Sources */,
-				D54E6E5720B7A88E004B2DE1 /* CFTree.c in Sources */,
-				D54E6E6F20B7A88E004B2DE1 /* CFPlugIn_Instance.c in Sources */,
-				D54E6E6620B7A88E004B2DE1 /* CFBigNumber.c in Sources */,
-				D54E6E8620B7A88E004B2DE1 /* CFPlugIn_Factory.c in Sources */,
-				D54E6E4B20B7A88E004B2DE1 /* CFLocaleKeys.c in Sources */,
-				D54E6E9C20B7A88E004B2DE1 /* CFDictionary.c in Sources */,
-				D54E6E7A20B7A88E004B2DE1 /* CFBundle_Grok.c in Sources */,
-				D54E6E6E20B7A88E004B2DE1 /* CFICUConverters.c in Sources */,
-				D54E6E9520B7A88E004B2DE1 /* CFCharacterSet.c in Sources */,
-				D54E6E8220B7A88E004B2DE1 /* CFPlugIn_PlugIn.c in Sources */,
-				D54E6E7420B7A88E004B2DE1 /* CFError.c in Sources */,
-				D54E6D7C20B7A827004B2DE1 /* main.m in Sources */,
-				D54E6E6A20B7A88E004B2DE1 /* CFStream.c in Sources */,
-				D54E6E5020B7A88E004B2DE1 /* CFPropertyList.c in Sources */,
-				D54E6E7920B7A88E004B2DE1 /* CFOldStylePList.c in Sources */,
-				D54E6E4620B7A88E004B2DE1 /* CFBinaryPList.c in Sources */,
-				D54E6E9320B7A88E004B2DE1 /* CFUniChar.c in Sources */,
-				D54E6E6920B7A88E004B2DE1 /* CFXMLInputStream.c in Sources */,
-				D54E6E6320B7A88E004B2DE1 /* CFBinaryHeap.c in Sources */,
-				D54E6E6120B7A88E004B2DE1 /* CFBundle_InfoPlist.c in Sources */,
-				D54E6E7720B7A88E004B2DE1 /* CFBitVector.c in Sources */,
-				D54E6E6D20B7A88E004B2DE1 /* CFPlugIn.c in Sources */,
-				D54E6E8B20B7A88E004B2DE1 /* plconvert.c in Sources */,
-				D54E6E5120B7A88E004B2DE1 /* CFBuiltinConverters.c in Sources */,
-				D54E6E8C20B7A88E004B2DE1 /* CFXMLPreferencesDomain.c in Sources */,
-				D54E6E6220B7A88E004B2DE1 /* CFBase.c in Sources */,
-				D54E6E5620B7A88E004B2DE1 /* CFBundle_Locale.c in Sources */,
-				D54E6E7320B7A88E004B2DE1 /* CFConcreteStreams.c in Sources */,
-				D54E6E7F20B7A88E004B2DE1 /* CFPlatformConverters.c in Sources */,
-				D54E6E8120B7A88E004B2DE1 /* plconvert.c in Sources */,
-				D54E6E5520B7A88E004B2DE1 /* CFPreferences.c in Sources */,
-				D54E6E8A20B7A88E004B2DE1 /* CFRunLoop.c in Sources */,
-				D54E6E9120B7A88E004B2DE1 /* CFBundle.c in Sources */,
-				D54E6E6720B7A88E004B2DE1 /* CFXMLParser.c in Sources */,
-				D54E6E5820B7A88E004B2DE1 /* CFDate.c in Sources */,
-				D54E6E7020B7A88E004B2DE1 /* CFRuntime.c in Sources */,
-				D54E6E5920B7A88E004B2DE1 /* CFUtilities.c in Sources */,
-				D54E6E8F20B7A88E004B2DE1 /* CFBasicHashFindBucket.m in Sources */,
-				D54E6E4720B7A88E004B2DE1 /* CFBundle_Strings.c in Sources */,
-				D54E6D6E20B7A826004B2DE1 /* AppDelegate.m in Sources */,
-				D54E6E5D20B7A88E004B2DE1 /* CFPlatform.c in Sources */,
-				D54E6E7E20B7A88E004B2DE1 /* CFVersion.c in Sources */,
-				D54E6E4920B7A88E004B2DE1 /* CFURLAccess.c in Sources */,
-				D54E6E8020B7A88E004B2DE1 /* CFXMLTree.c in Sources */,
-				D54E6E4D20B7A88E004B2DE1 /* CFTimeZone.c in Sources */,
+				BB28E8ED21A7B232005FAFC8 /* CFXMLParser.c in Sources */,
+				BB28E91921A7B232005FAFC8 /* CFMessagePort.c in Sources */,
+				BB28E8EE21A7B232005FAFC8 /* CFPreferences.c in Sources */,
+				BB28E92D21A7B232005FAFC8 /* CFUserNotification.c in Sources */,
+				BB28E90A21A7B232005FAFC8 /* CFBurstTrie.c in Sources */,
+				BB28E8F121A7B232005FAFC8 /* CFBigNumber.c in Sources */,
+				BB28E92921A7B232005FAFC8 /* CFUtilities.c in Sources */,
+				BB28E92B21A7B232005FAFC8 /* CFString.c in Sources */,
+				BB28E92421A7B232005FAFC8 /* CFBundle_Grok.c in Sources */,
+				BB28E8FD21A7B232005FAFC8 /* CFDateFormatter.c in Sources */,
+				BB28E8E021A7B232005FAFC8 /* CFBinaryPList.c in Sources */,
+				BB28E90921A7B232005FAFC8 /* CFFileUtilities.c in Sources */,
+				BB28E90821A7B232005FAFC8 /* CFUnicodeDecomposition.c in Sources */,
+				BB28E8D621A7B232005FAFC8 /* CFData.c in Sources */,
+				BB28E91021A7B232005FAFC8 /* CFStringEncodingConverter.c in Sources */,
+				BB28E8F421A7B232005FAFC8 /* CFBasicHash.c in Sources */,
+				BB28E95521ABEB77005FAFC8 /* CFRunLoop_Lock.c in Sources */,
+				BB28E8F921A7B232005FAFC8 /* CFStringEncodingDatabase.c in Sources */,
+				BB28E91F21A7B232005FAFC8 /* CFSet.c in Sources */,
+				BB28E93C21A7D8C9005FAFC8 /* CFRunLoop_Observers.c in Sources */,
+				BB28E8E521A7B232005FAFC8 /* CFDictionary.c in Sources */,
+				BB28E93F21A7DA19005FAFC8 /* CFRunLoop_Clean.c in Sources */,
+				BB28E90621A7B232005FAFC8 /* CFXMLTree.c in Sources */,
+				BB28E90421A7B232005FAFC8 /* CFUnicodePrecomposition.c in Sources */,
+				BB28E91821A7B232005FAFC8 /* CFPlatform.c in Sources */,
+				BB28E92F21A7B232005FAFC8 /* CFICUConverters.c in Sources */,
+				BB28E91421A7B232005FAFC8 /* CFBag.c in Sources */,
+				BB28E92821A7B232005FAFC8 /* CFBundle_InfoPlist.c in Sources */,
+				BB28E8FF21A7B232005FAFC8 /* CFWindowsUtilities.c in Sources */,
+				BB28E93021A7B232005FAFC8 /* CFApplicationPreferences.c in Sources */,
+				BB28E91E21A7B232005FAFC8 /* CFSocketStream.c in Sources */,
+				BB28E8FC21A7B232005FAFC8 /* CFXMLNode.c in Sources */,
+				BB28E90B21A7B232005FAFC8 /* CFCalendar.c in Sources */,
+				BB28E92221A7B232005FAFC8 /* CFXMLInputStream.c in Sources */,
+				BB28E92C21A7B232005FAFC8 /* CFMachPort.c in Sources */,
+				BB28E8F221A7B232005FAFC8 /* CFPlugIn_Factory.c in Sources */,
+				BB28E8F821A7B232005FAFC8 /* CFPlugIn_PlugIn.c in Sources */,
+				BB28E95221ABC581005FAFC8 /* CFRunLoop_main queue.c in Sources */,
+				BB28E92721A7B232005FAFC8 /* CFPlugIn.c in Sources */,
+				BB28E8DE21A7B232005FAFC8 /* CFBundle_Binary.c in Sources */,
+				BB28E8D721A7B232005FAFC8 /* CFBundle_Strings.c in Sources */,
+				BB28E8DF21A7B232005FAFC8 /* CFBitVector.c in Sources */,
+				BB28E92E21A7B232005FAFC8 /* CFBundle_Locale.c in Sources */,
+				BB28E8FB21A7B232005FAFC8 /* CFUUID.c in Sources */,
+				BB28E92321A7B232005FAFC8 /* CFBundle.c in Sources */,
+				BB28E91621A7B232005FAFC8 /* CFRuntime.c in Sources */,
+				BB28E92621A7B232005FAFC8 /* CFStringUtilities.c in Sources */,
+				BB28E8F721A7B232005FAFC8 /* CFNumber.c in Sources */,
+				BB28E91B21A7B232005FAFC8 /* CFBase.c in Sources */,
+				BB28E8E621A7B232005FAFC8 /* CFStream.c in Sources */,
+				BB28E94921ABC015005FAFC8 /* CFRunLoop_Mode.c in Sources */,
+				BB28E93821A7B635005FAFC8 /* CFRunLoop_Utils.c in Sources */,
+				BB28E91521A7B232005FAFC8 /* CFRunLoop.c in Sources */,
+				BB28E90E21A7B232005FAFC8 /* CFOldStylePList.c in Sources */,
+				BB28E94C21ABC16C005FAFC8 /* CFRunLoop_Block.c in Sources */,
+				BB28E8EA21A7B232005FAFC8 /* CFPlatformConverters.c in Sources */,
+				BB28E92121A7B232005FAFC8 /* Makefile in Sources */,
+				BB28E8F321A7B232005FAFC8 /* CFBundle_Resources.c in Sources */,
+				BB28E8E821A7B232005FAFC8 /* CFSocket.c in Sources */,
+				BB28E91721A7B232005FAFC8 /* CFLocaleKeys.c in Sources */,
+				BB28E8E421A7B232005FAFC8 /* CFNumberFormatter.c in Sources */,
+				BB28E90721A7B232005FAFC8 /* plconvert.c in Sources */,
+				BB28E8EF21A7B232005FAFC8 /* CFXMLPreferencesDomain.c in Sources */,
+				BB28E8D921A7B232005FAFC8 /* CFTree.c in Sources */,
+				BB28E8FA21A7B232005FAFC8 /* CFLocaleIdentifier.c in Sources */,
+				BB28E90C21A7B232005FAFC8 /* CFDate.c in Sources */,
+				BB28E92521A7B232005FAFC8 /* CFUniChar.c in Sources */,
+				BB28E91321A7B232005FAFC8 /* CFSystemDirectories.c in Sources */,
+				BB28E8E921A7B232005FAFC8 /* CFStringEncodings.c in Sources */,
+				BB28E90321A7B232005FAFC8 /* CFBinaryHeap.c in Sources */,
+				BB28E8DB21A7B232005FAFC8 /* CFVersion.c in Sources */,
+				BB28E90121A7B232005FAFC8 /* CFBasicHashFindBucket.m in Sources */,
+				BB28E8F521A7B232005FAFC8 /* CFConcreteStreams.c in Sources */,
+				BB28E91D21A7B232005FAFC8 /* CFTimeZone.c in Sources */,
+				BB28E8F621A7B232005FAFC8 /* CFBuiltinConverters.c in Sources */,
+				BB28E8DA21A7B232005FAFC8 /* CFURLAccess.c in Sources */,
+				BB28E92021A7B232005FAFC8 /* CFPlugIn_Instance.c in Sources */,
+				BB28E8DC21A7B232005FAFC8 /* CFURL.c in Sources */,
+				BB28E93421A7B3BC005FAFC8 /* CFRunLoop_Timer.c in Sources */,
+				BB28E8E721A7B232005FAFC8 /* CFStringScanner.c in Sources */,
+				BB28E94221ABA19A005FAFC8 /* CFRunLoop_Run.c in Sources */,
+				BB28E91C21A7B232005FAFC8 /* CFPropertyList.c in Sources */,
+				BB28E91221A7B232005FAFC8 /* plconvert.c in Sources */,
+				BB28E90521A7B232005FAFC8 /* CFStorage.c in Sources */,
+				BB28E8EC21A7B232005FAFC8 /* CFSortFunctions.c in Sources */,
+				BB28E94521ABABF7005FAFC8 /* CFRunLoop_Source.c in Sources */,
+				BB28E8F021A7B232005FAFC8 /* CFLocale.c in Sources */,
+				BB28E95821ABECAA005FAFC8 /* CF_Mach.c in Sources */,
+				BB28E8D821A7B232005FAFC8 /* CFArray.c in Sources */,
+				BB28E94F21ABC3A8005FAFC8 /* CFRunLoop_Do.c in Sources */,
+				BB28E8E121A7B232005FAFC8 /* CFError.c in Sources */,
+				BB28E8E321A7B232005FAFC8 /* CFCharacterSet.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,7 +838,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54E6D8620B7A828004B2DE1 /* CFTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +845,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54E6D9120B7A828004B2DE1 /* CFUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,25 +862,6 @@
 			targetProxy = D54E6D8D20B7A828004B2DE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D54E6D7220B7A827004B2DE1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D54E6D7320B7A827004B2DE1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D54E6D7720B7A827004B2DE1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D54E6D7820B7A827004B2DE1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D54E6D9320B7A828004B2DE1 /* Debug */ = {
