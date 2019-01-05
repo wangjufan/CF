@@ -12,12 +12,6 @@
 #include <stdio.h>
 
 
-CF_EXPORT Boolean CFRunLoopContainsObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef mode);
-CF_EXPORT void CFRunLoopAddObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef mode);
-CF_EXPORT void CFRunLoopRemoveObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef mode);
-
-
-
 typedef struct {
     CFIndex    version;
     void *    info;
@@ -26,21 +20,45 @@ typedef struct {
     CFStringRef    (*copyDescription)(const void *info);
 } CFRunLoopObserverContext;
 
-typedef void (*CFRunLoopObserverCallBack)(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info);
 
-CF_EXPORT CFTypeID CFRunLoopObserverGetTypeID(void);
+CF_EXPORT Boolean CFRunLoopContainsObserver(CFRunLoopRef rl,
+                                            CFRunLoopObserverRef observer,
+                                            CFStringRef mode);
+CF_EXPORT void CFRunLoopAddObserver(CFRunLoopRef rl,
+                                    CFRunLoopObserverRef observer,
+                                    CFStringRef mode);///////rlo->_order递增插入
+CF_EXPORT void CFRunLoopRemoveObserver(CFRunLoopRef rl,
+                                       CFRunLoopObserverRef observer,
+                                       CFStringRef mode);
 
-CF_EXPORT CFRunLoopObserverRef CFRunLoopObserverCreate(CFAllocatorRef allocator, CFOptionFlags activities, Boolean repeats, CFIndex order, CFRunLoopObserverCallBack callout, CFRunLoopObserverContext *context);
+
+typedef void (*CFRunLoopObserverCallBack)(CFRunLoopObserverRef observer,
+                                        CFRunLoopActivity activity,
+                                        void *info);
+CF_EXPORT CFRunLoopObserverRef CFRunLoopObserverCreate(CFAllocatorRef allocator,
+                                                CFOptionFlags activities,
+                                                Boolean repeats,
+                                                CFIndex order,
+                                                CFRunLoopObserverCallBack callout,
+                                                CFRunLoopObserverContext *context);
 #if __BLOCKS__
-CF_EXPORT CFRunLoopObserverRef CFRunLoopObserverCreateWithHandler(CFAllocatorRef allocator, CFOptionFlags activities, Boolean repeats, CFIndex order, void (^block) (CFRunLoopObserverRef observer, CFRunLoopActivity activity)) CF_AVAILABLE(10_7, 5_0);
+CF_EXPORT CFRunLoopObserverRef CFRunLoopObserverCreateWithHandler(
+                                            CFAllocatorRef allocator,
+                                            CFOptionFlags activities,
+                                            Boolean repeats,
+                                            CFIndex order,
+     void (^block) (CFRunLoopObserverRef observer, CFRunLoopActivity activity)) CF_AVAILABLE(10_7, 5_0);
 #endif
 
+
+CF_EXPORT CFTypeID CFRunLoopObserverGetTypeID(void);
 CF_EXPORT CFOptionFlags CFRunLoopObserverGetActivities(CFRunLoopObserverRef observer);
 CF_EXPORT Boolean CFRunLoopObserverDoesRepeat(CFRunLoopObserverRef observer);
 CF_EXPORT CFIndex CFRunLoopObserverGetOrder(CFRunLoopObserverRef observer);
 CF_EXPORT void CFRunLoopObserverInvalidate(CFRunLoopObserverRef observer);
 CF_EXPORT Boolean CFRunLoopObserverIsValid(CFRunLoopObserverRef observer);
-CF_EXPORT void CFRunLoopObserverGetContext(CFRunLoopObserverRef observer, CFRunLoopObserverContext *context);
+CF_EXPORT void CFRunLoopObserverGetContext(CFRunLoopObserverRef observer,
+                                           CFRunLoopObserverContext *context);
 
 
 #endif /* CFRunLoop_Observers_h */

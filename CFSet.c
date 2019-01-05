@@ -512,9 +512,11 @@ void CFSetApplyFunction(CFHashRef hc, CFSetApplierFunction applier, any_pointer_
 #if CFDictionary
             INVOKE_CALLBACK3(applier, (const_any_pointer_t)bkt.weak_key, (const_any_pointer_t)bkt.weak_value, context);
 #endif
+        
 #if CFSet
             INVOKE_CALLBACK2(applier, (const_any_pointer_t)bkt.weak_value, context);
 #endif
+        
 #if CFBag
             for (CFIndex cnt = bkt.count; cnt--;) {
                 INVOKE_CALLBACK2(applier, (const_any_pointer_t)bkt.weak_value, context);
@@ -580,9 +582,14 @@ void CFSetAddValue(CFMutableHashRef hc, const_any_pointer_t key, const_any_point
 void CFSetAddValue(CFMutableHashRef hc, const_any_pointer_t key) {
     const_any_pointer_t value = key;
 #endif
+    
 #if CFDictionary
-    if (CFDictionary) CF_OBJC_FUNCDISPATCHV(CFSetGetTypeID(), void, (NSMutableDictionary *)hc, __addObject:(id)value forKey:(id)key);
+    if (CFDictionary) CF_OBJC_FUNCDISPATCHV(
+                                CFSetGetTypeID(), void,
+                                (NSMutableDictionary *)hc,
+                                __addObject:(id)value forKey:(id)key);
 #endif
+    
 #if CFSet
     if (CFSet) CF_OBJC_FUNCDISPATCHV(CFSetGetTypeID(), void, (NSMutableSet *)hc, addObject:(id)key);
 #endif

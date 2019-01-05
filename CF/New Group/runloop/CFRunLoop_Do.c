@@ -10,7 +10,11 @@
 
 /* rl is locked, rlm is locked on entrance and exit */
 static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl, CFRunLoopModeRef rlm, Boolean stopAfterHandle) __attribute__((noinline));
-static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl, CFRunLoopModeRef rlm, Boolean stopAfterHandle) {    /* DOES CALLOUT */
+
+static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl,
+                                     CFRunLoopModeRef rlm,
+                                     Boolean stopAfterHandle) {    /* DOES CALLOUT */
+    
     CHECK_FOR_FORK();
     CFTypeRef sources = NULL;
     Boolean sourceHandled = false;
@@ -120,7 +124,10 @@ static Boolean __CFRunLoopDoTimer(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunLo
     CFRetain(rlt);
     __CFRunLoopTimerLock(rlt);
     
-    if (__CFIsValid(rlt) && rlt->_fireTSR <= mach_absolute_time() && !__CFRunLoopTimerIsFiring(rlt) && rlt->_runLoop == rl) {
+    if (__CFIsValid(rlt)
+        && rlt->_fireTSR <= mach_absolute_time()
+        && !__CFRunLoopTimerIsFiring(rlt)
+        && rlt->_runLoop == rl) {
         void *context_info = NULL;
         void (*context_release)(const void *) = NULL;
         if (rlt->_context.retain) {
@@ -248,7 +255,9 @@ static Boolean __CFRunLoopDoTimer(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunLo
 static Boolean __CFRunLoopDoTimers(CFRunLoopRef rl, CFRunLoopModeRef rlm, uint64_t limitTSR) {    /* DOES CALLOUT */
     Boolean timerHandled = false;
     CFMutableArrayRef timers = NULL;
-    for (CFIndex idx = 0, cnt = rlm->_timers ? CFArrayGetCount(rlm->_timers) : 0; idx < cnt; idx++) {
+    for (CFIndex idx = 0, cnt = rlm->_timers ? CFArrayGetCount(rlm->_timers) : 0;
+         idx < cnt; idx++) {
+        
         CFRunLoopTimerRef rlt = (CFRunLoopTimerRef)CFArrayGetValueAtIndex(rlm->_timers, idx);
         
         if (__CFIsValid(rlt) && !__CFRunLoopTimerIsFiring(rlt)) {
@@ -271,7 +280,10 @@ static Boolean __CFRunLoopDoTimers(CFRunLoopRef rl, CFRunLoopModeRef rlm, uint64
 
 /* rl is locked, rlm is locked on entrance and exit */
 static void __CFRunLoopDoObservers() __attribute__((noinline));
-static void __CFRunLoopDoObservers(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunLoopActivity activity) {    /* DOES CALLOUT */
+static void __CFRunLoopDoObservers(CFRunLoopRef rl,
+                                   CFRunLoopModeRef rlm,
+                                   CFRunLoopActivity activity) {
+    /* DOES CALLOUT */
     CHECK_FOR_FORK();
     
     CFIndex cnt = rlm->_observers ? CFArrayGetCount(rlm->_observers) : 0;
@@ -281,18 +293,26 @@ static void __CFRunLoopDoObservers(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunL
     STACK_BUFFER_DECL(CFRunLoopObserverRef, buffer, (cnt <= 1024) ? cnt : 1);
     CFRunLoopObserverRef *collectedObservers = (cnt <= 1024) ? buffer : (CFRunLoopObserverRef *)malloc(cnt * sizeof(CFRunLoopObserverRef));
     CFIndex obs_cnt = 0;
+    
     for (CFIndex idx = 0; idx < cnt; idx++) {
         CFRunLoopObserverRef rlo = (CFRunLoopObserverRef)CFArrayGetValueAtIndex(rlm->_observers, idx);
-        if (0 != (rlo->_activities & activity) && __CFIsValid(rlo) && !__CFRunLoopObserverIsFiring(rlo)) {
+        if (0 != (rlo->_activities & activity)
+            && __CFIsValid(rlo)
+            && !__CFRunLoopObserverIsFiring(rlo))
+        {
             collectedObservers[obs_cnt++] = (CFRunLoopObserverRef)CFRetain(rlo);
         }
     }
+    
     __CFRunLoopModeUnlock(rlm);
     __CFRunLoopUnlock(rl);
+    
     for (CFIndex idx = 0; idx < obs_cnt; idx++) {
+        
         CFRunLoopObserverRef rlo = collectedObservers[idx];
         __CFRunLoopObserverLock(rlo);
         if (__CFIsValid(rlo)) {
+            
             Boolean doInvalidate = !__CFRunLoopObserverRepeats(rlo);
             __CFRunLoopObserverSetFiring(rlo);
             __CFRunLoopObserverUnlock(rlo);
@@ -312,58 +332,5 @@ static void __CFRunLoopDoObservers(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunL
     if (collectedObservers != buffer) free(collectedObservers);
 }
 
-
-static Boolean __CFRunLoopDoBlocks(CFRunLoopRef rl, CFRunLoopModeRef rlm) { // Call with rl and rlm locked
-    if (!rl->_blocks_head) return false;
-    if (!rlm || !rlm->_name) return false;
-    Boolean did = false;
-    struct _block_item *head = rl->_blocks_head;
-    struct _block_item *tail = rl->_blocks_tail;
-    rl->_blocks_head = NULL;
-    rl->_blocks_tail = NULL;
-    CFSetRef commonModes = rl->_commonModes;
-    CFStringRef curMode = rlm->_name;
-    __CFRunLoopModeUnlock(rlm);
-    __CFRunLoopUnlock(rl);
-    
-    struct _block_item *prev = NULL;
-    struct _block_item *item = head;
-    while (item) {
-        struct _block_item *curr = item;
-        item = item->_next;
-        Boolean doit = false;
-        if (CFStringGetTypeID() == CFGetTypeID(curr->_mode)) {
-            doit = CFEqual(curr->_mode, curMode)
-                   || (CFEqual(curr->_mode, kCFRunLoopCommonModes)
-                      && CFSetContainsValue(commonModes, curMode));
-        } else {
-            doit = CFSetContainsValue((CFSetRef)curr->_mode, curMode)
-                   || (CFSetContainsValue((CFSetRef)curr->_mode, kCFRunLoopCommonModes)
-                       && CFSetContainsValue(commonModes, curMode));
-        }
-        if (!doit) prev = curr;
-        if (doit) {
-            if (prev) prev->_next = item;
-            if (curr == head) head = item;
-            if (curr == tail) tail = prev;
-            void (^block)(void) = curr->_block;
-            CFRelease(curr->_mode);
-            free(curr);
-            if (doit) {
-                __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__(block);
-                did = true;
-            }
-            Block_release(block); // do this before relocking to prevent deadlocks where some yahoo wants to run the run loop reentrantly from their dealloc
-        }
-    }
-    __CFRunLoopLock(rl);
-    __CFRunLoopModeLock(rlm);
-    if (head) {
-        tail->_next = rl->_blocks_head;
-        rl->_blocks_head = head;
-        if (!rl->_blocks_tail) rl->_blocks_tail = tail;
-    }
-    return did;
-}
 
 

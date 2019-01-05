@@ -1329,7 +1329,10 @@ static void __CFBasicHashRemoveValue(CFBasicHashRef ht, CFIndex bkt_idx) {
     }
 }
 
-CF_PRIVATE Boolean CFBasicHashAddValue(CFBasicHashRef ht, uintptr_t stack_key, uintptr_t stack_value) {
+CF_PRIVATE Boolean CFBasicHashAddValue(CFBasicHashRef ht,
+                                       uintptr_t stack_key,
+                                       uintptr_t stack_value) {
+    
     if (!CFBasicHashIsMutable(ht)) HALT;
     if (__CFBasicHashSubABZero == stack_key) HALT;
     if (__CFBasicHashSubABOne == stack_key) HALT;

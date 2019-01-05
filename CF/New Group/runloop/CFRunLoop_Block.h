@@ -33,14 +33,7 @@ static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__(CFRunLoopT
     asm __volatile__(""); // thwart tail-call optimization
 }
 
-块
-static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__() __attribute__((noinline));
-static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__(void (^block)(void)) {
-    if (block) {
-        block();
-    }
-    asm __volatile__(""); // thwart tail-call optimization
-}
+ 
 
 SOURCE0
 static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__() __attribute__((noinline));

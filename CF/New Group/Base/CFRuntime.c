@@ -288,7 +288,11 @@ CF_INLINE CFOptionFlags CF_GET_COLLECTABLE_MEMORY_TYPE(const CFRuntimeClass *cls
 #define CF_GET_COLLECTABLE_MEMORY_TYPE(x) (0)
 #endif
 
-CFTypeRef _CFRuntimeCreateInstance(CFAllocatorRef allocator, CFTypeID typeID, CFIndex extraBytes, unsigned char *category) {
+CFTypeRef _CFRuntimeCreateInstance(CFAllocatorRef allocator,
+                                   CFTypeID typeID,
+                                   CFIndex extraBytes,
+                                   unsigned char *category) {
+    
     if (__CFRuntimeClassTableSize <= typeID) HALT;
     CFAssert1(typeID != _kCFRuntimeNotATypeID, __kCFLogAssertion, "%s(): Uninitialized type id", __PRETTY_FUNCTION__);
     CFRuntimeClass *cls = __CFRuntimeClassTable[typeID];

@@ -6,6 +6,9 @@
 
 #pragma mark Timers
 
+//多次加入
+//idx = CFArrayGetFirstIndexOfValue(timerList, CFRangeMake(0, CFArrayGetCount(timerList)), rlt);
+
 struct __CFRunLoopTimer {
     CFRuntimeBase _base;
     uint16_t _bits;
@@ -15,8 +18,10 @@ struct __CFRunLoopTimer {
     CFAbsoluteTime _nextFireDate;
     CFTimeInterval _interval;        /* immutable */
     CFTimeInterval _tolerance;          /* mutable */
-    uint64_t _fireTSR;            /* TSR units */
+    
+    uint64_t _fireTSR;            /* TSR units 上次应当触发的时间 */
     CFIndex _order;            /* immutable */
+    
     CFRunLoopTimerCallBack _callout;    /* immutable */
     CFRunLoopTimerContext _context;    /* immutable, except invalidation */
 };
@@ -46,8 +51,23 @@ CF_EXPORT void CFRunLoopTimerInvalidate(CFRunLoopTimerRef timer);
 CF_EXPORT Boolean CFRunLoopTimerIsValid(CFRunLoopTimerRef timer);
 CF_EXPORT void CFRunLoopTimerGetContext(CFRunLoopTimerRef timer, CFRunLoopTimerContext *context);
 
-// Setting a tolerance for a timer allows it to fire later than the scheduled fire date, improving the ability of the system to optimize for increased power savings and responsiveness. The timer may fire at any time between its scheduled fire date and the scheduled fire date plus the tolerance. The timer will not fire before the scheduled fire date. For repeating timers, the next fire date is calculated from the original fire date regardless of tolerance applied at individual fire times, to avoid drift. The default value is zero, which means no additional tolerance is applied. The system reserves the right to apply a small amount of tolerance to certain timers regardless of the value of this property.
-// As the user of the timer, you will have the best idea of what an appropriate tolerance for a timer may be. A general rule of thumb, though, is to set the tolerance to at least 10% of the interval, for a repeating timer. Even a small amount of tolerance will have a significant positive impact on the power usage of your application. The system may put a maximum value of the tolerance.
+// Setting a tolerance for a timer allows it to fire later than the scheduled fire date,
+// improving the ability of the system to optimize for increased power savings and responsiveness.
+//The timer may fire at any time between its scheduled fire date and the scheduled fire date plus the tolerance.
+//The timer will not fire before the scheduled fire date.
+
+//For repeating timers, the next fire date is calculated from the original fire date regardless of tolerance applied at individual fire times, to avoid drift.
+//The default value is zero, which means no additional tolerance is applied.
+//The system reserves the right to apply a small amount of tolerance to certain timers regardless of the value of this property.
+
+// As the user of the timer, you will have the best idea of what an appropriate tolerance for a timer may be.
+// A general rule of thumb, though, is to set the tolerance to at least 10% of the interval, for a repeating timer.
+//Even a small amount of tolerance will have a significant positive impact on the power usage of your application. The system may put a maximum value of the tolerance.
+
+// if one cut point was pass and
+//not recalculated the _fireTSR value
+//some outdate call may happens
+// if not _fireTSR re-calculating , wjf
 CF_EXPORT CFTimeInterval CFRunLoopTimerGetTolerance(CFRunLoopTimerRef timer) CF_AVAILABLE(10_9, 7_0);
 CF_EXPORT void CFRunLoopTimerSetTolerance(CFRunLoopTimerRef timer, CFTimeInterval tolerance) CF_AVAILABLE(10_9, 7_0);
 //

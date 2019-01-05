@@ -28,12 +28,15 @@ Boolean CFRunLoopContainsSource(CFRunLoopRef rl, CFRunLoopSourceRef rls, CFStrin
     return hasValue;
 }
 
-void CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef rls, CFStringRef modeName) {    /* DOES CALLOUT */
+void CFRunLoopAddSource(CFRunLoopRef rl,
+                        CFRunLoopSourceRef rls,
+                        CFStringRef modeName) {    /* DOES CALLOUT */
     CHECK_FOR_FORK();
     if (__CFRunLoopIsDeallocating(rl)) return;
     if (!__CFIsValid(rls)) return;
     Boolean doVer0Callout = false;
     __CFRunLoopLock(rl);
+    
     if (modeName == kCFRunLoopCommonModes) {
         CFSetRef set = rl->_commonModes ? CFSetCreateCopy(kCFAllocatorSystemDefault, rl->_commonModes) : NULL;
         if (NULL == rl->_commonModeItems) {
@@ -49,11 +52,14 @@ void CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef rls, CFStringRef mod
     } else {
         CFRunLoopModeRef rlm = __CFRunLoopFindMode(rl, modeName, true);
         if (NULL != rlm && NULL == rlm->_sources0) {
-            rlm->_sources0 = CFSetCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeSetCallBacks);
-            rlm->_sources1 = CFSetCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeSetCallBacks);
+            rlm->_sources0 = CFSetCreateMutable(kCFAllocatorSystemDefault,
+                                                0, &kCFTypeSetCallBacks);
+            rlm->_sources1 = CFSetCreateMutable(kCFAllocatorSystemDefault,
+                                                0, &kCFTypeSetCallBacks);
             rlm->_portToV1SourceMap = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, NULL);
         }
         if (NULL != rlm && !CFSetContainsValue(rlm->_sources0, rls) && !CFSetContainsValue(rlm->_sources1, rls)) {
+            
             if (0 == rls->_context.version0.version) {
                 CFSetAddValue(rlm->_sources0, rls);
             } else if (1 == rls->_context.version0.version) {
@@ -64,6 +70,7 @@ void CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef rls, CFStringRef mod
                     __CFPortSetInsert(src_port, rlm->_portSet);
                 }
             }
+            
             __CFRunLoopSourceLock(rls);
             if (NULL == rls->_runLoops) {
                 rls->_runLoops = CFBagCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeBagCallBacks); // sources retain run loops!

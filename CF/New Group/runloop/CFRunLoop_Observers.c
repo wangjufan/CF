@@ -22,18 +22,27 @@ Boolean CFRunLoopContainsObserver(CFRunLoopRef rl, CFRunLoopObserverRef rlo, CFS
     return hasValue;
 }
 
-void CFRunLoopAddObserver(CFRunLoopRef rl, CFRunLoopObserverRef rlo, CFStringRef modeName) {
+void CFRunLoopAddObserver(CFRunLoopRef rl,
+                          CFRunLoopObserverRef rlo,
+                          CFStringRef modeName) {
+    
     CHECK_FOR_FORK();
     CFRunLoopModeRef rlm;
     if (__CFRunLoopIsDeallocating(rl)) return;
     if (!__CFIsValid(rlo) || (NULL != rlo->_runLoop && rlo->_runLoop != rl)) return;
+    
     __CFRunLoopLock(rl);
+    
     if (modeName == kCFRunLoopCommonModes) {
+        
         CFSetRef set = rl->_commonModes ? CFSetCreateCopy(kCFAllocatorSystemDefault, rl->_commonModes) : NULL;
+        
         if (NULL == rl->_commonModeItems) {
-            rl->_commonModeItems = CFSetCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeSetCallBacks);
+            rl->_commonModeItems = CFSetCreateMutable(kCFAllocatorSystemDefault,
+                                                      0, &kCFTypeSetCallBacks);
         }
-        CFSetAddValue(rl->_commonModeItems, rlo);
+        
+        CFSetAddValue(rl->_commonModeItems, rlo);///just add
         if (NULL != set) {
             CFTypeRef context[2] = {rl, rlo};
             /* add new item to all common-modes */
@@ -42,14 +51,22 @@ void CFRunLoopAddObserver(CFRunLoopRef rl, CFRunLoopObserverRef rlo, CFStringRef
         }
     } else {
         rlm = __CFRunLoopFindMode(rl, modeName, true);
-        if (NULL != rlm && NULL == rlm->_observers) {
-            rlm->_observers = CFArrayCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeArrayCallBacks);
+        if (NULL != rlm && NULL == rlm->_observers)
+        {
+            rlm->_observers = CFArrayCreateMutable(kCFAllocatorSystemDefault,
+                                                   0, &kCFTypeArrayCallBacks);
         }
-        if (NULL != rlm && !CFArrayContainsValue(rlm->_observers, CFRangeMake(0, CFArrayGetCount(rlm->_observers)), rlo)) {
+        if (NULL != rlm
+            && !CFArrayContainsValue(
+                        rlm->_observers,
+                        CFRangeMake(0, CFArrayGetCount(rlm->_observers)),
+                        rlo))
+        {
             Boolean inserted = false;
-            for (CFIndex idx = CFArrayGetCount(rlm->_observers); idx--; ) {
+            for (CFIndex idx = CFArrayGetCount(rlm->_observers); idx--; )
+            {
                 CFRunLoopObserverRef obs = (CFRunLoopObserverRef)CFArrayGetValueAtIndex(rlm->_observers, idx);
-                if (obs->_order <= rlo->_order) {
+                if (obs->_order <= rlo->_order) {// 1 2 3 ...递增插入
                     CFArrayInsertValueAtIndex(rlm->_observers, idx + 1, rlo);
                     inserted = true;
                     break;
@@ -152,7 +169,12 @@ CFTypeID CFRunLoopObserverGetTypeID(void) {
     return __kCFRunLoopObserverTypeID;
 }
 
-CFRunLoopObserverRef CFRunLoopObserverCreate(CFAllocatorRef allocator, CFOptionFlags activities, Boolean repeats, CFIndex order, CFRunLoopObserverCallBack callout, CFRunLoopObserverContext *context) {
+CFRunLoopObserverRef CFRunLoopObserverCreate(CFAllocatorRef allocator,
+                                             CFOptionFlags activities,
+                                             Boolean repeats,
+                                             CFIndex order,
+                                             CFRunLoopObserverCallBack callout,
+                                             CFRunLoopObserverContext *context) {
     CHECK_FOR_FORK();
     CFRunLoopObserverRef memory;
     UInt32 size;

@@ -11,6 +11,13 @@
 
 #include <stdio.h>
 
+//定时器-观察者-处理源0-是否有源1，有处理事件；没有更新费Mach计时器，，去处理事件
+//{{普通timer（循环内设置）-Mach timer（系统设置）->main queue （循环内设置）->mach 1 （默认事件）->} -> blocks }
+/*
+ 系统如何 激发MACH计时器的？
+ 
+ */
+
 static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInterval seconds, Boolean stopAfterHandle, CFRunLoopModeRef previousMode) __attribute__((noinline));
 
 CF_EXPORT void CFRunLoopRun(void);

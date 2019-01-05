@@ -39,28 +39,33 @@ struct __CFRunLoopMode {
     pthread_mutex_t _lock;    /* must have the run loop locked before locking this */
     CFStringRef _name;
     Boolean _stopped;
+    
     char _padding[3];
     CFMutableSetRef _sources0;
     CFMutableSetRef _sources1;
     CFMutableArrayRef _observers;
     CFMutableArrayRef _timers;
+    
     CFMutableDictionaryRef _portToV1SourceMap;
     __CFPortSet _portSet;
     CFIndex _observerMask;
+    
 #if USE_DISPATCH_SOURCE_FOR_TIMERS
     dispatch_source_t _timerSource;
     dispatch_queue_t _queue;
     Boolean _timerFired; // set to true by the source when a timer has fired
     Boolean _dispatchTimerArmed;
 #endif
+    
 #if USE_MK_TIMER_TOO
     mach_port_t _timerPort;
     Boolean _mkTimerArmed;
 #endif
-#if DEPLOYMENT_TARGET_WINDOWS
-    DWORD _msgQMask;
-    void (*_msgPump)(void);
-#endif
+    
+//#if DEPLOYMENT_TARGET_WINDOWS
+//    DWORD _msgQMask;
+//    void (*_msgPump)(void);
+//#endif
     uint64_t _timerSoftDeadline; /* TSR */
     uint64_t _timerHardDeadline; /* TSR */
 };
