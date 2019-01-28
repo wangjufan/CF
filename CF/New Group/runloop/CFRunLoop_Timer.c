@@ -1,28 +1,5 @@
 #include "CFRunLoop_Timer.h"
 
-Boolean CFRunLoopContainsTimer(CFRunLoopRef rl, CFRunLoopTimerRef rlt, CFStringRef modeName) {
-    CHECK_FOR_FORK();
-    if (NULL == rlt->_runLoop || rl != rlt->_runLoop) return false;
-    Boolean hasValue = false;
-    __CFRunLoopLock(rl);
-    if (modeName == kCFRunLoopCommonModes) {
-        if (NULL != rl->_commonModeItems) {
-            hasValue = CFSetContainsValue(rl->_commonModeItems, rlt);
-        }
-    } else {
-        CFRunLoopModeRef rlm = __CFRunLoopFindMode(rl, modeName, false);
-        if (NULL != rlm) {
-            if (NULL != rlm->_timers) {
-                CFIndex idx = CFArrayGetFirstIndexOfValue(rlm->_timers, CFRangeMake(0, CFArrayGetCount(rlm->_timers)), rlt);
-                hasValue = (kCFNotFound != idx);
-            }
-            __CFRunLoopModeUnlock(rlm);
-        }
-    }
-    __CFRunLoopUnlock(rl);
-    return hasValue;
-}
-
 ////////////////
 
 #pragma mark -
@@ -91,295 +68,62 @@ CFTypeID CFRunLoopTimerGetTypeID(void) {
     return __kCFRunLoopTimerTypeID;
 }
 
-CFRunLoopTimerRef CFRunLoopTimerCreate(CFAllocatorRef allocator,
-                                CFAbsoluteTime fireDate,
-                                CFTimeInterval interval,
-                                CFOptionFlags flags,
-                                CFIndex order,
-                                CFRunLoopTimerCallBack callout,
-                                CFRunLoopTimerContext *context) {
-    CHECK_FOR_FORK();
-    if (isnan(interval)) {
-        CRSetCrashLogMessage("NaN was used as an interval for a CFRunLoopTimer");
-        HALT;
-    }
-    CFRunLoopTimerRef memory;
-    UInt32 size;
-    size = sizeof(struct __CFRunLoopTimer) - sizeof(CFRuntimeBase);
-    memory = (CFRunLoopTimerRef)_CFRuntimeCreateInstance(allocator, CFRunLoopTimerGetTypeID(), size, NULL);
-    if (NULL == memory) {
-        return NULL;
-    }
-    __CFSetValid(memory);
-    __CFRunLoopTimerUnsetFiring(memory);
-    __CFRunLoopLockInit(&memory->_lock);
-    memory->_runLoop = NULL;
-    memory->_rlModes = CFSetCreateMutable(kCFAllocatorSystemDefault, 0, &kCFTypeSetCallBacks);
-    memory->_order = order;
-    if (interval < 0.0) interval = 0.0;
-    memory->_interval = interval;
-    memory->_tolerance = 0.0;
-    if (TIMER_DATE_LIMIT < fireDate) fireDate = TIMER_DATE_LIMIT;
-    memory->_nextFireDate = fireDate;
-    memory->_fireTSR = 0ULL;
-    uint64_t now2 = mach_absolute_time();
-    CFAbsoluteTime now1 = CFAbsoluteTimeGetCurrent();
-    if (fireDate < now1) {
-        memory->_fireTSR = now2;
-    } else if (TIMER_INTERVAL_LIMIT < fireDate - now1) {
-        memory->_fireTSR = now2 + __CFTimeIntervalToTSR(TIMER_INTERVAL_LIMIT);
-    } else {
-        memory->_fireTSR = now2 + __CFTimeIntervalToTSR(fireDate - now1);
-    }
-    memory->_callout = callout;
-    if (NULL != context) {
-        if (context->retain) {
-            memory->_context.info = (void *)context->retain(context->info);
-        } else {
-            memory->_context.info = context->info;
-        }
-        memory->_context.retain = context->retain;
-        memory->_context.release = context->release;
-        memory->_context.copyDescription = context->copyDescription;
-    } else {
-        memory->_context.info = 0;
-        memory->_context.retain = 0;
-        memory->_context.release = 0;
-        memory->_context.copyDescription = 0;
-    }
-    return memory;
+
+/* Bit 0 of the base reserved bits is used for firing state */
+/* Bit 1 of the base reserved bits is used for fired-during-callout state */
+/* Bit 2 of the base reserved bits is used for waking state */
+
+CF_INLINE Boolean __CFRunLoopTimerIsFiring(CFRunLoopTimerRef rlt) {
+    return (Boolean)__CFBitfieldGetValue(rlt->_bits, 0, 0);
 }
 
-static void _runLoopTimerWithBlockContext(CFRunLoopTimerRef timer, void *opaqueBlock) {
-    typedef void (^timer_block_t) (CFRunLoopTimerRef timer);
-    timer_block_t block = (timer_block_t)opaqueBlock;
-    block(timer);
+CF_INLINE void __CFRunLoopTimerSetFiring(CFRunLoopTimerRef rlt) {
+    __CFBitfieldSetValue(rlt->_bits, 0, 0, 1);
 }
 
-CFRunLoopTimerRef CFRunLoopTimerCreateWithHandler(CFAllocatorRef allocator, CFAbsoluteTime fireDate, CFTimeInterval interval, CFOptionFlags flags, CFIndex order,
-                                                  void (^block) (CFRunLoopTimerRef timer)) {
-    
-    CFRunLoopTimerContext blockContext;
-    blockContext.version = 0;
-    blockContext.info = (void *)block;
-    blockContext.retain = (const void *(*)(const void *info))_Block_copy;
-    blockContext.release = (void (*)(const void *info))_Block_release;
-    blockContext.copyDescription = NULL;
-    return CFRunLoopTimerCreate(allocator, fireDate, interval, flags, order, _runLoopTimerWithBlockContext, &blockContext);
+CF_INLINE void __CFRunLoopTimerUnsetFiring(CFRunLoopTimerRef rlt) {
+    __CFBitfieldSetValue(rlt->_bits, 0, 0, 0);
 }
 
-CFAbsoluteTime CFRunLoopTimerGetNextFireDate(CFRunLoopTimerRef rlt) {
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), CFAbsoluteTime, (NSTimer *)rlt, _cffireTime);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    CFAbsoluteTime at = 0.0;
-    __CFRunLoopTimerLock(rlt);
-    __CFRunLoopTimerFireTSRLock();
-    if (__CFIsValid(rlt)) {
-        at = rlt->_nextFireDate;
-    }
-    __CFRunLoopTimerFireTSRUnlock();
-    __CFRunLoopTimerUnlock(rlt);
-    return at;
+CF_INLINE Boolean __CFRunLoopTimerIsDeallocating(CFRunLoopTimerRef rlt) {
+    return (Boolean)__CFBitfieldGetValue(rlt->_bits, 2, 2);
 }
 
-void CFRunLoopTimerSetNextFireDate(CFRunLoopTimerRef rlt, CFAbsoluteTime fireDate) {
-    CHECK_FOR_FORK();
-    if (!__CFIsValid(rlt)) return;
-    if (TIMER_DATE_LIMIT < fireDate) fireDate = TIMER_DATE_LIMIT;
-    uint64_t nextFireTSR = 0ULL;
-    uint64_t now2 = mach_absolute_time();
-    CFAbsoluteTime now1 = CFAbsoluteTimeGetCurrent();
-    if (fireDate < now1) {
-        nextFireTSR = now2;
-    } else if (TIMER_INTERVAL_LIMIT < fireDate - now1) {
-        nextFireTSR = now2 + __CFTimeIntervalToTSR(TIMER_INTERVAL_LIMIT);
-    } else {
-        nextFireTSR = now2 + __CFTimeIntervalToTSR(fireDate - now1);
-    }
-    __CFRunLoopTimerLock(rlt);
-    if (NULL != rlt->_runLoop) {
-        CFIndex cnt = CFSetGetCount(rlt->_rlModes);
-        STACK_BUFFER_DECL(CFTypeRef, modes, cnt);
-        CFSetGetValues(rlt->_rlModes, (const void **)modes);
-        // To avoid A->B, B->A lock ordering issues when coming up
-        // towards the run loop from a source, the timer has to be
-        // unlocked, which means we have to protect from object
-        // invalidation, although that's somewhat expensive.
-        for (CFIndex idx = 0; idx < cnt; idx++) {
-            CFRetain(modes[idx]);
-        }
-        CFRunLoopRef rl = (CFRunLoopRef)CFRetain(rlt->_runLoop);
-        __CFRunLoopTimerUnlock(rlt);
-        __CFRunLoopLock(rl);
-        for (CFIndex idx = 0; idx < cnt; idx++) {
-            CFStringRef name = (CFStringRef)modes[idx];
-            modes[idx] = __CFRunLoopFindMode(rl, name, false);
-            CFRelease(name);
-        }
-        __CFRunLoopTimerFireTSRLock();
-        rlt->_fireTSR = nextFireTSR;
-        rlt->_nextFireDate = fireDate;
-        for (CFIndex idx = 0; idx < cnt; idx++) {
-            CFRunLoopModeRef rlm = (CFRunLoopModeRef)modes[idx];
-            if (rlm) {
-                __CFRepositionTimerInMode(rlm, rlt, true);
-            }
-        }
-        __CFRunLoopTimerFireTSRUnlock();
-        for (CFIndex idx = 0; idx < cnt; idx++) {
-            __CFRunLoopModeUnlock((CFRunLoopModeRef)modes[idx]);
-        }
-        __CFRunLoopUnlock(rl);
-        // This is setting the date of a timer, not a direct
-        // interaction with a run loop, so we'll do a wakeup
-        // (which may be costly) for the caller, just in case.
-        // (And useful for binary compatibility with older
-        // code used to the older timer implementation.)
-        if (rl != CFRunLoopGetCurrent()) CFRunLoopWakeUp(rl);
-        CFRelease(rl);
-    } else {
-        __CFRunLoopTimerFireTSRLock();
-        rlt->_fireTSR = nextFireTSR;
-        rlt->_nextFireDate = fireDate;
-        __CFRunLoopTimerFireTSRUnlock();
-        __CFRunLoopTimerUnlock(rlt);
-    }
+CF_INLINE void __CFRunLoopTimerSetDeallocating(CFRunLoopTimerRef rlt) {
+    __CFBitfieldSetValue(rlt->_bits, 2, 2, 1);
 }
 
-CFTimeInterval CFRunLoopTimerGetInterval(CFRunLoopTimerRef rlt) {
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), CFTimeInterval, (NSTimer *)rlt, timeInterval);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    return rlt->_interval;
+CF_INLINE void __CFRunLoopTimerLock(CFRunLoopTimerRef rlt) {
+    pthread_mutex_lock(&(rlt->_lock));
+    //    CFLog(6, CFSTR("__CFRunLoopTimerLock locked %p"), rlt);
 }
 
-Boolean CFRunLoopTimerDoesRepeat(CFRunLoopTimerRef rlt) {
-    CHECK_FOR_FORK();
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    return (0.0 < rlt->_interval);
+CF_INLINE void __CFRunLoopTimerUnlock(CFRunLoopTimerRef rlt) {
+    //    CFLog(6, CFSTR("__CFRunLoopTimerLock unlocking %p"), rlt);
+    pthread_mutex_unlock(&(rlt->_lock));
 }
 
-CFIndex CFRunLoopTimerGetOrder(CFRunLoopTimerRef rlt) {
-    CHECK_FOR_FORK();
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    return rlt->_order;
+static CFLock_t __CFRLTFireTSRLock = CFLockInit;
+//#define CFLockInit ((pthread_mutex_t)PTHREAD_ERRORCHECK_MUTEX_INITIALIZER)
+CF_INLINE void __CFRunLoopTimerFireTSRLock(void) {
+    __CFLock(&__CFRLTFireTSRLock);
+}
+CF_INLINE void __CFRunLoopTimerFireTSRUnlock(void) {
+    __CFUnlock(&__CFRLTFireTSRLock);
 }
 
-void CFRunLoopTimerInvalidate(CFRunLoopTimerRef rlt) {    /* DOES CALLOUT */
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), void, (NSTimer *)rlt, invalidate);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    __CFRunLoopTimerLock(rlt);
-    if (!__CFRunLoopTimerIsDeallocating(rlt)) {
-        CFRetain(rlt);
-    }
-    if (__CFIsValid(rlt)) {
-        CFRunLoopRef rl = rlt->_runLoop;
-        void *info = rlt->_context.info;
-        rlt->_context.info = NULL;
-        __CFUnsetValid(rlt);
-        if (NULL != rl) {
-            CFIndex cnt = CFSetGetCount(rlt->_rlModes);
-            STACK_BUFFER_DECL(CFStringRef, modes, cnt);
-            CFSetGetValues(rlt->_rlModes, (const void **)modes);
-            // To avoid A->B, B->A lock ordering issues when coming up
-            // towards the run loop from a source, the timer has to be
-            // unlocked, which means we have to protect from object
-            // invalidation, although that's somewhat expensive.
-            for (CFIndex idx = 0; idx < cnt; idx++) {
-                CFRetain(modes[idx]);
-            }
-            CFRetain(rl);
-            __CFRunLoopTimerUnlock(rlt);
-            // CFRunLoopRemoveTimer will lock the run loop while it
-            // needs that, but we also lock it out here to keep
-            // changes from occurring for this whole sequence.
-            __CFRunLoopLock(rl);
-            for (CFIndex idx = 0; idx < cnt; idx++) {
-                CFRunLoopRemoveTimer(rl, rlt, modes[idx]);
-            }
-            CFRunLoopRemoveTimer(rl, rlt, kCFRunLoopCommonModes);
-            __CFRunLoopUnlock(rl);
-            for (CFIndex idx = 0; idx < cnt; idx++) {
-                CFRelease(modes[idx]);
-            }
-            CFRelease(rl);
-            __CFRunLoopTimerLock(rlt);
-        }
-        if (NULL != rlt->_context.release) {
-            rlt->_context.release(info);    /* CALLOUT */
-        }
-    }
-    __CFRunLoopTimerUnlock(rlt);
-    if (!__CFRunLoopTimerIsDeallocating(rlt)) {
-        CFRelease(rlt);
-    }
+
+static void __CFRunLoopTimeoutCancel(void *arg) {
+    struct __timeout_context *context = (struct __timeout_context *)arg;
+    CFRelease(context->rl);
+    dispatch_release(context->ds);
+    free(context);
 }
-
-Boolean CFRunLoopTimerIsValid(CFRunLoopTimerRef rlt) {
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), Boolean, (NSTimer *)rlt, isValid);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    return __CFIsValid(rlt);
-}
-
-void CFRunLoopTimerGetContext(CFRunLoopTimerRef rlt, CFRunLoopTimerContext *context) {
-    CHECK_FOR_FORK();
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    CFAssert1(0 == context->version, __kCFLogAssertion, "%s(): context version not initialized to 0", __PRETTY_FUNCTION__);
-    *context = rlt->_context;
-}
-
-CFTimeInterval CFRunLoopTimerGetTolerance(CFRunLoopTimerRef rlt) {
-#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), CFTimeInterval, (NSTimer *)rlt, tolerance);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    return rlt->_tolerance;
-#else
-    return 0.0;
-#endif
-}
-
-void CFRunLoopTimerSetTolerance(CFRunLoopTimerRef rlt,
-                                CFTimeInterval tolerance) {
-#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
-    CHECK_FOR_FORK();
-    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), void, (NSTimer *)rlt, setTolerance:tolerance);
-    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
-    /*
-     * dispatch rules:
-     *
-     * For the initial timer fire at 'start', the upper limit to the allowable
-     * delay is set to 'leeway' nanoseconds. For the subsequent timer fires at
-     * 'start' + N * 'interval', the upper limit is MIN('leeway','interval'/2).
-     */
-    if (rlt->_interval > 0) {
-        rlt->_tolerance = MIN(tolerance, rlt->_interval / 2);
-    } else {
-        // Tolerance must be a positive value or zero
-        if (tolerance < 0) tolerance = 0.0;
-        rlt->_tolerance = tolerance;
-    }
-#endif
-}
-
-////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////
-
-CFAbsoluteTime CFRunLoopGetNextTimerFireDate(CFRunLoopRef rl,
-                                             CFStringRef modeName) {
-    CHECK_FOR_FORK();
-    __CFRunLoopLock(rl);
-    CFRunLoopModeRef rlm = __CFRunLoopFindMode(rl, modeName, false);
-    CFAbsoluteTime at = 0.0;
-    CFRunLoopTimerRef nextTimer = (rlm && rlm->_timers && 0 < CFArrayGetCount(rlm->_timers)) ? (CFRunLoopTimerRef)CFArrayGetValueAtIndex(rlm->_timers, 0) : NULL;
-    if (nextTimer) {
-        at = CFRunLoopTimerGetNextFireDate(nextTimer);
-    }
-    if (rlm) __CFRunLoopModeUnlock(rlm);
-    __CFRunLoopUnlock(rl);
-    return at;
+static void __CFRunLoopTimeout(void *arg) {
+    struct __timeout_context *context = (struct __timeout_context *)arg;
+    context->termTSR = 0ULL;
+    CFRUNLOOP_WAKEUP_FOR_TIMEOUT();
+    CFRunLoopWakeUp(context->rl);
+    // The interval is DISPATCH_TIME_FOREVER, so this won't fire again
 }
 

@@ -107,63 +107,66 @@ static void __CFArmNextTimerInMode(CFRunLoopModeRef rlm, CFRunLoopRef rl) {
     rlm->_timerSoftDeadline = nextSoftDeadline;
 }
 
-
-// call with rlm and its run loop locked, and the TSRLock locked; rlt not locked; returns with same state
-static void __CFRepositionTimerInMode(CFRunLoopModeRef rlm, CFRunLoopTimerRef rlt, Boolean isInArray) {
-    if (!rlt) return;
-    
-    CFMutableArrayRef timerArray = rlm->_timers;
-    if (!timerArray) return;
-    Boolean found = false;
-    
-    // If we know in advance that the timer is not in the array (just being added now) then we can skip this search
-    if (isInArray) {
-        CFIndex idx = CFArrayGetFirstIndexOfValue(timerArray, CFRangeMake(0, CFArrayGetCount(timerArray)), rlt);
-        if (kCFNotFound != idx) {
-            CFRetain(rlt);
-            CFArrayRemoveValueAtIndex(timerArray, idx);
-            found = true;
-        }
-    }
-    if (!found && isInArray) return;
-    CFIndex newIdx = __CFRunLoopInsertionIndexInTimerArray(timerArray, rlt);
-    CFArrayInsertValueAtIndex(timerArray, newIdx, rlt);
-    __CFArmNextTimerInMode(rlm, rlt->_runLoop);
-    if (isInArray) CFRelease(rlt);
+void CFRunLoopTimerGetContext(CFRunLoopTimerRef rlt, CFRunLoopTimerContext *context) {
+    CHECK_FOR_FORK();
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    CFAssert1(0 == context->version, __kCFLogAssertion, "%s(): context version not initialized to 0", __PRETTY_FUNCTION__);
+    *context = rlt->_context;
 }
 
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 
-static CFIndex __CFRunLoopInsertionIndexInTimerArray(CFArrayRef array, CFRunLoopTimerRef rlt) {
-    CFIndex cnt = CFArrayGetCount(array);
-    if (cnt <= 0) {
-        return 0;
+CFTimeInterval CFRunLoopTimerGetInterval(CFRunLoopTimerRef rlt) {
+    CHECK_FOR_FORK();
+    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), CFTimeInterval, (NSTimer *)rlt, timeInterval);
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    return rlt->_interval;
+}
+
+Boolean CFRunLoopTimerDoesRepeat(CFRunLoopTimerRef rlt) {
+    CHECK_FOR_FORK();
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    return (0.0 < rlt->_interval);
+}
+
+CFIndex CFRunLoopTimerGetOrder(CFRunLoopTimerRef rlt) {
+    CHECK_FOR_FORK();
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    return rlt->_order;
+}
+////////////////////////////////////////////////////////
+
+CFTimeInterval CFRunLoopTimerGetTolerance(CFRunLoopTimerRef rlt) {
+#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
+    CHECK_FOR_FORK();
+    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), CFTimeInterval, (NSTimer *)rlt, tolerance);
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    return rlt->_tolerance;
+#else
+    return 0.0;
+#endif
+}
+
+void CFRunLoopTimerSetTolerance(CFRunLoopTimerRef rlt,
+                                CFTimeInterval tolerance) {
+#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
+    CHECK_FOR_FORK();
+    CF_OBJC_FUNCDISPATCHV(CFRunLoopTimerGetTypeID(), void, (NSTimer *)rlt, setTolerance:tolerance);
+    __CFGenericValidateType(rlt, CFRunLoopTimerGetTypeID());
+    /*
+     * dispatch rules:
+     *
+     * For the initial timer fire at 'start', the upper limit to the allowable
+     * delay is set to 'leeway' nanoseconds. For the subsequent timer fires at
+     * 'start' + N * 'interval', the upper limit is MIN('leeway','interval'/2).
+     */
+    if (rlt->_interval > 0) {
+        rlt->_tolerance = MIN(tolerance, rlt->_interval / 2);
+    } else {
+        // Tolerance must be a positive value or zero
+        if (tolerance < 0) tolerance = 0.0;
+        rlt->_tolerance = tolerance;
     }
-    if (256 < cnt) {
-        CFRunLoopTimerRef item = (CFRunLoopTimerRef)CFArrayGetValueAtIndex(array, cnt - 1);
-        if (item->_fireTSR <= rlt->_fireTSR) {
-            return cnt;
-        }
-        item = (CFRunLoopTimerRef)CFArrayGetValueAtIndex(array, 0);
-        if (rlt->_fireTSR < item->_fireTSR) {
-            return 0;
-        }
-    }
-    
-    CFIndex add = (1 << flsl(cnt)) * 2;
-    CFIndex idx = 0;
-    Boolean lastTestLEQ;
-    do {
-        add = add / 2;
-        lastTestLEQ = false;
-        CFIndex testIdx = idx + add;
-        if (testIdx < cnt) {
-            CFRunLoopTimerRef item = (CFRunLoopTimerRef)CFArrayGetValueAtIndex(array, testIdx);
-            if (item->_fireTSR <= rlt->_fireTSR) {
-                idx = testIdx;
-                lastTestLEQ = true;
-            }
-        }
-    } while (0 < add);
-    
-    return lastTestLEQ ? idx + 1 : idx;
+#endif
 }
