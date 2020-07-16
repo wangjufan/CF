@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CALayer: CATransaction in Depth</title>
+  <meta name="description" content="CATransaction is a class that is often overlooked by many iOS developers despite offering many useful functions for controlling and responding to animations....">
+
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.calayer.com/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://www.calayer.com/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.calayer.com/favicon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="https://www.calayer.com/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://www.calayer.com/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.calayer.com/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.calayer.com/favicon/favicon-128.png" sizes="128x128">
+  <meta name="application-name" content="CALayer">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+  <meta name="msapplication-square70x70logo" content="/favicon/mstile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="/favicon/mstile-150x150.png">
+
+  <link rel="stylesheet" href="./CALayer_ CATransaction in Depth_files/stylesheet.css" type="text/css" charset="utf-8">
+
+  <link rel="stylesheet" href="./CALayer_ CATransaction in Depth_files/main.css">
+  <link rel="canonical" href="https://calayer.com/core-animation/2016/05/17/catransaction-in-depth.html">
+  <link rel="alternate" type="application/rss+xml" title="CALayer" href="https://calayer.com/feed.xml">
+
+  <script type="text/javascript" async="" src="./CALayer_ CATransaction in Depth_files/analytics.js"></script><script src="./CALayer_ CATransaction in Depth_files/anime.min.js"></script>
+
+  
+  <script async="" src="./CALayer_ CATransaction in Depth_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111617497-1');
+  </script>
+
+
+<script src="https://calayer.disqus.com/embed.js" data-timestamp="1588401206147"></script></head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-title-wrapper">
+      <a class="site-title" href="https://www.calayer.com/">CALayer</a>
+    </div>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">CATransaction in Depth</h1>
+    <p class="post-meta"><time datetime="2016-05-17T14:35:24-07:00" itemprop="datePublished">May 17, 2016</time> • <span itemprop="category" itemscope="" itemtype="http://schema.org/Category"><span itemprop="name">Core Animation</span></span></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CATransaction_class/"><code class="highlighter-rouge">CATransaction</code></a> is a class that is often overlooked by many iOS developers despite offering many useful functions for controlling and responding to animations. The documentation explains things fairly well, but this post’s goal is to explore <code class="highlighter-rouge">CATransaction</code> in depth.</p>
+
+<!--more-->
+
+<ul id="markdown-toc">
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#what-transactions-are" id="markdown-toc-what-transactions-are">What Transactions Are</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#changing-animation-duration" id="markdown-toc-changing-animation-duration">Changing Animation Duration</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#changing-animation-timing-function" id="markdown-toc-changing-animation-timing-function">Changing Animation Timing Function</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#preventing-animations-from-occurring" id="markdown-toc-preventing-animations-from-occurring">Preventing Animations from Occurring</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#getting-notified-when-animations-finish" id="markdown-toc-getting-notified-when-animations-finish">Getting Notified When Animations Finish</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#working-with-locks" id="markdown-toc-working-with-locks">Working with Locks</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#nesting-transactions" id="markdown-toc-nesting-transactions">Nesting Transactions</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#flushing-transactions" id="markdown-toc-flushing-transactions">Flushing Transactions</a></li>
+  <li><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#summary" id="markdown-toc-summary">Summary</a></li>
+</ul>
+
+<h1 id="what-transactions-are">What Transactions Are</h1>
+
+<p>In Core Animation, transactions are a way to group multiple animation-related changes together. Transactions ensure that the desired animation changes are committed to Core Animation at the same time:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+
+<span class="n">backingLayer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">backingLayer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>
+<span class="n">backingLayer3</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">cgColor</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Creating a transaction</figcaption>
+</figure>
+
+<p>In the trivial example above, no animations will actually occur. The changes made to layers in this way will be reflected immediately.</p>
+
+<p>As the documentation explains, Core Animation has two types of transactions: implicit and explicit. On threads with a run loop (e.g., the main thread), all changes to a layer tree during a run loop cycle will be implicitly placed in a transaction as long as an explicit transaction isn’t already specified. Note that an implicit transaction is <strong>not</strong> created for changes to backing layers.<sup id="fnref:1"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:1" class="footnote">1</a></sup></p>
+
+<p>For standalone layers, explicit transactions aren’t needed to make animated changes:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">layer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">layer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>
+<span class="n">layer3</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">cgColor</span>
+</code></pre></div>  </div>
+  <figcaption>Implicit transaction involving standalone layers</figcaption>
+</figure>
+
+<p>At the beginning of the run loop cycle before that code is executed, Core Animation will have created a transaction implicitly. After running that code, those standalone layer changes will automatically be encoded as animations. At the end of the run loop cycle, Core Animation commits the implicit transaction, and any enqueued animations created within that time are executed.</p>
+
+<p>So now that we know how to create transactions, what can they actually do for us?</p>
+
+<h1 id="changing-animation-duration">Changing Animation Duration</h1>
+
+<p>Transactions can be used to change the animation duration of every animation involved with that transaction:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">layer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>	<span class="c1">// Default, implicit animation duration</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setAnimationDuration</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">layer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>             <span class="c1">// Duration: 2.0</span>
+<span class="n">layer3</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">cgColor</span>     <span class="c1">// Duration: 2.0</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Changing animation duration using transactions</figcaption>
+</figure>
+
+<p><code class="highlighter-rouge">layer1</code>’s opacity change will occur with whatever the implicit transaction’s animation duration is. <code class="highlighter-rouge">layer2</code>’s and <code class="highlighter-rouge">layer3</code>’s respective property changes will occur over the course of 2 seconds, thereby overriding the default implicit animation duration.</p>
+
+<h1 id="changing-animation-timing-function">Changing Animation Timing Function</h1>
+
+<p>Transactions can be used to change the animation timing function of every animation involved with that transaction:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">layer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>    <span class="c1">// Uses kCAMediaTimingFunctionDefault</span>
+
+<span class="k">let</span> <span class="nv">timingFunction</span> <span class="o">=</span> <span class="kt">CAMediaTimingFunction</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="n">kCAMediaTimingFunctionLinear</span><span class="p">)</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setAnimationTimingFunction</span><span class="p">(</span><span class="n">timingFunction</span><span class="p">)</span>
+
+<span class="n">layer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>
+<span class="n">layer3</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">cgColor</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Changing animation timing function using transactions</figcaption>
+</figure>
+
+<p><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CAMediaTimingFunction_class/"><code class="highlighter-rouge">CAMediaTimingFunction</code></a> allows you to specify a cubic Bézier timing function to apply to your animations. You are probably familiar with the standard timing functions used by UIKit, like ease in, ease out, and ease in-ease out. Core Animation supports these same functions via the <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CAMediaTimingFunction_class/#//apple_ref/doc/constant_group/Predefined_Timing_Functions">named media timing function constants</a>.</p>
+
+<figure>
+<svg height="200" width="200" style="display: block; margin: auto;">
+  <path d="M 2 198 C 113.68 196 82.32 2 196 2" stroke="#d225af" stroke-width="2" fill="none"></path>
+</svg>
+<figcaption class="centered">Ease in-ease out Bézier curve</figcaption>
+</figure>
+
+<p>The power of <code class="highlighter-rouge">CAMediaTimingFunction</code>, however, is that you can specify all the points involved in a cubic Bézier curve to create custom animation timing:</p>
+
+<figure>
+<svg height="200" width="200" style="display: block; margin: auto;" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <path d="M 2 198 C 0 0 148.96 52.92 196 2" stroke="#d225af" stroke-width="2" fill="none"></path>
+</svg>
+<figcaption class="centered">Custom Bézier curve</figcaption>
+</figure>
+
+<p>The curve displayed above can be represented as the following media timing function:<sup id="fnref:2"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:2" class="footnote">2</a></sup></p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timingFunction</span> <span class="o">=</span> <span class="kt">CAMediaTimingFunction</span><span class="p">(</span><span class="nv">controlPoints</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">)</span>
+</code></pre></div>  </div>
+</figure>
+
+<p>One of the most useful ways to apply this type of transaction is to a <code class="highlighter-rouge">UIView</code>-style animation function:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timingFunction</span> <span class="o">=</span> <span class="kt">CAMediaTimingFunction</span><span class="p">(</span><span class="nv">controlPoints</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">)</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setAnimationTimingFunction</span><span class="p">(</span><span class="n">timingFunction</span><span class="p">)</span>
+
+<span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">view1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">})</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Overriding UIView's animation timing function</figcaption>
+</figure>
+
+<p><code class="highlighter-rouge">UIView</code>-style animation functions support the standard timing functions, but they don’t allow you to specify your own cubic Bézier curve. <code class="highlighter-rouge">CATransaction</code> can be used instead to force these animations to use the supplied <code class="highlighter-rouge">CAMediaTimingFunction</code> to pace animations.<sup id="fnref:3"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:3" class="footnote">3</a></sup></p>
+
+<p>This is a nice way to leverage the convenience of <code class="highlighter-rouge">UIView</code>-style animation functions while still being able to somewhat customize the animation pacing.</p>
+
+<h1 id="preventing-animations-from-occurring">Preventing Animations from Occurring</h1>
+
+<p>Transactions can be used to prevent every animation involved with that transaction from occurring:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setDisableActions</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">view1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">})</span>
+
+<span class="n">layer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Preventing animations from being committed using transactions</figcaption>
+</figure>
+
+<p>Disabling actions tells Core Animation to simply skip any animated changes to layer properties, so the new values are reflected immediately.<sup id="fnref:4"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:4" class="footnote">4</a></sup></p>
+
+<p>If you recall, standalone layers placed in a layer tree that exists in a run loop-driven thread (i.e., practically every layer you create yourself) may apply implicit animations when certain properties are changed. <em>This is often a source of confusion for some developers who are working directly with layers when unintended animations occur.</em> In order to facilitate immediate changes to these layer properties,<sup id="fnref:5"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:5" class="footnote">5</a></sup> actions must be disabled in a transaction that wraps those changes.</p>
+
+<p>Again, backing layers do not need to have their actions disabled explicitly when making model layer property changes, as <code class="highlighter-rouge">UIView</code> handles enabling and disabling actions automatically<sup id="fnref:6"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:6" class="footnote">6</a></sup>, though doing so doesn’t hurt.</p>
+
+<p><code class="highlighter-rouge">UIView</code> itself has a handful of functions involved with enabling and disabling animations, such as <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/occ/clm/UIView/setAnimationsEnabled:"><code class="highlighter-rouge">
+setAnimationsEnabled(_:)</code></a> and <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/occ/clm/UIView/performWithoutAnimation:"><code class="highlighter-rouge">
+performWithoutAnimation(_:)</code></a>. However, to ensure that both <code class="highlighter-rouge">UIView</code>-style and <code class="highlighter-rouge">CALayer</code>-style animations are suppressed, you can always just use <code class="highlighter-rouge">CATransaction</code>.</p>
+
+<p>Occasionally, I find that deep within UIKit, an animation block was created that I wasn’t expecting. While certainly not an ideal solution, if you find unexpected animations are occurring when none of your code could possibly be creating animations, you can attempt to strategically use <code class="highlighter-rouge">CATransaction</code> to disable actions temporarily.</p>
+
+<h1 id="getting-notified-when-animations-finish">Getting Notified When Animations Finish</h1>
+
+<p>Transactions can be used to notify you when every animation involved with that transaction is finished:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setCompletionBlock</span><span class="p">({</span>
+    <span class="c1">// Every animation added to this transaction is now finished</span>
+<span class="p">})</span>
+
+<span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">delay</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[],</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">view1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+<span class="nf">addSeveralLayerAnimations</span><span class="p">()</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Getting notified when a transaction's animations finish</figcaption>
+</figure>
+
+<p>This is an incredibly useful capability of <code class="highlighter-rouge">CATransaction</code>, and besides disabling actions, it is by far what I personally use <code class="highlighter-rouge">CATransaction</code> for the most. Regardless of how complex the timings may be for any number of animations enqueued during the transaction, the completion block will be called only after every animation has finished. In the event that animations are canceled, the completion block will be called at that point.</p>
+
+<p>Note that you must set the completion block <strong>before</strong> creating any animations in that transaction that you want to be tracked for completion.</p>
+
+<p>Regardless of whether the animations involved are <code class="highlighter-rouge">CALayer</code> animations or <code class="highlighter-rouge">UIView</code> animations,<sup id="fnref:7"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:7" class="footnote">7</a></sup> <code class="highlighter-rouge">CATransaction</code> will capture and consider all of them to determine the last running animation for calling the completion block. Per the documentation, the completion block will always be called on the main thread.</p>
+
+<p>Another important thing to remember is that <code class="highlighter-rouge">CATransaction</code> only considers animations committed directly within the scope of that transaction’s lifecycle. This may seem obvious, but consider the following example:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setCompletionBlock</span><span class="p">({</span>
+    <span class="c1">// Every animation added to this transaction is now finished</span>
+<span class="p">})</span>
+
+<span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">delay</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[],</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">view1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span> <span class="n">finished</span> <span class="k">in</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addSeveralLayerAnimations</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Transaction completion blocks won't consider animations added later</figcaption>
+</figure>
+
+<p>In this example, the transaction’s completion block will be called immediately after the <code class="highlighter-rouge">UIView</code> animation completes. Because the animations in <code class="highlighter-rouge">addSeveralLayerAnimations()</code> are only added after the first animation finishes, they are not committed during the lifecycle of the transaction. Thus, they are not considered when determining when to call the completion block.</p>
+
+<p>In order to ensure that every animation is accounted for, use delayed animations that are committed immediately rather than waiting to commit zero-delay animations:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setCompletionBlock</span><span class="p">({</span>
+    <span class="c1">// Every animation added to this transaction is now finished</span>
+<span class="p">})</span>
+
+<span class="k">let</span> <span class="nv">animationDuration</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="k">let</span> <span class="nv">animationDelay</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="kt">UIView</span><span class="o">.</span><span class="nf">animate</span><span class="p">(</span><span class="nv">withDuration</span><span class="p">:</span> <span class="n">animationDuration</span><span class="p">,</span> <span class="nv">delay</span><span class="p">:</span> <span class="n">animationDelay</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[],</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">view1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">firstAnimationCompletionTime</span> <span class="o">=</span> <span class="n">animationDuration</span> <span class="o">+</span> <span class="n">animationDelay</span>
+
+<span class="nf">addSeveralLayerAnimations</span><span class="p">(</span><span class="nv">delay</span><span class="p">:</span> <span class="n">firstAnimationCompletionTime</span><span class="p">)</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Committing delayed animations immediately so the transaction captures them</figcaption>
+</figure>
+
+<p>If <code class="highlighter-rouge">addSeveralLayerAnimations(delay:)</code> ensures that it creates its actual animations immediately—specifying delays appropriately—, then <code class="highlighter-rouge">CATransaction</code> will wait for them to complete as well, calling the completion block only after every animation is finished running. This is likely the desired behavior in most scenarios like this.</p>
+
+<h1 id="working-with-locks">Working with Locks</h1>
+
+<p>Transactions can be used to safely modify layer properties in a concurrent environment:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">lock</span><span class="p">()</span>
+
+<span class="n">layer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">unlock</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Locking transactions for thread safety</figcaption>
+</figure>
+
+<p>Core Animation is inherently thread safe, so layer animations and changes to layer trees can occur on any thread. However, if shared layer objects are involved across multiple threads, it’s necessary to use a transaction to lock and unlock access to that data to prevent data corruption. <code class="highlighter-rouge">CATransaction</code> locks are recursive, so they’re completely safe to use multiple times in the same thread.</p>
+
+<p>In practice, using transaction locks is almost never necessary. Just keep in mind that if, for some reason, you’re passing layers around to multiple threads and modifying their properties, you should use transaction locks when doing so to ensure data validity.</p>
+
+<h1 id="nesting-transactions">Nesting Transactions</h1>
+
+<p>Transactions can be nested:</p>
+
+<figure>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setCompletionBlock</span><span class="p">({</span>
+    <span class="c1">// layer1, layer2, and layer3 animations are all finished</span>
+<span class="p">})</span>
+
+<span class="n">layer1</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+    <span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setCompletionBlock</span><span class="p">({</span>
+        <span class="c1">// layer2 and layer3 animations are all finished</span>
+    <span class="p">})</span>
+
+    <span class="n">layer2</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">)</span>
+    <span class="n">layer3</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">cgColor</span>
+
+    <span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>  </div>
+  <figcaption>Creating nested transactions</figcaption>
+</figure>
+
+<p>In the code above, the outer transaction will consider all three implicit layer animations. The inner transaction will only consider the second and third animations.</p>
+
+<p>In fact, for all iOS applications, an implicit <code class="highlighter-rouge">CATransaction</code> is created just before each run loop cycle and committed just after each run loop cycle. So every transaction that we would use in our applications will always be nested inside this run loop transaction.<sup id="fnref:8"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:8" class="footnote">8</a></sup></p>
+
+<p>There is no way for us to know if a transaction is nested within another transaction using public APIs.</p>
+
+<h1 id="flushing-transactions">Flushing Transactions</h1>
+
+<p><a href="https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CATransaction_class/#//apple_ref/occ/clm/CATransaction/flush"><code class="highlighter-rouge">CATransaction.flush()</code></a> is a mysterious function that has confusing documentation. Someone did a lot of in-depth exploration of what flushing transactions does, and rather than rehash what they discovered, you can <a href="http://optshiftk.com/2013/11/better-documentation-for-catransaction-flush/">read all about it</a> yourself. The gist is that 99.9999% of the time, you will never need to call this function in your working code.</p>
+
+<p>There is a neat trick you can use while breaking in the debugger, though. Because the render server exists outside of your application’s process, being stopped at a break point in your own code doesn’t affect Core Animation rendering at all.<sup id="fnref:9"><a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fn:9" class="footnote">9</a></sup> However, if you were to change a <code class="highlighter-rouge">UIView</code> or <code class="highlighter-rouge">CALayer</code> property while stopped in the debugger, you wouldn’t see any visual changes in your app until you resumed execution. Calling <code class="highlighter-rouge">CATransaction.flush()</code>, though, would immediately refresh the display in many cases, without requiring you to resume your application.</p>
+
+<p>Per the description, <code class="highlighter-rouge">CATransaction.flush()</code> “flushes any extant implicit transaction.” And, in fact, for every iOS application, there is <strong>always</strong> an extant—i.e., “still existing”—implicit transaction. This is because the implicit, top-level, run-loop transaction is still waiting to be committed.</p>
+
+<h1 id="summary">Summary</h1>
+
+<p>Core Animation is a complex machine that has a lot of hidden or lesser-known capabilities. <code class="highlighter-rouge">CATransaction</code> has a lot of uses, especially if you create complex animations. Being able to override implicit animation durations and timing functions is useful for customizing animation timing. Disabling actions is necessary in some cases, and it guarantees that the changes you make won’t enqueue unexpected animations. Lastly, being able to receive a callback whenever any arbitrary combination of animations is finished is great for controlling your UI’s lifecycle. Of course, any number of these features can be combined into a single transaction, so it’s not necessary to create multiple transactions just to make multiple changes at once.</p>
+
+<p>In later blog posts, we’ll continue to dive more deeply into other useful Core Animation classes.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>A backing layer is one that backs a <code class="highlighter-rouge">UIView</code> and is created and managed by <code class="highlighter-rouge">UIView</code> directly. A standalone layer is one that is created using a <code class="highlighter-rouge">CALayer</code> (or subclass) initializer, is added to a layer tree, and is managed by whomever or whatever created it.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>One of the strangest APIs in my opinion, <code class="highlighter-rouge">CAMediaTimingFunction</code> takes unnamed control point function parameters instead of naming them or using two <code class="highlighter-rouge">CGPoint</code>s instead. This deviates from practically every other Cocoa Touch API naming convention.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Neither specifying a <code class="highlighter-rouge">UIViewAnimationOptions</code> easing curve nor including <code class="highlighter-rouge">.OverrideInheritedCurve</code> as an animation option will override the timing function specified by the wrapping <code class="highlighter-rouge">CATransaction</code>.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:3" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Technically, disabling actions does just that: prevents <code class="highlighter-rouge">CAAction</code>-conforming objects from being created in response to layer property changes. More on <code class="highlighter-rouge">CAAction</code> at another time.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:4" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Actually, even when animations are running, the property changes have already occurred immediately in the model layer. It is the presentation layer that is responsible for displaying what we perceive as the animation.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:5" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Specifically, <code class="highlighter-rouge">UIView</code> creates no <code class="highlighter-rouge">CAAction</code>s for animatable <code class="highlighter-rouge">CALayer</code> properties unless those properties are being modified within a UIKit-style animation API.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:6" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:7">
+      <p>In fact, <strong>all</strong> animations created are <code class="highlighter-rouge">CALayer</code> animations. <code class="highlighter-rouge">UIView</code> ends up creating corresponding layer animations for their animatable properties when changed within an animation block.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:7" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:8">
+      <p>Core Animation is able to efficiently render and synchronize animations to the main thread of your application because it maintains this outermost transaction. By coalescing actions into run loop cycles, application content is only potentially rendered and displayed according to the device’s refresh rate, although flushing transactions can interfere with this.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:8" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:9">
+      <p>To easily see this in practice, add and stop at a break point just after creating a long animation. When running that code, you’ll notice that even though Xcode will stop your application’s main thread, the animation continues to run unimpeded by any of your process’s code. This, again, emphasizes how Core Animation’s architecture does not allow blocking application code to hamper much of the render server’s activities.&nbsp;<a href="https://www.calayer.com/core-animation/2016/05/17/catransaction-in-depth.html#fnref:9" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    <a class="post-end-icon" href="https://www.calayer.com/">CALayer</a>
+
+    
+    <div id="disqus_thread"></div>
+  	<script>
+  	    var disqus_config = function () {
+  	        this.page.url = "https://calayer.com/core-animation/2016/05/17/catransaction-in-depth.html"
+  	        this.page.identifier = "/core-animation/2016/05/17/catransaction-in-depth"
+  	    };
+
+  	    (function() {
+  	        var d = document, s = d.createElement('script');
+
+  	        s.src = '//calayer.disqus.com/embed.js';
+
+  	        s.setAttribute('data-timestamp', +new Date());
+  	        (d.head || d.body).appendChild(s);
+  	    })();
+  	</script>
+  	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:shannon@calayer.com">shannon@calayer.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://twitter.com/lucastizma"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"></path></svg>
+</span><span class="username">lucastizma</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>
+          A blog about Core Animation and other iOS graphics frameworks. <span class="rss-subscribe">Subscribe <a href="https://www.calayer.com/feed.xml">via RSS</a>.</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  
+
+
+</body></html>

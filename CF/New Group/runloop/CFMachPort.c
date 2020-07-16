@@ -248,7 +248,9 @@ static void __CFMachPortChecker(Boolean fromTimer) {
 #endif
         if (!mp) continue;
         // second clause cleans no-longer-wanted CFMachPorts out of our strong table
-        if (!__CFMachPortCheck(mp->_port) || (!kCFUseCollectableAllocator && 1 == CFGetRetainCount(mp))) {
+        if (!__CFMachPortCheck(mp->_port)
+            || (!kCFUseCollectableAllocator && 1 == CFGetRetainCount(mp))) {
+            
             CFRunLoopSourceRef source = NULL;
             Boolean wasReady = (mp->_state == kCFMachPortStateReady);
             if (wasReady) {
@@ -402,7 +404,7 @@ CFMachPortRef _CFMachPortCreateWithPort2(CFAllocatorRef allocator, mach_port_t p
 
         if (type & MACH_PORT_TYPE_SEND_RIGHTS) {
             dispatch_source_t theSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_MACH_SEND, port, DISPATCH_MACH_SEND_DEAD, _CFMachPortQueue());
-	    if (theSource) {
+            if (theSource) {
                 dispatch_semaphore_t sem = dispatch_semaphore_create(0);
                 dispatch_retain(sem);
                 dispatch_source_set_cancel_handler(theSource, ^{ dispatch_semaphore_signal(sem); dispatch_release(sem); dispatch_release(theSource); });
@@ -410,7 +412,7 @@ CFMachPortRef _CFMachPortCreateWithPort2(CFAllocatorRef allocator, mach_port_t p
                 memory->_dsrc_sem = sem;
                 memory->_dsrc = theSource;
                 dispatch_resume(theSource);
-	    }
+            }
         }
     }
     
@@ -567,7 +569,10 @@ static mach_port_t __CFMachPortGetPort(void *info) {
     return mp->_port;
 }
 
-CF_PRIVATE void *__CFMachPortPerform(void *msg, CFIndex size, CFAllocatorRef allocator, void *info) {
+CF_PRIVATE void *__CFMachPortPerform(void *msg,
+                                     CFIndex size,
+                                     CFAllocatorRef allocator,
+                                     void *info) {
     CHECK_FOR_FORK_RET(NULL);
     CFMachPortRef mp = (CFMachPortRef)info;
     __CFLock(&mp->_lock);

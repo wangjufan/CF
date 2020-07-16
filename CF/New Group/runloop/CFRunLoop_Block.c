@@ -1,5 +1,14 @@
 #include "CFRunLoop_Block.h"
 
+
+struct _block_item {
+    struct _block_item *_next;
+    CFTypeRef _mode;    // CFString or CFSet
+    void (^_block)(void);
+};
+#if __BLOCKS__
+CF_EXPORT void CFRunLoopPerformBlock(CFRunLoopRef rl, CFTypeRef mode, void (^block)(void)) CF_AVAILABLE(10_6, 4_0);
+#endif
 void CFRunLoopPerformBlock(CFRunLoopRef rl,
                            CFTypeRef mode,
                            void (^block)(void)) {

@@ -754,13 +754,6 @@ static CFRunLoopRef __CFRunLoopCreate(pthread_t t) {
 static void __CFRunLoopRemoveAllSources(CFRunLoopRef rl, CFStringRef modeName);
 
 
-static CFComparisonResult __CFRunLoopSourceComparator(const void *val1, const void *val2, void *context) {
-    CFRunLoopSourceRef o1 = (CFRunLoopSourceRef)val1;
-    CFRunLoopSourceRef o2 = (CFRunLoopSourceRef)val2;
-    if (o1->_order < o2->_order) return kCFCompareLessThan;
-    if (o2->_order < o1->_order) return kCFCompareGreaterThan;
-    return kCFCompareEqualTo;
-}
 
 static void __CFRunLoopCollectSources0(const void *value, void *context) {
     CFRunLoopSourceRef rls = (CFRunLoopSourceRef)value;

@@ -220,8 +220,12 @@ static void _runLoopObserverWithBlockContext(CFRunLoopObserverRef observer, CFRu
     block(observer, activity);
 }
 
-CFRunLoopObserverRef CFRunLoopObserverCreateWithHandler(CFAllocatorRef allocator, CFOptionFlags activities, Boolean repeats, CFIndex order,
-                                                        void (^block) (CFRunLoopObserverRef observer, CFRunLoopActivity activity)) {
+CFRunLoopObserverRef CFRunLoopObserverCreateWithHandler(CFAllocatorRef allocator,
+                                                        CFOptionFlags activities,
+                                                        Boolean repeats,
+                                                        CFIndex order,
+                                                        void (^block) (CFRunLoopObserverRef observer,
+                                                            CFRunLoopActivity activity)) {
     CFRunLoopObserverContext blockContext;
     blockContext.version = 0;
     blockContext.info = (void *)block;

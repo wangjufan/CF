@@ -7,6 +7,7 @@ CF_EXPORT Boolean CFRunLoopContainsSource(CFRunLoopRef rl, CFRunLoopSourceRef so
 CF_EXPORT void CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef mode);
 CF_EXPORT void CFRunLoopRemoveSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef mode);
 
+
 typedef struct {
     CFIndex    version;
     void *    info;
@@ -15,8 +16,8 @@ typedef struct {
     CFStringRef    (*copyDescription)(const void *info);
     Boolean    (*equal)(const void *info1, const void *info2);
     CFHashCode    (*hash)(const void *info);
-    void    (*schedule)(void *info, CFRunLoopRef rl, CFStringRef mode);
-    void    (*cancel)(void *info, CFRunLoopRef rl, CFStringRef mode);
+    void    (*schedule)(void *info, CFRunLoopRef rl, CFRunLoopMode mode);
+    void    (*cancel)(void *info, CFRunLoopRef rl, CFRunLoopMode mode);
     void    (*perform)(void *info);
 } CFRunLoopSourceContext;
 
@@ -28,7 +29,7 @@ typedef struct {
     CFStringRef    (*copyDescription)(const void *info);
     Boolean    (*equal)(const void *info1, const void *info2);
     CFHashCode    (*hash)(const void *info);
-#if (TARGET_OS_MAC && !(TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)) || (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
+#if TARGET_OS_OSX || TARGET_OS_IPHONE
     mach_port_t    (*getPort)(void *info);
     void *    (*perform)(void *msg, CFIndex size, CFAllocatorRef allocator, void *info);
 #else

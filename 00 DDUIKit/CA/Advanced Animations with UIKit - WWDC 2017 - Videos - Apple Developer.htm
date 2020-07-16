@@ -1,0 +1,4274 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://developer.apple.com/videos/play/wwdc2017/230/ -->
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+<meta name="Author" content="Apple Inc.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="shortcut icon" href="https://developer.apple.com/favicon.ico">
+<link rel="icon" href="https://developer.apple.com/favicon.ico">
+<link rel="mask-icon" href="https://developer.apple.com/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/globalnav.css" type="text/css">
+<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/global.dist.css" type="text/css">
+
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/jquery-1.11.0.min.js"></script>
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/jquery.retinate.js"></script>
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/jquery.language-dropdown.js"></script>
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/global.js"></script>
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/global-logout.js"></script>
+	<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/fonts" type="text/css">
+<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/fonts(1)" type="text/css">
+<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/fonts(2)" type="text/css">
+<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/fonts(3)" type="text/css">
+
+		<meta name="omni_page" content="Advanced Animations with UIKit - WWDC 2017 - Videos">
+	<title>Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer</title>
+		
+	<link type="text/css" rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/videos.css">
+	<meta name="description" content="So much power has been added to animations on iOS since their inception that it&#39;s time to think about animations in a whole new way!...">
+
+	<meta property="og:url" content="https://developer.apple.com/videos/play/wwdc2017/230/">
+	<meta property="og:title" content="Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer">
+	<meta property="og:description" content="So much power has been added to animations on iOS since their inception that it&#39;s time to think about animations in a whole new way!...">
+	<meta property="og:site_name" content="Apple Developer">
+	<meta property="og:type" content="website">
+		<meta property="og:image" content="https://devimages-cdn.apple.com/wwdc-services/images/7/1557/1557_wide_250x141_2x.jpg">
+		<meta property="og:locale" content="en_US">
+
+</head>
+<body class="view-play theme-dark">
+
+	<aside id="ac-gn-segmentbar" class="ac-gn-segmentbar" lang="en-US" dir="ltr">
+</aside>
+<input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+<nav id="ac-globalnav" class="js no-touch" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US" dir="ltr" data-store-locale="us" data-store-api="/[storefront]/shop/bag/status" data-search-locale="en_US" data-search-api="/search-services/suggestions/">
+	<div class="ac-gn-content">
+		<ul class="ac-gn-header">
+			<li class="ac-gn-item ac-gn-menuicon">
+				<label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					</span>
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					</span>
+				</label>
+				<a href="https://developer.apple.com/videos/play/wwdc2017/230/#ac-gn-menustate" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					<span class="ac-gn-menuanchor-label">Global Nav Open Menu</span>
+				</a>
+				<a href="https://developer.apple.com/videos/play/wwdc2017/230/#" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					<span class="ac-gn-menuanchor-label">Global Nav Close Menu</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="https://developer.apple.com/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text">Apple Developer</span>
+				</a>
+			</li>
+		</ul>
+		<div class="ac-gn-search-placeholder-container" role="search">
+			<div class="ac-gn-search ac-gn-search-small">
+				<a id="ac-gn-link-search-small" class="ac-gn-link" href="https://developer.apple.com/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link="" aria-label="Search Developer" role="button" aria-haspopup="true">
+					<div class="ac-gn-search-placeholder-bar">
+						<div class="ac-gn-search-placeholder-input">
+							<div class="ac-gn-search-placeholder-input-text" aria-hidden="true">
+								<div class="ac-gn-link-search ac-gn-search-placeholder-input-icon"></div>
+								<span class="ac-gn-search-placeholder">Search Developer</span>
+							</div>
+						</div>
+						<div class="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close">
+							<span class="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<ul class="ac-gn-list">
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="https://developer.apple.com/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus">
+					<span class="ac-gn-link-text">Apple Developer</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-discover">
+				<a class="ac-gn-link ac-gn-link-discover" href="https://developer.apple.com/discover/" data-analytics-title="discover">
+					<span class="ac-gn-link-text">Discover</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-design">
+				<a class="ac-gn-link ac-gn-link-design" href="https://developer.apple.com/design/" data-analytics-title="design">
+					<span class="ac-gn-link-text">Design</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-develop">
+				<a class="ac-gn-link ac-gn-link-develop" href="https://developer.apple.com/develop/" data-analytics-title="develop">
+					<span class="ac-gn-link-text">Develop</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-distribute">
+				<a class="ac-gn-link ac-gn-link-distribute" href="https://developer.apple.com/distribute/" data-analytics-title="distribute">
+					<span class="ac-gn-link-text">Distribute</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-dsupport">
+				<a class="ac-gn-link ac-gn-link-dsupport" href="https://developer.apple.com/support/" data-analytics-title="dsupport">
+					<span class="ac-gn-link-text">Support</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-account">
+				<a class="ac-gn-link ac-gn-link-account" href="https://developer.apple.com/account/" data-analytics-title="account">
+					<span class="ac-gn-link-text">Account</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+				<a id="ac-gn-link-search" class="ac-gn-link ac-gn-link-search" href="https://developer.apple.com/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link="" aria-label="Search Developer" role="button" aria-haspopup="true"></a>
+			</li>
+		</ul>
+		<aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search">
+			<div class="ac-gn-searchview-content">
+				<div class="ac-gn-searchview-bar">
+					<div class="ac-gn-searchview-bar-wrapper">
+						<form id="ac-gn-searchform" class="ac-gn-searchform" action="https://developer.apple.com/search/" method="get">
+							<div class="ac-gn-searchform-wrapper">
+								<input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" aria-label="Search Developer" placeholder="Search Developer" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="quicklinks suggestions">
+								<button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled="" aria-label="Submit Search"></button>
+								<button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled="" aria-label="Clear Search">
+										<span class="ac-gn-searchform-reset-background"></span>
+									</button>
+							</div>
+						</form>
+						<button id="ac-gn-searchview-close-small" class="ac-gn-searchview-close ac-gn-searchview-close-small" aria-label="Cancel Search">
+								<span class="ac-gn-searchview-close-cancel" aria-hidden="true">
+									Cancel
+								</span>
+							</button>
+					</div>
+				</div>
+				<aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults=""></aside>
+			</div>
+			<button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Cancel Search">
+					<span class="ac-gn-searchview-close-wrapper">
+						<span class="ac-gn-searchview-close-left"></span>
+						<span class="ac-gn-searchview-close-right"></span>
+					</span>
+				</button>
+		</aside>
+			</div>
+</nav>
+<div class="ac-gn-blur"></div>
+<div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+<div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/ac-globalnav.built.js"></script><div id="ac-gn-viewport-emitter"> </div>
+
+			<!-- metrics -->
+<script>
+    /* RSID: */
+    var s_account="awdappledeveloper"
+</script>	
+<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/analytics.js"></script>
+<script>
+    s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+    s.channel="www.en.developer"
+    s.channel="www.videos.developer";
+
+    
+    /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->	
+	<link rel="stylesheet" property="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/localnav.css" type="text/css">
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate">
+<nav id="localnav" class="localnav localnav-scrim theme-dark" data-sticky="" role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="https://developer.apple.com/videos/">Videos</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="https://developer.apple.com/videos/play/wwdc2017/230/#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">Open Menu</span>
+				</a>
+				<a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">Close Menu</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+
+						<li class="localnav-menu-item">
+							
+								<a href="https://developer.apple.com/videos/" class="localnav-menu-link">Collections</a>
+							
+						</li>
+						<li class="localnav-menu-item">
+							
+							<a href="https://developer.apple.com/videos/topics/" class="localnav-menu-link link-topics">Topics</a>
+							
+							
+						</li>
+						<li class="localnav-menu-item">
+							
+							<a href="https://developer.apple.com/videos/all-videos/" class="localnav-menu-link link-all-videos">All Videos</a>
+							
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script type="text/javascript" src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/ac-localnav.built.js"></script>
+	<main id="main" class="main theme-dark" role="main">
+
+		<section class="bg-dark">
+
+			<section class="grid">
+
+				<section class="row">
+					<section class="column large-10 small-12  padding-top-small large-centered no-padding-bottom">
+						<!-- back link -->
+						<p class="back-link smaller">
+														<a class="arrow-left" href="https://developer.apple.com/videos/">More Videos</a>
+													</p>
+					</section>
+				</section>
+
+				<!-- video player -->
+				<section class="video-wrapper row">
+					<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+												<video id="video" class="video large-centered" controls="" src="blob:https://developer.apple.com/295d7cae-c738-436d-9063-8436524c5e39" data-id="1551">
+							
+						</video>
+						<div class="no-video-banner hidden">
+							<div class="no-video-copy">
+								<p>Streaming is available in most browsers,<br> and in the WWDC app.</p>
+							</div>
+							
+						</div>
+											</section>
+				</section>
+
+			</section>
+
+		</section>
+
+		<section class="grid">
+
+			<!-- tab menu -->
+			<section class="tab-menu row divider-bottom">
+
+				<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+
+					<ul class="tabs">
+						<li class="tab active" data-supplement-id="details"><a href="https://developer.apple.com/videos/play/wwdc2017/230/#"><span class="smaller">Overview</span></a></li>
+
+												<li class="tab" data-supplement-id="transcript"><a href="https://developer.apple.com/videos/play/wwdc2017/230/#"><span class="smaller">Transcript</span></a></li>
+						<li class="tab right" data-supplement-id="search">
+							<!-- mobile search -->
+							<a href="https://developer.apple.com/videos/play/wwdc2017/230/#"><span><!--icon--></span></a>
+							<!-- desktop search -->
+							<section class="searchbar-wrapper desktop" style="opacity: 1;">
+								<button class="search-icon" data-hires-status="pending"></button>
+								<input class="active" type="text" autocomplete="off" placeholder="Search this video…">
+							</section>
+						</li>
+						
+												<section class="searchbar-wrapper mobile" style="opacity: 1;">
+							<input class="active" type="text" autocomplete="off" placeholder="Search this video…">
+						</section>
+						
+					</ul>
+				</section>
+
+			</section>
+
+			<!-- supplements -->
+			<section class="row">
+
+				<section class="column large-10 small-12  large-centered no-padding-top no-padding-bottom">
+
+					<ul class="supplements">
+
+						<!-- details -->
+						<li class="supplement details  active" data-supplement-id="details">
+							
+							<h1>Advanced Animations with UIKit</h1>
+							<p>So much power has been added to animations on iOS since their inception that it's time to think about animations in a whole new way! Learn to combine and coordinate between multiple animations, resulting in interactive transitions and learn some tips and tricks along the way.</p>
+							
+														<h2>Resources</h2>
+
+							<ul class="links small">
+																																					<li class="document" data-hires-status="pending"><a href="https://developer.apple.com/documentation/uikit" target="_blank">UIKit</a></li>
+																											
+																	<li class="download" data-hires-status="pending">
+										<ul class="options">
+																						<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2017/230lc4n1loob9/230/230_hd_advanced_animations_with_uikit.mp4?dl=1">HD Video</a></li>
+																																	<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2017/230lc4n1loob9/230/230_sd_advanced_animations_with_uikit.mp4?dl=1">SD Video</a></li>
+																					</ul>
+									</li>
+																
+																										<li class="download" data-hires-status="pending"><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2017/230lc4n1loob9/230/230_advanced_animations_with_uikit.pdf?dl=1">Presentation Slides (PDF)</a></li>
+																								</ul>
+							
+														<div class="divider-top margin-top-small padding-bottom-small"></div>
+							<h2>Related Videos</h2>
+														<h4>WWDC 2018</h4>
+								<ul class="links small">
+																			<li class="video" data-hires-status="pending">
+											<a href="https://developer.apple.com/videos/play/wwdc2018/233">Adding Delight to your iOS App</a>
+										</li>
+																	</ul>
+														
+							
+						</li>
+
+						<!-- transcript -->
+						<li class="supplement transcript" data-supplement-id="transcript" data-shortcut-base-url="/videos/play/wwdc2017-230/">
+							<section>
+								<div class="margin-bottom-small download-transcript"><span id="get-transcript" class="icon icon-before icon-downloadcircle">Download</span></div>
+								<p><a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=7"> 
+</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=22"> 
+ Hey everyone, I'm Joe Cerra </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=23"> 
+and I'm an engineer UIKit and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=26"> 
+welcome to advanced animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=28"> 
+with UIKit.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=29"> 
+So, today we have a lot to talk </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=32"> 
+about.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=32"> 
+We're going to start off by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=33"> 
+covering some of the basics and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=35"> 
+how animations work and also how </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=37"> 
+animations are timed.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=40"> 
+We're going to discuss how to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=41"> 
+make animations fully </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=42"> 
+interactive and interruptible </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=43"> 
+using some modern techniques.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=46"> 
+Then we're going to talk about </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=48"> 
+some of the new API that we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=49"> 
+providing this year in iOS 11.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=50"> 
+And then we're going to use all </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=52"> 
+of that knowledge and I'm going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=54"> 
+to show you how to coordinate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=55"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=57"> 
+And then finally, we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=58"> 
+go over some tips and tricks and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=60"> 
+a few more techniques to help </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=62"> 
+you create really great </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=63"> 
+animations for your users.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=65"> 
+So, let's get into it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=68"> 
+UIView-based animations have </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=69"> 
+been around really since the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=70"> 
+dawn of iOS.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=71"> 
+And here's a quick refresher on </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=73"> 
+how they work.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=75"> 
+So, say I have a UIView that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=76"> 
+renders a circle and I'd like </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=77"> 
+the animate it from its position </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=80"> 
+of X equals zero to 100.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=81"> 
+Well the way I might do this is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=84"> 
+by calling the UIView.animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=85"> 
+method.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=86"> 
+Here I'm calling UIView.animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=88"> 
+with a duration, performing some </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=90"> 
+animations in an animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=91"> 
+block.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=91"> 
+In this case, I'm offsetting the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=93"> 
+X value of our circle by 100.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=96"> 
+And when I do that UIKit will </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=98"> 
+implicitly create an animation, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=99"> 
+add it to our layer and produce </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=101"> 
+the following animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=104"> 
+But last year we introduced the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=106"> 
+UIViewPropertyAnimator, which </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=108"> 
+gives us a lot more control for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=109"> 
+animations than its predecessor </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=111"> 
+UIViewAnimate.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=113"> 
+Now this includes being able to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=115"> 
+provide custom timing functions </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=117"> 
+and the ability to make your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=118"> 
+animations fully interactive and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=119"> 
+interruptible really easily.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=122"> 
+In fact, with property animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=124"> 
+you can modify your animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=125"> 
+on the fly.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=127"> 
+So, let's take a look at our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=128"> 
+animation again and this time </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=129"> 
+we're going to use an animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=130"> 
+to animate it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=132"> 
+So, we create our animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=133"> 
+providing a duration and a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=134"> 
+timing curve provider </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=136"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=137"> 
+And then we call startAnimator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=139"> 
+which actually then runs that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=140"> 
+animation block producing this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=142"> 
+animation.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=147"> 
+Now in the last two examples we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=148"> 
+drove our animation with a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=149"> 
+linear timing curve.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=151"> 
+And what a timing curve is, is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=153"> 
+essentially a function that maps </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=154"> 
+time to progress or the fraction </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=157"> 
+of elapsed time of your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=158"> 
+animation to the fraction of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=160"> 
+progress of your animation.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=163"> 
+Now linear timing curves are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=164"> 
+actually kind of interesting and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=166"> 
+this is because the fraction of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=167"> 
+time is equal to the fraction of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=169"> 
+progress and we'll see why this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=171"> 
+is interesting in just a second.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=174"> 
+There are also of course, timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=176"> 
+curves other than linear, such </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=177"> 
+as the built-in ease in timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=179"> 
+function which starts off slowly </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=181"> 
+and then accelerates.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=182"> 
+And the built-in ease out timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=184"> 
+function which starts off </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=185"> 
+quickly and then decelerates.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=187"> 
+Well with property animators you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=189"> 
+can provide your own custom </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=190"> 
+timing functions, such as this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=191"> 
+one.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=192"> 
+And the way you do that is by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=194"> 
+providing two cubic Bezier </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=195"> 
+control points.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=197"> 
+Now we'll see a little bit later </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=199"> 
+why it can be really useful to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=201"> 
+be able to provide your own </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=202"> 
+custom timing functions.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=205"> 
+So that's essentially how </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=207"> 
+animations work.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=209"> 
+Now I want to talk about how to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=210"> 
+make your animations fully </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=211"> 
+interactive.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=213"> 
+So, an interactive animation is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=215"> 
+one in which the user's actions </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=216"> 
+interactively drive the progress </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=218"> 
+of your animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=220"> 
+So, here's a familiar example </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=221"> 
+where a gesture is driving </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=223"> 
+interactive animation and now </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=224"> 
+we're using 3D Touch to drive </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=226"> 
+another animation.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=228"> 
+And we can, of course, dismiss </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=230"> 
+our Control Center view </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=231"> 
+interactively with a gesture.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=234"> 
+So, let's do a quick </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=235"> 
+demonstration here.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=236"> 
+So, we're going to add a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=238"> 
+PanGestureRecognizer to our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=239"> 
+circle and we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=242"> 
+animate it, but we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=243"> 
+do so with our finger by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=244"> 
+scrubbing an animator.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=245"> 
+And at this point we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=247"> 
+lift our finger off and continue </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=248"> 
+that animation to its target </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=249"> 
+position.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=250"> 
+Now here's the code to do this.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=254"> 
+We're going to save an instance </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=257"> 
+of our property animator in our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=259"> 
+hand gesture recognizer handler.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=261"> 
+We're going to create that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=262"> 
+animator and initialize it with </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=263"> 
+some animations in an ease out </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=265"> 
+timing function.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=270"> 
+Afterwards we're going to call </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=271"> 
+pauseAnimation immediately after </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=273"> 
+and that's going to run that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=274"> 
+animation block producing that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=275"> 
+animation implicitly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=277"> 
+And what property animator does </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=279"> 
+is essentially sets the speed of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=281"> 
+that animation to zero.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=283"> 
+So now we can interact with it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=285"> 
+So, we're going to scrub our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=286"> 
+animator's fraction complete </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=287"> 
+based on the distance our finger </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=288"> 
+travels relative to the total </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=290"> 
+distance of the animation, which </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=292"> 
+in this case is 100 because </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=293"> 
+we're animating from zero to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=295"> 
+100.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=297"> 
+And when our finger is lifted </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=298"> 
+off we're just going to call </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=299"> 
+continueAnimation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=302"> 
+Now that's really easy, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=304"> 
+there's actually two really </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=305"> 
+interesting moments that occur </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=306"> 
+here and that is when we pause </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=308"> 
+our animation and then when we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=309"> 
+continue it, so let's take a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=310"> 
+look at those.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=312"> 
+So, we've just created our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=313"> 
+animator and we're about to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=314"> 
+pause it so we can interact with </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=316"> 
+it.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=316"> 
+Notice that our animator has </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=318"> 
+been created with an ease out </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=320"> 
+timing function.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=321"> 
+So, let's call pause and see </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=322"> 
+what happens.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=325"> 
+So, our animator becomes active, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=328"> 
+but we've just converted our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=329"> 
+timing curve automatically into </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=331"> 
+a linear timing curve.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=332"> 
+Why did the property animator do </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=333"> 
+that? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=335"> 
+Well it turns out this makes </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=336"> 
+scrubbing your animation really </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=338"> 
+easy because of that property of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=340"> 
+linear timing functions where </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=341"> 
+the fraction of time is equal to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=342"> 
+the fraction of progress, you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=344"> 
+can now scrub both time and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=345"> 
+progress uniformly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=348"> 
+Now let's take a look at what </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=349"> 
+happens when we continue our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=350"> 
+animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=352"> 
+So, we're scrubbing our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=353"> 
+animation here and now our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=355"> 
+finger is lifted off and we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=356"> 
+about call continueAnimation, so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=358"> 
+let's see what that does.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=363"> 
+So, we convert back to that ease </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=364"> 
+out timing function, but also </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=366"> 
+something interesting happened.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=367"> 
+We remapped time in the process.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=370"> 
+So, fraction complete which was </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=371"> 
+once 50% is now 10% and the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=374"> 
+reason for that is we want to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=376"> 
+keep our progress value stable </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=378"> 
+when we convert back to that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=379"> 
+ease out timing function.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=382"> 
+Also, I want to draw attention </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=383"> 
+to our duration factor here, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=385"> 
+which is zero and what this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=386"> 
+means is for our property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=387"> 
+animator to use whatever </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=388"> 
+remaining time it has left, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=390"> 
+which in this case would be 90% </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=392"> 
+of its original duration.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=394"> 
+So, if for example, our animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=396"> 
+was created with a duration of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=397"> 
+two seconds it would continue in </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=399"> 
+1.8 seconds.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=402"> 
+So that's how interactive </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=404"> 
+animations work.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=405"> 
+Now let's talk about how to make </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=406"> 
+our animations fully </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=407"> 
+interruptible.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=410"> 
+Now an interruptible animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=411"> 
+is one in which the user's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=412"> 
+actions interrupt or pause a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=413"> 
+currently running animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=415"> 
+Here's an example that you're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=416"> 
+probably familiar with, with </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=417"> 
+Safari.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=417"> 
+When you flick your finger, it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=419"> 
+accelerates and then it sort of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=420"> 
+decelerates.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=422"> 
+But if you touch the screen </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=423"> 
+again you interrupt that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=424"> 
+animation at which point you can </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=425"> 
+scrub it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=428"> 
+So, we're going to do one more </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=429"> 
+demonstration this time and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=431"> 
+we're going to add our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=432"> 
+PanGestureRecognizer to our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=433"> 
+circle, but this time we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=434"> 
+going to let it animate for a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=435"> 
+little bit and then we're going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=436"> 
+to catch it midflight.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=439"> 
+So here it is animating then we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=440"> 
+catch it with our finger at this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=442"> 
+point we can scrub it, but we've </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=444"> 
+already seen how that works so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=445"> 
+instead, we're just going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=446"> 
+lift our finger and continue the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=447"> 
+animation to its target </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=448"> 
+destination.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=453"> 
+So, here's the code from before </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=454"> 
+and we're just going to make a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=455"> 
+few changes so we can support </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=457"> 
+both interactive and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=458"> 
+interruptible animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=459"> 
+So, we're going to introduce a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=461"> 
+new method here called </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=462"> 
+animateTransitionIfNeeded and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=463"> 
+this is a custom method, this is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=466"> 
+not a UIKit method for example.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=469"> 
+So, what this does is it'll </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=470"> 
+initiate our transition if it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=471"> 
+isn't already running.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=473"> 
+Were also going to introduce a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=474"> 
+new property called </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=475"> 
+progressWhenInterrupted and this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=476"> 
+is going to save any relative </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=478"> 
+progress made by your animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=479"> 
+prior to it being interrupted.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=480"> 
+Now when our gesture begins </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=483"> 
+we're going to create that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=484"> 
+animator again, but this time </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=485"> 
+only if our transition isn't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=486"> 
+running.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=487"> 
+We're then going to pause it so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=488"> 
+that we can interact with it and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=490"> 
+we're going to save any relative </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=491"> 
+progress made by it prior to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=492"> 
+being interrupted.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=495"> 
+When our finger moves we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=496"> 
+going to scrub our animator's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=497"> 
+fraction complete, but this time </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=499"> 
+we're going to scrub our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=500"> 
+animator based on the distance </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=501"> 
+our finger has traveled relative </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=503"> 
+to any progress it made prior to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=505"> 
+being interrupted.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=507"> 
+And when our finger lifts we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=508"> 
+going to continue our animation.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=510"> 
+But to make this example a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=511"> 
+little bit more interesting </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=513"> 
+let's continue with an ease out </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=514"> 
+timing function and let's assume </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=516"> 
+that our animation was created </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=517"> 
+with an ease and timing function </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=518"> 
+just to see what that does.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=522"> 
+So, here we are about to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=524"> 
+interrupt our animation and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=525"> 
+fraction completes about 50% sol </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=527"> 
+it's ran for about half its </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=528"> 
+duration and progress is only </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=530"> 
+about 10% because we're on an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=531"> 
+ease out timing function.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=533"> 
+So, let's call pause and watch </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=535"> 
+what happens.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=536"> 
+So again, we convert into that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=537"> 
+linear timing function to make </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=538"> 
+scrubbing really easy, but we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=540"> 
+also have remapped time just as </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=542"> 
+we did before to keep progress </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=543"> 
+stable so our animation doesn't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=544"> 
+jump.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=545"> 
+Now when we call </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=546"> 
+continueAnimation we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=548"> 
+do so with an ease out timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=550"> 
+function and again, you can see </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=552"> 
+we convert back into that new </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=553"> 
+timing function and remap time </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=555"> 
+again.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=557"> 
+So, this is a really subtle </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=558"> 
+aspect of property animators </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=560"> 
+that's really important to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=560"> 
+understand when you're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=561"> 
+manipulating them.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=563"> 
+So that's how to make animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=567"> 
+fully interactive and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=568"> 
+interruptible.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=568"> 
+Now let's talk about some of the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=569"> 
+new API that we're providing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=570"> 
+this year.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=572"> 
+So, new in iOS 11 property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=575"> 
+animator is getting two new </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=576"> 
+properties, scrubsLinearly and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=579"> 
+pausesOnCompletion.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=581"> 
+It's also getting a new behavior </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=583"> 
+which is starting as paused, so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=585"> 
+let's talk about these.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=587"> 
+So, in the last couple of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=588"> 
+examples you saw that when we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=590"> 
+paused our animator it converts </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=591"> 
+the timing function into a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=592"> 
+linear timing function and it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=594"> 
+does this to make scrubbing the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=596"> 
+progress of your animator really </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=597"> 
+easy.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=598"> 
+But you know sometimes it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=599"> 
+really useful for your animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=601"> 
+to maintain its pacing when it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=602"> 
+being driven interactively.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=604"> 
+And now you can do that by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=605"> 
+disabling linear scrubbing.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=607"> 
+And here's just a quick example </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=608"> 
+where linearly scrubbing the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=610"> 
+opacity of the circle on top and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=612"> 
+we're nonlinearly scrubbing the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=614"> 
+opacity of the circle on the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=615"> 
+bottom according to an ease out </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=616"> 
+timing function.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=619"> 
+We'll see a little bit later </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=620"> 
+when we're coordinating </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=621"> 
+transitions this could be a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=622"> 
+really interesting thing to do </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=623"> 
+to create some pretty compelling </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=626"> 
+animations.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=628"> 
+Animators can now also pause on </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=630"> 
+completion.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=632"> 
+So, when an animator's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=633"> 
+animations finish it will </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=635"> 
+automatically transition into </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=636"> 
+the inactive state.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=638"> 
+And when it does that it's going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=639"> 
+to release any animations that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=640"> 
+it was previously tracking which </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=642"> 
+means you cannot manipulate or </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=644"> 
+even reverse them after they've </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=645"> 
+finished.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=646"> 
+But now if you set pauses on </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=648"> 
+completion to true your animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=650"> 
+will pause at 100% fraction </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=651"> 
+complete allowing you to at any </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=653"> 
+point in the future reverse </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=654"> 
+those animations.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=655"> 
+And to give you guys a little </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=658"> 
+bit of insight here we actually </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=660"> 
+use this in UIKit for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=661"> 
+Drag-and-Drop.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=662"> 
+So, here's an example of a lift </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=664"> 
+animation and as you may be </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=665"> 
+aware, you can provide your own </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=667"> 
+alongside animations to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=668"> 
+customize this.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=670"> 
+And we're actually going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=671"> 
+drive those animations by a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=673"> 
+property animator that pauses on </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=675"> 
+completion internally in UIKit.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=677"> 
+And because of that we could </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=678"> 
+easily reverse those animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=680"> 
+for you at any time after the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=682"> 
+user lifts their finger even if </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=685"> 
+your animations have already </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=686"> 
+finished.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=690"> 
+I also should mention that we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=692"> 
+not going to call your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=693"> 
+animator's completion handler </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=694"> 
+when it pauses on completion, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=696"> 
+but if you are interested to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=697"> 
+know when those animations have </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=698"> 
+finished you can simply observe </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=699"> 
+the running property.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=701"> 
+And finally, now you can create </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=704"> 
+a property animator and start it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=706"> 
+before you've provided any </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=707"> 
+animations to it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=709"> 
+Now what this does is any </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=710"> 
+animation blocks that you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=711"> 
+subsequently provide will be ran </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=713"> 
+immediately instead of escaping.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=714"> 
+And this is great if you're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=716"> 
+transitioning any of your UIView </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=717"> 
+animate code over to using </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=719"> 
+property animators.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=720"> 
+Now I just want to spend a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=724"> 
+couple minutes here talking </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=725"> 
+about springs.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=727"> 
+So, spring animations are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=727"> 
+pervasive in UIKit in iOS and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=730"> 
+they add a sense of realism to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=731"> 
+your animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=733"> 
+Now in UIKit we provide two </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=734"> 
+kinds of springs, critically </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=736"> 
+damped springs and under damped </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=737"> 
+springs.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=739"> 
+A critically damped spring is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=740"> 
+one which accelerates quickly </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=742"> 
+and it sort of decelerates just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=743"> 
+as quickly hovering over its </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=744"> 
+target value, whereas an under </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=747"> 
+damped spring accelerates </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=748"> 
+quickly beyond its target value </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=750"> 
+and then oscillates.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=752"> 
+So, spring animations are unique </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=754"> 
+in this way and we think of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=755"> 
+spring animations just as we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=756"> 
+think about timing curves.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=759"> 
+But spring animations are also </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=760"> 
+unique in that they always </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=761"> 
+animate from their current </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=762"> 
+presentation value.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=763"> 
+And there are a couple reasons </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=765"> 
+why we do this.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=767"> 
+So, the first is, it may </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=769"> 
+actually be undefined to convert </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=771"> 
+a spring animation to a cubic </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=772"> 
+animation and this is because </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=774"> 
+cubic timing functions don't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=775"> 
+oscillate or overshoot their </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=776"> 
+value as they're bounded by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=778"> 
+minimum and maximum values.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=779"> 
+And the second reason it's a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=783"> 
+little bit more interesting and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=785"> 
+this is if you animate with a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=787"> 
+two-dimensional initial velocity </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=789"> 
+with unique DX and DY components </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=791"> 
+property animator is actually </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=792"> 
+going to decompose that for you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=794"> 
+and create two spring </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=795"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=797"> 
+And because those two spring </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=797"> 
+animations have different </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=799"> 
+velocities they're going to be </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=800"> 
+desynchronized so we're not </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=801"> 
+going to be able to convert </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=802"> 
+those onto a cubic animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=804"> 
+So, if you do have to interrupt </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=808"> 
+the spring animation here are a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=809"> 
+few best practices.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=811"> 
+So, the first thing you can do </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=812"> 
+is consider stopping your spring </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=813"> 
+animation, promoting current </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=815"> 
+presentation value to model </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=816"> 
+value, and then creating a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=817"> 
+brand-new animation from there.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=819"> 
+The second thing you can do is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=822"> 
+consider using a critically </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=823"> 
+damped spring without initial </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=824"> 
+velocity as these don't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=825"> 
+overshoot or oscillate.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=828"> 
+And then finally, if you are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=830"> 
+animating with a two-dimensional </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=831"> 
+initial velocity with unique X </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=832"> 
+and Y components you can </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=834"> 
+consider decomposing that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=836"> 
+yourself and driving the X </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=838"> 
+animations with one animator and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=840"> 
+the Y animations with another.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=843"> 
+So that's how property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=846"> 
+animations work.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=847"> 
+Now let's talk about how to use </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=849"> 
+all that knowledge to coordinate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=850"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=852"> 
+So, for this we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=853"> 
+build a fully interactive </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=855"> 
+interruptible animated </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=856"> 
+transition that coordinates </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=857"> 
+across multiple uniquely timed </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=859"> 
+animators.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=862"> 
+So, say that we have an app and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=863"> 
+our app is showing some piece of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=864"> 
+content and anchored to the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=866"> 
+bottom of the screen is the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=867"> 
+Comments button and when we tap </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=868"> 
+on it it expands showing our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=870"> 
+comments view.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=872"> 
+Now we might implement this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=873"> 
+using UIView controller animated </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=875"> 
+transitioning for example, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=877"> 
+we'd like this to be completely </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=878"> 
+interactive and interruptible so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=880"> 
+I'd like to show you how to do </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=881"> 
+that.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=881"> 
+So, the first thing we're going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=883"> 
+to do is add two gesture </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=885"> 
+recognizers, a tap gesture </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=886"> 
+recognizer so that we can tap on </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=888"> 
+it and expands and tap on it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=889"> 
+again it will collapse.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=891"> 
+We'd also like to be able to tap </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=892"> 
+on it while that animation is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=893"> 
+running so it can be reversed.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=895"> 
+And we're going to add a pan </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=896"> 
+gesture recognizer so we can </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=897"> 
+interact with it.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=898"> 
+So, here's our code form before </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=900"> 
+and we're going to make just a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=901"> 
+couple modifications to it to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=903"> 
+create this infrastructure that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=904"> 
+we're going to build on.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=906"> 
+So, the first thing we're going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=907"> 
+to do is we're going to replace </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=908"> 
+our instance of our property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=910"> 
+animator with a collection of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=911"> 
+running property animators.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=914"> 
+And for that collection of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=916"> 
+running property animators if we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=919"> 
+ever create a property animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=920"> 
+we're just going to add it to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=921"> 
+that collection and let's assume </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=922"> 
+that when those animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=923"> 
+finish it's automatically </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=924"> 
+removed.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=926"> 
+Next, we're going to reintroduce </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=927"> 
+our animateTransitionIfNeeded </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=929"> 
+method and it's going to take a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=930"> 
+target state to animate to.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=932"> 
+So, if we look at this if our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=936"> 
+runningAnimators.isEmpty that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=937"> 
+means there's no transition </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=938"> 
+currently running, so we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=939"> 
+going to initiate a transition </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=941"> 
+if that is the case.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=941"> 
+And we're going to do that by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=942"> 
+creating a new property animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=944"> 
+for our frame which is going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=945"> 
+use a critically damped spring.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=946"> 
+We're then going to perform our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=948"> 
+animations and we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=949"> 
+start that animator and add it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=951"> 
+to that collection of running </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=952"> 
+animators.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=957"> 
+Next, in our tap gesture </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=957"> 
+recognizer handler we're going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=958"> 
+to call this method and this is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=960"> 
+going to animate or reverse our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=962"> 
+running transition.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=963"> 
+So, if our transition isn't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=965"> 
+running we're going to just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=966"> 
+initiate our transition, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=968"> 
+otherwise we're going to iterate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=969"> 
+through all of our running </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=970"> 
+property animators and reverse </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=972"> 
+them.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=977"> 
+Now for these next three methods </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=978"> 
+we're just going to extract our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=979"> 
+pan gesture recognizer handling </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=981"> 
+code from before, so I'm just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=983"> 
+going to quickly summarize what </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=984"> 
+these do.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=985"> 
+So, for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=986"> 
+startInteractiveTransition this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=987"> 
+is called when your gesture </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=988"> 
+begins and it's just going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=989"> 
+initiate the transition if it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=990"> 
+isn't running, pause all of your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=992"> 
+animators uniformly, and save </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=994"> 
+any relative progress made by </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=996"> 
+them.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=998"> 
+UpdateInteractiveTransition is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=999"> 
+going to scrub your animators </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1001"> 
+uniformly relative to the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1003"> 
+distance your finger travels and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1005"> 
+any progress that your animators </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1007"> 
+made prior to being interrupted.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1009"> 
+And then finally, when your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1010"> 
+finger is lifted we just call </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1011"> 
+continue animation on all your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1012"> 
+animators conditionally </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1013"> 
+reversing them based on the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1014"> 
+direction your finger was </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1015"> 
+traveling.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1017"> 
+So, let's check this out.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1020"> 
+So, we can drive our animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1022"> 
+non-interactively by tapping, we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1024"> 
+can also interactively drive it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1026"> 
+by pulling up or pulling down, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1029"> 
+and we can tap on it again while </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1031"> 
+it's running to interrupt it and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1032"> 
+reverse it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1034"> 
+And we can also capture </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1035"> 
+animation while it's running and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1037"> 
+at which point we can scrub it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1039"> 
+So now we've created this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1041"> 
+infrastructure and right now we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1043"> 
+just have a frame animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1044"> 
+which isn't that interesting, so </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1045"> 
+let's make this a little bit </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1046"> 
+more interesting.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1049"> 
+So, first thing we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1049"> 
+do is we're going to add an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1050"> 
+interactive blur.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1052"> 
+Now in iOS 8 we introduced </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1055"> 
+UIVisualEffectView, which allows </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1057"> 
+us to add blur and vibrancy to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1059"> 
+our view hierarchy.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1059"> 
+And it turns out that the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1062"> 
+effects property of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1063"> 
+VisualEffectsView is an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1064"> 
+animatable property so that's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1065"> 
+great.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1067"> 
+So, what we're going to do here </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1068"> 
+is the only code changes we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1069"> 
+going to make is to animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1071"> 
+transition if needed and we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1073"> 
+just going to create a new </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1074"> 
+animator for our blur, which is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1075"> 
+going to use a critically damped </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1077"> 
+spring at least for now.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1078"> 
+And then we're going to perform </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1079"> 
+our animations here either </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1081"> 
+setting or unsetting the blur </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1082"> 
+effect, starting our blur </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1083"> 
+animator and adding it to that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1084"> 
+collection and here's what we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1086"> 
+get.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1093"> 
+So, we can now have an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1094"> 
+interactive blur animation, but.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1097"> 
+Let's see that again in slow </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1102"> 
+motion because I've got to be </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1104"> 
+honest with you guys, I don't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1105"> 
+know if I'm really feeling this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1106"> 
+blur animation right now.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1108"> 
+I feel like it's animating </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1109"> 
+potentially a little bit too </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1110"> 
+quickly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1112"> 
+Now let's drive this and take a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1114"> 
+look at it.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1115"> 
+So maybe it looks a little </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1116"> 
+better, but it still doesn't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1117"> 
+look quite right.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1118"> 
+Now there are a few reasons for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1120"> 
+this.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1121"> 
+The first is because we're using </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1122"> 
+a critically damped spring our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1124"> 
+blur is going to animate in too </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1125"> 
+quickly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1127"> 
+And because our property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1128"> 
+animator is going to linearly </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1129"> 
+scrub it our blur is still going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1131"> 
+to animate in a little bit too </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1132"> 
+quickly and it's going animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1133"> 
+out too slowly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1135"> 
+So, in order to fix this, we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1137"> 
+actually going to provide our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1138"> 
+own custom timing curves.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1139"> 
+So, our custom ease in function </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1141"> 
+so that our blur animates in </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1142"> 
+really slowly and a custom ease </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1144"> 
+out timing function so it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1145"> 
+animates out really quickly.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1147"> 
+And because these are inversions </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1148"> 
+of each other we're going to get </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1150"> 
+symmetric pacing, which means </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1152"> 
+that the path of our animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1153"> 
+on its way out will match that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1154"> 
+of its path on the way in.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1157"> 
+So, here's the code for this, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1158"> 
+we're just creating cubic timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1159"> 
+parameters based on the target </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1160"> 
+state and we're going to disable </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1162"> 
+linear scrubbing here so that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1164"> 
+our animator maintains its </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1165"> 
+pacing when we're driving it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1166"> 
+interactively.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1168"> 
+So, let's check this out again.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1174"> 
+Much better.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1174"> 
+It's really subtle, but it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1176"> 
+much better this time.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1177"> 
+And let's also do that a little </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1179"> 
+bit more slowly so you can </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1180"> 
+really get a sense of what it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1181"> 
+looks like.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1187"> 
+And also, let's drive that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1187"> 
+interactively so you can see </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1188"> 
+that it does indeed maintain its </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1190"> 
+pacing when you're driving it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1191"> 
+interactively.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1196"> 
+Cool, so now we have two </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1198"> 
+property animators with unique </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1199"> 
+timing characteristics </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1200"> 
+contributing to our overall </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1201"> 
+transition.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1202"> 
+But let's make it a little bit </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1204"> 
+more interesting.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1205"> 
+I'd now like to demonstrate a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1206"> 
+technique I like to call view </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1207"> 
+morphing.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1209"> 
+So, say that we have a label; in </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1210"> 
+this case we have a label.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1212"> 
+It's blue, it's kind of small, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1214"> 
+it's got a regular typeface and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1216"> 
+let's say we want it to be a lot </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1217"> 
+bigger, maybe a different color, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1218"> 
+maybe a heavier typeface.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1219"> 
+What would that transition look </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1221"> 
+like? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1222"> 
+Well this is what I call view </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1224"> 
+morphing, it's the scaling </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1226"> 
+translation and opacity blending </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1227"> 
+of two views.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1229"> 
+So, in this case, we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1230"> 
+use UILabels, but this technique </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1232"> 
+is generally applicable to any </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1233"> 
+view or view hierarchy; not just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1235"> 
+labels.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1237"> 
+So, [inaudible] we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1238"> 
+take our comments label and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1239"> 
+we're going to make it blue and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1240"> 
+when it expands we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1241"> 
+want it to look like this.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1243"> 
+And notice it's much darker, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1244"> 
+it's also slightly inset from </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1245"> 
+the top of its parent view.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1248"> 
+And the way that we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1249"> 
+animate that is like this.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1259"> 
+So, how are we going to build </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1260"> 
+this? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1260"> 
+Well, UILabels don't expose any </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1262"> 
+animatable properties, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1263"> 
+that's okay because as I </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1264"> 
+mentioned, this is generally </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1265"> 
+application to any view or view </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1266"> 
+hierarchy, not just labels.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1267"> 
+What we're going to do is use </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1270"> 
+UIView's oft overlooked </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1271"> 
+transform property and we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1273"> 
+going to compute the scale and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1274"> 
+translation for both of our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1276"> 
+labels so that we can blend them </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1277"> 
+into each other.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1279"> 
+And we're also going to animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1280"> 
+their opacities so that we can </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1281"> 
+blend them together.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1282"> 
+So, first thing we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1285"> 
+do is compute the scale.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1287"> 
+It turns out this is really easy </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1289"> 
+to do, it's just a simple </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1290"> 
+dimensional ratio based on the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1291"> 
+target dimension and your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1292"> 
+current dimension.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1293"> 
+And, in fact, once you computed </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1295"> 
+one of these you basically get </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1296"> 
+the other one for free by taking </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1298"> 
+the inverse.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1298"> 
+Now computing translations is a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1302"> 
+little bit more interesting and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1303"> 
+this is because we're animating </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1305"> 
+our scale, which is going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1306"> 
+affect our bounds during the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1307"> 
+transition, so we can't just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1309"> 
+simply take the Y offsets.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1310"> 
+What we can do is pre-apply that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1314"> 
+scale of transform in order to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1315"> 
+obtain a new value for our Y </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1317"> 
+offsets and we could use that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1318"> 
+for our translation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1320"> 
+And now we're going to drive </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1321"> 
+this using three animators, a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1323"> 
+critically damped spring to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1325"> 
+drive our transform so that it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1326"> 
+follows the overall path of the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1328"> 
+transition and then ease in and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1330"> 
+ease out animators to perform </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1331"> 
+the opacity blending, both of </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1333"> 
+which are going to scrub </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1334"> 
+nonlinearly.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1335"> 
+And here's the code for this and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1337"> 
+I've also omitted some of the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1339"> 
+repetitive bits.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1340"> 
+So, we created transform </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1341"> 
+animator, we animate the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1342"> 
+transform of our labels.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1344"> 
+The incoming label is getting </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1345"> 
+the identity transform and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1347"> 
+that's because it's already been </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1348"> 
+pre-scaled and translated down </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1350"> 
+to match the bounds of the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1352"> 
+outgoing label.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1353"> 
+And the outgoing label is going </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1355"> 
+to get transformed such that it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1356"> 
+matches the bounds of the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1357"> 
+incoming label prior to it being </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1359"> 
+animated.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1359"> 
+And then we create two property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1362"> 
+animators here to blend our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1363"> 
+alphas, we disable linear </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1364"> 
+scrubbing here so they maintain </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1365"> 
+their pacing and let's see what </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1368"> 
+that gets us.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1371"> 
+So again, non-interactively we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1373"> 
+can animate this transition, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1377"> 
+we can also interactively </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1378"> 
+animate it and it looks great.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1382"> 
+And we can even animate it and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1384"> 
+then interrupt it and it just </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1385"> 
+works.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1387"> 
+What I think is really cool -- </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1390"> 
+</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1396"> 
+What I think is really cool </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1396"> 
+about this is we now have one </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1398"> 
+cohesive animated transition </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1400"> 
+that's being driven by six </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1401"> 
+different property animators, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1403"> 
+five of which have their own </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1404"> 
+timing characteristics.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1406"> 
+Now being able to do this prior </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1407"> 
+to property animators required a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1409"> 
+ton of code and complexity, but </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1411"> 
+now with this infrastructure </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1412"> 
+we've set up we can use property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1414"> 
+animators to easily achieve </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1415"> 
+these effects just by declaring </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1417"> 
+our timing characteristics and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1418"> 
+scrubbing behaviors.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1421"> 
+So that's how to coordinate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1422"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1424"> 
+Now let's talk about some tips </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1425"> 
+and tricks and some additional </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1426"> 
+techniques that you can use when </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1427"> 
+you're creating animations for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1428"> 
+users.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1431"> 
+So, is there anyone out there </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1432"> 
+that's ever tried to animate a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1433"> 
+corner radius before? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1435"> 
+I imagine maybe a few of you.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1437"> 
+So, to do this you pretty much </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1439"> 
+have to manually set your corner </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1440"> 
+radius or if you want to animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1441"> 
+it you have to create a CA basic </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1443"> 
+animation and set its to and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1444"> 
+from values.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1445"> 
+What we'd like to do is animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1448"> 
+our corner radius such that it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1450"> 
+interactive.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1452"> 
+So, how are we going to do this? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1456"> 
+Well I'm really happy to let you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1457"> 
+guys know that corner radius is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1458"> 
+now a fully animatable property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1460"> 
+in UIKit.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1461"> 
+</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1468"> 
+Now because UIView doesn't </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1469"> 
+expose the corner radius </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1470"> 
+property you actually have to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1471"> 
+reach into your views backing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1473"> 
+layer to modify the corner </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1474"> 
+radius, but as long as you do </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1475"> 
+that within an animation block </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1477"> 
+we're going to implicitly create </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1478"> 
+that animation for you and it'll </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1479"> 
+be fully trackable and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1480"> 
+scrubbable.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1481"> 
+In fact, you can even do this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1483"> 
+from the UIView animate method.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1485"> 
+So that takes care of our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1486"> 
+interactive corner radius </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1487"> 
+animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1488"> 
+Now what about these two guys, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1490"> 
+we only want to animate the top </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1492"> 
+left and right corners, so how </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1493"> 
+do we do that? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1495"> 
+Well I'm also happy to let you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1496"> 
+guys know we're adding a new </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1497"> 
+property to CALayer, which is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1499"> 
+maskedCorners.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1500"> 
+</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1506"> 
+Now this allows us to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1506"> 
+selectively choose which corners </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1507"> 
+we want to apply our corner </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1508"> 
+radius mask to, which in our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1510"> 
+case is going to be the top left </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1511"> 
+and top right corners.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1514"> 
+And now finally, here's the code </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1516"> 
+to do this again, omitting some </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1517"> 
+of the repetitive bits.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1518"> 
+So, we're just creating a new </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1520"> 
+animator here, we're going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1521"> 
+use a linear timing function and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1522"> 
+we're going to perform our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1523"> 
+corner radius animations and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1525"> 
+that's pretty much all we need </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1526"> 
+to and that gives us the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1528"> 
+following animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1534"> 
+And it's subtle, but we are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1535"> 
+indeed interactively scrubbing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1536"> 
+the corner radius there, which </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1537"> 
+is cool.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1542"> 
+Now if there's one underlying </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1544"> 
+message thus far it's that it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1546"> 
+really important for all your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1548"> 
+animators to share the same unit </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1550"> 
+duration.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1551"> 
+This makes scrubbing them really </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1552"> 
+easy and it makes it possible to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1554"> 
+uniformly scrub them.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1556"> 
+But, you know, sometimes it's </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1558"> 
+kind of useful to have an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1559"> 
+animation that finishes a little </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1560"> 
+early or one that maybe starts </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1562"> 
+with a delay.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1563"> 
+And an example this could be in </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1566"> 
+the following animation where if </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1568"> 
+you notice the Details button </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1569"> 
+here it animates in about </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1570"> 
+halfway through is when it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1572"> 
+starts.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1573"> 
+And it's fully animated out </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1574"> 
+around that same halfway point.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1577"> 
+And if we try this interactively </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1579"> 
+you can really see it, so it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1581"> 
+just starts animating at this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1582"> 
+point and it's fully animated </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1585"> 
+out right around there.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1587"> 
+And if you look across UIKit you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1589"> 
+can actually see a lot of places </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1590"> 
+where we do this.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1591"> 
+In fact, UINavigationBar since </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1594"> 
+iOS 7 has had this effect when </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1596"> 
+you drive that animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1597"> 
+interactively.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1600"> 
+So, we could create an animator </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1601"> 
+with reduced duration or we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1603"> 
+could use a delay factor here, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1604"> 
+but that's really going to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1605"> 
+complicate our scrubbing code.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1607"> 
+It turns out there's a much more </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1608"> 
+elegant solution here and that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1609"> 
+is using keyframe animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1612"> 
+So, if we look at the UIView </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1614"> 
+headers we see the following two </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1615"> 
+keyframe methods.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1616"> 
+And I'd like to draw your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1617"> 
+attention to RelativeStartTime </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1619"> 
+and RelativeDuration.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1621"> 
+So, in order to create this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1622"> 
+effect, we perform a keyframe </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1624"> 
+animation inside of our property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1626"> 
+animator, so we call </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1627"> 
+UIView.animateKeyframes with a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1629"> 
+relative duration of zero.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1631"> 
+And what this means is our </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1632"> 
+keyframe animation will inherit </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1634"> 
+the duration of its outer </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1635"> 
+property animator and in fact, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1637"> 
+if you nest animations like this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1639"> 
+you'll get this inheritance </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1640"> 
+behavior for free.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1641"> 
+So, this can be really useful if </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1642"> 
+you're not using property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1643"> 
+animators.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1646"> 
+Now when we expand our comments </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1647"> 
+view we want that animation to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1648"> 
+start late so we're going to use </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1649"> 
+a relative start time of 0.5 and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1652"> 
+we're going to compensate for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1653"> 
+that by using a relative </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1654"> 
+duration of 0.5.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1655"> 
+And when we collapse it we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1657"> 
+going to use a relative start </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1658"> 
+time of zero because we want it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1659"> 
+to immediately begin or we use a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1661"> 
+relative duration of 0.5 so that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1663"> 
+it finishes early.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1665"> 
+And I'd like to draw your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1666"> 
+attention to these two </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1667"> 
+parameters here.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1668"> 
+So, you don't have to use a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1669"> 
+linear timing function for your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1670"> 
+keyframe animations you can use </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1672"> 
+any timing function you want, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1674"> 
+including your own custom timing </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1676"> 
+functions.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1677"> 
+And if you have multiple </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1678"> 
+keyframes here, which we don't, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1680"> 
+you could actually interpolate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1681"> 
+them using the options parameter </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1683"> 
+or control the way that they're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1685"> 
+interpolated using the options </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1686"> 
+parameter.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1686"> 
+Now lastly, I'd like to talk a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1692"> 
+little bit about additive </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1694"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1696"> 
+So, additive animations are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1697"> 
+really powerful and I find them </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1699"> 
+really interesting because they </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1700"> 
+allow us to modify or to animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1703"> 
+a single property of a view with </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1705"> 
+multiple simultaneously running </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1706"> 
+animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1708"> 
+Now for this demonstration the </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1712"> 
+sort of point of it is that I'd </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1714"> 
+like to demonstrate how to think </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1716"> 
+a little bit more additively </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1717"> 
+when we're designing and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1718"> 
+building our animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1719"> 
+So, let's say that we have a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1720"> 
+square and let's say that we'd </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1721"> 
+like to animate it by 360 </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1723"> 
+degrees times 10.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1725"> 
+That animation might look </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1725"> 
+something like this.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1730"> 
+Now you might be thinking well </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1731"> 
+that's just as easy as animating </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1733"> 
+the transform our view and you </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1736"> 
+wouldn't actually be wrong.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1738"> 
+But code such as this, which is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1739"> 
+animating our view by 20 pi </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1741"> 
+radians, does not produce that </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1743"> 
+animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1744"> 
+It actually produces this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1746"> 
+animation.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1747"> 
+Did you see it? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1750"> 
+Well, it actually didn't animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1755"> 
+and there's a really good reason </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1756"> 
+for that.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1757"> 
+That's because Core Animation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1758"> 
+only cares about the total </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1760"> 
+displacement when you're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1761"> 
+animating the transform of your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1762"> 
+view.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1763"> 
+So, in this case, the target </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1764"> 
+rotational value, which is 20 pi </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1766"> 
+radians, is the same orientation </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1768"> 
+as the current rotational value.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1770"> 
+So, the total displacement there </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1772"> 
+is actually zero.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1774"> 
+Now Core Animation will actually </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1776"> 
+produce an animation for you, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1777"> 
+but it's to and from values are </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1778"> 
+going to be the same.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1780"> 
+And you know a similar problem </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1782"> 
+exists if you try to rotate a </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1783"> 
+view by 180 degrees </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1785"> 
+counterclockwise by specifying </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1786"> 
+negative pi radians.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1789"> 
+And that's because Core </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1790"> 
+Animation because it only cares </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1792"> 
+about total displacement is </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1793"> 
+going to look for the shortest </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1795"> 
+path, which when ambiguous, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1796"> 
+which it is here, will be </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1797"> 
+clockwise.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1798"> 
+So, how do we do this? </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1801"> 
+Well we could drop down a core </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1803"> 
+animation and create our own CA </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1804"> 
+basic animation and manually set </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1806"> 
+our to and from values and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1807"> 
+that's perfectly fine and would </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1808"> 
+work.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1809"> 
+But we wouldn't get the tracking </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1811"> 
+and scrubbing behavior from </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1812"> 
+property animators.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1814"> 
+And it also would make this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1815"> 
+example much less interesting.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1818"> 
+What we could do is we could </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1820"> 
+decompose this into several </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1821"> 
+smaller additive rotational </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1823"> 
+animations and animate them all </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1825"> 
+together to create our desired </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1826"> 
+effect.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1827"> 
+So, it turns out transform is an </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1830"> 
+additively animatable property </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1832"> 
+as long as it's affine along </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1833"> 
+with frame, bound, center, and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1835"> 
+position.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1837"> 
+So, in our solution we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1839"> 
+actually going to create 20 </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1841"> 
+animations altogether and each </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1843"> 
+animation is going to animate </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1845"> 
+for 180 degrees and altogether </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1847"> 
+they're going to contribute to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1849"> 
+this following animation.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1851"> 
+Now what's kind of cool is we </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1853"> 
+actually have 20 animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1855"> 
+running simultaneously here.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1857"> 
+And I'm not suggesting that this </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1858"> 
+is a good idea generally, but it </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1862"> 
+does help us think a little bit </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1864"> 
+more additively when we're </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1866"> 
+designing and composing and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1867"> 
+creating our animations.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1869"> 
+So, the point of this is to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1870"> 
+consider how you can chain many </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1872"> 
+animations together or compose </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1874"> 
+together to create interesting </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1876"> 
+transitions.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1878"> 
+So today, we learned about how </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1881"> 
+to make animations fully </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1882"> 
+interactive and interruptible </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1883"> 
+using some modern techniques.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1885"> 
+We also talked about how to </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1886"> 
+coordinate several animations </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1888"> 
+together that all have unique </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1889"> 
+timing functions.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1891"> 
+And we looked at some techniques </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1893"> 
+in order to help us create some </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1894"> 
+really awesome animations for </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1896"> 
+our users.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1897"> 
+It is my hope that you walk away </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1898"> 
+from this presentation and </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1901"> 
+consider making more of your </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1902"> 
+animated transitions fully </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1903"> 
+interactive and interruptible.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1905"> 
+So, we have a few related </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1907"> 
+sessions.</a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1907"> 
+If you've missed any of these I </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1909"> 
+encourage you to watch them </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1910"> 
+online and there are a few </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1912"> 
+interesting sessions from prior </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1914"> 
+years.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1915"> 
+So, if you're interested in </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1916"> 
+animations, I highly encourage </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1917"> 
+you to check these out, </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1918"> 
+especially last year's session </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1920"> 
+where we introduced </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1920"> 
+UIViewPropertyAnimator.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1922"> 
+For more information, please </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1924"> 
+feel free to visit the following </a>
+
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1925"> 
+URL and thank you all very much.</a>
+
+</p>
+
+<p>
+<a class="sentence" href="https://developer.apple.com/videos/play/wwdc2017-230/?time=1928"> 
+</a>
+
+</p>
+							</section>
+						</li>
+
+						<!-- search -->
+						<li class="supplement search" data-supplement-id="search">
+
+							<section class="transcript-results-summary">
+								<p class="message smaller lighter"><!-- to be populated --></p>
+								<p class="instructions smaller lighter text-center">Looking for something specific? Enter a topic above and jump straight to the good stuff.</p>
+								<p class="error smaller lighter italic text-center" style="display:none;">An error occurred when submitting your query. Please check your Internet connection and try again.</p>
+							</section>
+
+							<!-- search results -->
+							<ul class="transcript-results row">
+															</ul>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</section>
+
+		</section>
+
+		<input id="analytics-meta" type="hidden" data-event-name="WWDC 2017" data-event-id="wwdc2017-230" data-session-id="230" data-video-name="Advanced Animations with UIKit" data-session-response-id="4722169bb6ab44e57849a4739fae54ad869841a3be5fbfe0cd78c126b131665c">
+	</main>
+
+	<link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/footer.dist.css">
+<footer id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+	<nav class="footer-breadcrumbs" aria-label="Breadcrumbs">
+		<a href="https://developer.apple.com/" class="home footer-breadcrumbs-home"><span aria-hidden="true" class="footer-breadcrumbs-home-icon" data-hires-status="pending"></span><span class="footer-breadcrumbs-home-label">Developer</span></a>
+		<div class="footer-breadcrumbs-path">
+			<ol class="footer-breadcrumbs-list">
+				<li class="footer-breadcrumbs-item"><a href="https://developer.apple.com/videos/">Videos</a></li>
+				<li class="footer-breadcrumbs-item"><a href="https://developer.apple.com/videos/wwdc2017/">WWDC 2017</a></li>				<li class="footer-breadcrumbs-item">Advanced Animations with UIKit</li>
+			</ol>
+		</div>
+	</nav>
+	        <nav class="footer-directory with-5-columns" aria-label="Apple Developer Directory" role="navigation">
+    <!--googleoff: all-->
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-discover">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-discover">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/discover/">Discover</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-discover" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/macos/">macOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/ios/">iOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/watchos/">watchOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/tvos/">tvOS</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/safari/">Safari and Web</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/games/">Games</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/business/">Business</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/education/">Education</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/wwdc/">WWDC</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-design">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-design">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/design/">Design</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-design" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/design/human-interface-guidelines/">Human Interface Guidelines</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/design/resources/">Resources</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/videos/design/">Videos</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/design/awards/">Apple Design Awards</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/fonts/">Fonts</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/accessibility/">Accessibility</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/internationalization/">Internationalization</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/accessories/">Accessories</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-develop">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-develop">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/develop/">Develop</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-develop" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/xcode/">Xcode</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/swift/">Swift</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/swift-playgrounds/">Swift Playgrounds</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/testflight/">TestFlight</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/documentation/">Documentation</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/videos/">Videos</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/download/">Downloads</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-distribute">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-distribute">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/distribute/">Distribute</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-distribute" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/programs/">Developer Program</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/app-store/">App Store</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/app-store/review/">App Review</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/macos/distribution/">Mac Software</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/business/distribute/">Apps for Business</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/safari/extensions/">Safari Extensions</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/app-store/marketing/guidelines/">Marketing Resources</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/softwarelicensing/">Trademark Licensing</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-directory-column">
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/support/">Support</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/support/articles/">Articles</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://forums.developer.apple.com/">Developer Forums</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/bug-reporting/">Feedback &amp; Bug&nbsp;Reporting</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/system-status/">System Status</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/contact/">Contact Us</a></li>
+            </ul>
+        </div>
+        <input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account">
+        <div class="footer-directory-column-section">
+            <label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+                <h3 class="footer-directory-column-section-title"><a href="https://developer.apple.com/account/">Account</a></h3>
+            </label>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+            <a href="https://developer.apple.com/videos/play/wwdc2017/230/#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+            <ul class="footer-directory-column-section-list">
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://developer.apple.com/account/ios/certificate/">Certificates, Identifiers &amp; Profiles</a></li>
+                <li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization">
+    <div class="footer-mini-news">To view the latest developer news, visit <a href="https://developer.apple.com/news/">News and Updates</a>.</div>
+    <div class="footer-mini-locale dropdown-container language-dropdown hidden">
+        <select class="dropdown" aria-label="Language Dropdown"></select>
+        <span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+    </div>
+    <link rel="stylesheet" href="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/language-dropdown.css">
+    <div class="footer-mini-legal">
+        <div class="footer-mini-legal-copyright">Copyright ©  2020 <a href="https://www.apple.com/">Apple Inc.</a> All rights reserved.</div>
+        <div class="footer-mini-legal-links">
+            <a class="footer-mini-legal-link" href="https://www.apple.com/legal/internet-services/terms/site.html">Terms of Use</a>
+            <a class="footer-mini-legal-link" href="https://www.apple.com/legal/privacy/en-ww/">Privacy Policy</a>
+            <a class="footer-mini-legal-link" href="https://developer.apple.com/terms/">License Agreements</a>
+        </div>
+    </div>
+</section>
+    </div>
+</footer>
+
+	<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/params.js"></script>
+	<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/watchable.js"></script>
+	<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/timeout.js"></script>
+
+	<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/play.js"></script>
+	<script src="./Advanced Animations with UIKit - WWDC 2017 - Videos - Apple Developer_files/hls.min.js"></script>
+	
+
+</body></html>

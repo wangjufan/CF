@@ -8,6 +8,8 @@
 
 #include "CFRunLoop_Do.h"
 
+
+
 /* rl is locked, rlm is locked on entrance and exit */
 static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl, CFRunLoopModeRef rlm, Boolean stopAfterHandle) __attribute__((noinline));
 
@@ -45,7 +47,7 @@ static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl,
             }
         } else {
             CFIndex cnt = CFArrayGetCount((CFArrayRef)sources);
-            CFArraySortValues((CFMutableArrayRef)sources, CFRangeMake(0, cnt), (__CFRunLoopSourceComparator), NULL);
+            CFArraySortValues((CFMutableArrayRef)sources, CFRangeMake(0, cnt), (__CFRunLoopSourceComparator), NULL);  //按照order升序排序，越小越优先调用
             for (CFIndex idx = 0; idx < cnt; idx++) {
                 CFRunLoopSourceRef rls = (CFRunLoopSourceRef)CFArrayGetValueAtIndex((CFArrayRef)sources, idx);
                 __CFRunLoopSourceLock(rls);
@@ -73,10 +75,27 @@ static Boolean __CFRunLoopDoSources0(CFRunLoopRef rl,
     }
     return sourceHandled;
 }
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__() __attribute__((noinline));
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__(void (*perform)(void *), void *info) {
+    if (perform) {
+        perform(info);
+    }
+    asm __volatile__(""); // thwart tail-call optimization
+}
+static CFComparisonResult __CFRunLoopSourceComparator(const void *val1, const void *val2, void *context) {
+    CFRunLoopSourceRef o1 = (CFRunLoopSourceRef)val1;
+    CFRunLoopSourceRef o2 = (CFRunLoopSourceRef)val2;
+    if (o1->_order < o2->_order) return kCFCompareLessThan;
+    if (o2->_order < o1->_order) return kCFCompareGreaterThan;
+    return kCFCompareEqualTo;
+}
+
+
+
+
 
 CF_INLINE void __CFRunLoopDebugInfoForRunLoopSource(CFRunLoopSourceRef rls) {
 }
-
 // msg, size and reply are unused on Windows
 static Boolean __CFRunLoopDoSource1() __attribute__((noinline));
 static Boolean __CFRunLoopDoSource1(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRunLoopSourceRef rls
@@ -112,6 +131,27 @@ static Boolean __CFRunLoopDoSource1(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFRun
     __CFRunLoopModeLock(rlm);
     return sourceHandled;
 }
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__() __attribute__((noinline));
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__(
+#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
+                                                                       void *(*perform)(void *msg, CFIndex size, CFAllocatorRef allocator, void *info),
+                                                                       mach_msg_header_t *msg, CFIndex size, mach_msg_header_t **reply,
+#else
+                                                                       void (*perform)(void *),
+#endif
+                                                                       void *info) {
+    if (perform) {
+#if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
+        *reply = perform(msg, size, kCFAllocatorSystemDefault, info);
+#else
+        perform(info);
+#endif
+    }
+    asm __volatile__(""); // thwart tail-call optimization
+}
+
+
+
 
 
 
@@ -278,6 +318,7 @@ static Boolean __CFRunLoopDoTimers(CFRunLoopRef rl, CFRunLoopModeRef rlm, uint64
 }
 
 
+
 /* rl is locked, rlm is locked on entrance and exit */
 static void __CFRunLoopDoObservers() __attribute__((noinline));
 static void __CFRunLoopDoObservers(CFRunLoopRef rl,
@@ -289,11 +330,10 @@ static void __CFRunLoopDoObservers(CFRunLoopRef rl,
     CFIndex cnt = rlm->_observers ? CFArrayGetCount(rlm->_observers) : 0;
     if (cnt < 1) return;
     
-    /* Fire the observers */
+    /* Fire the observers 创建集合 强持有观察者 */
     STACK_BUFFER_DECL(CFRunLoopObserverRef, buffer, (cnt <= 1024) ? cnt : 1);
     CFRunLoopObserverRef *collectedObservers = (cnt <= 1024) ? buffer : (CFRunLoopObserverRef *)malloc(cnt * sizeof(CFRunLoopObserverRef));
     CFIndex obs_cnt = 0;
-    
     for (CFIndex idx = 0; idx < cnt; idx++) {
         CFRunLoopObserverRef rlo = (CFRunLoopObserverRef)CFArrayGetValueAtIndex(rlm->_observers, idx);
         if (0 != (rlo->_activities & activity)
@@ -311,12 +351,16 @@ static void __CFRunLoopDoObservers(CFRunLoopRef rl,
         
         CFRunLoopObserverRef rlo = collectedObservers[idx];
         __CFRunLoopObserverLock(rlo);
+        
         if (__CFIsValid(rlo)) {
-            
             Boolean doInvalidate = !__CFRunLoopObserverRepeats(rlo);
             __CFRunLoopObserverSetFiring(rlo);
             __CFRunLoopObserverUnlock(rlo);
-            __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__(rlo->_callout, rlo, activity, rlo->_context.info);
+            __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__(
+                                                                          rlo->_callout,
+                                                                          rlo,
+                                                                          activity,
+                                                                          rlo->_context.info);
             if (doInvalidate) {
                 CFRunLoopObserverInvalidate(rlo);
             }
@@ -332,5 +376,12 @@ static void __CFRunLoopDoObservers(CFRunLoopRef rl,
     if (collectedObservers != buffer) free(collectedObservers);
 }
 
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__() __attribute__((noinline));
+static void __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__(CFRunLoopObserverCallBack func, CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
+    if (func) {
+        func(observer, activity, info);
+    }
+    asm __volatile__(""); // thwart tail-call optimization
+}
 
 

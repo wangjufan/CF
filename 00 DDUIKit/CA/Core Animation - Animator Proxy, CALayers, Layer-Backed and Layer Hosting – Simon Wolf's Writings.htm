@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0108)https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting -->
+<html class="js no-touch rgba hsla textshadow opacity svg wf-sourcecodepro-n4-active wf-sourcecodepro-n7-active wf-sourcesanspro-i2-active wf-sourcesanspro-i3-active wf-sourcesanspro-i4-active wf-sourcesanspro-i6-active wf-sourcesanspro-i7-active wf-sourcesanspro-i9-active wf-sourcesanspro-n2-active wf-sourcesanspro-n3-active wf-sourcesanspro-n4-active wf-sourcesanspro-n6-active wf-sourcesanspro-n7-active wf-sourcesanspro-n9-active wf-volkhov-i4-active wf-volkhov-i7-active wf-volkhov-n4-active wf-volkhov-n7-active wf-active js" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf's Writings</title>
+<meta name="description" content="Introduction
+One of the aspects of Core Animation that can be confusing is that there are degrees of it. To start with there is the animator proxy which is available to NSWindows and NSViews and allows you to animate some property transitions. Next there is the concept of layer-backed views which allow you to perform additional animation effects to your views whilst still essentially working with the familiar AppKit objects. Finally there are layer-hosting views, a scenario where you essentially use Core Animation layers to create the user interface, simply using an NSView to contain the layers. This article explains each of these in further detail and will hopefully make the distinction between them clearer.
+
+">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting">
+<meta name="twitter:description" content="Introduction
+One of the aspects of Core Animation that can be confusing is that there are degrees of it. To start with there is the animator proxy which is available to NSWindows and NSViews and allows you to animate some property transitions. Next there is the concept of layer-backed views which allow you to perform additional animation effects to your views whilst still essentially working with the familiar AppKit objects. Finally there are layer-hosting views, a scenario where you essentially use Core Animation layers to create the user interface, simply using an NSView to contain the layers. This article explains each of these in further detail and will hopefully make the distinction between them clearer.
+
+">
+<meta name="twitter:site" content="@sgaw">
+<meta name="twitter:creator" content="@sgaw">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.swwritings.com/images/">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_UK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting">
+<meta property="og:description" content="Introduction
+One of the aspects of Core Animation that can be confusing is that there are degrees of it. To start with there is the animator proxy which is available to NSWindows and NSViews and allows you to animate some property transitions. Next there is the concept of layer-backed views which allow you to perform additional animation effects to your views whilst still essentially working with the familiar AppKit objects. Finally there are layer-hosting views, a scenario where you essentially use Core Animation layers to create the user interface, simply using an NSView to contain the layers. This article explains each of these in further detail and will hopefully make the distinction between them clearer.
+
+">
+<meta property="og:url" content="https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting">
+<meta property="og:site_name" content="Simon Wolf&#39;s Writings">
+
+
+
+
+
+<link rel="canonical" href="https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting">
+<link href="https://www.swwritings.com/feed.xml" type="application/atom+xml" rel="alternate" title="Simon Wolf&#39;s Writings Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/main.css">
+<!-- Webfonts -->
+<link rel="stylesheet" href="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/l" media="all"><div class="fit-vids-style" id="fit-vids-style" style="display: none;">­<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></div><script src="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/source-sans-pro_n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://www.swwritings.com/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://www.swwritings.com/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://www.swwritings.com/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://www.swwritings.com/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://www.swwritings.com/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.swwritings.com/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.swwritings.com/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.swwritings.com/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<a href="https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting#" id="nav-toggle" aria-hidden="true"><i class="fa fa-bars"></i> Menu</a><nav role="navigation" id="site-nav" class="animated drop closed" aria-hidden="false" style="transition: max-height 200ms ease 0s; position: relative;">
+	    <ul>
+      
+		    
+		    <li><a href="https://www.swwritings.com/">Home</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/categories/">Categories</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/archive/">Archive</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/licenseagreement/">License Agreement</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/about/">About</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+      <h1 class="site-title animated fadeIn"><a href="https://www.swwritings.com/">Simon Wolf's Writings</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Sometimes random, occasionally focused, rarely proof-read.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"></span>
+        
+          <h1 class="entry-title">Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/sw_avatar.jpg" class="bio-photo" alt="Simon Wolf bio photo">
+        
+        <span class="author vcard">By <span class="fn">Simon Wolf</span></span>
+        <span class="article category">In <span class="fn">cocoa</span></span>
+        <span class="entry-date date published"><time datetime="2010-05-22T16:06:00+00:00"><i class="fa fa-calendar-o"></i> May 22, 2010</time></span>
+        
+        
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=&amp;text=Core%20Animation%20-%20Animator%20Proxy,%20CALayers,%20Layer-Backed%20and%20Layer%20Hosting&amp;url=https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting&amp;via=sgaw" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <h3 id="introduction">Introduction</h3>
+<p>One of the aspects of Core Animation that can be confusing is that there are degrees of it. To start with there is the animator proxy which is available to NSWindows and NSViews and allows you to animate some property transitions. Next there is the concept of layer-backed views which allow you to perform additional animation effects to your views whilst still essentially working with the familiar AppKit objects. Finally there are layer-hosting views, a scenario where you essentially use Core Animation layers to create the user interface, simply using an NSView to contain the layers. This article explains each of these in further detail and will hopefully make the distinction between them clearer.</p>
+
+<h3 id="the-animator-proxy">The Animator Proxy</h3>
+<p>The Animator proxy is the quickest way to implement Core Animation effects in your user interface. A one word change in your code can evolve a property change from happening immediately into one that is animated and both looks great and also helps the user understand what is going on.</p>
+
+<p>As an example, imagine a scenario where you want to move an image from one side of a view to another. If you simply call something like <code>[imageWell setFrameOrigin:NSMakePoint(150.0, 25.0)]</code> then image will jump straight to the new position. If however you call <code>[[imageWell animator] setFrameOrigin:NSMakePoint(150.0, 25.0)]</code> the image will glide to its new position over a quarter of a second.</p>
+
+<p>The animator proxy can be enhanced by customising the animations that take place in terms of their duration and their timing and this extends to keyframe animations.</p>
+
+<p>Finally, being completely accurate, the animation caused via the animator proxy is termed Cocoa Animation or Cocoa Animatable Proxy Animation. This kind of animation does not require Core Animation layers.</p>
+
+<p>The animator proxy is covered in detail in the <a href="https://swwritings.com/post/2010-05-23-core-animation-the-animator-proxy">article about it</a>.</p>
+
+<h3 id="calayers">CALayers</h3>
+<p>Core Animation layers, CALayers, are light-weight model classes that store data. This might seem contradictory on the grounds that Core Animation is all about display and moving things and you might expect them to be part of the view in the model-view-controller design pattern but the reality is that the NSView or UIView that the layer is attached to is the object that is the view. CALayers essentially store properties that facilitate the drawing or animation of objects.</p>
+
+<p>The official definition from Apple is:</p>
+
+<blockquote>The CALayer class is the model class for layer-tree objects. It encapsulates the position, size, and transform of a layer, which defines its coordinate system. It also encapsulates the duration and pacing of a layer and its animations by adopting the CAMediaTiming protocol, which defines a layer’s time space.</blockquote>
+
+<p>You can think of CALayers as being a kind of skin that either sits behind or on top of a view. If it sits behind the view its main purpose is to allow the view to perform additional drawing and animation effects upon the contents of the view and its subviews. If it sits on top of the view it effectively conceals it and the drawing and animation is done on the layer rather than on the view itself.</p>
+
+<p>Core Animation layers are not needed in order to use the animator proxy although if your views are layer-backed then the performance of the animations can be improved.</p>
+
+<h3 id="layer-backed-views">Layer-Backed Views</h3>
+<p>Layer backed views are views where their Core Animation layers, and the Core Animation layers of their subviews, are, for want of a better phrase, turned on. Enabling a view’s backing layer allows you to perform some animations and effects that are beyond the animator proxy, things like rotation, shadows and transparency.</p>
+
+<p>You can turn on layer-backing for a view in Interface Builder or in code using the view’s setWantsLayer: method.</p>
+
+<p>You would use layer-backed views when you want to enhance your ‘traditional’ interface beyond what the animator proxy offers.</p>
+
+<h3 id="layer-hosting-views">Layer-Hosting Views</h3>
+<p>A layer-hosting is when you place a layer over the top of a view. You can resize and reposition the view but all of the drawing should be done on the layer or layers that are being hosted by the view.</p>
+
+<p>Layer-hosting views generally come into play when you want to provide a bespoke interface or interface element which is created from one or more Core Animation layers. A good example of this is Apple’s Front Row application.</p>
+
+<p>One of the important features of a Core Animation layer is that it is not a subclass of NSResponder and therefore they cannot process events. To work around this you catch the events in the underlying view and use the layer’s hitTest: method to determine which layer was clicked and react accordingly.</p>
+
+<p>Layer-hosting is set up by creating a Core Animation layer, assigning it to a view and then calling the setWantsLayer: method on the view.</p>
+
+<p>You would use layer-hosting views when you want a highly customised, animated interface or when what you are trying to achieve simply suits Core Animation layers more than it does NSViews or UIViews. For example, if you want to be able to display a video and allow the user to flip it horizontally and/or vertically it’s a snap doing it in a QTMovieLayer rather than in a QTMovieView.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>All three of these types of Core Animation will be covered in more detail in their own posts. I’ll tag posts with ‘animator proxy’, ‘layer-backed’ or ‘layer-hosting’ as and when appropriate to help you find related articles more easily.</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://www.swwritings.com/post/2010-04-27-spot-color-and-developer-color-picker" class="btn" title="Spot Color and Developer Color Picker">Previous</a>
+      
+      
+        <a href="https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy" class="btn" title="Core Animation - The Animator Proxy">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>© 2020 Simon Wolf. Powered by <a href="http://jekyllrb.com/" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="http://twitter.com/sgaw" title="Simon Wolf on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/ottersoftware" title="Simon Wolf on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+	
+  <!-- <a href="https://www.swwritings.com/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a> -->
+  <a href="http://feeds.feedburner.com/swwritings" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://www.swwritings.com';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://www.swwritings.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script><script src="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/jquery-1.9.1.min.js"></script>
+<script src="./Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting – Simon Wolf&#39;s Writings_files/scripts.min.js"></script>
+
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34621260-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting',
+    'title': 'Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting'
+  });
+</script>
+
+ -->
+
+
+
+</body></html>

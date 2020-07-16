@@ -47,7 +47,8 @@ CF_EXPORT CFRunLoopObserverRef CFRunLoopObserverCreateWithHandler(
                                             CFOptionFlags activities,
                                             Boolean repeats,
                                             CFIndex order,
-     void (^block) (CFRunLoopObserverRef observer, CFRunLoopActivity activity)) CF_AVAILABLE(10_7, 5_0);
+                                            void (^block) (CFRunLoopObserverRef observer,
+                                                           CFRunLoopActivity activity)) CF_AVAILABLE(10_7, 5_0);
 #endif
 
 

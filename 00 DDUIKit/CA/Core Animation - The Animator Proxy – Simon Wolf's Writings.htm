@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy -->
+<html class="js no-touch rgba hsla textshadow opacity svg wf-sourcecodepro-n4-active wf-sourcecodepro-n7-active wf-sourcesanspro-i2-active wf-sourcesanspro-i3-active wf-sourcesanspro-i4-active wf-sourcesanspro-i6-active wf-sourcesanspro-i7-active wf-sourcesanspro-i9-active wf-sourcesanspro-n2-active wf-sourcesanspro-n3-active wf-sourcesanspro-n4-active wf-sourcesanspro-n6-active wf-sourcesanspro-n7-active wf-sourcesanspro-n9-active wf-volkhov-i4-active wf-volkhov-i7-active wf-volkhov-n4-active wf-volkhov-n7-active wf-active" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Core Animation - The Animator Proxy – Simon Wolf's Writings</title>
+<meta name="description" content="Introduction
+The animator proxy is available to NSViews and NSWindows and is completely free of Core Animation layers. As such is technically not Core Animation but is rather Cocoa Animation. However the two are so closely tied together that it is worth considering it part of Core Animation. This article explains what the animator proxy does behind the scenes when you invoke it and how to customise the animations is uses.
+
+">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Core Animation - The Animator Proxy">
+<meta name="twitter:description" content="Introduction
+The animator proxy is available to NSViews and NSWindows and is completely free of Core Animation layers. As such is technically not Core Animation but is rather Cocoa Animation. However the two are so closely tied together that it is worth considering it part of Core Animation. This article explains what the animator proxy does behind the scenes when you invoke it and how to customise the animations is uses.
+
+">
+<meta name="twitter:site" content="@sgaw">
+<meta name="twitter:creator" content="@sgaw">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.swwritings.com/images/">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_UK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Core Animation - The Animator Proxy">
+<meta property="og:description" content="Introduction
+The animator proxy is available to NSViews and NSWindows and is completely free of Core Animation layers. As such is technically not Core Animation but is rather Cocoa Animation. However the two are so closely tied together that it is worth considering it part of Core Animation. This article explains what the animator proxy does behind the scenes when you invoke it and how to customise the animations is uses.
+
+">
+<meta property="og:url" content="https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy">
+<meta property="og:site_name" content="Simon Wolf&#39;s Writings">
+
+
+
+
+
+<link rel="canonical" href="https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy">
+<link href="https://www.swwritings.com/feed.xml" type="application/atom+xml" rel="alternate" title="Simon Wolf&#39;s Writings Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="./Core Animation - The Animator Proxy – Simon Wolf&#39;s Writings_files/main.css">
+<!-- Webfonts -->
+<link rel="stylesheet" href="./Core Animation - The Animator Proxy – Simon Wolf&#39;s Writings_files/l" media="all"><script src="./Core Animation - The Animator Proxy – Simon Wolf&#39;s Writings_files/source-sans-pro_n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://www.swwritings.com/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://www.swwritings.com/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="./Core Animation - The Animator Proxy – Simon Wolf&#39;s Writings_files/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://www.swwritings.com/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://www.swwritings.com/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://www.swwritings.com/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.swwritings.com/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.swwritings.com/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.swwritings.com/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="https://www.swwritings.com/">Home</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/categories/">Categories</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/archive/">Archive</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/licenseagreement/">License Agreement</a></li>
+		  
+		    
+		    <li><a href="https://www.swwritings.com/about/">About</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+      <h1 class="site-title animated fadeIn"><a href="https://www.swwritings.com/">Simon Wolf's Writings</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Sometimes random, occasionally focused, rarely proof-read.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"></span>
+        
+          <h1 class="entry-title">Core Animation - The Animator Proxy</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="./Core Animation - The Animator Proxy – Simon Wolf&#39;s Writings_files/sw_avatar.jpg" class="bio-photo" alt="Simon Wolf bio photo">
+        
+        <span class="author vcard">By <span class="fn">Simon Wolf</span></span>
+        <span class="article category">In <span class="fn">cocoa</span></span>
+        <span class="entry-date date published"><time datetime="2010-05-23T11:49:00+00:00"><i class="fa fa-calendar-o"></i> May 23, 2010</time></span>
+        
+        
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=&amp;text=Core%20Animation%20-%20The%20Animator%20Proxy&amp;url=https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy&amp;via=sgaw" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=https://www.swwritings.com/post/2010-05-23-core-animation-the-animator-proxy" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <h3 id="introduction">Introduction</h3>
+<p>The animator proxy is available to NSViews and NSWindows and is completely free of Core Animation layers. As such is technically not Core Animation but is rather Cocoa Animation. However the two are so closely tied together that it is worth considering it part of Core Animation. This article explains what the animator proxy does behind the scenes when you invoke it and how to customise the animations is uses.</p>
+
+<h3 id="a-quick-definition">A Quick Definition</h3>
+<blockquote>The Animator proxy is the quickest way to implement Core Animation effects in your user interface. A one word change in your code can evolve a property change from happening immediately into one that is animated and both looks great and also helps the user understand what is going on.
+
+As an example, imagine a scenario where you want to move an image from one side of a view to another. If you simply call something like <code>[imageWell setFrameOrigin:NSMakePoint(150.0, 25.0)]</code> then image will jump straight to the new position. If however you call <code>[[imageWell animator] setFrameOrigin:NSMakePoint(150.0, 25.0)]</code> the image will glide to its new position over a quarter of a second.
+
+The animator proxy can be enhanced by customising the animations that take place in terms of their duration and their timing and this extends to keyframe animations.
+
+Finally, being completely accurate, the animation caused via the animator proxy is termed Cocoa Animation or Cocoa Animatable Proxy Animation. This kind of animation does not require Core Animation layers.</blockquote>
+
+<p><cite>Taken from ‘<a href="http://www.ottersoftwareblog.com/blog/2010/5/22/core-animation-animator-proxy-calayers-layer-backed-layer-ho.html">Core Animation - Animator Proxy, CALayers, Layer-Backed &amp; Layer Hosting</a>’</cite></p>
+
+<h3 id="using-the-animator-proxy">Using The Animator Proxy</h3>
+<p>As the above may suggest you can invoke the animator proxy simply by telling it to change your window or view’s property rather than having the window or view do it itself.</p>
+
+<p>A simple example of implementing the animator proxy is changing this:</p>
+<pre>[myView setOrigin:NSMakePoint(100.0f, 100.0f)];</pre>
+
+<p>to this:</p>
+<pre>[[myView animator] setOrigin:NSMakePoint(100.0f, 100.0f)];</pre>
+
+<p>Once the animator proxy is used the view will animate the change to its origin meaning that it glides into position rather than jumping there.</p>
+
+<h3 id="the-animator-proxy-explained">The Animator Proxy Explained</h3>
+<p>In the above example the magic of Core Animation is invoked via the use of ‘animator’ which is a proxy object which belongs to the NSAnimatablePropertyContainer protocol. Clear? No? Good.</p>
+
+<p>In plain English what is happening is that rather than the view simply setting its own origin to the new value and the display being updated with the view appearing to jump from its old position to the new one, the animator proxy object steps in and moves the view using an animation effect. The view is essentially asking the animator object to move it to its new location in a beautiful and elegant way and the animator asks the NSAnimatablePropertyContainer protocol how it should do this, gets some instructions back and then performs the move according to those instructions.</p>
+
+<p>The NSAnimatablePropertyContainer knows how to perform simple moves, rotations and things like that, because the developers at Apple have taught it some basic animation effects but you also have the ability to teach it new ones. The built-in and any new animations that you define are stored in dictionaries, one for your animations, one for the built-in ones. The values in the dictionaries are the details about how the animation is to be performed whilst the key is, as usual, a string which names the animation. This is where key-value coding comes in because when you ask the animator proxy to perform an animation is used key-value coding to check first your dictionary of user-defined animations and then the built-in dictionary of animations.</p>
+
+<p>So, using the above example of changing a view’s origin, what actually happens is that your view asks the animator proxy to move its origin. The animator proxy asks the NSAnimatablePropertyContainer to check your dictionary of animations, unsurprisingly called animations, to see if there is an animation definition stored in it called ‘Origin’. If it is then it uses the animation to change the view’s origin and hence move the view. If there isn’t then it asks it if there is an animation in its pre-defined dictionary called ‘Origins’. Again, if there is then it uses the animation to change the view’s origin and hence move the view. If there isn’t then there isn’t a fall-back so the animator proxy simply changes the origin and moves the view without animating it.</p>
+
+<p>More technically, the animator proxy initially invokes the NSAnimatablePropertyContainer’s animationForKey: method which will checks the NSAnimatablePropertyContainer’s animations dictionary to see if it can find an animation with the required name. If it can it returns the animation’s details to the animator which then performs the animation. If the requested animation is not listed in the dictionary then the NSAnimatablePropertyContainer’s defaultAnimationForKey: class method is invoked.</p>
+
+<h3 id="simple-concurrent-animations">Simple Concurrent Animations</h3>
+<p>It is possible to perform multiple animations concurrently. For example, you can change the origin of a frame and the size of a frame at the same time by simply calling the relevant methods in the same method:</p>
+
+<pre>[[textField animator] setFrameOrigin:[self newOrigin]];
+[[textField animator] setFrameSize:[self newSize]];
+</pre>
+
+<h3 id="setting-the-animation-duration">Setting The Animation Duration</h3>
+<p>Cocoa Animation provides the ability to override the default duration setting of an animation using the NSAnimationContext object.</p>
+
+<p>To use NSAnimationContext you begin a grouping, set the duration of the current context, invoke the animation and then end the grouping. The code would look something like this:</p>
+
+<pre>[NSAnimationContext beginGrouping];
+[[NSAnimationContext currentContext] setDuration:3.0f];
+[[textField animator] setFrameOrigin:NSMakePoint([textField frame].origin.x, 10.0)];
+[NSAnimationContext endGrouping];</pre>
+
+<p>It is possible to nest NSAnimationContexts so that you can apply different durations to different animations that occur concurrently. This is a basic form of grouping which is explained later in this article.</p>
+
+<pre>[NSAnimationContext beginGrouping];
+[[NSAnimationContext currentContext] setDuration:5.0f];
+[[textField animator] setFrameOrigin:NSMakePoint([textField frame].origin.x, 10.0)];
+
+[NSAnimationContext beginGrouping];
+[[NSAnimationContext currentContext] setDuration:2.0f];
+[[textField animator] setFrameSize:NSMakeSize([textField frame].size.width, 44.0)];
+[NSAnimationContext endGrouping];
+
+[NSAnimationContext endGrouping];</pre>
+
+<p>The above code creates an initial NSAnimationContext where the animation duration is 5 seconds and a secondary one where the animation duration is 2 seconds. The setFrameOrigin: method will be animated using the 5 second duration whilst the setFrameSize: method will be animated using the 2 second duration. In effect the animation will begin and the NSTextField’s frame origin and frame size will all being to change. After two seconds the frame size will have been set and 3 seconds later the changes to the frame’s origin will be complete.</p>
+
+<p><strong>Gotcha!</strong> You need to watch out because if you have defined a custom animation for say the frameOrigin property and you try to override the duration of that animation using NSAnimationContext the NSAnimationContext will have no effect. NSAnimationContext only seems to override the built-in default durations.</p>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-01.zip">Download an example project</a></p>
+
+<h3 id="adding-your-own-animations">Adding Your Own Animations</h3>
+<p>As discussed above, the animator proxy searches a dictionary for any custom animations before it applies the default one. Adding your own animations is fairly simple as long as you are aware of a couple of gotchas.</p>
+
+<p>Once you have defined an animation (see below for details about how to do this and work on the basis that <code>[self customAnimation]</code> is used to create an animation object) you need to add it to the animations dictionary of the window or view you want to apply it to. You may think that this will work:</p>
+
+<pre>[textField setAnimations:[NSDictionary dictionaryWithObject:[self customAnimation] forKey:@"frameOrigin"]];</pre>
+
+<p>Well it will as long as you only want one custom animation applied to the view, in this example an NSTextField. If you already have an animation defined or want to add more you will quickly discover that the above code replaces the entire animations dictionary with your one new animation. The following code is a better approach:</p>
+
+<pre>NSMutableDictionary *newAnimations = [NSMutableDictionary dictionary];
+[newAnimations addEntriesFromDictionary:[textField animations]];
+[newAnimations setObject:[self customAnimation] forKey:@"frameOrigin"];
+[textField setAnimations:newAnimations];</pre>
+
+<p>You might think that you could simplify the code by writing something like this:</p>
+
+<pre>NSMutableDictionary *newAnimations = [[[textField animations] mutableCopy] autorelease];
+[newAnimations setObject:[self customAnimation] forKey:@"frameOrigin"];
+[textField setAnimations:newAnimations];</pre>
+
+<p>The problem is that if the animations dictionary is empty then the mutable array is not created so you are effectively setting the animations dictionary to nil in the third line.</p>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-02.zip">Download an example project containing this code</a></p>
+
+<p>Sometimes you will not see an animation effect that you expect. If, for example, you wanted to change the the textField’s size as well as origin you might create your new animation and set its key to ‘frame’:</p>
+
+<pre>[textField setAnimations:[NSDictionary dictionaryWithObject:[self customAnimation] forKey:@"frame"]];
+NSRect newFrame = [textField frame];
+newFrame.origin.x = 400.0f;
+newFrame.size.width = 50.0f;
+[[textField animator] setFrame:newFrame];</pre>
+
+<p>If you run this then the frame would change its origin and size but it would do so using the default basic animation properties. To resolve this you create two custom animations: one for the frameOrigin and one for the frameSize:</p>
+
+<pre>NSMutableDictionary *newAnimations = [NSMutableDictionary dictionary];
+[newAnimations addEntriesFromDictionary:[textField animations]];
+[newAnimations setObject:[self customAnimation] forKey:@"frameOrigin"];
+[newAnimations setObject:[self customAnimation] forKey:@"frameSize"];
+[textField setAnimations:newAnimations];
+
+NSRect newFrame = [textField frame];
+newFrame.origin.x = 400.0f;
+newFrame.size.width = 50.0f;
+[[textField animator] setFrame:newFrame];</pre>
+
+<p>Essentially, if something doesn’t work as expected play around and change the key values. The most obvious key is not always the correct one.</p>
+
+<h3 id="creating-animations">Creating Animations</h3>
+<p>When you allow the animator proxy or a CALayer to perform one of the standard animations it is applying what is termed a basic animation, an animation represented by the CABasicAnimation class. By default an animation effect lasts for a quarter of a second and it eases in and eases out. You can define your own basic animations to override the default ones and you can also go a step further and override them with keyframe animations.</p>
+
+<h3 id="media-timing---camediatiming">Media Timing - CAMediaTiming</h3>
+<p>Before getting into the animation objects themselves it is worth talking about media timing which essentially describes how an object’s speed changes during the course of the animation. Above I mentioned that the default animation eases-in and eases-out which means that if you are moving a view from one part of a window to another the view will start moving slowly, accelerate, move across the window at a constant speed and will then decelerate to a stop. The CAMediaTiming object, which is what determines the media timing, has five pre-defined timing functions:</p>
+<ul>
+<li>Linear - The animation occurs at a constant speed over the duration of the animation.</li>
+<li>Ease-In - The animation begins slowly and accelerates to and finishes at a constant speed.</li>
+<li>Ease-Out - The animation starts and runs at a constant speed until it slows down to a stop.</li>
+<li>Ease-In, Ease-Out - The animation begins slowly and accelerates up to a constant speed before slowing down to a stop.</li>
+<li>Default - The default timing function is an ease-in, ease-out function were the initial acceleration occurs quickly and the deceleration occurs at a more stately pace.</li>
+</ul>
+
+<p>There is a really useful web page at <a href="http://netcetera.org/camtf-playground.html">http://netcetera.org/camtf-playground.html</a> where you can see how CAMediaFunctions look as plotted on a graph which is extremely useful because being able to visualise them helps enormously.</p>
+
+<h3 id="basic-animation---the-cabasicanimation-object">Basic Animation - The CABasicAnimation Object</h3>
+<p>A basic animation allows you to set the duration and/or timing function of the animation.</p>
+
+<p>To create a new CABasicAnimation you would write something like this:</p>
+
+<pre>CABasicAnimation *animation = [CABasicAnimation animation];
+  [animation setDuration:5.0f];
+  [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];</pre>
+
+<p>This animation has a duration of five seconds and the media timing function is set to the pre-defined ease-in, ease-out function.</p>
+
+<p>I tend to define animations in their own methods rather than creating them in-line in my code because it makes them more reusable, breaks the code into more clearly defined chunks and keeps the lengths of my methods under control.</p>
+
+<pre>- (CABasicAnimation *)customAnimation;
+{
+  CABasicAnimation *animation = [CABasicAnimation animation];
+  [animation setDuration:5.0f];
+  [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+  return animation;
+}</pre>
+
+<p>You can now simply add this new animation object to the animations dictionary of your window or view as described above to use it.</p>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-03.zip">Download an example project</a></p>
+
+<h3 id="keyframe-animation---the-cakeyframeanimation-object">Keyframe Animation - The CAKeyframeAnimation Object</h3>
+<p>Keyframe animation allows you finer-grain control over your animations. For example, you can create a keyframe animation where you change the origin of a view over three seconds and have the view move half way to its destination in the first second, stay stationary for a second and then move to its final destination in the last second.</p>
+
+<pre>- (CAKeyframeAnimation *)keyframeAnimation;
+{
+  CGFloat midPoint = NSMidX([[window contentView] frame]) - ([view frame].size.width / 2.0f);
+
+  CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+  [animation setDuration:3.0f];
+  [animation setValues:[NSArray arrayWithObjects:
+                        [NSValue valueWithPoint:NSMakePoint([view frame].origin.x, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:[self newViewOrigin]],
+                        nil]];
+  return animation;
+}</pre>
+
+<p>In the above example, midPoint is simply a calculated value of where the x origin of the view should be if the view is centred horizontally in the window. The interesting part is the array that is used for the animation’s values property. This lists four points (wrapped in NSValues) which are the four keyframe points that the view should travel through. The first is the starting point of the view, the second and third are both the mid-point origins and the fourth is the final origin point for the view. We have given the animation three points to move through from an initial starting point and, to keep the maths simple, we’ve told it to carry out the entire process over three seconds. This means that it will move from point 1 to point 2 during the first second, from point 2 to point 3 over the second second and from point 3 to point 4 during the last second. Because points 2 and 3 are the same the view will remain stationary for that middle second.</p>
+
+<p>We can enhance this further by giving each of the values a cut of the total time of the animation. Let’s say that you actually wanted the view to move from its original position to point 1 in half a second, pause for one second and then move to its intended destination in one and a half seconds. You can do this by passing an array of floating point numbers to the CAKeyframeAnimation’s keyTimes property. Because you are apportioning the total time of the animation the numbers are fractions of the total duration meaning that the start of the animation has a value of 0.0 and the end of the animation has a value of 1.0.</p>
+
+<p>Enhancing our earlier example to do the above would result in:</p>
+
+<pre>- (CAKeyframeAnimation *)keyframeAnimation;
+{
+  CGFloat midPoint = NSMidX([[window contentView] frame]) - ([view frame].size.width / 2.0f);
+
+  CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+  [animation setDuration:3.0f];
+  [animation setValues:[NSArray arrayWithObjects:
+                        [NSValue valueWithPoint:NSMakePoint([view frame].origin.x, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:[self newViewOrigin]],
+                        nil]];
+  [animation setKeyTimes:[NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0],
+                          [NSNumber numberWithFloat:0.17],
+                          [NSNumber numberWithFloat:0.67],
+                          [NSNumber numberWithFloat:1.00],
+                          nil]];
+  return animation;
+}</pre>
+
+<p>There are four key times, one for each of the values. The first key time means that the first point should be reached at that time, i.e. this is the starting point and starting time. The second key time means that 17% of the way through the three second duration (17% of 3 seconds is 0.46 of a second, close enough to our half a second) of the animation the origin of the view should be at the second point. The third time means that at 67% of the duration of the animation the third point should be reached and the fourth means that at 100% of the duration of the animation the fourth point should be reached.</p>
+
+<p>We can further enhance the animation by passing an array of media timing functions to the timingFunctions property of the CAKeyframeAnimation. Let’s now perform the initial move with a linear timing function and then have an ease-in timing function for the last stage of the animation:</p>
+
+<pre>- (CAKeyframeAnimation *)keyframeAnimation;
+{
+  CGFloat midPoint = NSMidX([[window contentView] frame]) - ([view frame].size.width / 2.0f);
+  
+  CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+  [animation setDuration:3.0f];
+  [animation setValues:[NSArray arrayWithObjects:
+                        [NSValue valueWithPoint:NSMakePoint([view frame].origin.x, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:NSMakePoint(midPoint, [view frame].origin.y)],
+                        [NSValue valueWithPoint:[self newViewOrigin]],
+                        nil]];
+  [animation setKeyTimes:[NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0],
+                          [NSNumber numberWithFloat:0.17],
+                          [NSNumber numberWithFloat:0.67],
+                          [NSNumber numberWithFloat:1.00],
+                          nil]];
+  [animation setTimingFunctions:[NSArray arrayWithObjects:
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn],
+                                 nil]];
+  return animation;
+}</pre>
+
+<p>Note that there is one less media timing function than there are values or keyTimes. This is because the media timing function apply to the animation between the values and not to the values themselves.</p>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-04.zip">Download an example project</a></p>
+
+<p>As an alternative to creating an array of values for a keyframe animation it is possible to use a path for situations where the values are dual-value properties such as origin which has both an x and a y value. This is particularly useful when you want to animate something in a non-linear fashion. For example, if we decided to move our view across the window but wanted it to go from top-left to bottom-right in a smooth curve we would be unable to do this properly (well realistically) using values but it can be done easily using a path:</p>
+
+<pre>- (CAKeyframeAnimation *)keyframeAnimation;
+{
+  CGPoint midPoint = CGPointMake(NSMidX([[window contentView] frame]) - ([view frame].size.width / 2.0f),
+                                 NSMidY([[window contentView] frame]) - ([view frame].size.height / 2.0f));
+  
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, [view frame].origin.x, [view frame].origin.y);
+  CGPathAddCurveToPoint(path, NULL, [view frame].origin.x, midPoint.y, [view frame].origin.x, midPoint.y, midPoint.x, midPoint.y);
+  CGPathAddCurveToPoint(path, NULL, [self newViewOrigin].x, midPoint.y, [self newViewOrigin].x, midPoint.y, [self newViewOrigin].x, [self newViewOrigin].y);
+  
+  CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+  [animation setDuration:3.0f];
+  [animation setPath:path];
+  [animation setTimingFunctions:[NSArray arrayWithObjects:
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn],
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut],
+                                 nil]];
+  
+  CFRelease(path);
+  
+  return animation;
+}</pre>
+
+<p>In the above example we run the animation over three seconds and we apply an ease-in timing function to the animation from the origin point to the mid point and then an ease-out timing function to the animation from the mid point to the end point. This gives the impression that the view is moving along the path in one fluid motion, starting slowly, reaching a constant speed and then slowing down as it reaches the end.</p>
+
+<p>As before we can set keyTimes for the animation too so if we wanted to perform an animation where the view moves to the centre of the window, pauses and then moves on to the destination point we would use this code:</p>
+
+<pre>- (CAKeyframeAnimation *)keyframeAnimation;
+{
+  CGPoint midPoint = CGPointMake(NSMidX([[window contentView] frame]) - ([view frame].size.width / 2.0f),
+                                 NSMidY([[window contentView] frame]) - ([view frame].size.height / 2.0f));
+  
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, [view frame].origin.x, [view frame].origin.y);
+  CGPathAddCurveToPoint(path, NULL, [view frame].origin.x, midPoint.y, [view frame].origin.x, midPoint.y, midPoint.x, midPoint.y);
+  CGPathAddLineToPoint(path, NULL, midPoint.x, midPoint.y);
+  CGPathAddCurveToPoint(path, NULL, [self newViewOrigin].x, midPoint.y, [self newViewOrigin].x, midPoint.y, [self newViewOrigin].x, [self newViewOrigin].y);
+  
+  CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+  [animation setDuration:3.0f];
+  [animation setPath:path];
+  [animation setKeyTimes:[NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0],
+                          [NSNumber numberWithFloat:0.33],
+                          [NSNumber numberWithFloat:0.66],
+                          [NSNumber numberWithFloat:1.0],
+                          nil]];
+  [animation setTimingFunctions:[NSArray arrayWithObjects:
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                 [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                 nil]];
+  
+  CFRelease(path);
+  
+  return animation;
+}</pre>
+
+<p>One thing to note is that like when we used values we need the number of path segments to match the number of key times so there is a new path drawing element that simply draws the path from the point it is at to the point it is at.</p>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-05.zip">Download an example project</a></p>
+
+<h3 id="grouping-animations">Grouping Animations</h3>
+<p>Sometimes you might want to group animations together and you can do this with the CAAnimationGroup object. Assume, for example, that you wanted to move a view across a window and, at the same time, change its size.</p>
+
+<p>To do this you would define your two animations, one for the frameOrigin and one for the frameSize properties:</p>
+
+<pre>- (CABasicAnimation *)originAnimation;
+{
+  CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
+  [animation setDuration:3.0f];
+  [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+  [animation setFromValue:[NSValue valueWithPoint:[view frame].origin]];
+  [animation setToValue:[NSValue valueWithPoint:[self newViewOrigin]]];
+  return animation;
+}
+
+- (CABasicAnimation *)sizeAnimation;
+{
+  CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"frameSize"];
+  [animation setDuration:3.0f];
+  [animation setBeginTime:1.5f];
+  [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+  [animation setFromValue:[NSValue valueWithSize:[view frame].size]];
+  [animation setToValue:[NSValue valueWithSize:[self newViewSize]]];
+  return animation;
+}</pre>
+
+<p>You will notice a few new things here. The first is that the CABasicAnimation object is created via the convenience method animationWithKeyPath: which allows you to tell the animation which property it applies to. Next is that the sizeAnimation sets a beginTime property. This allows us to offset the start of the animation by a number of seconds. Third is that we are setting a fromValue and a ToValue for the animation. These are necessary for grouped animations and they are also the only way to define what the original and new values are because you are not going to be setting them when you use the animator proxy.</p>
+
+<p>Once you have defined your animations it is time to add them to the group:</p>
+
+<pre>CAAnimationGroup *group = [CAAnimationGroup animation];
+[group setAnimations:[NSArray arrayWithObjects:[self originAnimation], [self sizeAnimation], nil]];
+[group setDuration:4.5];
+
+NSDictionary *anims = [NSDictionary dictionaryWithObject:group forKey:@"groupedAnimation"];
+[view setAnimations:anims];</pre>
+
+<p>You supply the group with a list of the animations you want to group together in an array. We are also setting the duration of the animation group, specifying that the group animation should run over four and a half seconds. This is because the sizeAnimation does not start until one and a half seconds have passed from the group animation beginning and it runs for three seconds.</p>
+
+<p>We then add the animation group to the animations dictionary of the view, giving it a key name of ‘groupedAnimation’.</p>
+
+<p>Finally, to cause the animation to run we use:</p>
+
+<pre>[[view animator] setValue:nil forKey:@"groupedAnimation"];</pre>
+
+<p>The value we pass is irrelevant as nothing uses it but the key is the name we gave to our animation group and the simple act of setting its value to nil causes the animation group to run which in turn executes the two animations within it.</p>
+
+<p><strong>Important:</strong> Using a custom animation name like this does introduce one problem. You are effectively trying to set the value of a property that does not exist in the target window or view and this will raise an exception. The work-around is to override the setValue:forUndefinedKey: in a subclass of the window or view:</p>
+
+<pre>- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+  return;
+}</pre>
+
+<p><a href="https://www.swwritings.com/images/2010-05-23-core-animation-the-animator-proxy-06.zip">Download an example project</a></p>
+
+<h3 id="custom-names">Custom Names</h3>
+<p>As described above, you can give an animation a custom name and invoke it via the setValue:forKey: method of the window or view’s animator proxy. This adds more flexibility to the system because it means that you can pre-define a whole raft of animations that, for example, apply to a view’s origin, add them all to your view’s animations dictionary using a custom key for each and then invoke the required animation using that custom key. Just remember that because the animation is not linked to an existing animatable property you must use the animationWithKeyPath: convenience method to create the CAAnimation object and you must override setValue:forUndefinedKey: in a subclass of the object invoking the method.</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://www.swwritings.com/post/2010-05-22-core-animation-animator-proxy-calayers-layer-backed-layer-hosting" class="btn" title="Core Animation - Animator Proxy, CALayers, Layer-Backed and Layer Hosting">Previous</a>
+      
+      
+        <a href="https://www.swwritings.com/post/2011-08-12-lion-and-xib-internal-inconsistencies" class="btn" title="Lion and XIB Internal Inconsistencies">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>© 2020 Simon Wolf. Powered by <a href="http://jekyllrb.com/" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="http://twitter.com/sgaw" title="Simon Wolf on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/ottersoftware" title="Simon Wolf on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+	
+  <!-- <a href="https://www.swwritings.com/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a> -->
+  <a href="http://feeds.feedburner.com/swwritings" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://www.swwritings.com';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script></body></html>

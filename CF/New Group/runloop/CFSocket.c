@@ -2997,13 +2997,16 @@ static void __CFSocketPerformV0(void *info) {
 // CFLog(5, CFSTR("__CFSocketPerformV0(%p) done"), s);
 }
 
-CFRunLoopSourceRef CFSocketCreateRunLoopSource(CFAllocatorRef allocator, CFSocketRef s, CFIndex order) {
+CFRunLoopSourceRef CFSocketCreateRunLoopSource(CFAllocatorRef allocator,
+                                               CFSocketRef s,
+                                               CFIndex order) {
     CHECK_FOR_FORK();
     CFRunLoopSourceRef result = NULL;
     __CFGenericValidateType(s, CFSocketGetTypeID());
     __CFSocketLock(s);
     if (__CFSocketIsValid(s)) {
-        if (NULL != s->_source0 && !CFRunLoopSourceIsValid(s->_source0)) {
+        if (NULL != s->_source0
+            && !CFRunLoopSourceIsValid(s->_source0)) {
             CFRelease(s->_source0);
             s->_source0 = NULL;
         }

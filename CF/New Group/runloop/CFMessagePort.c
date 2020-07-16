@@ -339,7 +339,13 @@ static void __CFMessagePortInvalidationCallBack(CFMachPortRef port, void *info) 
     if (info) CFMessagePortInvalidate(info);
 }
 
-static CFMessagePortRef __CFMessagePortCreateLocal(CFAllocatorRef allocator, CFStringRef name, CFMessagePortCallBack callout, CFMessagePortContext *context, Boolean *shouldFreeInfo, Boolean perPID, CFMessagePortCallBackEx calloutEx) {
+static CFMessagePortRef __CFMessagePortCreateLocal(CFAllocatorRef allocator, CFStringRef name,
+                                                   CFMessagePortCallBack callout,////
+                                                   CFMessagePortContext *context,  ////
+                                                   Boolean *shouldFreeInfo,
+                                                   Boolean perPID,
+                                                   CFMessagePortCallBackEx calloutEx ////
+                                                                                     ){
     CFMessagePortRef memory;
     uint8_t *utfname = NULL;
 
@@ -364,7 +370,7 @@ static CFMessagePortRef __CFMessagePortCreateLocal(CFAllocatorRef allocator, CFS
     }
     __CFUnlock(&__CFAllMessagePortsLock);
     CFIndex size = sizeof(struct __CFMessagePort) - sizeof(CFRuntimeBase);
-    memory = (CFMessagePortRef)_CFRuntimeCreateInstance(allocator, CFMessagePortGetTypeID(), size, NULL);
+    memory = (CFMessagePortRef)_CFRuntimeCreateInstance(allocator, CFMessagePortGetTypeID(), size, NULL);////////////////
     if (NULL == memory) {
 	if (NULL != name) {
 	    CFRelease(name);
@@ -1005,7 +1011,10 @@ static mach_port_t __CFMessagePortGetPort(void *info) {
 }
 
 
-static void *__CFMessagePortPerform(void *msg, CFIndex size, CFAllocatorRef allocator, void *info) {
+static void *__CFMessagePortPerform(void *msg,
+                                    CFIndex size,
+                                    CFAllocatorRef allocator,
+                                    void *info) {
     CFMessagePortRef ms = info;
     mach_msg_base_t *msgp = msg;
     mach_msg_base_t *replymsg;

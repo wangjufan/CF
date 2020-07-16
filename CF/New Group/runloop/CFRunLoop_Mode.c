@@ -202,9 +202,13 @@ static Boolean __CFRunLoopModeIsEmpty(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFR
         item = item->_next;
         Boolean doit = false;
         if (CFStringGetTypeID() == CFGetTypeID(curr->_mode)) {
-            doit = CFEqual(curr->_mode, rlm->_name) || (CFEqual(curr->_mode, kCFRunLoopCommonModes) && CFSetContainsValue(rl->_commonModes, rlm->_name));
+            doit = CFEqual(curr->_mode, rlm->_name)
+                   || (CFEqual(curr->_mode, kCFRunLoopCommonModes) &&
+                            CFSetContainsValue(rl->_commonModes, rlm->_name));
         } else {
-            doit = CFSetContainsValue((CFSetRef)curr->_mode, rlm->_name) || (CFSetContainsValue((CFSetRef)curr->_mode, kCFRunLoopCommonModes) && CFSetContainsValue(rl->_commonModes, rlm->_name));
+            doit = CFSetContainsValue((CFSetRef)curr->_mode, rlm->_name)
+                  || (CFSetContainsValue((CFSetRef)curr->_mode, kCFRunLoopCommonModes)
+                         && CFSetContainsValue(rl->_commonModes, rlm->_name));
         }
         if (doit) return false;
     }

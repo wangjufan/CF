@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style data-href="/app.e4dc9ddcb8f698dc1fb2.css">@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:100;src:local("Exo Thin "),local("Exo-Thin"),url(/static/exo-latin-100-ecfa429b58bed33232a5d062fc5e21bd.woff2) format("woff2"),url(/static/exo-latin-100-c873ec807aaaab8bccd7f21bfcb065dc.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:100;src:local("Exo Thin italic"),local("Exo-Thinitalic"),url(/static/exo-latin-100italic-f72731347a68ec981cd6e94b9bbcb4be.woff2) format("woff2"),url(/static/exo-latin-100italic-77b5c9ffdacf67636bc16331b7bcb07a.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:200;src:local("Exo Extra Light "),local("Exo-Extra Light"),url(/static/exo-latin-200-cff6706d535d3117fd37cee04185f041.woff2) format("woff2"),url(/static/exo-latin-200-b0cae8faf4179e2a4b8696a59d9b64cb.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:200;src:local("Exo Extra Light italic"),local("Exo-Extra Lightitalic"),url(/static/exo-latin-200italic-35f2aaf3897a78e44f509eb2621d7016.woff2) format("woff2"),url(/static/exo-latin-200italic-449ea98cc15841f8ecf2c6bad4c74385.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:300;src:local("Exo Light "),local("Exo-Light"),url(/static/exo-latin-300-c70b6a46a9f4827c938309277035fdcc.woff2) format("woff2"),url(/static/exo-latin-300-dd61b520a0cfa8c7814fcdaa56664c94.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:300;src:local("Exo Light italic"),local("Exo-Lightitalic"),url(/static/exo-latin-300italic-f3611345768ec8cf65df17fcd513e623.woff2) format("woff2"),url(/static/exo-latin-300italic-48d581bbfa9bad0d7f0ab5da925c5282.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:400;src:local("Exo Regular "),local("Exo-Regular"),url(/static/exo-latin-400-55f2b78c0499a64910d2e9cc99c8ac3a.woff2) format("woff2"),url(/static/exo-latin-400-ff41113437b1c35e902f2202e3d9ef49.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:400;src:local("Exo Regular italic"),local("Exo-Regularitalic"),url(/static/exo-latin-400italic-dfdb8a3294d049f6b57c8cfd80c0c369.woff2) format("woff2"),url(/static/exo-latin-400italic-6a867ffde1405e59ed30b3f3a63807e8.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:500;src:local("Exo Medium "),local("Exo-Medium"),url(/static/exo-latin-500-7a9798aef3b6497dc9536e64fca45b82.woff2) format("woff2"),url(/static/exo-latin-500-3836d57e9f2d9af29e40a4ad370a8354.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:500;src:local("Exo Medium italic"),local("Exo-Mediumitalic"),url(/static/exo-latin-500italic-61c374098271d7ad7dea5b5db8b3115a.woff2) format("woff2"),url(/static/exo-latin-500italic-ec8eb4db254917427645f8e61434f895.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:600;src:local("Exo SemiBold "),local("Exo-SemiBold"),url(/static/exo-latin-600-d0279473ef00167906c98e4184c6ad74.woff2) format("woff2"),url(/static/exo-latin-600-69e3aab292ddcca9c29b72ba8654fd26.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:600;src:local("Exo SemiBold italic"),local("Exo-SemiBolditalic"),url(/static/exo-latin-600italic-4786cbe2462691f1c81da0bdcc1eb09c.woff2) format("woff2"),url(/static/exo-latin-600italic-cf237fdbd9c5599cbaf0d878dbb47098.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:700;src:local("Exo Bold "),local("Exo-Bold"),url(/static/exo-latin-700-c5d6f8973998d384c2025face179b394.woff2) format("woff2"),url(/static/exo-latin-700-9ea5eea698aca04309d03b28d3645bd0.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:700;src:local("Exo Bold italic"),local("Exo-Bolditalic"),url(/static/exo-latin-700italic-2717f2e506100c5474f182b1ecc9780b.woff2) format("woff2"),url(/static/exo-latin-700italic-22c091983f061e4c00acacbcc6342008.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:800;src:local("Exo ExtraBold "),local("Exo-ExtraBold"),url(/static/exo-latin-800-dd49577c7dd8bafe905b6e69fa5c1e8c.woff2) format("woff2"),url(/static/exo-latin-800-5c140b49a21057618a2ebb10d4a7d6a0.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:800;src:local("Exo ExtraBold italic"),local("Exo-ExtraBolditalic"),url(/static/exo-latin-800italic-1d4c476b4b8180eb35ab3c6758950c8d.woff2) format("woff2"),url(/static/exo-latin-800italic-4f399c28972b1825a4b9fd914551f1e5.woff) format("woff")}@font-face{font-family:Exo;font-style:normal;font-display:swap;font-weight:900;src:local("Exo Black "),local("Exo-Black"),url(/static/exo-latin-900-fbe4caf50ede705b85e51a7e35ee4594.woff2) format("woff2"),url(/static/exo-latin-900-37a470710e160b4cc6d46abe21989713.woff) format("woff")}@font-face{font-family:Exo;font-style:italic;font-display:swap;font-weight:900;src:local("Exo Black italic"),local("Exo-Blackitalic"),url(/static/exo-latin-900italic-3aafcbed4a86d24c925def38ff1522ea.woff2) format("woff2"),url(/static/exo-latin-900italic-a17b302ec683c2a7a1713d7a382d300d.woff) format("woff")}@font-face{font-family:Yrsa;font-style:normal;font-display:swap;font-weight:300;src:local("Yrsa Light "),local("Yrsa-Light"),url(/static/yrsa-latin-300-819c167a7832f51fe2fd5124cd490464.woff2) format("woff2"),url(/static/yrsa-latin-300-716de60cd1d4f36ad7dd58ed778e914b.woff) format("woff")}@font-face{font-family:Yrsa;font-style:normal;font-display:swap;font-weight:400;src:local("Yrsa Regular "),local("Yrsa-Regular"),url(/static/yrsa-latin-400-cde4d05865eda9f7c44b6893225cbc1c.woff2) format("woff2"),url(/static/yrsa-latin-400-78b47afb37fcf4b645573c1399c1b4bd.woff) format("woff")}@font-face{font-family:Yrsa;font-style:normal;font-display:swap;font-weight:500;src:local("Yrsa Medium "),local("Yrsa-Medium"),url(/static/yrsa-latin-500-661721ecde2efdab57f311655eb37d74.woff2) format("woff2"),url(/static/yrsa-latin-500-2d5f6519de63444bbc881dd1997360e9.woff) format("woff")}@font-face{font-family:Yrsa;font-style:normal;font-display:swap;font-weight:600;src:local("Yrsa SemiBold "),local("Yrsa-SemiBold"),url(/static/yrsa-latin-600-b7e70b692e923864992edb1ded93eeb6.woff2) format("woff2"),url(/static/yrsa-latin-600-c8e8533ea7c4f6e7894397e963d4374a.woff) format("woff")}@font-face{font-family:Yrsa;font-style:normal;font-display:swap;font-weight:700;src:local("Yrsa Bold "),local("Yrsa-Bold"),url(/static/yrsa-latin-700-bd4bf427520f4d604fd3f2608b41de88.woff2) format("woff2"),url(/static/yrsa-latin-700-f509dd35855c9c5d30454fbdc5354cfc.woff) format("woff")}@font-face{font-family:PT Mono;font-style:normal;font-display:swap;font-weight:400;src:local("PT Mono Regular "),local("PT Mono-Regular"),url(/static/pt-mono-latin-400-9ed7e495fe9fc1b6aa52cac70a1a4fef.woff2) format("woff2"),url(/static/pt-mono-latin-400-544e05baad3c56056d2cd4776f1e1052.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre[class*=language-].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}</style><meta name="generator" content="Gatsby 2.0.31"><title>Pixel-in-Gene: Animating Pie Slices using a custom CALayer</title><link data-react-helmet="true" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABhWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kb9LQlEUxz9qYZjVkENDg0M0hEZZRG2VhBUiYgZaLfryR6D1eM+IaGxodXDoBy1FtDTXFv0DQRBUUwSt0VDQEvE6VwMj8lzuvZ/7veece++5YE8UtKLZNADF1ZIRC016E8kFr/MJJy7s+GlPaaY+EY2GaWgfd9jUfOtXuRr7/WutyxlTA1uL8LimGyXhaeHIRklXvCvs0fKpZeEzYZ8hFxR+UHq6xi+Kc1W2q5weIx4LCnuEvblfnP7FWt4oCg8L9xQL69rPfdRL3JnV+TmlS+/GJEaISbzMMEWQEQYZk3FEqhOgX1Y0iA9U4yOsSawmo84mBivkyFPCJ+q6ZM/InBU9I60gHmLqD/7W1swOBWonuGeh+dmy3vvAeQBfO5b1eWRZX8fgkLpcVerxaxUYfRW9XNd6DqFjG84v61r6BC7K0PWop4xUVXJIt2ez8HYKbUnovAHXYq1uP/sc30N8C8LXsLcPveLfsfQN3eVnKF3VZEoAAAAJcEhZcwAACxMAAAsTAQCanBgAAAGtSURBVFiF7Za/SsNQGMV/12iriIoQEW1R6lKlgjhkdKm7D+Aj5CX0KbK5+QK6+2dwu4uDgToIKrjVwbYpJjWpQ6om1UspGhPQM90/J98993w397uQMgRApVLpprG4bdtiJI2FoxiNdoxcHiOXU5Kl5wLQDLrUXjqxuda2h7P2DMBcoCtjCOkjpK8SkMOcnFJ+vN5qvvP64aw9UxePAOjmgjIGFjEB2UpBFPenp5/GrqpVACynifS82NxcoL/vXFt3AOiaYwSmOqWQZQe+hd1w12JJQ7sTAPjLX//piQgY2YrYfk9PgIKbhIBhoHTgktCycqlEubSSmIBsOSA9D4vwspkuFAC4GM9z4jTp5/VDSB+ssB3Ma5/nLf+DFx2HP16M/gX82EWULxvkV42BPLcmca9lAgJWDaZ3zIG8BlZMQOop+BeQSDVsHIVXojtr8KTFD+Z4u/ALAo5DAS+bJjftuICivshMpJ+NFNi2/VYT9oG97wYtHlwB4J6B0Xu9H15+zc2GAxGcR9pDOeHWJI23etxD0NngtlsCoKg/ADBRj7+2hSrgb5ToTJTj1PEKa5l+dwQ3BnUAAAAASUVORK5CYII="><meta data-react-helmet="true" name="charset" content="utf-8"><meta data-react-helmet="true" name="description" content="Exploring Frontend Development with Design / Graphics / Technology"><meta data-react-helmet="true" name="keywords" content="front-end,ui,graphics,react,angular,web,html,css,javascript,apple,swift,mobile,desktop,iOS"><meta data-react-helmet="true" name="twitter:title" content="Pixel-in-Gene: Animating Pie Slices using a custom CALayer"><meta data-react-helmet="true" name="twitter:image" content="/icon-64x64.png"><meta data-react-helmet="true" name="twitter:card" content="summary"><meta data-react-helmet="true" name="twitter:site" content="@pavanpodila"><meta data-react-helmet="true" name="twitter:description" content="It’s going to be a rather long post, so if you want to jump around, here are your way points: First steps A path for the slice Animating the…"><link rel="sitemap" type="application/xml" href="https://blog.pixelingene.com/sitemap.xml"><link rel="shortcut icon" href="https://blog.pixelingene.com/icons/icon-48x48.png"><link rel="manifest" href="https://blog.pixelingene.com/manifest.webmanifest"><meta name="theme-color" content="#1c61a3"><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:150%/1.38 'Yrsa','georgia',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Yrsa','georgia',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.5rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.27542rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.17608rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.92211rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;color:inherit;font-family:'Exo',sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.88547rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}ul{margin-left:1.38rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.38rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;font-size:0.85rem;line-height:1.38rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;font-size:0.92211rem;line-height:1.38rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:1.035rem;padding-right:0;padding-top:0;margin-bottom:1.38rem;font-size:1.08447rem;line-height:1.38rem;color:#561b56;border-left:0.345rem solid hsla(0,0%,0%,0.87);border-width:5px;border-left-color:#561b56;background-color:#eaeff9;padding:0.69rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.38rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.38rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.38rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.38rem;margin-bottom:calc(1.38rem / 2);margin-top:calc(1.38rem / 2);}li > ul{margin-left:1.38rem;margin-bottom:calc(1.38rem / 2);margin-top:calc(1.38rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.38rem / 2);}code{font-size:0.85rem;line-height:1.38rem;}kbd{font-size:0.85rem;line-height:1.38rem;}samp{font-size:0.85rem;line-height:1.38rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:0.92rem;padding-right:0.92rem;padding-top:0.69rem;padding-bottom:calc(0.69rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:hsla(0,0%,0%,0.8);}a:hover{color:#3498DB;}h3,h4,h5,h6{margin-bottom:0.69rem;}@media only screen and (max-width:768px){blockquote{margin-left:-1.035rem;margin-right:0;padding-left:0.69rem;}}h1, h2, h3, h4, h5, h6{clear:both;}h1, h2, h1 > a{color:#1c61a3;}h3, h4, h5, h6{color:#561b56;}@media only screen and (max-width:480px){html{font-size:1.22474rem;line-height:2.07rem;}}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script async="" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/analytics.js"></script><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link as="script" rel="preload" href="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/0-f4347cc7170ba2735c37.js"><link as="script" rel="preload" href="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/component---src-templates-post-jsx-fec4891dba2e3dde1cb0.js"><link as="script" rel="preload" href="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/1-956133e112bf39f6d33e.js"><link as="script" rel="preload" href="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/app-f871cc3c0b7e6e920807.js"><link as="script" rel="preload" href="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/webpack-runtime-256161465e96e5198c98.js"><link rel="preload" href="https://blog.pixelingene.com/static/d/718/path---2012-02-animating-pie-slices-using-a-custom-calayer-e-81-692-xAhDUg3OEVJSyXvOE0iuprExRA.json" as="fetch" crossorigin="use-credentials"><style id="nprogress-styles">
+    #nprogress {
+     pointer-events: none;
+    }
+    #nprogress .bar {
+      background: #1c61a3;
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+    }
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px #1c61a3, 0 0 5px #1c61a3;
+      opacity: 1.0;
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+      transform: rotate(3deg) translate(0px, -4px);
+    }
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+      border: solid 2px transparent;
+      border-top-color: #1c61a3;
+      border-left-color: #1c61a3;
+      border-radius: 50%;
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+      animation: nprogress-spinner 400ms linear infinite;
+    }
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+    @-webkit-keyframes nprogress-spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes nprogress-spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+</style><style data-styled="" data-styled-version="4.0.2"></style><script charset="utf-8" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/12-bb2d5c5d76c0a6c37c35.js"></script><link rel="prefetch" href="https://blog.pixelingene.com/static/d/361/path---archive-0-d-7-075-grjXC6ILEuNn5rMKJ0QuMYLQ8MM.json"><link rel="prefetch" href="https://blog.pixelingene.com/component---src-pages-archive-jsx-d57002d19341e445500e.js"><link rel="prefetch" href="https://blog.pixelingene.com/static/d/125/path---about-f-34-4c2-NZuapzHg3X9TaN1iIixfv1W23E.json"><link rel="prefetch" href="https://blog.pixelingene.com/component---src-pages-about-index-jsx-0d16e86ce60d218273e8.js"><link rel="prefetch" href="https://blog.pixelingene.com/static/d/169/path---index-6a9-8RH8xizRkMwPm4Azsmch9IXTiTg.json"><link rel="prefetch" href="https://blog.pixelingene.com/component---src-templates-home-jsx-40e07ee8ca730a2db036.js"></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div style="margin:0 auto;max-width:960px;padding:1rem 1.5rem"><div type="column" align="stretch" justify="stretch" gap="0.5rem" style="margin-bottom:1rem" class="components__Stack-sc-1h7cc6r-1 gloZiz"><a style="text-decoration:none" href="https://blog.pixelingene.com/"><div type="row" align="center" justify="stretch" gap="0.5rem" class="components__Stack-sc-1h7cc6r-1 jnrHtM"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kb9LQlEUxz9qYZjVkENDg0M0hEZZRG2VhBUiYgZaLfryR6D1eM+IaGxodXDoBy1FtDTXFv0DQRBUUwSt0VDQEvE6VwMj8lzuvZ/7veece++5YE8UtKLZNADF1ZIRC016E8kFr/MJJy7s+GlPaaY+EY2GaWgfd9jUfOtXuRr7/WutyxlTA1uL8LimGyXhaeHIRklXvCvs0fKpZeEzYZ8hFxR+UHq6xi+Kc1W2q5weIx4LCnuEvblfnP7FWt4oCg8L9xQL69rPfdRL3JnV+TmlS+/GJEaISbzMMEWQEQYZk3FEqhOgX1Y0iA9U4yOsSawmo84mBivkyFPCJ+q6ZM/InBU9I60gHmLqD/7W1swOBWonuGeh+dmy3vvAeQBfO5b1eWRZX8fgkLpcVerxaxUYfRW9XNd6DqFjG84v61r6BC7K0PWop4xUVXJIt2ez8HYKbUnovAHXYq1uP/sc30N8C8LXsLcPveLfsfQN3eVnKF3VZEoAAAAJcEhZcwAACxMAAAsTAQCanBgAAAFfSURBVHic7ZkxSgNBGEYnMZ32gtgnsNt4AJu19xIprDxPqnSeIkUaL5Bipw6ICB7ASsQ0RoSZrLtr8C1836uWmdnh4/HzM7sTgtFmtH8oiuKTDPLfxBhHIYQwpoPQWAAdgEZewKRpsj6/6L1x+frS+914v03GZndl7/1OyreDc/IVYAF0ABp5AY1NMMfTet1qXV1VyVjbxphreLlG9lGfttqvCfkKsAA6AI28gM5NkGK8OEvHHtN179fdvurlK8AC6AA08gI6N8FNSJvMbXVzlDAE8hVgAXQAGnkBvhihg9BYAB2AxgLoADQWQAegsQA6AM0g/wleLuuj7vc8P3yzLF8BFkAHoLEAOgCNBdABaCyADkAzyJNgjtxpLk7bnRiLhjn5CrAAOgCNvIDvJri/KPjJkC5Lcp/IV6t03cOm277yFWABdAAaeQFJ4/uNITXGv+Db4S8sgA5AIy/AqLMDMSQxjRt8QKYAAAAASUVORK5CYII=" alt="Site Logo" class="components__Logo-sc-1h7cc6r-2 gFPmJr"><h1 style="margin:0;margin-left:0.5rem;display:inline-block">Pixel-in-Gene</h1></div></a><h4>Exploring Frontend Development with Design / Graphics / Technology</h4><div type="row" align="center" justify="flex-end" gap="0.5rem" style="margin-top:1rem" class="components__Stack-sc-1h7cc6r-1 lktuzF"><a style="display:inline-block;width:32px;height:32px;position:relative;overflow:hidden;vertical-align:middle" title="Follow @pavanpodila" href="https://twitter.com/pavanpodila" target="_blank" rel="noopener" class="social-icon" aria-label="twitter"><div class="social-container" style="position:absolute;top:0;left:0;width:100%;height:100%"><svg class="social-svg" style="border-radius:50%;position:absolute;top:0;left:0;width:100%;height:100%;fill-rule:evenodd" viewBox="0 0 64 64"><g class="social-svg-background" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><circle cx="32" cy="32" r="31"></circle></g><g class="social-svg-icon" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"></path></g><g class="social-svg-mask" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:#00aced"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"></path></g></svg></div></a><a style="display:inline-block;width:32px;height:32px;position:relative;overflow:hidden;vertical-align:middle" title="Check out pavanpodila" href="https://github.com/pavanpodila" target="_blank" rel="noopener" class="social-icon" aria-label="github"><div class="social-container" style="position:absolute;top:0;left:0;width:100%;height:100%"><svg class="social-svg" style="border-radius:50%;position:absolute;top:0;left:0;width:100%;height:100%;fill-rule:evenodd" viewBox="0 0 64 64"><g class="social-svg-background" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><circle cx="32" cy="32" r="31"></circle></g><g class="social-svg-icon" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><path d="M32,16c-8.8,0-16,7.2-16,16c0,7.1,4.6,13.1,10.9,15.2 c0.8,0.1,1.1-0.3,1.1-0.8c0-0.4,0-1.4,0-2.7c-4.5,1-5.4-2.1-5.4-2.1c-0.7-1.8-1.8-2.3-1.8-2.3c-1.5-1,0.1-1,0.1-1 c1.6,0.1,2.5,1.6,2.5,1.6c1.4,2.4,3.7,1.7,4.7,1.3c0.1-1,0.6-1.7,1-2.1c-3.6-0.4-7.3-1.8-7.3-7.9c0-1.7,0.6-3.2,1.6-4.3 c-0.2-0.4-0.7-2,0.2-4.2c0,0,1.3-0.4,4.4,1.6c1.3-0.4,2.6-0.5,4-0.5c1.4,0,2.7,0.2,4,0.5c3.1-2.1,4.4-1.6,4.4-1.6 c0.9,2.2,0.3,3.8,0.2,4.2c1,1.1,1.6,2.5,1.6,4.3c0,6.1-3.7,7.5-7.3,7.9c0.6,0.5,1.1,1.5,1.1,3c0,2.1,0,3.9,0,4.4 c0,0.4,0.3,0.9,1.1,0.8C43.4,45.1,48,39.1,48,32C48,23.2,40.8,16,32,16z"></path></g><g class="social-svg-mask" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:#000022"><path d="M0,0v64h64V0H0z M37.1,47.2c-0.8,0.2-1.1-0.3-1.1-0.8c0-0.5,0-2.3,0-4.4c0-1.5-0.5-2.5-1.1-3 c3.6-0.4,7.3-1.7,7.3-7.9c0-1.7-0.6-3.2-1.6-4.3c0.2-0.4,0.7-2-0.2-4.2c0,0-1.3-0.4-4.4,1.6c-1.3-0.4-2.6-0.5-4-0.5 c-1.4,0-2.7,0.2-4,0.5c-3.1-2.1-4.4-1.6-4.4-1.6c-0.9,2.2-0.3,3.8-0.2,4.2c-1,1.1-1.6,2.5-1.6,4.3c0,6.1,3.7,7.5,7.3,7.9 c-0.5,0.4-0.9,1.1-1,2.1c-0.9,0.4-3.2,1.1-4.7-1.3c0,0-0.8-1.5-2.5-1.6c0,0-1.6,0-0.1,1c0,0,1,0.5,1.8,2.3c0,0,0.9,3.1,5.4,2.1 c0,1.3,0,2.3,0,2.7c0,0.4-0.3,0.9-1.1,0.8C20.6,45.1,16,39.1,16,32c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16 C48,39.1,43.4,45.1,37.1,47.2z"></path></g></svg></div></a></div></div><div type="row" align="center" justify="center" gap="0" textcolor="#1c61a3" highlightcolor="#eaeff9" class="menu__MenuContainer-sc-67g95-0 bPSTgQ"><a href="https://blog.pixelingene.com/">Home</a><a href="https://blog.pixelingene.com/archive">Archive</a><a href="https://blog.pixelingene.com/about">About</a></div><div><header><div class="post__MetaBar-sc-8ewc4n-1 fSOFEH"><a href="https://blog.pixelingene.com/about" class="post__PostAvatar-sc-8ewc4n-3 iXIntV"><img src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/pavan-d0b5fd798f455a5fbee5416124f474a8.jpg" alt="Pavan Podila"></a><div class="post__Column-sc-8ewc4n-2 hQSxuO"><strong>February 21st, 2012</strong><small>13 mins read</small></div></div><h1 style="margin-bottom:4rem">Animating Pie Slices using a custom CALayer</h1></header><div><p>It’s going to be a rather long post, so if you want to jump around, here are your way points:</p>
+<!-- -->
+<ol>
+<li>
+<p><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#A"><strong>First steps</strong></a></p>
+<ol>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#A1">A path for the slice</a></li>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#A2">Animating the pie-slice</a></li>
+</ol>
+</li>
+<li>
+<p><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#B"><strong>Raising the level of abstraction</strong></a></p>
+<ol>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#B1">Custom CALayer, the PieSliceLayer</a></li>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#B2">Rendering the PieSliceLayer</a></li>
+</ol>
+</li>
+<li>
+<p><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#C"><strong>It all comes together in PieView</strong></a></p>
+<ol>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#C1">Managing the slices</a></li>
+</ol>
+</li>
+<li><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#D"><strong>Demo and Source code</strong></a></li>
+</ol>
+<p>With a powerful platform like iOS, it is not surprising to have a variety of options for drawing. Picking the one that works best may sometimes require a bit of experimentation. <em>Case in point: a pie chart whose slices had to be animated as the values changed over time.</em> In this blog post, I would like to take you through various stages of my design process before I ended up with something close to what I wanted. So lets get started.</p>
+<p><a name="A" id="A"></a></p>
+<h3 id="first-steps"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#first-steps" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First steps</h3>
+<p>Lets quickly look at the array of options that we have for building up graphics in iOS:</p>
+<ul>
+<li>Use the standard Views and Controls in <code>UIKit</code> and create a view hierarchy</li>
+<li>Use the <code>UIAppearance</code> protocol to customize standard controls</li>
+<li>Use <code>UIWebView</code> and render some complex layouts in HTML + JS. This is a surprisingly viable option for certain kinds of views</li>
+<li>Use <code>UIImageView</code> and show a pre-rendered image. This is sometimes the best way to show a complex graphic instead of building up a series of vectors. Images can be used more liberally in iOS and many of the standard controls even accept an image as parameter.</li>
+<li>Create a custom <code>UIView</code> and override <code>drawRect:</code>. This is like the chain-saw in our toolbelt. Used wisely it can clear dense forests of UI challenges.</li>
+<li>Apply masking (a.k.a. clipping) on vector graphics or images. Masking is often underrated in most toolkits but it does come very handy.</li>
+<li>Use Core Animation Layers: <code>CALayer</code> with shadows, cornerRadius or masks. Use <code>CAGradientLayer</code>, <code>CAShapeLayer</code> or <code>CATiledLayer</code></li>
+<li>Create a custom <code>UIView</code> and render a <code>CALayer</code> hierarchy</li>
+</ul>
+<p>As you can see there are several ways in which we can create an interactive UI control. Each of these options sit at a different level of abstraction in the UI stack. Choosing the right combination can thus be an interesting thought-exercise. As one gains more experience, picking the right combination will become more obvious and also be a lot faster.</p>
+<p><a name="A1" id="A1"></a></p>
+<h4 id="a-path-for-the-slice"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#a-path-for-the-slice" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A path for the slice</h4>
+<p>With that quick overview of the UI options in iOS, lets get back to our problem of building an animated Pie Chart. Since we are talking about animation, it is natural to think about Core Animation and CALayers. In fact, the choice of a <code>CAShapeLayer</code> with a path for the pie-slice is a good first step. Using the <code>UIBezierPath</code> class, it is easier than using a bunch of CGPathXXX calls.</p>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">-(CAShapeLayer *)createPieSlice {
+	CAShapeLayer *slice = [CAShapeLayer layer];
+	slice.fillColor = [UIColor redColor].CGColor;
+	slice.strokeColor = [UIColor blackColor].CGColor;
+	slice.lineWidth = 3.0;
+
+	CGFloat angle = DEG2RAD(-60.0);
+	CGPoint center = CGPointMake(100.0, 100.0);
+	CGFloat radius = 100.0;
+
+	UIBezierPath *piePath = [UIBezierPath bezierPath];
+	[piePath moveToPoint:center];
+
+	[piePath addLineToPoint:CGPointMake(center.x + radius * cosf(angle), center.y + radius * sinf(angle))];
+
+	[piePath addArcWithCenter:center radius:radius startAngle:angle endAngle:DEG2RAD(60.0) clockwise:YES];
+
+//	[piePath addLineToPoint:center];
+	[piePath closePath]; // this will automatically add a straight line to the center
+	slice.path = piePath.CGPath;
+
+	return slice;
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>The path consists of two radial lines originating at the center of the cirlce, with an arc between the end-points of the lines</li>
+<li>The angles in the call to <code>addArcWithCenter</code> use the following unit-coordinate system:</li>
+</ul>
+<p>
+  <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;max-width:274px;margin-left:auto;margin-right:auto">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:100%;position:relative;bottom:0;left:0;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAABd0lEQVQ4y41Uia6CMBDs/38UKCFCPNCAweCBHCESBE+8Bd+EvlSeQJ+b0GyXHXY6u4W8KpbnOVbf913XfXGNNIFns9l4PGbbb8FZlmHd7XZJkrDt/+C8MDin08nzPMdx4JTjjWD6ervdKorS7XY1TRsMBr1er9PpUApVPCkjUU0QBODLqfv9XhTF5XJZxRMWWq/XSKInRCQrjGW32+0wDD/whEkCepvNpvp5ukV9WZbZlq6/tNM0BbhJWwSv16uqqmjBH9rP5xOS2rZtWVatKjRyv98Nw8DJj8cjWARBgAjBAzFHoxGmggO+3W6maeq6HkXRarWaTqfn85nQd+ADVnzaaOGHKITNgCRJyKidJJQFDILhjDSZ1ni3arFYYDZonbJdLhesmBZQrWkVCw2Hw36/X24GDgYt6LTVD0kZP5/PW63WZDLxCoOD8WjSklSFfTwegEF/EIGDdjRdTFJtDM07HA5oCedK8X4GQNZehq/AGKM4jvngH0BuhbxukM7eAAAAAElFTkSuQmCC&#39;);background-size:cover;display:block">
+      <img class="gatsby-resp-image-image" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white" alt="Unit Coordinates" title="" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/unit-coordinates-3164810e45132466bb62ba3582431cba-62f88.png" srcset="/static/unit-coordinates-3164810e45132466bb62ba3582431cba-70c30.png 163w, /static/unit-coordinates-3164810e45132466bb62ba3582431cba-62f88.png 274w" sizes="(max-width: 274px) 100vw, 274px">
+    </span>
+  </span>
+  </p>
+<ul>
+<li><code>DEG2RAD</code> is a simple macro that converts from degrees to radians</li>
+<li>When rendered the pie slice looks like below. The background gray circle was added to put the slice in the context of the whole circle.</li>
+</ul>
+<p>
+  <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;max-width:227px;margin-left:auto;margin-right:auto">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:103.08370044052863%;position:relative;bottom:0;left:0;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACoklEQVQ4y3WUy28SURTGDy+jvLpy4cY0TVz5SHThppq41D/AuPO5sa50YWK687HTlSaoqcSYxldCmrKACsyDYQacgUm6aCCwAGwUQiChIOFRmGE8wwwUGXrC4ma4v/ude+75DijjGI4CF5Ik1ev13d3dfD5fKBTK5XKn09H+GkqSttACJqSGFYvFeDxOkmQkEgmFQuFwmCAIJhpNimJqe1vGTbI8nIY1st1uC4KAAJI0TUfHQZFkLJl8u7oaAAi/eNodATo8IVmWRTWGYeipoCiKY5jvW1ubiycVK/wC8D95PBgL6sqiKCKJOvRMYM6plOfunSaA5LYqLmsaILbhU9OXJBUulUp4NyOJsnGO+/TlK7PgUI7CwGEauCyKBUJnTle7Xf3OqVQKq0IbgiHJMM+vXbu6DzB0mWU7SHZQXOYiAOtTxQFviwpGEuuUEIT3b17vHDEpDhjYQR79hm5rF4BYWcHKQ61W08o7k3CMpv0k9e38OcUMA6dZHsO4VgAiV5b/IlypVIw5o2yc5z0vX+1YQHGaJ7I6bALywtkWwtVqda4yyzC+YHDj1BJWaI7y8kVVudVqGWGVJwgOe+P5swKguOlA3G2R8M63bva1JsHGmsvHKCqY+Pnx8iXZBJJzXG235Tc+9fq6/lTogfnvjAVPJLxer2C3KXa14GrONiCXFv/sNXQY/cDzPJZtbodRQvLdjesd7DDskAUbPjLxYU1zmN7bzWYTSSOvNhnLfvb7f5w4rhyDKsDmvdvdsYEPXNVoNDiOw/ynLaWeha4SRc+jhwmAwIP7ewNpgvzn536/n81mEcAj0JuYiOZqtVVjTCQY2Mdt6OeJJacnibbo9XpolVwul06nM5kMDhMcLLIsHzpJjEcYv2v8dMBhW2di7rZ/W72qxVV8uzcAAAAASUVORK5CYII=&#39;);background-size:cover;display:block">
+      <img class="gatsby-resp-image-image" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white" alt="UIBezierPath Render" title="" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/uibezierpath-render-b23da5784ce18d911cebeef87034b092-c7041.png" srcset="/static/uibezierpath-render-b23da5784ce18d911cebeef87034b092-bb38f.png 163w, /static/uibezierpath-render-b23da5784ce18d911cebeef87034b092-c7041.png 227w" sizes="(max-width: 227px) 100vw, 227px">
+    </span>
+  </span>
+  </p>
+<p><a name="A2" id="A2"></a></p>
+<h4 id="animating-the-pie-slice"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#animating-the-pie-slice" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animating the pie-slice</h4>
+<p>Now that we know how to render a pie-slice, we can start looking at animating it. When the angle of the pie-slice changes we would like to smoothly animate to the new slice. Effectively the pie-slice will grow or shrink in size, like a radial fan of cards spreading or collapsing. This can be considered as a change in the <code>path</code> of the <code>CAShapeLayer</code>. Since <code>CAShapeLayer</code> naturally animates changes to the <code>path</code> property, we can give it a shot and see if that works. So, let’s say, we want to animate from the current slice to a horizontally-flipped slice, like so:</p>
+<p>
+  <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;max-width:227px;margin-left:auto;margin-right:auto">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:103.08370044052863%;position:relative;bottom:0;left:0;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+UlEQVQ4y42VS08TURTHBxBUio9AYjRxoyY+Nkaj0Y0L1ybujR9Av4Aa10b9AEZQiSDRhKhoUFQoLZ3pu7RIRGkKrYRHTB9SWtOENMJ0+vecmU65U9rEk9zce2HmN//zrASycrmsLzatVIJpqqoil8theXkZCwsLWFxcRCqVQrFYrD4jvsu7ZIERgC2Zy8MfCCAcDsPpdMLhcGB8fFxffFcUBTMzMygUCtugUi1sNh6H48QRPD9+FB8UN7z0MgPcbre++CzLsg6emJjAysqKBSqJbsbiCYwd7KTPSMg2Sei+fQu+qSnI9KIJUoQP8M6qORQWl9nyJQ0jF8/psM39bUCrhLFDXRgc+QS/1wPZ5YJCQBMqwjkka2trhsumq87Hj5AhGPbugLqb9j0tKNL9yfVrkCNTUEilXAHVQtl1jnfV5ZxWhuvCWV2d2tEMrZ1U0gKBw7YW9A0MIEhJcrHKOlB2n1Vms1kDGJudxbdddCSISqvEi2AlgvNH+i9fwmgoBA8BRVdFMAPn5+cNYPj9O/xidwlgwrQKHLYm/GyW8OzhA/gnJ/UEiVBzsdvT09MG0NPfh5wA1CoqNQJvVlS+OH8GX4LBuip55zKKRCIGMPTmNVKNFNLfWP3Tu3fg/V+FUTr8aGX3tmLI6jhBoHp8Reo++vxU5HLDGLLCWCxmAH//3YD79EmAYqXahCzT+t4mobenB0FKiqtOgYtZzmQyW3Vov38Pf4Q61DpaoNK99+oVOMMRuCuu1osfl1OQ4luijpPKmqYD0+vrGD11TE/Axr5WYKcEpdOGl2+HEPD5LDUo7qyO2y+dThudIvbyV3LL296st12BwN03b8Cj97JzW8xMmN1ux9zc3PZeNl0Peb3wdXVg8PABDFGg/R6PJZvmUOCsctwSiYRlNhpAHj0CNEHD9PPwMAKkWJyD5lw0e3d1ddUCq7pcD8rGkzmZTCJOMzIajeplsbS0hHw+33hi1/uHRokSfwoaWS2sqrD2IfFhhpvn2nstlO0fGIZLMN8O2wUAAAAASUVORK5CYII=&#39;);background-size:cover;display:block">
+      <img class="gatsby-resp-image-image" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white" alt="UIBezierPath Render" title="" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/uibezierpath-render-flipped-fb8d1d9c03c00045465ec67dd2f398ca-c7041.png" srcset="/static/uibezierpath-render-flipped-fb8d1d9c03c00045465ec67dd2f398ca-bb38f.png 163w, /static/uibezierpath-render-flipped-fb8d1d9c03c00045465ec67dd2f398ca-c7041.png 227w" sizes="(max-width: 227px) 100vw, 227px">
+    </span>
+  </span>
+  </p>
+<p>To achieve that, lets refactor the code a bit and move the path creation into its own method.</p>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">-(CGPathRef)createPieSliceWithCenter:(CGPoint)center
+				radius:(CGFloat)radius
+				startAngle:(CGFloat)degStartAngle
+				endAngle:(CGFloat)degEndAngle {
+
+	UIBezierPath *piePath = [UIBezierPath bezierPath];
+	[piePath moveToPoint:center];
+
+	[piePath addLineToPoint:CGPointMake(center.x + radius * cosf(DEG2RAD(degStartAngle)), center.y + radius * sinf(DEG2RAD(degStartAngle)))];
+
+	[piePath addArcWithCenter:center radius:radius startAngle:DEG2RAD(degStartAngle) endAngle:DEG2RAD(degEndAngle) clockwise:YES];
+
+	//	[piePath addLineToPoint:center];
+	[piePath closePath]; // this will automatically add a straight line to the center
+
+	return piePath.CGPath;
+}
+
+-(CAShapeLayer *)createPieSlice {
+
+	CGPoint center = CGPointMake(100.0, 100.0);
+	CGFloat radius = 100.0;
+
+	CGPathRef fromPath = [self createPieSliceWithCenter:center radius:radius startAngle:-60.0 endAngle:60.0];
+	CGPathRef toPath = [self createPieSliceWithCenter:center radius:radius startAngle:120.0 endAngle:-120.0];
+
+	CAShapeLayer *slice = [CAShapeLayer layer];
+	slice.fillColor = [UIColor redColor].CGColor;
+	slice.strokeColor = [UIColor blackColor].CGColor;
+	slice.lineWidth = 3.0;
+	slice.path = fromPath;
+
+
+	CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
+	anim.duration = 1.0;
+
+	// flip the path
+	anim.fromValue = (__bridge id)fromPath;
+	anim.toValue = (__bridge id)toPath;
+	anim.removedOnCompletion = NO;
+	anim.fillMode = kCAFillModeForwards;
+
+	[slice addAnimation:anim forKey:nil];
+	return slice;
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In the refactored code, <code>createPieSlice:</code> just calls the <code>createPieSliceWithCenter:radius:startAngle:endAngle</code> function for the from and to-paths and sets up an animation between these two paths. In action, this looks like so:</p>
+<p>
+  <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;max-width:600px;margin-left:auto;margin-right:auto">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:43%;position:relative;bottom:0;left:0;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBUlEQVQozx2RzU7iUBiGa2K8AXfMBXgHM96BiTsTvQFXLmY2ujG6cWdiZpa60cSVKw0kRjBlpC0D9PTnnLYH2nPgDBAYDDgIFWkoCpROnW/1bL437w9XLJcNQXjh+UkYlinVTLPVaIRhWK9Wdcepu244n7fbbWSarFoNgqDX61kYE0J83+dECCsbG+Pl5RIAIsbF3d2/sU8EoZxpqqencG+PtVqyLEv391I6XWEMIfSQSkmC4DiEkzSttboaLC5qd3cSIb+3tp5iMagosmUpJyfq/r5VqRQAkOKJbCplYqxDmL69FdI/LcviQLGon5/3Dg4G4zFEKM/zDgB+MLOgnkfIrNXGvk9tW1HVyLnnDRuMqYqi6Xq32+WGg0Hf84Lw4/zRqO+6s/88mU773e707S3i2Xzee36OVD44DF3X9TwvYg5G2TSt/fg4Go0MCIGm1Wu16BPncjIAlNJJELB0uiAIuFTyJ5P+8bFyc4Ns+8V1uYeLCymZ1HUdM5Y/PMxfXoKIGw325bN+dBTVhqvVPysrpe1tkVKcSIQLC2xtTYAQGwaXSSazmQwyEGFMvLrKX1+rEJJm09rZ0b7/KJim02yy9XXr67csJQ7Pz5eW6OamiJCNMafqekGWnzqdyfs7LBZ/ARDZjrY1KBULBWLbUTZKiJjNGoYxDcPO2Vk2Hlcta/j6+g8MiKopdU8+KQAAAABJRU5ErkJggg==&#39;);background-size:cover;display:block">
+      <img class="gatsby-resp-image-image" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white" alt="Path Animation" title="" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/path-animation-sequence-7d581ed6496b2e63ed5e66cd7e4e9c34-ee777.png" srcset="/static/path-animation-sequence-7d581ed6496b2e63ed5e66cd7e4e9c34-d9c72.png 163w, /static/path-animation-sequence-7d581ed6496b2e63ed5e66cd7e4e9c34-97703.png 325w, /static/path-animation-sequence-7d581ed6496b2e63ed5e66cd7e4e9c34-ee777.png 600w" sizes="(max-width: 600px) 100vw, 600px">
+    </span>
+  </span>
+  </p>
+<p><strong>Yikes!</strong> That is definitely not what we expected. <code>CAShapeLayer</code> is morphing the paths rather than growing or shrinking the pie slices. Of course, this means we need to adopt more stricter measures for animating the pie slices.</p>
+<p><a name="B" id="B"></a></p>
+<h3 id="raising-the-level-of-abstraction"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#raising-the-level-of-abstraction" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Raising the level of abstraction</h3>
+<p>Clearly CAShapeLayer doesn’t understand pie-slices and has no clue about how to animate a slice in a natural manner. We definitely need more control around how the pie slice changes. Luckily we have an API that gives a hint at the kind of abstraction we need: a pie slice described in terms of <code>{startAngle, endAngle}</code>. This way our parameters are more strict and not as flexible as the points of a bezier path. By making these parameters animatable, we should be able to animate the pie-slices just the way we want.</p>
+<p>Applying this idea to our previous animation example, the path can be said to be changing from <code>{-60.0, 60.0}</code> to <code>{120.0, -120.0}</code>. By animating the <code>startAngle</code> and <code>endAngle</code>, we should be able to make the animation more natural. In general, if you find yourself tackling a tricky problem like this, take a step back and check if you are at the <strong>right level of abstraction</strong>.</p>
+<p><a name="B1" id="B1"></a></p>
+<h4 id="custom-calayer-the-pieslicelayer"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#custom-calayer-the-pieslicelayer" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom CALayer, the <code>PieSliceLayer</code></h4>
+<p>If a CAShapeLayer can’t do it, we probably need our own custom <code>CALayer</code>. Let’s call it the <code>PieSliceLayer</code> and give it two properties: … you guessed it… <code>startAngle</code> and <code>endAngle</code>. Any change to these properties will cause the custom layer to redraw and also animate the change. This requires following a few standard procedures as prescribed by Core Animation Framework.</p>
+<ul>
+<li>Firstly don’t <code>@synthesize</code> the animatable properties and instead mark them as <code>@dynamic</code>. This is required because Core Animation does some magic under the hood to track changes to these properties and call appropriate methods on your layer.</li>
+</ul>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">#import &lt;QuartzCore/QuartzCore.h&gt;
+
+@interface PieSliceLayer : CALayer
+
+
+@property (nonatomic) CGFloat startAngle;
+@property (nonatomic) CGFloat endAngle;
+
+@property (nonatomic, strong) UIColor *fillColor;
+@property (nonatomic) CGFloat strokeWidth;
+@property (nonatomic, strong) UIColor *strokeColor;
+@end</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">#import "PieSliceLayer.h"
+
+@implementation PieSliceLayer
+
+@dynamic startAngle, endAngle;
+@synthesize fillColor, strokeColor, strokeWidth;
+
+...
+
+@end</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>
+<p>Override <code>actionForKey:</code> and return a <code>CAAnimation</code> that prepares the animation for that property. In our case, we will return an animation for the <code>startAngle</code> and <code>endAngle</code> properties.</p>
+</li>
+<li>
+<p>Override <code>initWithLayer:</code> to copy the properties into the new layer. This method gets called for each frame of animation. Core Animation makes a copy of the <code>presentationLayer</code> for each frame of the animation. By overriding this method we make sure our custom properties are correctly transferred to the copied-layer.</p>
+</li>
+<li>
+<p>Finally we also need to override <code>needsDisplayForKey:</code> to tell Core Animation that changes to our <code>startAngle</code> and <code>endAngle</code> properties will require a redraw.</p>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">-(id&lt;CAAction&gt;)actionForKey:(NSString *)event {
+	if ([event isEqualToString:@"startAngle"] ||
+		[event isEqualToString:@"endAngle"]) {
+		return [self makeAnimationForKey:event];
+	}
+
+	return [super actionForKey:event];
+}
+
+- (id)initWithLayer:(id)layer {
+	if (self = [super initWithLayer:layer]) {
+		if ([layer isKindOfClass:[PieSliceLayer class]]) {
+			PieSliceLayer *other = (PieSliceLayer *)layer;
+			self.startAngle = other.startAngle;
+			self.endAngle = other.endAngle;
+			self.fillColor = other.fillColor;
+
+			self.strokeColor = other.strokeColor;
+			self.strokeWidth = other.strokeWidth;
+		}
+	}
+
+	return self;
+}
+
++ (BOOL)needsDisplayForKey:(NSString *)key {
+	if ([key isEqualToString:@"startAngle"] || [key isEqualToString:@"endAngle"]) {
+		return YES;
+	}
+
+	return [super needsDisplayForKey:key];
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>With that we now have a custom PieSliceLayer that animates changes to the angle-properties. However the layer does not display any visual content. For this we will override the <code>drawInContext:</code> method.</p>
+<p><a name="B2" id="B2"></a></p>
+<h4 id="rendering-the-pieslicelayer"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#rendering-the-pieslicelayer" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rendering the PieSliceLayer</h4>
+<p>Here we draw the slice just the way we did earlier. Instead of using <code>UIBezierPath</code>, we now go with the Core Graphics calls. Since the <code>startAngle</code> and <code>endAngle</code> properties are animatable and also marked for redraw, this layer will be rendered each frame of the animation. This will give us the desired animation when the slice changes its inscribed angle.</p>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">-(void)drawInContext:(CGContextRef)ctx {
+
+	// Create the path
+	CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+	CGFloat radius = MIN(center.x, center.y);
+
+	CGContextBeginPath(ctx);
+	CGContextMoveToPoint(ctx, center.x, center.y);
+
+	CGPoint p1 = CGPointMake(center.x + radius * cosf(self.startAngle), center.y + radius * sinf(self.startAngle));
+	CGContextAddLineToPoint(ctx, p1.x, p1.y);
+
+	int clockwise = self.startAngle &gt; self.endAngle;
+	CGContextAddArc(ctx, center.x, center.y, radius, self.startAngle, self.endAngle, clockwise);
+
+	CGContextClosePath(ctx);
+
+	// Color it
+	CGContextSetFillColorWithColor(ctx, self.fillColor.CGColor);
+	CGContextSetStrokeColorWithColor(ctx, self.strokeColor.CGColor);
+	CGContextSetLineWidth(ctx, self.strokeWidth);
+
+	CGContextDrawPath(ctx, kCGPathFillStroke);
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><a name="C" id="C"></a></p>
+<h3 id="it-all-comes-together-in-pieview"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#it-all-comes-together-in-pieview" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>It all comes together in PieView</h3>
+<p>When we originally started, we wanted to build a Pie Chart that animated changes to its slices. After some speed bumps we got to a stage where a single slice could be described in terms of start/end angles and have any changes animated.</p>
+<p>If we can do one slice, we can do multiples! A Pie Chart is a visualization for an array of numbers, where each numbers is an instance of the <code>PieSliceLayer</code>. The size of a slice depends on its relative value within the array. An easy way to get the relative value is to normalize the array and use the normal value <code>[0, 1]</code> to arrive at the angle of the slice, ie. <code>normal * 2 * M_PI</code>. For example, if the normal value is 0.5, the angle of the slice will be <code>M_PI</code> or 180°.</p>
+<p><a name="C1" id="C1"></a></p>
+<h4 id="managing-the-slices"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#managing-the-slices" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Managing the slices</h4>
+<p>The <code>PieView</code> manages the slices in a way that makes sense for a Pie Chart. Given an array of numbers, the <code>PieView</code> takes care of normalizing the numbers, creating the right number of slices and positioning them correctly in the pie. Since <code>PieView</code> will be a subclass of UIView, we also have the option to introduce some touch interaction later. Having a UIView that hosts a bunch of CALayers is a common approach when dealing with an interactive element like the PieChart.</p>
+<p>The <code>PieView</code> exposes a <code>sliceValues</code> property which is an <code>NSArray</code> of numbers. When this property changes, <code>PieView</code> manages the CRUD around the <code>PieSliceLayers</code>. If there are more numbers than slices, <code>PieView</code> will add the missing slices. If there are fewer numbers than slices, it removes the excess. All the existing slices are updated with the new numbers. All of this happens in the <code>updateSlices</code> method.</p>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">#import &lt;UIKit/UIKit.h&gt;
+
+@interface PieView : UIView
+
+@property (nonatomic, strong) NSArray *sliceValues;
+
+-(id)initWithSliceValues:(NSArray *)sliceValues;
+@end</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="objc"><pre style="counter-reset:linenumber 0" class="language-objc line-numbers"><code class="language-objc">#import "PieView.h"
+#import "PieSliceLayer.h"
+#import &lt;QuartzCore/QuartzCore.h&gt;
+
+#define DEG2RAD(angle) angle*M_PI/180.0
+
+
+@interface PieView() {
+	NSMutableArray *_normalizedValues;
+	CALayer *_containerLayer;
+}
+
+-(void)updateSlices;
+@end
+
+@implementation PieView
+@synthesize sliceValues = _sliceValues;
+
+-(void)doInitialSetup {
+	_containerLayer = [CALayer layer];
+	[self.layer addSublayer:_containerLayer];
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+		[self doInitialSetup];
+    }
+
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super initWithCoder:aDecoder]) {
+		[self doInitialSetup];
+	}
+
+	return self;
+}
+
+-(id)initWithSliceValues:(NSArray *)sliceValues {
+	if (self) {
+		[self doInitialSetup];
+		self.sliceValues = sliceValues;
+	}
+
+	return self;
+}
+
+-(void)setSliceValues:(NSArray *)sliceValues {
+	_sliceValues = sliceValues;
+
+	_normalizedValues = [NSMutableArray array];
+	if (sliceValues) {
+
+		// total
+		CGFloat total = 0.0;
+		for (NSNumber *num in sliceValues) {
+			total += num.floatValue;
+		}
+
+		// normalize
+		for (NSNumber *num in sliceValues) {
+			[_normalizedValues addObject:[NSNumber numberWithFloat:num.floatValue/total]];
+		}
+	}
+
+	[self updateSlices];
+}
+
+-(void)updateSlices {
+
+	_containerLayer.frame = self.bounds;
+
+	// Adjust number of slices
+	if (_normalizedValues.count &gt; _containerLayer.sublayers.count) {
+
+		int count = _normalizedValues.count - _containerLayer.sublayers.count;
+		for (int i = 0; i &lt; count; i++) {
+			PieSliceLayer *slice = [PieSliceLayer layer];
+			slice.strokeColor = [UIColor colorWithWhite:0.25 alpha:1.0];
+			slice.strokeWidth = 0.5;
+			slice.frame = self.bounds;
+
+			[_containerLayer addSublayer:slice];
+		}
+	}
+	else if (_normalizedValues.count &lt; _containerLayer.sublayers.count) {
+		int count = _containerLayer.sublayers.count - _normalizedValues.count;
+
+		for (int i = 0; i &lt; count; i++) {
+			[[_containerLayer.sublayers objectAtIndex:0] removeFromSuperlayer];
+		}
+	}
+
+	// Set the angles on the slices
+	CGFloat startAngle = 0.0;
+	int index = 0;
+	CGFloat count = _normalizedValues.count;
+	for (NSNumber *num in _normalizedValues) {
+		CGFloat angle = num.floatValue * 2 * M_PI;
+
+		NSLog(@"Angle = %f", angle);
+
+		PieSliceLayer *slice = [_containerLayer.sublayers objectAtIndex:index];
+		slice.fillColor = [UIColor colorWithHue:index/count saturation:0.5 brightness:0.75 alpha:1.0];
+		slice.startAngle = startAngle;
+		slice.endAngle = startAngle + angle;
+
+		startAngle += angle;
+		index++;
+		hue += num.floatValue;
+	}
+}
+@end</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>There is one thing we didn’t do yet, which is enabling some touch interaction. I’ll leave that as a reader exercise for now.</p>
+<p><a name="D" id="D"></a></p>
+<h3 id="demo-and-source-code"><a href="https://blog.pixelingene.com/2012/02/animating-pie-slices-using-a-custom-calayer#demo-and-source-code" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo and Source code</h3>
+<p>With all that reading you did so far, your eyes are probably thirsty for some visuals. Well, treat yourself with the YouTube video and the <a href="https://github.com/pavanpodila/PieChart">github source</a> on the side.</p>
+<p><iframe width="560" height="400" src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/4gydqa5lAJA.html" class="embedVideoIframe" allowfullscreen=""></iframe>
+      <style>
+        .embedVideoIframe {
+          border: 0
+        }
+      </style></p></div><footer class="post__PostFooter-sc-8ewc4n-4 gkSlax"><div class="post__Column-sc-8ewc4n-2 hQSxuO"><h6>Animating Pie Slices using a custom CALayer</h6><div class="post__Row-sc-8ewc4n-0 fetayn"><a href="https://blog.pixelingene.com/about" class="post__PostAvatar-sc-8ewc4n-3 iXIntV"><img src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/pavan-d0b5fd798f455a5fbee5416124f474a8.jpg" alt="Pavan Podila"></a><div class="post__Column-sc-8ewc4n-2 hQSxuO"><div><strong>Pavan Podila</strong><a style="display:inline-block;width:24px;height:24px;position:relative;overflow:hidden;vertical-align:middle;margin-left:0.25rem" href="https://twitter.com/pavanpodila" target="_blank" rel="noopener" class="social-icon" aria-label="twitter"><div class="social-container" style="position:absolute;top:0;left:0;width:100%;height:100%"><svg class="social-svg" style="border-radius:50%;position:absolute;top:0;left:0;width:100%;height:100%;fill-rule:evenodd" viewBox="0 0 64 64"><g class="social-svg-background" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><circle cx="32" cy="32" r="31"></circle></g><g class="social-svg-icon" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"></path></g><g class="social-svg-mask" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:#00aced"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"></path></g></svg></div></a></div><small>February 21st, 2012</small></div></div></div></footer><div class="nav-link__NavLinkContainer-sc-1gnpdud-2 iOWvPp"><a align="left" class="nav-link__NavLink-sc-1gnpdud-0 ddTAIZ" href="https://blog.pixelingene.com/2012/05/quick-sketching-using-sketchbook-pro-plus-wacom-intuos-4"><span style="display:inline-block;margin-right:0.5rem">⇐</span><span>Quick sketching using SketchBook Pro + Wacom Intuos 4</span></a><a align="right" class="nav-link__NavLink-sc-1gnpdud-0 kYBmkr" href="https://blog.pixelingene.com/2011/12/simple-helper-method-for-async-testing-with-jasmine"><span>Simple helper method for async testing with Jasmine and RequireJS</span><span style="display:inline-block;margin-left:0.5rem">⇒</span></a></div><div id="disqus_thread"></div></div></div><div type="column" align="center" justify="center" gap="0.5rem" class="footer__FooterContainer-tg4qdq-0 laBqEB"><div type="row" align="center" justify="center" gap="0" textcolor="#f8ffff" highlightcolor="#b8bcc7" class="menu__MenuContainer-sc-67g95-0 gznKGw"><a href="https://blog.pixelingene.com/">Home</a><a href="https://blog.pixelingene.com/archive">Archive</a><a href="https://blog.pixelingene.com/about">About</a></div><div type="row" align="center" justify="flex-end" gap="0.5rem" style="margin-bottom:0.5rem" class="components__Stack-sc-1h7cc6r-1 lktuzF"><a style="display:inline-block;width:32px;height:32px;position:relative;overflow:hidden;vertical-align:middle" title="Follow @pavanpodila" href="https://twitter.com/pavanpodila" target="_blank" rel="noopener" class="social-icon" aria-label="twitter"><div class="social-container" style="position:absolute;top:0;left:0;width:100%;height:100%"><svg class="social-svg" style="border-radius:50%;position:absolute;top:0;left:0;width:100%;height:100%;fill-rule:evenodd" viewBox="0 0 64 64"><g class="social-svg-background" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><circle cx="32" cy="32" r="31"></circle></g><g class="social-svg-icon" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"></path></g><g class="social-svg-mask" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:#00aced"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"></path></g></svg></div></a><a style="display:inline-block;width:32px;height:32px;position:relative;overflow:hidden;vertical-align:middle" title="Check out pavanpodila" href="https://github.com/pavanpodila" target="_blank" rel="noopener" class="social-icon" aria-label="github"><div class="social-container" style="position:absolute;top:0;left:0;width:100%;height:100%"><svg class="social-svg" style="border-radius:50%;position:absolute;top:0;left:0;width:100%;height:100%;fill-rule:evenodd" viewBox="0 0 64 64"><g class="social-svg-background" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><circle cx="32" cy="32" r="31"></circle></g><g class="social-svg-icon" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:transparent"><path d="M32,16c-8.8,0-16,7.2-16,16c0,7.1,4.6,13.1,10.9,15.2 c0.8,0.1,1.1-0.3,1.1-0.8c0-0.4,0-1.4,0-2.7c-4.5,1-5.4-2.1-5.4-2.1c-0.7-1.8-1.8-2.3-1.8-2.3c-1.5-1,0.1-1,0.1-1 c1.6,0.1,2.5,1.6,2.5,1.6c1.4,2.4,3.7,1.7,4.7,1.3c0.1-1,0.6-1.7,1-2.1c-3.6-0.4-7.3-1.8-7.3-7.9c0-1.7,0.6-3.2,1.6-4.3 c-0.2-0.4-0.7-2,0.2-4.2c0,0,1.3-0.4,4.4,1.6c1.3-0.4,2.6-0.5,4-0.5c1.4,0,2.7,0.2,4,0.5c3.1-2.1,4.4-1.6,4.4-1.6 c0.9,2.2,0.3,3.8,0.2,4.2c1,1.1,1.6,2.5,1.6,4.3c0,6.1-3.7,7.5-7.3,7.9c0.6,0.5,1.1,1.5,1.1,3c0,2.1,0,3.9,0,4.4 c0,0.4,0.3,0.9,1.1,0.8C43.4,45.1,48,39.1,48,32C48,23.2,40.8,16,32,16z"></path></g><g class="social-svg-mask" style="-ms-transition:fill 170ms ease-in-out;-o-transition:fill 170ms ease-in-out;-moz-transition:fill 170ms ease-in-out;-webkit-transition:fill 170ms ease-in-out;transition:fill 170ms ease-in-out;fill:#f8ffff"><path d="M0,0v64h64V0H0z M37.1,47.2c-0.8,0.2-1.1-0.3-1.1-0.8c0-0.5,0-2.3,0-4.4c0-1.5-0.5-2.5-1.1-3 c3.6-0.4,7.3-1.7,7.3-7.9c0-1.7-0.6-3.2-1.6-4.3c0.2-0.4,0.7-2-0.2-4.2c0,0-1.3-0.4-4.4,1.6c-1.3-0.4-2.6-0.5-4-0.5 c-1.4,0-2.7,0.2-4,0.5c-3.1-2.1-4.4-1.6-4.4-1.6c-0.9,2.2-0.3,3.8-0.2,4.2c-1,1.1-1.6,2.5-1.6,4.3c0,6.1,3.7,7.5,7.3,7.9 c-0.5,0.4-0.9,1.1-1,2.1c-0.9,0.4-3.2,1.1-4.7-1.3c0,0-0.8-1.5-2.5-1.6c0,0-1.6,0-0.1,1c0,0,1,0.5,1.8,2.3c0,0,0.9,3.1,5.4,2.1 c0,1.3,0,2.3,0,2.7c0,0.4-0.3,0.9-1.1,0.8C20.6,45.1,16,39.1,16,32c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16 C48,39.1,43.4,45.1,37.1,47.2z"></path></g></svg></div></a></div><small>Copyright © 2006-<!-- -->2020<!-- --> PIXELINGENE</small></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-745800-2', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-jsx","jsonName":"2012-02-animating-pie-slices-using-a-custom-calayer-e81","path":"/2012/02/animating-pie-slices-using-a-custom-calayer"};window.dataPath="718/path---2012-02-animating-pie-slices-using-a-custom-calayer-e-81-692-xAhDUg3OEVJSyXvOE0iuprExRA";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app.e4dc9ddcb8f698dc1fb2.css","/app-f871cc3c0b7e6e920807.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-62047a69dd3fc15cc48c.js"],"component---src-templates-page-jsx":["/component---src-templates-page-jsx-0005cf91152bac13c1fd.js"],"component---src-templates-home-jsx":["/component---src-templates-home-jsx-40e07ee8ca730a2db036.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-fec4891dba2e3dde1cb0.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2007496f00dc3fbcc8ff.js"],"component---src-pages-about-index-jsx":["/component---src-pages-about-index-jsx-0d16e86ce60d218273e8.js"],"component---src-pages-archive-jsx":["/component---src-pages-archive-jsx-d57002d19341e445500e.js"]};/*]]>*/</script><script src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/webpack-runtime-256161465e96e5198c98.js" async=""></script><script src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/app-f871cc3c0b7e6e920807.js" async=""></script><script src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/1-956133e112bf39f6d33e.js" async=""></script><script src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/component---src-templates-post-jsx-fec4891dba2e3dde1cb0.js" async=""></script><script src="./Pixel-in-Gene_ Animating Pie Slices using a custom CALayer_files/0-f4347cc7170ba2735c37.js" async=""></script><script async="" src="https://pixelingene.disqus.com/embed.js" id="dsq-embed-scr"></script></body></html>

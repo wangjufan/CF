@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<!-- saved from url=(0136)https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba -->
+<html lang="en"><head class="at-element-marker"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Understanding Color Spaces and Color Space Conversion
+- MATLAB &amp; Simulink</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6.css" rel="stylesheet" type="text/css">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_sm+xs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site6_offcanvas_v2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ahy.js"></script><script async="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/uwt.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/bat.js" async=""></script><script type="text/javascript" async="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/f.txt"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/quant.js" async="" type="text/javascript"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/4750.js" async="" type="text/javascript"></script><script async="" src="https://a.quora.com/qevents.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/jquery-latest.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/jquery.mobile.custom.min.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/bootstrap.min.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/global.js"></script>
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/xvy5baa.css" rel="stylesheet">
+<!-- BEGIN Adobe DTM -->
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/mbox-contents-95c6a4d9c82a8d20476522984666120b54192e9b.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-58fe08cb64746d190500a115.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-56972e2c64746d54aa00cb73.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5b27fc4d64746d3f950001c1.js"></script><style id="at-makers-style" class="at-flicker-control">
+.mboxDefault {visibility:hidden;}
+</style><script async="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-1023777138');
+</script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5e83739264746d2f88000789.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/last-event-tag-latest.min.js"></script>
+<script>
+var adCloudCheck = 0;
+var adCloudInterval = setInterval(function () {
+	if (typeof AdCloudEvent !== "undefined") { 
+		AdCloudEvent("B1441C8B533095C00A490D4D@AdobeOrg","mathwgbl");
+		window.clearInterval(adCloudInterval);
+	}
+	if (++adCloudCheck === 5) {
+		window.clearInterval(adCloudInterval);
+	}
+}, 200);
+</script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5cca0a4c64746d22ac001daf.js"></script>
+<!-- END Adobe DTM -->
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/doc_center.css" rel="stylesheet" type="text/css">
+<link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/matlab_dialog.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/livecontrolpopoverhandler.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/openwith.js"></script>
+<style>
+.examples_short_list a.btn {display: none;}
+</style>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/openInBrowser.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement":
+[{
+"@type": "ListItem",
+"position": 1,
+"item": {
+"@id": "index.html",
+"name": "Image Processing Toolbox"
+}
+}
+,
+{
+"@type": "ListItem",
+"position": 2,
+"item": {
+"@id": "import-export-and-conversion.html",
+"name": "Import, Export, and Conversion"
+}
+}
+,
+{
+"@type": "ListItem",
+"position": 3,
+"item": {
+"@id": "color.html",
+"name": "Color"
+}
+}]
+}</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "ItemList",
+"name": "VisibleBreadcrumbs",
+"itemListElement":
+[
+"color"
+],
+"itemListOrder": "http://schema.org/ItemListOrderAscending"
+}
+</script>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="A color space maps a color in a multidimensional coordinate system."><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/mw.toc_2.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/mw.imagescaling.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/mw.breadcrumb.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/doc_omniture.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/helpservices.js"></script>
+<!-- Additions/overrides from the doc side -->
+<style>
+.typeahead_container.typeahead_type_grouped { margin-left:0; }
+@media (min-width:768px) {
+#suggestions { margin-left:-100px }
+}
+</style>
+<script type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/helpcenter_docsearch.js"></script>
+<script type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/jquery.toggleval.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/MathRenderer.js"></script><style type="text/css">math { visibility: hidden; }</style><link type="text/css" rel="stylesheet" href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/main.css"><script type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/dojo.js"></script>
+<script type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/jquery.cookie.js"></script>
+<script type="text/javascript" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/akamai-country-code.js"></script>
+<script type="text/javascript">
+var domainCountryCodeMap = new Map();
+var countryCodeToDomainMap = new Map();
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('la.mathworks.com', 'la');
+countryCodeToDomainMap.set('la','la.mathworks.com')
+domainCountryCodeMap.set('au.mathworks.com', 'au');
+countryCodeToDomainMap.set('au','au.mathworks.com')
+domainCountryCodeMap.set('de.mathworks.com', 'de');
+countryCodeToDomainMap.set('de','de.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('ww2.mathworks.cn', 'ww2');
+countryCodeToDomainMap.set('ww2','ww2.mathworks.cn')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('fr.mathworks.com', 'fr');
+countryCodeToDomainMap.set('fr','fr.mathworks.com')
+domainCountryCodeMap.set('de.mathworks.com', 'de');
+countryCodeToDomainMap.set('de','de.mathworks.com')
+domainCountryCodeMap.set('in.mathworks.com', 'in');
+countryCodeToDomainMap.set('in','in.mathworks.com')
+domainCountryCodeMap.set('uk.mathworks.com', 'uk');
+countryCodeToDomainMap.set('uk','uk.mathworks.com')
+domainCountryCodeMap.set('it.mathworks.com', 'it');
+countryCodeToDomainMap.set('it','it.mathworks.com')
+domainCountryCodeMap.set('jp.mathworks.com', 'jp');
+countryCodeToDomainMap.set('jp','jp.mathworks.com')
+domainCountryCodeMap.set('kr.mathworks.com', 'kr');
+countryCodeToDomainMap.set('kr','kr.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('au.mathworks.com', 'au');
+countryCodeToDomainMap.set('au','au.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('es.mathworks.com', 'es');
+countryCodeToDomainMap.set('es','es.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('ch.mathworks.com', 'ch');
+countryCodeToDomainMap.set('ch','ch.mathworks.com')
+domainCountryCodeMap.set('uk.mathworks.com', 'uk');
+countryCodeToDomainMap.set('uk','uk.mathworks.com')
+var countrySubdomains = {
+US: {name: 'United States', subdomain: 'www'},
+AD: {name: 'Andorra', subdomain: 'es'},
+AR: {name: 'Argentina', subdomain: 'la'},
+AU: {name: 'Australia', subdomain: 'au'},
+AT: {name: 'Austria', subdomain: 'de'},
+BE: {name: 'Belgium', subdomain: 'nl'},
+BO: {name: 'Bolivia', subdomain: 'la'},
+BV: {name: 'Bouvet Islands', subdomain: 'se'},
+CA: {name: 'Canada', subdomain: 'www'},
+CL: {name: 'Chile', subdomain: 'la'},
+CN: {name: 'China', subdomain: 'cn'},
+CX: {name: 'Christmas Island', subdomain: 'au'},
+CC: {name: 'Cocos-Keeling Islands', subdomain: 'au'},
+CO: {name: 'Colombia', subdomain: 'la'},
+CR: {name: 'Costa Rica', subdomain: 'la'},
+DK: {name: 'Denmark', subdomain: 'se'},
+DO: {name: 'Dominican Republic', subdomain: 'la'},
+EC: {name: 'Ecuador', subdomain: 'la'},
+SV: {name: 'El Salvador', subdomain: 'la'},
+EE: {name: 'Estonia', subdomain: 'se'},
+FO: {name: 'Faroe Islands', subdomain: 'se'},
+FJ: {name: 'Fiji', subdomain: 'au'},
+FI: {name: 'Finland', subdomain: 'se'},
+FR: {name: 'France', subdomain: 'fr'},
+GF: {name: 'French Guiana', subdomain: 'fr'},
+PF: {name: 'French Polynesia', subdomain: 'fr'},
+DE: {name: 'Germany', subdomain: 'de'},
+GL: {name: 'Greenland', subdomain: 'se'},
+GP: {name: 'Guadalupe', subdomain: 'fr'},
+GT: {name: 'Guatemala', subdomain: 'la'},
+HN: {name: 'Honduras', subdomain: 'la'},
+IS: {name: 'Iceland', subdomain: 'se'},
+IN: {name: 'India', subdomain: 'in'},
+IE: {name: 'Ireland', subdomain: 'uk'},
+IT: {name: 'Italy', subdomain: 'it'},
+JP: {name: 'Japan', subdomain: 'jp'},
+KR: {name: 'Korea', subdomain: 'kr'},
+LV: {name: 'Latvia', subdomain: 'se'},
+LI: {name: 'Liechtenstein', subdomain: 'ch'},
+LT: {name: 'Lithuania', subdomain: 'se'},
+LU: {name: 'Luxembourg', subdomain: 'nl'},
+MQ: {name: 'Martinique', subdomain: 'fr'},
+YT: {name: 'Mayotte Island', subdomain: 'fr'},
+MX: {name: 'Mexico', subdomain: 'la'},
+MC: {name: 'Monaco', subdomain: 'fr'},
+NL: {name: 'Netherlands', subdomain: 'nl'},
+NC: {name: 'New Caledonia', subdomain: 'fr'},
+NZ: {name: 'New Zealand', subdomain: 'au'},
+NI: {name: 'Nicaragua', subdomain: 'la'},
+NO: {name: 'Norway', subdomain: 'se'},
+PA: {name: 'Panama', subdomain: 'la'},
+PG: {name: 'Papua New Guinea', subdomain: 'au'},
+PY: {name: 'Paraguay', subdomain: 'la'},
+PE: {name: 'Peru', subdomain: 'la'},
+PT: {name: 'Portugal', subdomain: 'www'},
+PR: {name: 'Puerto Rico', subdomain: 'la'},
+RE: {name: 'Reunion Island', subdomain: 'fr'},
+ES: {name: 'Spain', subdomain: 'es'},
+LK: {name: 'Sri Lanka', subdomain: 'in'},
+SE: {name: 'Sweden', subdomain: 'se'},
+CH: {name: 'Switzerland', subdomain: 'ch'},
+GB: {name: 'United Kingdom', subdomain: 'uk'},
+UY: {name: 'Uruguay', subdomain: 'la'},
+VA: {name: 'Vatican City', subdomain: 'it'},
+VE: {name: 'Venezuela', subdomain: 'la'},
+};
+var domainUtils = {
+isExemptUrl: function (url) {
+if(window.overrideDomainSelector){
+return true;
+}
+var exemptions = [
+'/api/parts/',
+'nocookie=true',
+'client=addons',
+'requestedDomain'
+];
+return exemptions.some(function (exemption) {
+return url.indexOf(exemption) != -1;
+});
+},
+endsWith: function( str, suffix ) {
+return str.substring( str.length - suffix.length, str.length ) === suffix;
+},
+getDomain: function (url) {
+var segments = url.split('/');
+return segments[2];
+},
+getSubdomain: function (domain) {
+return domainCountryCodeMap.get(domain);
+},
+setCookies: function (domain, lang) {
+var domainCookie = 'mathworks.com';
+if (this.endsWith(location.host, 'mathworks.cn')) {
+domainCookie = 'mathworks.cn';
+}
+var selectedSubdomain = this.getSubdomain(domain);
+if (this.endsWith(domain, 'mathworks.cn')) {
+selectedSubdomain = 'cn';
+}
+if (selectedSubdomain === 'www') {
+// This is what ePS did in EQUUS and Ruby, so...
+// we're just following suit.
+selectedSubdomain = 'us';
+}
+if (selectedSubdomain !== 'cn' && selectedSubdomain !== 'ch') {
+lang = '';
+}
+var cookieNames = this.getCookieNames(domain);
+var expires = new Date();
+expires.setFullYear(expires.getFullYear() + 68);
+var myJSON = JSON.stringify({
+domain: selectedSubdomain,
+lang: lang,
+v: 2
+});
+$.cookie(cookieNames.mwaPrefsCookieName, myJSON, {path: '/', expires: 20*365, domain: domainCookie});
+},
+getCookieNames: function (domain) {
+var mwaLoginCookieName = 'mwa';
+var mwaPrefsCookieName = 'mwa_prefs';
+var subdomainSuffix = '';
+if (subdomainSuffix != "") {
+mwaLoginCookieName = mwaLoginCookieName + subdomainSuffix;
+mwaPrefsCookieName = mwaPrefsCookieName + subdomainSuffix;
+}
+return {
+mwaLoginCookieName: mwaLoginCookieName,
+mwaPrefsCookieName: mwaPrefsCookieName,
+};
+},
+switchDomain: function (targetDomain, targetLang) {
+var targetUri = location.pathname;
+targetLang = this.getValidLang(this.getSubdomain(targetDomain), targetLang);
+var url = '//' + targetDomain;
+url += targetUri + location.search;
+url = url.replace(/requestedDomain=[a-z]?[a-z]?&?/, '');
+url = url.replace(/\&$/, '');
+url = url.replace(/\?$/, '');
+var requestedDomainParam = 'requestedDomain=' + targetLang;
+if (url.indexOf('?') > -1) {
+url = url + '&' + requestedDomainParam;
+} else {
+url = url + '?' + requestedDomainParam;
+}
+window.location = url;
+},
+getPrefCookie: function(currentDomain) {
+var cookieNames = this.getCookieNames(currentDomain);
+// regex from: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+var cookieRegex = new RegExp("(?:(?:^|.*;\\s*)"+cookieNames.mwaPrefsCookieName+"\\s*\\=\\s*([^;]*).*$)|^.*$");
+if (document.cookie) {
+var cookieValue = document.cookie.replace(cookieRegex, "$1");
+if (cookieValue) {
+return JSON.parse(decodeURIComponent(cookieValue));
+}
+}
+return "";
+},
+getPrefDomain: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+var visitorPrefDomain;
+if (!!mwaPrefsCookieJsonObject) {
+visitorPrefDomain = mwaPrefsCookieJsonObject.domain;
+if (visitorPrefDomain === 'us') {
+visitorPrefDomain = 'www';
+}else if (visitorPrefDomain === 'cn') {
+visitorPrefDomain = 'ww2';
+}
+}
+return countryCodeToDomainMap.get(visitorPrefDomain);
+},
+getPrefLang: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+var multilingualDomainLanguageSupport = {};
+multilingualDomainLanguageSupport['ch'] = ['en','de','fr'];
+multilingualDomainLanguageSupport['cn'] = ['zh','en'];
+var currentDomainLangOptions = multilingualDomainLanguageSupport[mwaPrefsCookieJsonObject.domain];
+if (currentDomainLangOptions) {
+var cookiePrefLang = mwaPrefsCookieJsonObject.lang;
+if (currentDomainLangOptions.indexOf(cookiePrefLang) >= 0) {
+return cookiePrefLang;
+} else {
+return currentDomainLangOptions[0];
+}
+}
+return '';
+},
+getCookieVersion: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+return mwaPrefsCookieJsonObject.v;
+},
+getTargetDomainForCookies: function() {
+var targetDomain = "";
+if (this.endsWith(location.host, 'mathworks.cn')) {
+targetDomain = window.location.protocol + "//" + countryCodeToDomainMap.get('www');
+}else{
+targetDomain = window.location.protocol + "//" + countryCodeToDomainMap.get('ww2');
+}
+return targetDomain;
+},
+getValidLang: function (subdomain, lang) {
+var multilingualDomainLanguageSupport = {};
+multilingualDomainLanguageSupport['ch'] = ['en','de','fr'];
+multilingualDomainLanguageSupport['cn'] = ['zh','en'];
+multilingualDomainLanguageSupport['ww2'] = ['zh','en'];
+var currentDomainLangOptions = multilingualDomainLanguageSupport[subdomain];
+if (currentDomainLangOptions) {
+if (currentDomainLangOptions.indexOf(lang) >= 0) {
+return lang;
+} else {
+return currentDomainLangOptions[0];
+}
+}
+return '';
+},
+isDefaultLang: function (subdomain, lang) {
+var multilingualDomainLanguageDefault = {};
+multilingualDomainLanguageDefault['ch'] = 'en';
+multilingualDomainLanguageDefault['cn'] = 'zh';
+multilingualDomainLanguageDefault['ww2'] = 'zh';
+var currentDomainLang = multilingualDomainLanguageDefault[subdomain];
+if (currentDomainLang) {
+if (currentDomainLang === lang) {
+return true;
+} else {
+return false;
+}
+} else if (lang) {
+return false;
+}
+return true;
+}
+};
+$(window).on('load', function() {
+var currentUrl = window.location.href;
+var currentDomain = domainUtils.getDomain(currentUrl);
+var currentSubdomain = domainUtils.getSubdomain(currentDomain);
+var requestedDomainLangRegEx = RegExp('[?&]requestedDomain=([^&]*)').exec(window.location.search);
+if (requestedDomainLangRegEx) {
+var setLang = domainUtils.getValidLang(currentSubdomain, requestedDomainLangRegEx[1])
+domainUtils.setCookies(currentDomain, setLang);
+var URLWithoutRequestedDomain = window.location.href.replace(/requestedDomain=[a-z]?[a-z]?&?/, '');
+URLWithoutRequestedDomain = URLWithoutRequestedDomain.replace(/\&$/, '');
+URLWithoutRequestedDomain = URLWithoutRequestedDomain.replace(/\?$/, '');
+history.replaceState({}, document.title, URLWithoutRequestedDomain);
+window.location = URLWithoutRequestedDomain;
+}
+$('body').on('click', '.domain_selector_link', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+domainUtils.switchDomain(selectedDomain, selectedLang);
+});
+var currentCountryText =
+$('a[data-subdomain=\'' + currentSubdomain + '\'][data-default-lang=\'true\'][data-selected-text]')
+.data('selected-text');
+$('#countrySelectorButtonText').text(currentCountryText);
+var visitorPrefDomain = domainUtils.getPrefDomain(currentDomain);
+var visitorPrefLang = domainUtils.getPrefLang(currentDomain);
+var akamaiCountryCode;
+var akamaiprofile = CQ_Analytics.ClientContextMgr.getRegisteredStore('akamaiprofile');
+if (akamaiprofile) {
+akamaiCountryCode = akamaiprofile.getProperty('countryCode');
+}
+var recommendedSubdomain;
+var recommendedLink;
+if (akamaiCountryCode) {
+if (countrySubdomains[akamaiCountryCode] !== undefined) {
+recommendedSubdomain = countrySubdomains[akamaiCountryCode].subdomain;
+} else {
+recommendedSubdomain = 'www';
+}
+if (recommendedSubdomain === 'us') {
+recommendedSubdomain = 'www';
+}else if (recommendedSubdomain === 'cn') {
+recommendedSubdomain = 'ww2';
+}
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-recommended-text]');
+} else if (visitorPrefDomain) {
+recommendedSubdomain = domainUtils.getSubdomain(visitorPrefDomain);
+if (visitorPrefLang) {
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-lang=\'' + visitorPrefLang + '\']');
+} else {
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-default-lang=\'true\']');
+}
+}
+if (!recommendedLink) {
+recommendedSubdomain = 'www';
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-recommended-text]');
+}
+$('.recommended-country').text(recommendedLink.data('recommended-text'));
+$('#recommended_domain_button').attr('href', recommendedLink.attr('href'));
+$('#recommended_domain_button').attr('data-lang', recommendedLink.attr('data-lang'));
+$('body').on('click', '#recommended_domain_button', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+domainUtils.switchDomain(selectedDomain, selectedLang);
+});
+$('a.worldwide_link').attr('href', recommendedLink.attr('href'));
+$('a.worldwide_link').data('lang', recommendedLink.data('lang'));
+$('body').on('click', 'a.worldwide_link', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+var href = e.target.getAttribute('href');
+var worldwideLink = '/company/worldwide.html?s_tid=dmselect_cta&requestedDomain=';
+if(href) {
+location.href = href + worldwideLink;
+}
+});
+if (akamaiCountryCode === 'CN') {
+$('#china_performance_alert').show();
+}
+var crossDomain = "";
+if(domainUtils.endsWith(currentDomain, '.mathworks.cn')){
+crossDomain = countryCodeToDomainMap.get('www');
+}else{
+crossDomain = countryCodeToDomainMap.get('ww2');
+}
+if ((!domainUtils.endsWith(currentDomain, '.mathworks.com') && !domainUtils.endsWith(currentDomain, '.mathworks.cn')) || domainUtils.isExemptUrl(currentUrl)) {
+return;
+}
+if (!visitorPrefDomain) {
+if (akamaiCountryCode) {
+var akamaiDeterminedSubdomain = $('a[data-country-code=\'' + akamaiCountryCode + '\']').data('subdomain');
+if ((akamaiCountryCode.toLowerCase() === currentSubdomain) || (akamaiDeterminedSubdomain === currentSubdomain)) {
+domainUtils.setCookies(currentDomain, "");
+} else {
+$('#country-unselected').modal('show');
+}
+return;
+}
+if (currentSubdomain === 'www') {
+domainUtils.setCookies(currentDomain, '');
+} else {
+$('#country-unselected').modal('show');
+}
+} else if (akamaiCountryCode === 'CN' && !(visitorPrefDomain === 'CN') && !domainUtils.getCookieVersion(currentDomain)) {
+$('#country-unselected').modal('show');
+}
+});
+</script> <script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/global_nav.js"></script>
+<script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5a6285a664746d3edc002109.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js"></script><script type="text/javascript">
+/*T&T Metadata v3 ==>Response Plugin*/
+window.ttMETA=(typeof(window.ttMETA)!="undefined")?window.ttMETA:[];window.ttMETA.push({"CampaignName":"","CampaignId":"","RecipeName":"","RecipeId":"","OfferId":"","OfferName":"","MboxName":"target-global-mbox"});
+</script><script type="text/javascript">
+var test_name= "";
+var tntRecipeName= "";
+</script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5b6ca51c64746d665d000c7d.js"></script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/f(1).txt"></script><style type="text/css" id="ki-wi9-w6d"></style><style type="text/css" id="ki-wi9-w6t"></style></head>
+
+<body id="responsive_offcanvas" class="no_animate offcanvas_active" style="">
+  <a class="skip_link sr-only" href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#content_container" onclick="skipLinkFocus()">Skip to content</a>
+  <script>
+    skipLinkFocus = function getFocus() {           
+      document.getElementById("content_container").focus();
+    }
+  </script>
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile" translate="no" style="">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="https://www.mathworks.com/?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav"><li class="headernav_login"><a href="https://www.mathworks.com/login?uri=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fimages%2Funderstanding-color-spaces-and-color-space-conversion.html%3Bjsessionid%3De69cb5c3eb3bf283f8b5b20c0eba" class="mwa-nav_login" title="Sign In"><span class="visible-xs visible-sm">Sign In</span></a></li>
+<li class="topnav_products "><a href="https://www.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="https://www.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://www.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://www.mathworks.com/support.html?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://www.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+<li class="headernav_contact"><a href="https://www.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml">Get MATLAB</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-9">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="https://www.mathworks.com/?s_tid=gn_logo" class="svg_link pull-left">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="https://www.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="https://www.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://www.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://www.mathworks.com/support.html?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://www.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_store"><a href="https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml" class="btn btn_color_blue companion_btn btn-xs">Get MATLAB</a></li>
+<li class="headernav_contact"><a href="https://www.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus" title="Contact Us"></a></li>
+<li class="headernav_login"><a href="https://www.mathworks.com/login?uri=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fimages%2Funderstanding-color-spaces-and-color-space-conversion.html%3Bjsessionid%3De69cb5c3eb3bf283f8b5b20c0eba" class="mwa-nav_login" title="Sign In"><span class="visible-xs visible-sm">Sign In</span></a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-sm-6 col-md-7 has_horizontal_local_nav" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title">
+<p class="h1"><a xmlns="http://www.w3.org/1999/xhtml" href="https://www.mathworks.com/index.html" class="coming_from_product">Documentation</a><a xmlns="http://www.w3.org/1999/xhtml" href="https://www.mathworks.com/help/index.html" class="not_coming_from_product">Help Center</a></p>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-5" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_support" class="collapse in"> <form id="docsearch_form" action="https://www.mathworks.com/support/search.html" method="get" accept-charset="utf-8" data-release="R2020a" data-language="en"><div class="input-group"><label class="sr-only">Search Support</label><input id="suggestion" type="hidden" name="suggestion" value=""><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="docsearch" class="form-control conjoined_search" type="text" name="q" placeholder="Search Support" autocomplete="off"><div class="input-group-btn"><button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="search_scope_label">Support</span></button><ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu"><!--<li data-toggle="collapse" data-target="#search_scope_support"><a href="#">Support</a></li>--><li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#">MathWorks</a></li></ul><script>$(".support_search_scope_trigger").click(function() {$("#search_scope_support").removeClass("in");$("#query").val($("#search").val());});</script><button type="submit" name="submitsearch" id="support_submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16"></button></div></div></form> </div><div id="search_scope_site" class="collapse"> <form name="search" id="site_search" class="site_search" action="https://www.mathworks.com/search/site_search.html" method="get"><div class="input-group"><label class="sr-only">Search MathWorks.com</label><input type="hidden" name="c[]" value="entire_site"><input type="text" name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \=""><div class="input-group-btn"><button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button><ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu"><li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#">Support</a></li></ul><script>$(".site_search_scope_trigger").click(function() {$("#search_scope_site").removeClass("in");$("#search").val($("#query").val());});</script><button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16"></button></div></div></form></div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header: End -->
+<!-- Conjoined Header: End -->
+
+  <div class="row-offcanvas row-offcanvas-left active">
+  
+    <div class="sidebar-offcanvas" id="sidebar" style="height: 753px; position: absolute;">
+      <nav class="offcanvas_nav" role="navigation"> 
+      
+        <div class="offcanvas_actuator active" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle">
+          <button type="button" class="btn">
+            <span class="sr-only">Off-Canvas Navigation Menu Toggle</span>
+            <span class="icon-menu"></span>
+          </button>
+          <span class="offcanvas_actuator_label" id="translation_icon-menu" tabindex="-1" aria-hidden="true"></span>
+          <!-- <span class="offcanvas_actuator_close" tabindex="-1" aria-hidden="true"></span> -->
+        </div>
+
+          <div class="nav_list_wrapper" id="nav_list_wrapper">
+            <nav class="offcanvas_nav" role="navigation">
+                <ul xmlns="http://www.w3.org/1999/xhtml" class="nav_breadcrumb" id="ul_left_nav_ancestors"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav_disambiguation"><li><a href="https://www.mathworks.com/help/images/index.html?s_tid=CRUX_lftnav">Image Processing Toolbox</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://www.mathworks.com/help/images/import-export-and-conversion.html?s_tid=CRUX_lftnav" itemprop="url"><span itemprop="title">Import, Export, and Conversion</span></a></li><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="https://www.mathworks.com/help/images/color.html?s_tid=CRUX_lftnav" itemprop="url"><span itemprop="title">Color</span></a></li></ul><ul xmlns="http://www.w3.org/1999/xhtml" class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#responsive_offcanvas">Understanding Color Spaces and Color Space Conversion</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#mw_7bb4a637-62c8-4e41-8376-785c243782a7" class="intrnllnk">RGB</a></li><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#mw_8cf33313-d9fc-42d2-8406-ed2c869fc4a2" class="intrnllnk">HSV</a></li><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#mw_2b84b55d-031a-4f69-af59-0d36186fbae9" class="intrnllnk">CIE 1976 XYZ and CIE 1976 L*a*b*</a></li><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#bvjbxwt" class="intrnllnk">YCbCr</a></li><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#bvjbxwh" class="intrnllnk">YIQ</a></li><li><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#d120e33794" class="intrnllnk">Related Topics</a></li></ul>
+
+            </nav>
+          </div>
+        
+        <script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/offcanvas_v2.js"></script>
+        
+
+      </nav>       
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <!-- MOBILE CTA - End -->
+
+
+    <div class="offcanvas_content_container" style="padding-right: 0px;">
+
+      <div class="sticky_header_container affix-top" style="width: auto;">
+        <div class="horizontal_nav">
+          <div class="horizontal_nav_container">
+            <div class="offcanvas_horizontal_nav">
+              <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-7 col-lg-8 hidden-xs">
+                    
+                    <script>
+                      var translateMore = translateMore || {};
+                      translateMore.locale = "More"; 
+                    </script>
+
+                    <nav class="navbar navbar-default" role="navigation" id="subnav">
+                      <div>
+                          <ul class="nav navbar-nav crux_browse">
+                         <li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_documentation" class="crux_resource active"><a class="not_coming_from_product">Documentation</a><a class="coming_from_product">All</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_example" class="crux_resource"><a href="https://www.mathworks.com/help/images/examples.html?category=color">Examples</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_function" class="crux_resource"><a href="https://www.mathworks.com/help/images/referencelist.html?type=function&amp;category=color">Functions</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_app" class="crux_resource"><a href="https://www.mathworks.com/help/images/referencelist.html?type=app&amp;category=color">Apps</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_videos" class="supplemental_crux_resource"><a href="https://www.mathworks.com/support/search.html?q=&amp;fq=asset_type_name:video%20category:images/color" class="not_coming_from_product">Videos</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_answers" class="supplemental_crux_resource"><a href="https://www.mathworks.com/support/search.html?q=&amp;fq=asset_type_name:answer%20category:images/color" class="not_coming_from_product">Answers</a></li><li xmlns="http://www.w3.org/1999/xhtml" role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                    <div class="col-md-5 col-lg-4 hidden-xs hidden-sm">
+                      <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general hidden-sm hidden-xs"><a href="https://www.mathworks.com/campaigns/products/trials.html?prodcode=IP&amp;s_iid=doc_trial_IP_tb" class="icon-download">Trial Software</a></li>
+<li class="hidden-lg hidden-md"><a href="https://www.mathworks.com/campaigns/products/trials.html?prodcode=IP&amp;s_iid=doc_trial_IP_tb" class="btn btn_color_blue btn-block"><span class="icon-download"></span> Trial Software</a></li>
+<li class="cta_item cta_item_general hidden-sm hidden-xs"><a href="https://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+<li class="hidden-lg hidden-md"><a href="https://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="btn btn_color_blue btn-block"><span class="icon-download"></span> Product Updates</a></li>
+</ul>
+</div>
+                    </div>
+                  <!-- Mobile CRUX Nav: START -->
+                  <div class="visible-xs">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-9"> 
+                          <div class="mobile_crux_nav_trigger">
+                            <!-- Single button -->
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resources <span class="icon-arrow-down icon_16"></span>  
+                              </button>
+                              <ul class="dropdown-menu">
+                                 <li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_documentation" class="crux_resource active"><a class="not_coming_from_product">Documentation</a><a class="coming_from_product">All</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_example" class="crux_resource"><a href="https://www.mathworks.com/help/images/examples.html?category=color">Examples</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_function" class="crux_resource"><a href="https://www.mathworks.com/help/images/referencelist.html?type=function&amp;category=color">Functions</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_app" class="crux_resource"><a href="https://www.mathworks.com/help/images/referencelist.html?type=app&amp;category=color">Apps</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_videos" class="supplemental_crux_resource"><a href="https://www.mathworks.com/support/search.html?q=&amp;fq=asset_type_name:video%20category:images/color" class="not_coming_from_product">Videos</a></li><li xmlns="http://www.w3.org/1999/xhtml" id="crux_nav_answers" class="supplemental_crux_resource"><a href="https://www.mathworks.com/support/search.html?q=&amp;fq=asset_type_name:answer%20category:images/color" class="not_coming_from_product">Answers</a></li><li xmlns="http://www.w3.org/1999/xhtml" role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li>
+                              </ul>
+                            </div>
+                            <!-- Single button -->                      
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="translate_placeholder"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Mobile CRUX Nav: END -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content_container" id="content_container" tabindex="-1" style="width: auto;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+                               
+
+
+
+
+
+                   
+    
+                                   
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" itemprop="content" lang="en"><div id="pgtype-topic">                
+
+       
+<section itemprop="content"><h2 class="title r2020a" itemprop="title content" id="brcr25t">Understanding Color Spaces and Color Space Conversion</h2><p>The Image Processing
+            Toolbox™ software typically represents colors as red, green, and blue (RGB) numeric
+         values. However, there are other models besides RGB for representing colors numerically.
+         The various models are referred to as <span class="emphasis"><em>color spaces</em></span> because most of
+         them can be mapped into a 2-D, 3-D, or 4-D coordinate system.</p><p>The various color spaces exist because they present color information in ways that make
+         certain calculations more convenient or because they provide a way to identify colors that
+         is more intuitive. For example, the RGB color space defines a color as the percentages of
+         red, green, and blue hues mixed together. Other color models describe colors by their hue
+         (shade of color), saturation (amount of gray or pure color), and luminance (intensity, or
+         overall brightness).</p><p>The toolbox enables converting color data from one color space to another through
+         mathematical transformations.</p><section itemprop="content"><h3 class="title" id="mw_7bb4a637-62c8-4e41-8376-785c243782a7">RGB</h3><p>The RGB color space represents images as an
+               <span class="emphasis"><em>m</em></span>-by-<span class="emphasis"><em>n</em></span>-by-3 numeric array whose elements
+            specify the intensity values of the red, green, and blue color channels. The range of
+            numeric values depends on the data type of the image.</p><p>
+            </p>
+<div class="itemizedlist"><ul><li><p>For <code class="literal">single</code> or <code class="literal">double</code> arrays, RGB
+                     values range from [0, 1].</p></li><li><p>For <code class="literal">uint8</code> arrays, RGB values range from [0, 255].</p></li><li><p>For <code class="literal">uint16</code> arrays, RGB values range from [0,
+                     65535].</p></li></ul></div><p>
+
+         </p><p>The toolbox supports variations of the RGB color space.</p><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="25%" align="left"><col class="tcol2" width="75%" align="left"></colgroup><thead><tr><th>RGB Color Space</th><th>Description</th></tr></thead><tbody><tr><td>Linear RGB</td><td>Linear RGB values are raw data obtained from a camera sensor. The value
+                        of R, G, and B are directly proportional to the amount of light that
+                        illuminates the sensor. Preprocessing of raw image data, such as white
+                        balance, color balance, and chromatic aberration compensation, are performed
+                        on linear RGB values.</td></tr><tr><td>sRGB</td><td><p>sRGB values apply a nonlinear function, called <a href="https://www.mathworks.com/help/images/gamma-correction.html" class="a">gamma
+                              correction</a>, to linear RGB values. Images are frequently
+                           displayed in the sRGB color space because they appear brighter and colors
+                           are easier to distinguish. The parametric curve used to transform linear
+                           RGB values to the sRGB color space is:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">f</em>(<em class="varname">u</em>) =
+                                    -<em class="varname">f</em>(-<em class="varname">u</em>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">u</em>&nbsp;&lt;&nbsp;0</span></p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">f</em>(<em class="varname">u</em>) =
+                                    <em class="varname">c</em>&nbsp;⋅ <em class="varname">u</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 ≤
+                                    <em class="varname">u</em>&nbsp;&lt;&nbsp;<em class="varname">d</em></span></p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">f</em>(<em class="varname">u</em>)&nbsp;=&nbsp;<em class="varname">a</em>&nbsp;⋅&nbsp;<em class="varname">u</em><sup><em class="varname">ɣ</em></sup>&nbsp;+&nbsp;<em class="varname">b</em>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">u</em>&nbsp;≥&nbsp;<em class="varname">d</em></span>,</p><p>where <em class="varname">u</em> represents one
+                           of the R, G, or B color values with these
+                              parameters:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">a</em>&nbsp;=&nbsp;1.055</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">b</em>&nbsp;=&nbsp;–0.055</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">c</em>&nbsp;=&nbsp;12.92</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">d</em>&nbsp;=&nbsp;0.0031308</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">ɣ</em>&nbsp;=&nbsp;1/2.4</p></td></tr><tr><td>Adobe RGB (1998)</td><td><p>Adobe RGB (1998) RGB values apply gamma correction to linear RGB
+                           values using a  simple power function:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">v</em> =
+                                       <em class="varname">u</em><sup><em class="varname">ɣ</em></sup></span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">u</em> ≥ 0</span></p><p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">v</em> =
+                                       -(-<em class="varname">u</em>)<sup><em class="varname">ɣ</em></sup></span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="inlineequation"><em class="varname">u</em> &lt; 0</span>,</p><p>with</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<em class="varname">ɣ</em>
+                           = 1/2.19921875</p></td></tr></tbody></table></div></section><section itemprop="content"><h3 class="title" id="mw_8cf33313-d9fc-42d2-8406-ed2c869fc4a2">HSV</h3><p>The HSV (Hue, Saturation, Value) color space corresponds better to how people
+            experience color than the RGB color space does. For example, this color space is often
+            used by people who are selecting colors, such as paint or ink color, from a color wheel
+            or palette.</p><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="25%" align="left"><col class="tcol2" width="75%" align="left"></colgroup><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody><tr><td><em class="varname">H</em></td><td>Hue, which corresponds to the color’s position on a color wheel.
+                           <em class="varname">H</em> is in the range [0, 1]. As <em class="varname">H</em>
+                        increases, colors transition from red to orange, yellow, green, cyan, blue,
+                        magenta, and finally back to red. Both 0 and 1 indicate red.</td></tr><tr><td><em class="varname">S</em></td><td>Saturation, which is the amount of hue or departure from neutral.
+                           <em class="varname">S</em> is in the range [0, 1].  As <em class="varname">S</em>
+                        increases, colors vary from unsaturated (shades of gray) to fully saturated
+                        (no white component).</td></tr><tr><td><em class="varname">V</em></td><td><p>Value, which is the maximum value among the red, green, and blue
+                           components of a specific color. <em class="varname">V</em> is in the range [0,
+                           1]. As <em class="varname">V</em> increases, the corresponding colors become
+                           increasingly brighter.</p></td></tr></tbody></table></div><div itemprop="content" id="mw_20b64a44-0463-4722-8487-f9f69b4c9e96" class="figure"><p class="title"><strong>Illustration of the HSV Color Space</strong></p><div class="figure"><div id="d120e33537" class="mediaobject"><p><img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/hsvcone.gif" alt="" height="289" width="328"></p></div></div></div><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>MATLAB<sup>®</sup> and the Image Processing
+            Toolbox software do not support the HSI color space (Hue, Saturation,
+               Intensity). However, if you want to work with color data in terms of hue, saturation,
+               and intensity, the HSV color space is very similar. Another option is to use the LCH
+               color space (Luminosity, Chroma, and Hue), which is a polar transformation of the CIE
+               L*a*b* color space — see <a href="https://www.mathworks.com/help/images/device-independent-color-spaces.html" class="a">Device-Independent Color Spaces</a>.</p></div><p>Use the <a href="https://www.mathworks.com/help/matlab/ref/rgb2hsv.html"><code class="function">rgb2hsv</code></a> and <a href="https://www.mathworks.com/help/matlab/ref/hsv2rgb.html"><code class="function">hsv2rgb</code></a> functions to convert between the RGB and HSV color spaces.</p></section><section itemprop="content"><h3 class="title" id="mw_2b84b55d-031a-4f69-af59-0d36186fbae9">CIE 1976 XYZ and CIE 1976 L*a*b*</h3><p>CIE 1976 XYZ and CIE 1976 L*a*b* are device-independent color spaces developed by the
+            International Commission on Illumination, known by the acronym CIE. These color spaces
+            model colors according to the typical sensitivity of the three types of cone cells in
+            the human eye.</p><p>The XYZ color space is the original model developed by the CIE. The
+               <em class="varname">Y</em> channel represents the luminance of a color. The
+               <em class="varname">Z</em> channel approximately relates to the amount of blue in an image,
+            but the value of <em class="varname">Z</em> in the XYZ color space is not identical to the
+            value of B in the RGB color space. The <em class="varname">X</em> channel does not have a
+            clear color analogy. However, if you consider the XYZ color space as a 3-D coordinate
+            system, then <em class="varname">X</em> values lie along the axis that is orthogonal to the
+               <em class="varname">Y</em> (luminance) axis and the <em class="varname">Z</em> axis.</p><p>The L*a*b* color space provides a more perceptually uniform color space than the XYZ
+            model. Colors in the L*a*b* color space can exist outside the RGB
+               <span class="emphasis"><em>gamut</em></span> (the valid set of RGB colors). For example, when you
+            convert the L*a*b* value [100, 100, 100] to the RGB color space, the returned value is
+            [1.7682, 0.5746, 0.1940], which is not a valid RGB color. For more information, see
+               <a href="https://www.mathworks.com/help/images/use-color-space-conversion-to-handle-out-of-gamut-colors.html" class="a">Determine If L*a*b* Value Is in RGB Gamut</a>.</p><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="25%" align="left"><col class="tcol2" width="75%" align="left"></colgroup><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody><tr><td><em class="varname">L*</em></td><td>Luminance or brightness of the image. Values are in the range [0, 100], where
+                    0 specifies black and 100 specifies white. As <em class="varname">L*</em> increases,
+                    colors become brighter.</td></tr><tr><td><span class="emphasis"><em>a*</em></span></td><td>Amount of red or green tones in the image. A large positive
+                        <span class="emphasis"><em>a*</em></span> value corresponds to red/magenta. A large negative
+                        <span class="emphasis"><em>a*</em></span> value corresponds to green. Although there is no
+                    single range for <span class="emphasis"><em>a*</em></span>, values commonly fall in the range
+                    [-100, 100] or [-128, 127).</td></tr><tr><td><span class="emphasis"><em>b*</em></span></td><td>Amount of yellow or blue tones in the image. A large positive
+                        <span class="emphasis"><em>b*</em></span> value corresponds to yellow. A large negative
+                        <span class="emphasis"><em>b*</em></span> value corresponds to blue. Although there is no
+                    single range for <span class="emphasis"><em>b*</em></span>, values commonly fall in the range
+                    [-100, 100] or [-128, 127).</td></tr></tbody></table></div><p>Device-independent color spaces include the effect of the illumination source, called
+            the reference white point. The source imparts a color hue to the raw image data
+            according to the color temperature of the illuminant. For example, sunlight during
+            sunrise or sunset imparts a yellow hue to an image, whereas sunlight around noontime
+            imparts a blue hue.</p><p>Use the <a href="https://www.mathworks.com/help/images/ref/rgb2xyz.html"><code class="function">rgb2xyz</code></a> and <a href="https://www.mathworks.com/help/images/ref/xyz2rgb.html"><code class="function">xyz2rgb</code></a> functions to convert between the RGB and XYZ color spaces. Use
+            the <a href="https://www.mathworks.com/help/images/ref/rgb2lab.html"><code class="function">rgb2lab</code></a> and <a href="https://www.mathworks.com/help/images/ref/lab2rgb.html"><code class="function">lab2rgb</code></a> functions to convert between the RGB and L*a*b* color
+            spaces.</p><p>The toolbox supports several related color space specifications that are better
+            suited to some purposes than XYZ. For more information see <a href="https://www.mathworks.com/help/images/device-independent-color-spaces.html" class="a">Device-Independent Color Spaces</a>.</p></section><section itemprop="content"><h3 class="title" id="bvjbxwt">YCbCr</h3><p>The YCbCr color space is widely used for digital video. In this format, luminance
+            information is stored as a single component (<em class="varname">Y</em>) and chrominance
+            information is stored as two color-difference components (<em class="varname">Cb</em> and
+               <span class="emphasis"><em>Cr</em></span>). Cb and Cr represent the difference between a reference
+            value and the blue or red component, respectively. (YUV, another color space widely used
+            for digital video, is very similar to YCbCr but not identical.)</p><p>
+            </p>
+<div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="25%" align="left"><col class="tcol2" width="75%" align="left"></colgroup><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody><tr><td><em class="varname">Y</em></td><td>Luminance or brightness of the image. Colors increase in brightness
+                           as <em class="varname">Y</em> increases.</td></tr><tr><td><span class="emphasis"><em>Cb</em></span></td><td>Chrominance value that indicates the difference between the blue
+                           component and a reference value.</td></tr><tr><td><span class="emphasis"><em>Cr</em></span></td><td>Chrominance value that indicates the difference between the red
+                           component and a reference value.</td></tr></tbody></table></div><p>
+
+         </p><p>The range of numeric values depends on the data type of the image. YCbCr does not use
+            the full range of the image data type so that the video stream can include additional
+            (non-image) information.</p>
+<div class="itemizedlist"><ul><li><p>For <code class="literal">single</code> or <code class="literal">double</code> arrays,
+                        <em class="varname">Y</em> is in the range [16/255, 235/255] and
+                        <em class="varname">Cb</em> and <em class="varname">Cr</em> are in the range [16/255,
+                     240/255].</p></li><li><p>For <code class="literal">uint8</code> arrays, <em class="varname">Y</em> is in the range
+                     [16, 235] and <em class="varname">Cb</em> and <em class="varname">Cr</em> are in the range
+                     [16, 240].</p></li><li><p>For <code class="literal">uint16</code>, <em class="varname">Y</em> is in the range [4112,
+                     60395] and <em class="varname">Cb</em> and <em class="varname">Cr</em> are in the range
+                     [4112, 61680].</p></li></ul></div><p>
+</p><p>Use the <a href="https://www.mathworks.com/help/images/ref/rgb2ycbcr.html"><code class="function">rgb2ycbcr</code></a> and <a href="https://www.mathworks.com/help/images/ref/ycbcr2rgb.html"><code class="function">ycbcr2rgb</code></a> functions to convert between the RGB and YCbCr color
+            spaces.</p></section><section itemprop="content"><h3 class="title" id="bvjbxwh">YIQ</h3><p>The National Television Systems Committee (NTSC) defines a color space known as YIQ.
+            This color space is used in televisions in the United States. This color space separates
+            grayscale information from color data, so the same signal can be used for both color and
+            black and white television sets.</p><p>
+            </p>
+<div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="25%" align="left"><col class="tcol2" width="75%" align="left"></colgroup><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody><tr><td><em class="varname">Y</em></td><td>Luma, or brightness of the image. Values are in the range [0, 1], where 0
+                    specifies black and 1 specifies white. Colors increase in brightness as
+                        <em class="varname">Y</em> increases.</td></tr><tr><td><span class="emphasis"><em>I</em></span></td><td><span class="emphasis"><em>In-phase</em></span>, which is approximately the amount of blue or
+                    orange tones in the image. <em class="varname">I</em> in the range [-0.5959, 0.5959],
+                    where negative numbers indicate blue tones and positive numbers indicate orange
+                    tones. As the magnitude of <em class="varname">I</em> increases, the saturation of the
+                    color increases.</td></tr><tr><td><span class="emphasis"><em>Q</em></span></td><td><span class="emphasis"><em>Quadrature</em></span>, which is approximately the amount of green
+                    or purple tones in the image. <em class="varname">Q</em> in the range  [-0.5229,
+                    0.5229], where negative numbers indicate green tones and positive numbers
+                    indicate purple tones. As the magnitude of <em class="varname">Q</em> increases, the
+                    saturation of the color increases.</td></tr></tbody></table></div><p>
+
+         </p><p>Use the <a href="https://www.mathworks.com/help/images/ref/rgb2ntsc.html"><code class="function">rgb2ntsc</code></a> and <a href="https://www.mathworks.com/help/images/ref/ntsc2rgb.html"><code class="function">ntsc2rgb</code></a> functions to convert between the RGB and YIQ color
+            spaces.</p><p>Because luminance is one of the components of the NTSC format, the RGB to NTSC
+            conversion is also useful for isolating the gray level information in an image. In fact,
+            the toolbox functions <a href="https://www.mathworks.com/help/matlab/ref/rgb2gray.html"><code class="function">rgb2gray</code></a> and <a href="https://www.mathworks.com/help/images/ref/ind2gray.html"><code class="function">ind2gray</code></a> use the <code class="function">rgb2ntsc</code> function to extract the
+            grayscale information from a color image.</p></section>
+         <h2 id="d120e33794">Related Topics</h2><ul><li><a href="https://www.mathworks.com/help/images/convert-from-hsv-to-rgb-color-space.html" class="a">Convert Between RGB and HSV Color Spaces</a></li><li><a href="https://www.mathworks.com/help/images/use-color-space-conversion-to-handle-out-of-gamut-colors.html" class="a">Determine If L*a*b* Value Is in RGB Gamut</a></li></ul>
+      </section>
+</div><div class="clearfix"></div>
+<div align="center" class="feedbackblock"><iframe id="doc_survey" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/bounce_hub_help.html" style=""></iframe></div><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/docsurvey.js"></script>
+
+<script>initDocSurvey();</script></section>
+<div class="modal fade" id="matlab-command-dialog" tabindex="-1" role="dialog" aria-labelledby="matlabCommandDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">MATLAB Command</h4>
+      </div>
+      <div class="modal-body" id="dialog-body">
+        <p>You clicked a link that corresponds to this MATLAB command: </p>
+        <pre id="dialog-matlab-command"></pre>
+        <p>Run the command by entering it in the MATLAB Command Window.
+        Web browsers do not support MATLAB commands.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn_secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected" tabindex="-1" role="dialog" aria-labelledby="country-unselected-title" translate="no">
+<div id="country-select-container">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <img alt="MathWorks" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/pic-header-mathworks-logo2.svg" style="width:167px; height:auto;">
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary" id="country-unselected-title">Select a Web Site</h1>
+            <p>Choose a web site to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="recommended-country"></strong>.</p>
+            <a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#" id="recommended_domain_button" class="btn btn_color_blue containsResourceName resourceClass-button">Select <span class="recommended-country"></span> web site</a>
+          </div>
+        </div>
+        <p>You can also select a web site from the following list:</p>
+				<div class="alert alert-warning" id="china_performance_alert" style="display:none;"> <span class="alert_icon icon-alert-warning"></span>
+					<h2>How to Get Best Site Performance</h2>
+					<p>Select the China site (in Chinese or English) for best site performance. Other MathWorks country sites are not optimized for visits from your location.</p>
+				</div>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://la.mathworks.com/" class="domain_selector_link" data-country-code="LA" data-subdomain="la" data-lang="es" data-default-lang="true" data-selected-text="América Latina" data-recommended-text="América Latina" data-do-not-rewrite="true">América Latina</a> (Español)</li>
+              <li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="CA" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Canada</a> (English)</li>
+              <li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="US" data-subdomain="www" data-lang="en" data-default-lang="true" data-selected-text="United States" data-recommended-text="United States" data-do-not-rewrite="true">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="BE" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Belgium</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="DK" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Denmark</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/" class="domain_selector_link" data-country-code="DE" data-subdomain="de" data-lang="de" data-default-lang="true" data-selected-text="Deutschland" data-recommended-text="Deutschland" data-do-not-rewrite="true">Deutschland</a> (Deutsch)</li>
+                  <li><a href="https://es.mathworks.com/" class="domain_selector_link" data-country-code="ES" data-subdomain="es" data-lang="es" data-default-lang="true" data-selected-text="España" data-recommended-text="España" data-do-not-rewrite="true">España</a> (Español)</li>
+                  <li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="FI" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Finland</a> (English)</li>
+                  <li><a href="https://fr.mathworks.com/" class="domain_selector_link" data-country-code="FR" data-subdomain="fr" data-lang="fr" data-default-lang="true" data-selected-text="France" data-recommended-text="France" data-do-not-rewrite="true">France</a> (Français)</li>
+                  <li><a href="https://uk.mathworks.com/" class="domain_selector_link" data-country-code="IE" data-subdomain="uk" data-lang="en" data-do-not-rewrite="true">Ireland</a> (English)</li>
+                  <li><a href="https://it.mathworks.com/" class="domain_selector_link" data-country-code="IT" data-subdomain="it" data-lang="it" data-default-lang="true" data-selected-text="Italia" data-recommended-text="Italia" data-do-not-rewrite="true">Italia</a> (Italiano)</li>
+                  <li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="LU" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="NL" data-subdomain="nl" data-lang="en" data-default-lang="true" data-selected-text="Benelux" data-recommended-text="Netherlands" data-do-not-rewrite="true">Netherlands</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="NO" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Norway</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/" class="domain_selector_link" data-country-code="AT" data-subdomain="de" data-lang="de" data-do-not-rewrite="true">Österreich</a> (Deutsch)</li>
+                  <li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="PT" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Portugal</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="Sweden" data-subdomain="se" data-lang="en" data-default-lang="true" data-selected-text="Nordic" data-recommended-text="Sweden" data-do-not-rewrite="true">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ch.mathworks.com/" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="de" data-selected-text="Schweiz" data-recommended-text="Schweiz" data-do-not-rewrite="true">Deutsch</a></li>
+                      <li><a href="https://ch.mathworks.com/" id="swiss_english" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="en" data-default-lang="true" data-selected-text="Switzerland" data-recommended-text="Switzerland" data-do-not-rewrite="true">English</a></li>
+                      <li><a href="https://ch.mathworks.com/" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="fr" data-selected-text="Suisse" data-recommended-text="Suisse" data-do-not-rewrite="true">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="https://uk.mathworks.com/" class="domain_selector_link" data-country-code="GB" data-subdomain="uk" data-lang="en" data-default-lang="true" data-selected-text="United Kingdom" data-recommended-text="United Kingdom" data-do-not-rewrite="true">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://au.mathworks.com/" class="domain_selector_link" data-country-code="AU" data-subdomain="au" data-lang="en" data-default-lang="true" data-selected-text="Australia" data-recommended-text="Australia" data-do-not-rewrite="true">Australia</a> (English)</li>
+              <li><a href="https://in.mathworks.com/" class="domain_selector_link" data-country-code="IN" data-subdomain="in" data-lang="en" data-default-lang="true" data-selected-text="India" data-recommended-text="India" data-do-not-rewrite="true">India</a> (English)</li>
+              <li><a href="https://au.mathworks.com/" class="domain_selector_link" data-country-code="NZ" data-subdomain="au" data-lang="en" data-do-not-rewrite="true">New Zealand</a> (English)</li>
+              <li>中国
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ww2.mathworks.cn/" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="zh" data-default-lang="true" data-selected-text="中国" data-recommended-text="中国" data-do-not-rewrite="true">简体中文</a></li>
+                      <li><a href="https://ww2.mathworks.cn/" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="en" data-default-lang="true" data-selected-text="China" data-recommended-text="China" data-do-not-rewrite="true">English</a></li>
+                    </ul>
+               </li>
+              <li><a href="https://jp.mathworks.com/" class="domain_selector_link" data-country-code="JP" data-subdomain="jp" data-lang="ja" data-default-lang="true" data-selected-text="日本" data-recommended-text="日本" data-do-not-rewrite="true">日本</a> (日本語)</li>
+              <li><a href="https://kr.mathworks.com/" class="domain_selector_link" data-country-code="KR" data-subdomain="kr" data-lang="ko" data-default-lang="true" data-selected-text="한국" data-recommended-text="한국" data-do-not-rewrite="true">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#" class="worldwide_link">Contact your local office</a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+  
+
+                  </div>
+                </div>
+            </div>
+          </div>
+
+      <!-- MOBILE CTA - Begin -->
+      <div class="cta_container_mobile visible-sm visible-xs" style="width: auto;">
+        <div class="container-fluid">      
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general hidden-sm hidden-xs"><a href="https://www.mathworks.com/campaigns/products/trials.html?prodcode=IP&amp;s_iid=doc_trial_IP_tb" class="icon-download">Trial Software</a></li>
+<li class="hidden-lg hidden-md"><a href="https://www.mathworks.com/campaigns/products/trials.html?prodcode=IP&amp;s_iid=doc_trial_IP_tb" class="btn btn_color_blue btn-block"><span class="icon-download"></span> Trial Software</a></li>
+<li class="cta_item cta_item_general hidden-sm hidden-xs"><a href="https://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+<li class="hidden-lg hidden-md"><a href="https://www.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="btn btn_color_blue btn-block"><span class="icon-download"></span> Product Updates</a></li>
+</ul>
+</div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MOBILE CTA - End -->
+
+          <!-- BODY TRAIL - Begin -->
+          <div class="body_trail_container" style="width: auto;">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="row"><div class="col-xs-12 col-sm-4"><h5><a href="https://www.mathworks.com/help/images/index.html?s_cid=doc_ftr">Image Processing Toolbox Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/help/images/examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="https://www.mathworks.com/help/images/referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="https://www.mathworks.com/help/images/release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+<li><a href="https://www.mathworks.com/help/pdf_doc/images/index.html?s_cid=doc_ftr">PDF Documentation</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-4"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/support/requirements/product-requirements-platform-availability-list.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-4">
+<!---- Offer: 10 Best Practices for Deploying AUTOSAR Using Simulink ---->
+<!-- Simulink Coder (RT) -->
+<div class="panel panel_color_transparent panel_color_fill">
+<div class="panel-body">
+<div class="thumbnail add_margin_5">
+<a href="https://www.mathworks.com/campaigns/offers/image-segmentation.html?s_iid=doc_ec_IP_footer"><img class="fluid_image" alt="Image Segmentation and Thresholding Code Examples" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/image_segmentation_thresholding_offer_image.jpg"></a>
+</div>
+<h4><a href="https://www.mathworks.com/campaigns/offers/image-segmentation.html?s_iid=doc_ec_IP_footer">Image Segmentation and Thresholding Code Examples</a></h4>
+<a class="icon-download" href="https://www.mathworks.com/campaigns/offers/image-segmentation.html?s_iid=doc_ec_IP_footer">Download now</a>
+</div>
+</div>
+<!---- Offer: Implementing an Adaptive Cruise Controller with Simulink ---->
+<!-- Model Predictive Control Toolbox (MP) -->
+</div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- BODY TRAIL - End -->
+
+      <footer id="footer" class="bs-footer" style="width: auto;">
+          <!-- FAT FOOTER - Begin --> 
+          <div class="container-fluid">
+            <div class="fat_footer_container">
+              <div class="execmatlabweb"> <!--Requried for Doc Test -->
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-9 col-lg-push-3 add_margin_20">
+<div class="row">
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Explore Products</p>
+<ul class="list-unstyled">
+<li><a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_ff_p_matlab">MATLAB</a></li>
+<li><a href="https://www.mathworks.com/products/simulink.html?s_tid=hp_ff_p_simulink">Simulink</a></li>
+<li><a href="https://www.mathworks.com/products/matlab/student.html?s_tid=hp_ff_p_student">Student Software</a></li>
+<li><a href="https://www.mathworks.com/hardware-support/home.html?s_tid=hp_ff_p_hwsupport">Hardware Support</a></li>
+<li><a href="https://www.mathworks.com/matlabcentral/fileexchange/?s_tid=hp_ff_p_fx">File Exchange</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Try or Buy</p>
+<ul class="list-unstyled">
+<li><a href="https://www.mathworks.com/downloads/web_downloads/?s_iid=hp_ff_t_downloads">Downloads</a></li>
+<li><a href="https://www.mathworks.com/campaigns/products/trials.html?s_iid=hp_ff_p_trial">Trial Software</a></li>
+<li><a href="https://www.mathworks.com/company/aboutus/contact_us/contact_sales.html?s_iid=hp_ff_t_sales">Contact Sales</a></li>
+<li><a href="https://www.mathworks.com/pricing-licensing.html?s_iid=hp_ff_t_pricing">Pricing and Licensing</a></li>
+<li><a href="https://www.mathworks.com/store/?s_tid=hp_ff_t_buy">How to Buy</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Learn to Use</p>
+<ul class="list-unstyled">
+<li><a href="https://www.mathworks.com/help/?s_tid=hp_ff_l_doc">Documentation</a></li>
+<li><a href="https://www.mathworks.com/support/learn-with-matlab-tutorials.html?s_tid=hp_ff_l_tutorials">Tutorials</a></li>
+<li><a href="https://www.mathworks.com/help/examples.html?s_tid=hp_ff_l_examples">Examples</a></li>
+<li><a href="https://www.mathworks.com/videos.html?s_tid=hp_ff_l_videos">Videos and Webinars</a></li>
+<li><a href="https://www.mathworks.com/services/training.html?s_tid=hp_ff_l_training">Training</a></li>
+</ul>
+</div>
+<div class="clearfix" id="offcanvas_clearfix" style="display:none"></div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Get Support</p>
+<ul class="list-unstyled">
+<li><a href="https://www.mathworks.com/support/install-matlab.html?s_tid=hp_ff_s_install">Installation Help</a></li>
+<li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_tid=hp_ff_s_answers">Answers</a></li>
+<li><a href="https://www.mathworks.com/services/consulting.html?s_tid=hp_ff_s_consulting">Consulting</a></li>
+<li><a href="https://www.mathworks.com/licensecenter/?s_tid=hp_ff_s_license">License Center</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">About <span translate="no">MathWorks</span></p>
+<ul class="list-unstyled">
+<li><a href="https://www.mathworks.com/company/jobs/opportunities.html?s_tid=hp_ff_a_careers">Careers</a></li>
+<li><a href="https://www.mathworks.com/company/newsroom.html?s_tid=hp_ff_a_newsroom">Newsroom</a></li>
+<li><a href="https://www.mathworks.com/company/aboutus/soc_mission.html?s_tid=hp_ff_a_socialmission">Social Mission</a></li>
+<li><a href="https://www.mathworks.com/company/aboutus/contact_us.html?s_tid=hp_ff_a_contact">Contact Us</a></li>
+<li><a href="https://www.mathworks.com/company.html?s_tid=hp_ff_a_company">About <span translate="no">MathWorks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-md-12 col-lg-3 col-lg-pull-9">
+<p class="h4 add_font_futura_medium add_margin_0"><span translate="no">MathWorks</span></p>
+<p><em>Accelerating the pace of engineering and science</em></p>
+<p><span translate="no">MathWorks</span> is the leading developer of mathematical computing software for engineers and scientists.</p>
+<p><a href="https://www.mathworks.com/discovery.html?s_tid=all_disc_mw_ff">Discover...</a></p>
+</div>
+</div>
+</div>
+            </div>
+          </div>
+          <!-- FAT FOOTER - End -->
+        <div class="container-fluid">
+         <div class="footer" translate="no">
+<div class="row">
+<div class="col-xs-12 col-md-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="https://www.mathworks.com/help/images/understanding-color-spaces-and-color-space-conversion.html;jsessionid=e69cb5c3eb3bf283f8b5b20c0eba#" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>United States
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="https://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="https://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="https://www.mathworks.com/company/aboutus/policies_statements.html?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="https://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+<li class="footernav_status"><a href="https://status.mathworks.com/?s_tid=gf_application">Application Status</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright" translate="no">© 1994-2020 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-md-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-facebook.svg" alt="Facebook" class="ico_facebook">
+</a>
+</li>
+<li>
+<a href="http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-twitter.svg" alt="Twitter" class="ico_twitter">
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/matlab/" class="svg_link" target="_blank">
+<img class="ico_instagram" alt="Instagram" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-instagram.svg">
+</a>
+</li>
+<li>
+<a href="https://www.youtube.com/user/MATLAB" class="svg_link" target="_blank">
+<img class="ico_youtube" alt="YouTube" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-youtube.svg">
+</a>
+</li>
+<li>
+<a href="http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin">
+</a>
+</li>
+<li>
+<a href="https://www.mathworks.com/company/rss.html" class="svg_link">
+<img src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<div id="cookie-banner-text" style="display:none;"></div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script><script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/satellite-5672ffbd64746d5bd3002853.js"></script><!--DTM LinkedIn Pixel-->
+<img height="1" width="1" style="display:none;" alt="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/saved_resource">
+<!-- END Adobe DTM -->
+        </div>
+      </footer>
+
+    </div>
+  
+  </div><iframe sandbox="allow-scripts allow-same-origin" title="Adobe ID Syncing iFrame" id="destination_publishing_iframe_mathworks_0" name="destination_publishing_iframe_mathworks_0_name" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/dest5.html" class="aamIframeLoaded" style="display: none; width: 0px; height: 0px;"></iframe>
+
+
+
+    <!-- CRUX 2.0 -->
+    <link href="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/site7_crux.css" rel="stylesheet" type="text/css">
+    <script src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/crux_nav_truncate.js"></script>
+
+
+
+<a class="btn btn_color_mediumgray" id="go-top" style="display: none;"><span class="icon-arrow-open-up icon_24"></span></a><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.4518890341416453"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.32734915317738733" width="0" height="0" alt="" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/0"></div><iframe id="qualaroo_dnt_frame" src="./Understanding Color Spaces and Color Space Conversion - MATLAB &amp; Simulink_files/frame.html" style="width: 1px; height: 1px; display: none; opacity: 0;"></iframe></body></html>

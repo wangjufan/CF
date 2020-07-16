@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0153)https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW1 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>View Controller Programming Guide for iOS: Defining Your Subclass</title>
+  <link rel="stylesheet" type="text/css" href="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="c1e4c7a89af8f899a21cfa81fc33ba42">
+<meta id="document-version" name="document-version" content="8.3.0">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Technologies/Cocoa Layer/UIKit}, {Topic/User Experience/Windows &amp; Views}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40007457">
+<meta id="chapterId" name="chapterId" content="TP40007457-CH7">
+<meta id="book-title" name="book-title" content="View Controller Programming Guide for iOS">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2015-09-16">
+<meta id="description" name="description" content="Explains how to use view controllers to implement radio, navigation, and modal interfaces.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../Resources/1282">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="iOS,tvOS">
+</head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/archive/navigation/">Documentation Archive
+ 		</a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/">Developer</a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title">View Controller Programming Guide for iOS</span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Documentation Archive" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+    <img id="shortstack" src="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40007457-CH1-SW1" class="part-name">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457-CH2-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH2-SW1">Overview</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457-CH2-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH2-SW1">The Role of View Controllers</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/TheViewControllerHierarchy.html#//apple_ref/doc/uid/TP40007457-CH33-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH33-SW1">The View Controller Hierarchy</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DesignTips.html#//apple_ref/doc/uid/TP40007457-CH5-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH5-SW1">Design Tips</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40007457-CH6-SW1" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH7-SW1">View Controller Definition</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH7-SW1">Defining Your Subclass</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH11-SW1">Implementing a Container View Controller</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/SupportingAccessibility.html#//apple_ref/doc/uid/TP40007457-CH12-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH12-SW1">Supporting Accessibility</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/PreservingandRestoringState.html#//apple_ref/doc/uid/TP40007457-CH28-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH28-SW1">Preserving and Restoring State</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40007457-CH13-SW1" class="part-name">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html#//apple_ref/doc/uid/TP40007457-CH14-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH14-SW1">Presentations and Transitions</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html#//apple_ref/doc/uid/TP40007457-CH14-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH14-SW1">Presenting a View Controller</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/UsingSegues.html#//apple_ref/doc/uid/TP40007457-CH15-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH15-SW1">Using Segues</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html#//apple_ref/doc/uid/TP40007457-CH16-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH16-SW1">Customizing the Transition Animations</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningCustomPresentations.html#//apple_ref/doc/uid/TP40007457-CH25-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH25-SW1">Creating Custom Presentations</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40007457-CH18-SW1" class="part-name">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH19-SW1">Adaptivity and Size Changes</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH19-SW1">The Adaptive Model</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/BuildinganAdaptiveInterface.html#//apple_ref/doc/uid/TP40007457-CH32-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH32-SW1">Building an Adaptive Interface</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="revision-history" class="part-name">
+          <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/RevisionHistory.html#//apple_ref/doc/uid/TP40007457-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH99-SW1">Revision History</a>
+          <ul class="nav-chapters">
+            <li class="nav-chapter">
+              <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/RevisionHistory.html#//apple_ref/doc/uid/TP40007457-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH99-SW1">Document Revision History</a>
+            </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span>On This Page</span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW7">Defining Your UI</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW11">Handling User Interactions</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW9">Displaying Your Views at Runtime</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW6">Managing View Layout</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW10">Managing Memory Efficiently</a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7"></a><a name="//apple_ref/doc/uid/TP40007457-CH7-SW1"></a>
+      <a name="//apple_ref/doc/uid/TP40007457-CH6"></a><a name="//apple_ref/doc/uid/TP40007457-CH6-SW1"></a>
+
+  <h2 class="chapter-name">Defining Your Subclass</h2>
+
+
+  
+  	<section class="section">
+  		<p class="para">
+  
+</p>
+<p class="para">
+  You use custom subclasses of <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller" class="urlLink" target="_self">UIViewController</a> to present your app’s content. Most custom view controllers are <em>content view controllers</em>—that is, they own all of their views and are responsible for the data in those views. By contrast, a <em>container view controller</em> does not own all of its views; some of its views are managed by other view controllers. Most of the steps for defining content and container view controllers are the same and are discussed in the sections that follow. 
+</p>
+<p class="para">
+  For content view controllers, the most common parent classes are as follows:
+</p>
+<ul class="list-bullet">
+  <li class="item"><p class="para">
+  Use <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uitableviewcontroller" class="urlLink">UITableViewController</a></code> specifically when your view controller’s main view is a table. 
+</p>
+</li><li class="item"><p class="para">
+  Use <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uicollectionviewcontroller" class="urlLink">UICollectionViewController</a></code> specifically when your view controller’s main view is a collection view. 
+</p>
+</li><li class="item"><p class="para">
+  Use <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller" class="urlLink">UIViewController</a></code> for all other view controllers.
+</p>
+</li>
+</ul>
+<p class="para">
+  For container view controllers, the parent class depends on whether you are modifying an existing container class or creating your own. For existing containers, choose whichever view controller class you want to modify. For new container view controllers, you usually subclass <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller" class="urlLink">UIViewController</a></code>. For additional information about creating a container view controller, see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH11-SW1">Implementing a Container View Controller</a></span>. 
+</p>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW7"></a>
+  <h3 class="section-name" tabindex="0">Defining Your UI</h3>
+  <p class="para">
+  Define the UI for your view controller visually using storyboard files in Xcode. Although you can also create your UI programmatically, storyboards are an excellent way to visualize your view controller’s content and customize your view hierarchy (as needed) for different environments. Building your UI visually lets you make changes quickly and lets you see the results without having to build and run your app. 
+</p><p class="para">
+  <span class="x-name-no-link">Figure 4-1</span> shows an example of a storyboard. Each of the rectangular areas represents a view controller and its associated views. The arrows between view controllers are the view controller relationships and segues. <em>Relationships</em> connect a container view controller to its child view controllers. <em>Segues</em> let you navigate between view controllers in your interface. 
+</p><figure class="figure">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW2"></a>
+  <span class="caption"><strong class="caption-number">Figure 4-1</strong>A storyboard holds a set of view controllers and views</span>
+  <img src="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/storyboard_bird_sightings_2x.png" alt="image: ../Art/storyboard_bird_sightings_2x.png" width="680" height="452">
+</figure><p class="para">
+  Each new project has a main storyboard that typically contains one or more view controllers already. You can add new view controllers to your storyboard by dragging them from the library to your canvas. New view controllers do not have an associated class initially, so you must assign one using the Identity inspector.
+</p><p class="para">
+  Use the storyboard editor to do the following: 
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  Add, arrange, and configure the views for a view controller. 
+</p>
+</li><li class="item"><p class="para">
+  Connect outlets and actions; see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW11" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH7-SW11">Handling User Interactions</a></span>.
+</p>
+</li><li class="item"><p class="para">
+  Create relationships and segues between your view controllers; see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/UsingSegues.html#//apple_ref/doc/uid/TP40007457-CH15-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH15-SW1">Using Segues</a></span>. 
+</p>
+</li><li class="item"><p class="para">
+  Customize your layout and views for different size classes; see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/BuildinganAdaptiveInterface.html#//apple_ref/doc/uid/TP40007457-CH32-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH32-SW1">Building an Adaptive Interface</a></span>. 
+</p>
+</li><li class="item"><p class="para">
+  Add gesture recognizers to handle user interactions with views; see <em class="u-book"><!-- a href="" target="_self" -->Event Handling Guide for iOS<!-- /a --></em>. 
+</p>
+</li>
+</ul><p class="para">
+  If you are new to using storyboards to build your interface, you can find step-by-step instructions for creating a storyboard-based interface in <em class="u-book"><a href="https://developer.apple.com/library/archive/referencelibrary/GettingStarted/RoadMapiOS-Legacy/index.html#//apple_ref/doc/uid/TP40011343" data-renderer-version="1" target="_self">Start Developing iOS Apps Today (Retired)</a></em>. 
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW11"></a>
+  <h3 class="section-name" tabindex="0">Handling User Interactions</h3>
+  <p class="para">
+  An app’s responder objects process incoming events and take appropriate actions. Although view controllers are responder objects, they rarely process touch events directly. Instead, view controllers typically handle events in the following ways.
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <strong class="inline-head">View controllers define action methods for handling higher-level events. </strong><span class="pediaLink" data-header="Target-Action" data-contents="Target-action is a design pattern in which an object holds the information necessary to send a message to another object when an event occurs."><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3" data-renderer-version="1" target="_self">Action methods</a></span> respond to:
+</p>
+<ul class="list-bullet">
+  <li class="item"><p class="para">
+  Specific actions. Controls and some views call an action method to report specific interactions.
+</p>
+</li><li class="item"><p class="para">
+  Gesture recognizers. Gesture recognizers call an action method to report the current status of a gesture. Use your view controller to process status changes or respond to the completed gesture. 
+</p>
+</li>
+</ul>
+</li><li class="item"><p class="para">
+  <strong class="inline-head">View controllers observe notifications sent by the system or other objects.</strong> Notifications report changes and are a way for the view controller to update its state.
+</p>
+</li><li class="item"><p class="para">
+  <strong class="inline-head">View controllers act as a data source or delegate for another object.</strong> View controllers are often used to manage the data for tables, and collection views. You can also use them as a delegate for an object such as a <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/corelocation/cllocationmanager" class="urlLink">CLLocationManager</a></code> object, which sends updated location values to its delegate.
+</p>
+</li>
+</ul><p class="para">
+  Responding to events often involves updating the content of views, which requires having references to those views. Your view controller is a good place to define <span class="pediaLink" data-header="Outlet" data-contents="An outlet is a property that is annotated with the symbol IBOutlet and whose value you can set graphically in a nib file or a storyboard."><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/Outlet.html#//apple_ref/doc/uid/TP40009071-CH4" data-renderer-version="1" target="_self">outlets</a></span> for any views that you need to modify later. Declare your outlets as properties using the syntax shown in <span class="x-name-no-link">Listing 4-1</span>. The custom class in the listing defines two outlets (designated by the <code class="code-voice u-api"><!-- a href="" -->IBOutlet<!-- /a --></code> keyword) and a single action method (designated by the <code class="code-voice u-api"><!-- a href="" -->IBAction<!-- /a --></code> return type). The outlets store references to a button and a text field in the storyboard, while the action method responds to taps in the button.
+</p><section class="code-listing">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW3"></a>
+    <span class="caption"><strong class="caption-number">Listing 4-1</strong>Defining outlets and actions in a view controller class</span>
+  <div class="code-sample">
+      <div class="Objective-C">
+          <p class="aside-title">Objective-C</p>
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="k">@interface</span> <span class="nc">MyViewController</span> : <span class="nc">UIViewController</span>
+</code></li>
+            <li><code class="code-voice"><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">myButton</span><span class="p">;</span>
+</code></li>
+            <li><code class="code-voice"><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UITextField</span> <span class="o">*</span><span class="n">myTextField</span><span class="p">;</span>
+</code></li>
+            <li><code class="code-voice"> 
+</code></li>
+            <li><code class="code-voice"><span class="o">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span><span class="nl">myButtonAction:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+</code></li>
+            <li><code class="code-voice"> 
+</code></li>
+            <li><code class="code-voice"><span class="k">@end</span>
+</code></li>
+        </ol>
+      </div>
+      <div class="Swift">
+          <p class="aside-title">Swift</p>
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">MyViewController</span>: <span class="n"><!-- a href="" -->UIViewController<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">@IBOutlet</span> <span class="kt">weak</span> <span class="kt">var</span> <span class="vc">myButton</span> : <span class="n"><!-- a href="" -->UIButton<!-- /a --></span>!</code></li>
+            <li><code class="code-voice">    <span class="kt">@IBOutlet</span> <span class="kt">weak</span> <span class="kt">var</span> <span class="vc">myTextField</span> : <span class="n"><!-- a href="" -->UITextField<!-- /a --></span>!</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">@IBAction</span> <span class="kt">func</span> <span class="vc">myButtonAction</span>(<span class="vc">sender</span>: <span class="n"><!-- a href="" -->id<!-- /a --></span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  In your storyboard, remember to <span class="recipeLink"><!-- a href="" target="_self" -->connect<!-- /a --></span> your view controller’s outlets and actions to the corresponding views. Connecting outlets and actions in your storyboard file ensures that they are configured when the views are loaded. For information about how to create outlet and action connections in Interface Builder, see <!-- a href="" target="_self" -->Interface Builder Connections Help<!-- /a -->. For information about how to handle events in your app, see <em class="u-book"><!-- a href="" target="_self" -->Event Handling Guide for iOS<!-- /a --></em>.
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW9"></a>
+  <h3 class="section-name" tabindex="0">Displaying Your Views at Runtime</h3>
+  <p class="para">
+  Storyboards make the process of loading and displaying your view controller’s views very simple. UIKit automatically loads views from your storyboard file when they are needed. As part of the loading process, UIKit performs the following sequence of tasks:
+</p><ol class="list-number">
+  <li class="item"><p class="para">
+  Instantiates views using the information in your storyboard file.
+</p>
+</li><li class="item"><p class="para">
+  Connects all outlets and actions.
+</p>
+</li><li class="item"><p class="para">
+  Assigns the root view to the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view" class="urlLink">view</a></code> property.
+</p>
+</li><li class="item"><p class="para">
+  Calls the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/objectivec/nsobject/1402907-awakefromnib" class="urlLink">awakeFromNib</a></code> method.
+</p>
+<p class="para">
+  When this method is called, the view controller’s trait collection is empty and views may not be in their final positions.
+</p>
+</li><li class="item"><p class="para">
+  Calls the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload" class="urlLink">viewDidLoad</a></code> method. 
+</p>
+<p class="para">
+  Use this method to add or remove views, modify layout constraints, and load data for your views. 
+</p>
+</li>
+</ol><p class="para">
+  Before displaying a view controller’s views onscreen, UIKit gives you some additional chances to prepare those views before and after they are onscreen. Specifically, UIKit performs the following sequence of tasks:
+</p><ol class="list-number">
+  <li class="item"><p class="para">
+  Calls the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621510-viewwillappear" class="urlLink">viewWillAppear:</a></code> method to let it know that its views are about to appear onscreen. 
+</p>
+</li><li class="item"><p class="para">
+  Updates the layout of the views.
+</p>
+</li><li class="item"><p class="para">
+  Displays the views onscreen. 
+</p>
+</li><li class="item"><p class="para">
+  Calls the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621423-viewdidappear" class="urlLink">viewDidAppear:</a></code> method when the views are onscreen.
+</p>
+</li>
+</ol><p class="para">
+  When you add, remove, or modify the size or position of views, remember to add and remove any constraints that apply to those views. Making layout-related changes to your view hierarchy causes UIKit to mark the layout as dirty. During the next update cycle, the layout engine computes the size and position of views using the current layout constraints and applies those changes to the view hierarchy. 
+</p><p class="para">
+  For information about how to create views without using storyboards, see the view management information in <em class="u-book"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller" class="urlLink" target="_self">UIViewController Class Reference</a></em>. 
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW6"></a>
+  <h3 class="section-name" tabindex="0">Managing View Layout</h3>
+  <p class="para">
+  When the size and position of views changes, UIKit updates the layout information for your view hierarchy. For views configured using Auto Layout, UIKit engages the Auto Layout engine and uses it to update the layout according to the current constraints. UIKit also lets other interested objects, such as the active presentation controller, know abut the layout changes so that they can respond accordingly.  
+</p><p class="para">
+  During the layout process, UIKit notifies you at several points so that you can perform additional layout-related tasks. Use these notifications to modify your layout constraints or to make final tweaks to the layout after the layout constraints have been applied. During the layout process, UIKit does the following for each affected view controller: 
+</p><ol class="list-number">
+  <li class="item"><p class="para">
+  Updates the trait collections of the view controller and its views, as needed; see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW6" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH19-SW6">When Do Trait and Size Changes Happen?</a></span>
+</p>
+</li><li class="item"><p class="para">
+  Calls the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621437-viewwilllayoutsubviews" class="urlLink">viewWillLayoutSubviews</a></code> method.
+</p>
+</li><li class="item"><p class="para">
+  Calls the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uipresentationcontroller/1618341-containerviewwilllayoutsubviews" class="urlLink">containerViewWillLayoutSubviews</a></code> method of the current <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uipresentationcontroller" class="urlLink">UIPresentationController</a></code> object. 
+</p>
+</li><li class="item"><p class="para">
+  Calls the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews" class="urlLink">layoutSubviews</a></code> method of view controller’s root view. 
+</p>
+<p class="para">
+  The default implementation of this method computes the new layout information using the available constraints. The method then traverses the view hierarchy and calls <code class="code-voice u-api-no-link">layoutSubviews</code> for each subview.
+</p>
+</li><li class="item"><p class="para">
+  Applies the computed layout information to the views.
+</p>
+</li><li class="item"><p class="para">
+  Calls the view controller’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621398-viewdidlayoutsubviews" class="urlLink">viewDidLayoutSubviews</a></code> method.
+</p>
+</li><li class="item"><p class="para">
+  Calls the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uipresentationcontroller/1618331-containerviewdidlayoutsubviews" class="urlLink">containerViewDidLayoutSubviews</a></code> method of the current <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uipresentationcontroller" class="urlLink">UIPresentationController</a></code> object. 
+</p>
+</li>
+</ol><p class="para">
+  View controllers can use the <code class="code-voice u-api-no-link">viewWillLayoutSubviews</code> and <code class="code-voice u-api-no-link">viewDidLayoutSubviews</code> methods to perform additional updates that might impact the layout process. Before layout, you might add or remove views, update the size or position of views, update constraints, or update other view-related properties. After layout, you might reload table data, update the content of other views, or make final adjustments to the size and position of views.
+</p><p class="para">
+  Here are some tips for managing your layout effectively:
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <strong class="inline-head">Use Auto Layout.</strong> The constraints you create using Auto Layout are a flexible and easy way to position your content on different screen sizes. 
+</p>
+</li><li class="item"><p class="para">
+  <strong class="inline-head">Take advantage of the top and bottom layout guides.</strong> Laying out content to these guides ensures that your content is always visible. The position of the top layout guide factors in the height of the status bar and navigation bar. Similarly, the position of the bottom layout guide factors in the height of a tab bar or toolbar. 
+</p>
+</li><li class="item"><p class="para">
+  <strong class="inline-head">Remember to update constraints when adding or removing views.</strong> If you add or remove views dynamically, remember to update the corresponding constraints.
+</p>
+</li><li class="item"><p class="para">
+  <strong class="inline-head">Remove constraints temporarily while animating your view controller’s views.</strong> When animating views using UIKit Core Animation, remove your constraints for the duration of the animations and add them back when the animations finish. Remember to update your constraints if the position or size of your views changed during the animation. 
+</p>
+</li>
+</ul><p class="para">
+  For information about presentation controllers and the role they play in the view controller architecture, see <span class="x-name"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html#//apple_ref/doc/uid/TP40007457-CH14-SW7" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH14-SW7">The Presentation and Transition Process</a></span>. 
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW10"></a>
+  <h3 class="section-name" tabindex="0">Managing Memory Efficiently</h3>
+  <p class="para">
+  Although most aspects of memory allocation are for you to decide, <span class="x-name-no-link">Table 4-1</span> lists the methods of <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller" class="urlLink" target="_self">UIViewController</a> where you are most likely to allocate or deallocate memory. Most deallocations involve removing strong references to objects. To remove a strong reference to an object, set properties and variables pointing to that object to <code class="code-voice">nil</code>.
+</p><div class="tableholder">
+  <a name="//apple_ref/doc/uid/TP40007457-CH7-SW5"></a>
+  <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+    <caption class="tablecaption"><strong class="caption-number">Table 4-1</strong>Places to allocate and deallocate memory</caption>
+    <thead>
+        <tr>
+            <th scope="col" class="TableHeading_TableRow_TableCell"><p class="para">
+  Task
+</p></th>
+            <th scope="col" class="TableHeading_TableRow_TableCell"><p class="para">
+  Methods
+</p></th>
+            <th scope="col" class="TableHeading_TableRow_TableCell"><p class="para">
+  Discussion
+</p></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><p class="para">
+  Allocate critical data structures required by your view controller.
+</p></td>
+            <td><p class="para">
+  Initialization methods
+</p></td>
+            <td><p class="para">
+  Your custom <span class="pediaLink" data-header="Initialization" data-contents="Initialization is the stage of object creation that makes a newly allocated object usable by setting its state to reasonable initial values."><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Initialization.html#//apple_ref/doc/uid/TP40008195-CH21" data-renderer-version="1" target="_self">initialization</a></span> method (whether it is named <code class="code-voice">init</code> or something else) is always responsible for putting your view controller object into a known good state. Use these methods to allocate whatever data structures are needed to ensure proper operation.
+</p></td>
+        </tr>
+        <tr>
+            <td scope="row"><p class="para">
+  Allocate or load data to be displayed in your view.
+</p></td>
+            <td><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload" class="urlLink">viewDidLoad</a></code>
+</p></td>
+            <td><p class="para">
+  Use the <code class="code-voice u-api-no-link">viewDidLoad</code> method to load any data objects you intend to display. By the time this method is called, your view objects are guaranteed to exist and to be in a known good state.
+</p></td>
+        </tr>
+        <tr>
+            <td scope="row"><p class="para">
+  Respond to low-memory notifications.
+</p></td>
+            <td><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621409-didreceivememorywarning" class="urlLink">didReceiveMemoryWarning</a></code>
+</p></td>
+            <td><p class="para">
+  Use this method to deallocate all noncritical objects associated with your view controller. Deallocate as much memory as you can.  
+</p></td>
+        </tr>
+        <tr>
+            <td scope="row"><p class="para">
+  Release critical data structures required by your view controller.
+</p></td>
+            <td><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/library/archive/documentation/LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSObject/Description.html#//apple_ref/occ/instm/NSObject/dealloc" data-renderer-version="1">dealloc</a></code>
+</p></td>
+            <td><p class="para">
+  Override this method only to perform any last-minute cleanup of your view controller class. The system automatically releases objects stored in instance variables and properties of your class, so you do not need to release those explicitly. 
+</p></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DesignTips.html#//apple_ref/doc/uid/TP40007457-CH5-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH5-SW1">Design Tips</a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH11-SW1">Implementing a Container View Controller</a></p>
+
+    <p class="copyright">Copyright © 2018 Apple Inc. All rights reserved. 
+  <a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external">Terms of Use</a> | 
+  <a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external">Privacy Policy</a> | 
+  <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/RevisionHistory.html#//apple_ref/doc/uid/TP40007457-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40007457-CH99-SW1">Updated: 2015-09-16</a>
+</p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <script src="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./View Controller Programming Guide for iOS_ Defining Your Subclass_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0">Sending feedback…</h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0">We’re sorry, an error has occurred.</h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0">How helpful is this document?</h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true">*</sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"> 
+                    Very helpful
+                </label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"> 
+                    Somewhat helpful
+                </label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"> 
+                    Not helpful
+                </label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2>How can we improve this document?</h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"> 
+                    Fix typos or links
+                </label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"> 
+                    Fix incorrect information
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_examples"> 
+                    Add or update code samples
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_art"> 
+                    Add or update illustrations
+                </label>
+                <label>
+                    <input type="checkbox" name="missingInfo"> 
+                    Add information about...
+                </label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true">*</sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span>*</span> Required information</em>
+        </p> 
+
+        <input id="submit" type="button" value="Send">
+
+        <section id="legal">
+            <p>
+                To submit a product bug or enhancement request, please visit the 
+                <a href="https://developer.apple.com/bugreporter/" target="_blank">Bug Reporter</a> 
+                page.
+            </p>
+            <p>
+                Please read <a href="http://www.apple.com/legal/policies/ideas.html" target="_blank">Apple's Unsolicited Idea Submission Policy</a> 
+                before you send us your feedback.
+            </p> 
+        </section>
+    </form>
+</div>
+
+
+
+</body></html>

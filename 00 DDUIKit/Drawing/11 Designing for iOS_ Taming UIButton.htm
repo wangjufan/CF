@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://thoughtbot.com/blog/designing-for-ios-taming-uibutton -->
+<html lang="en"><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
+<meta content="NOODP" name="robots">
+<meta content="Articles by thoughtbot about product design, web development, mobile development, and growth." name="description">
+<link href="https://twitter.com/kaishin" rel="author">
+
+<meta content="summary" name="twitter:card">
+<meta content="@thoughtbot" name="twitter:site">
+<meta content="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton" name="twitter:url">
+<meta content="Designing for iOS: Taming UIButton" name="twitter:title">
+<meta content="Note: While the techniques outlined in this article are still applicable,
+the..." name="twitter:description">
+<meta content="http://media.tumblr.com/tumblr_mbrxk3JgaZ1qatp4h.png" name="twitter:image">
+
+<meta content="article" property="og:type">
+<meta content="thoughtbot" property="og:site_name">
+<meta content="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton" property="og:url">
+<meta content="Designing for iOS: Taming UIButton" property="og:title">
+<meta content="Note: While the techniques outlined in this article are still applicable,
+the..." property="og:description">
+<meta content="http://media.tumblr.com/tumblr_mbrxk3JgaZ1qatp4h.png" property="og:image">
+<meta content="Dran-and-drop UIButton" property="og:image:alt">
+<meta content="2012-10-12" property="article:published_time">
+<meta content="2019-03-06 20:15:44 UTC" property="article:modified_time">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://thoughtbot.com/blog/assets/favicon-f2dbb21c91d2db85a5cb89a59e2b72cca851b16f03caffad1f8375cb8e957e0a.ico">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://thoughtbot.com/blog/assets/apple-touch-icon-f5660bd740993647d20c17d16b3fae2697e73d818752f2d4f3045e49d8b80153.png">
+<title>Designing for iOS: Taming UIButton</title>
+<link as="font" crossorigin="" href="https://thoughtbot.com/blog/assets/CalibreWeb-Semibold-64e3f6d368a145501964ec17ff971f6c82317cf18caf945e175b3c3983b75042.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="" href="https://thoughtbot.com/blog/assets/CalibreWeb-Regular-da9622e19b7a5a81a90396acb72684272ff5505f3ceb94869d7f6a400763b577.woff2" rel="preload" type="font/woff2">
+<link rel="stylesheet" media="all" href="./11 Designing for iOS_ Taming UIButton_files/application-ef4f9aa6450017bbb567ff1a989c9deafc762b44b982fe22de7b6a10b8ebffd5.css">
+
+<link href="https://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots" rel="alternate" type="application/rss+xml">
+</head>
+<body>
+<nav class="site-nav">
+<a class="site-nav-skip-link" href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#main-content">Skip to main content</a>
+<a class="site-nav-logo-link line-height-zero" href="https://thoughtbot.com/blog"><svg xmlns="http://www.w3.org/2000/svg" role="img" width="146" height="35" viewBox="0 0 146 35" aria-labelledby="ah857yndr4zfbof2ekv5cinjisxr0m58" class="site-nav-logo"><title id="ah857yndr4zfbof2ekv5cinjisxr0m58">Blog home</title><g><path d="M25.077 25.778l-.432-.43c.235-.18.387-.463.387-.78 0-.543-.44-.982-.983-.982-.544 0-.983.44-.983.98 0 .32.154.606.392.785l-.433.432c-.348-.29-.57-.785-.57-1.273 0-.392.145-.534.38-1.085h-.193v-4.96h-.277v10.557l.277.267v.75h-4.97v-.75l.67-.353h.157V25.63h-1.655v3.392l.552.267v.846l-4.695.008v-.855l.455-.337-.006-10.488h-.448v4.96h-.256c.236.55.38.692.38 1.084 0 .486-.22.95-.57 1.243l-.43-.418c.237-.18.39-.456.39-.777 0-.542-.44-.977-.98-.977-.544 0-.984.442-.984.983 0 .318.152.602.387.78l-.433.433c-.345-.292-.605-.726-.605-1.212 0-.39.34-.75.34-1.027v-7.695c0-.296.295-.533.59-.533h14.09c.297 0 .507.238.507.534v7.695c.55.276.445.635.445 1.027 0 .484-.153.92-.498 1.21zM14.05 9.094h7.183c.296 0 .582.132.582.427v4.677c0 .294-.286.685-.582.685H14.05c-.293 0-.52-.39-.52-.685V9.52c0-.294.227-.426.52-.426zm6.446-1.52l-.433.616c-.548-.525-1.437-.874-2.418-.874-.985 0-1.877.35-2.425.88l-.432-.617c.684-.616 1.71-1.006 2.857-1.006 1.143 0 2.167.388 2.85 1zm-.007-.96c-.745-.563-1.746-.872-2.818-.872-1.073 0-2.073.31-2.817.87-.176.134-.33.276-.465.427l-.436-.622C14.794 5.558 16.147 5 17.672 5c1.49 0 2.813.532 3.658 1.358l-.434.618c-.12-.128-.256-.25-.407-.363zM17.644 3.49c1.846 0 3.488.662 4.53 1.69l-.43.612c-.894-.94-2.398-1.56-4.1-1.56-1.706 0-3.214.62-4.107 1.566l-.43-.614c1.042-1.03 2.686-1.694 4.537-1.694zM17.642.077C8.022.077.225 7.857.225 17.46c0 9.598 7.798 17.38 17.417 17.38 9.62 0 17.417-7.782 17.417-17.38C35.06 7.857 27.26.076 17.64.076z"></path><path d="M15.812 11.97c-.257 0-.467-.21-.467-.467 0-.26.21-.467.467-.467.26 0 .47.208.47.467 0 .258-.21.467-.47.467zm0-1.38c-.504 0-.913.41-.913.913 0 .503.408.913.912.913.505 0 .915-.41.915-.913 0-.504-.41-.913-.915-.913zM19.483 11.97c-.258 0-.467-.21-.467-.467 0-.26.21-.467.467-.467.258 0 .47.208.47.467 0 .258-.212.467-.47.467zm0-1.38c-.506 0-.916.41-.916.913 0 .503.41.913.916.913.505 0 .915-.41.915-.913 0-.504-.41-.913-.915-.913z"></path></g><g><path d="M61.728 23.69h-2.406v-5.67c0-1.06-.17-1.832-.51-2.313-.34-.482-.916-.722-1.725-.722-.965 0-1.71.346-2.236 1.04v7.665h-2.405V7.765h2.406v6.116c.74-.622 1.563-.934 2.47-.934 2.94 0 4.408 1.692 4.408 5.075v5.67M63.45 18.425c0-.765.126-1.483.374-2.156s.603-1.253 1.065-1.742c.46-.488 1.02-.874 1.68-1.157.66-.282 1.395-.424 2.204-.424.81 0 1.54.142 2.193.425.653.284 1.21.673 1.672 1.17.46.494.818 1.075 1.074 1.74.256.665.383 1.38.383 2.145 0 .764-.124 1.48-.372 2.144-.25.664-.604 1.245-1.065 1.74-.46.496-1.022.885-1.682 1.168-.66.283-1.395.425-2.204.425-.823 0-1.56-.142-2.214-.425-.653-.283-1.21-.67-1.67-1.157-.463-.488-.818-1.065-1.066-1.73-.248-.665-.373-1.387-.373-2.165zm2.47 0c0 1.06.253 1.903.757 2.526.504.624 1.203.935 2.097.935.895 0 1.594-.31 2.098-.934.503-.622.755-1.464.755-2.525 0-1.062-.252-1.9-.755-2.517-.504-.615-1.203-.923-2.098-.923-.894 0-1.593.308-2.097.923-.504.616-.756 1.455-.756 2.517zM84.975 23.69H82.76l-.105-.785c-.71.665-1.555.998-2.534.998-2.866 0-4.3-1.65-4.3-4.948v-5.818h2.406v5.648c0 1.062.178 1.837.532 2.326.355.49.916.733 1.682.733.937 0 1.647-.325 2.13-.977v-7.73h2.405V23.69M91.546 29c-.824 0-1.547-.086-2.172-.256-.625-.17-1.143-.4-1.554-.69-.412-.29-.724-.623-.937-.998-.213-.375-.32-.775-.32-1.2 0-1.033.597-1.82 1.79-2.357-.668-.37-1.002-.857-1.002-1.466 0-.637.37-1.132 1.108-1.486-1.12-.78-1.682-1.918-1.682-3.42 0-.593.1-1.15.3-1.665.197-.517.48-.96.85-1.328.37-.368.82-.658 1.352-.87.532-.212 1.132-.32 1.8-.32.95 0 1.78.228 2.49.68.682-.34 1.47-.51 2.364-.51h.532l-.19 1.55h-.81c-.242 0-.512.022-.81.065.497.693.745 1.486.745 2.378 0 .566-.096 1.1-.288 1.603-.19.504-.472.946-.84 1.328-.37.382-.82.683-1.353.903-.533.22-1.133.33-1.8.33-.44 0-.852-.043-1.235-.128-.213.113-.32.255-.32.425 0 .127.047.234.14.318.09.085.244.163.457.234.213.07.5.137.862.2.362.065.82.132 1.374.202.468.07.95.163 1.447.277.497.112.95.282 1.363.508.412.227.752.524 1.022.892s.42.842.447 1.422c0 1.02-.447 1.837-1.34 2.453-.896.616-2.16.924-3.79.924zm-.47-14.228c-.68 0-1.202.213-1.564.637-.362.424-.543.997-.543 1.72 0 .72.184 1.295.553 1.72.37.424.894.636 1.576.636.68 0 1.202-.216 1.563-.647.362-.433.544-1.01.544-1.732s-.185-1.292-.554-1.71c-.37-.417-.894-.626-1.576-.626zm.576 9.534l-1.47-.212c-.453.14-.822.346-1.106.615-.284.268-.426.587-.426.955 0 .48.25.867.745 1.157.497.29 1.193.436 2.087.436.894 0 1.614-.142 2.16-.425.547-.283.82-.65.82-1.104 0-.412-.24-.72-.723-.925-.484-.205-1.18-.37-2.088-.5zM121.32 23.903c-1.092 0-2.03-.347-2.81-1.04l-.085.827h-2.235V7.765h2.406v6.094c.695-.61 1.604-.914 2.725-.914.767 0 1.463.142 2.088.425.624.284 1.156.67 1.596 1.158.44.49.78 1.07 1.022 1.74.242.674.362 1.392.362 2.157 0 .764-.117 1.48-.35 2.144-.235.664-.572 1.245-1.012 1.74-.44.496-.973.885-1.597 1.168-.626.283-1.328.425-2.11.425zm-.19-8.918c-.824 0-1.47.304-1.938.913-.47.608-.703 1.45-.703 2.527 0 1.104.233 1.957.702 2.558.468.602 1.114.902 1.937.902.85 0 1.53-.32 2.033-.966.504-.645.755-1.476.755-2.495 0-1.02-.248-1.848-.745-2.485-.496-.637-1.178-.955-2.044-.955zM107.016 23.69h-2.406v-5.67c0-1.06-.17-1.832-.51-2.313-.342-.482-.917-.722-1.726-.722-.965 0-1.71.346-2.235 1.04v7.665h-2.407V7.765h2.406v6.116c.737-.622 1.56-.934 2.47-.934 2.937 0 4.406 1.692 4.406 5.075v5.67M114.393 21.928l-.213 1.975h-1.83c-.47 0-.88-.07-1.236-.213-.355-.14-.65-.332-.884-.573-.234-.24-.408-.524-.52-.85-.115-.325-.172-.68-.172-1.06V15.09h-1.597l.214-1.953h1.384V10l2.406-.254v3.39h2.47v1.955h-2.47v5.012c0 .44.014.782.043 1.03.028.247.1.428.213.54.113.115.29.185.532.213.24.03.575.043 1 .043h.66M127.674 18.425c0-.765.124-1.483.373-2.156.248-.673.603-1.253 1.064-1.742.463-.488 1.023-.874 1.683-1.157.66-.282 1.395-.424 2.204-.424.81 0 1.54.142 2.193.425.653.284 1.21.673 1.67 1.17.463.494.82 1.075 1.077 1.74.255.665.383 1.38.383 2.145 0 .764-.124 1.48-.373 2.144-.248.664-.603 1.245-1.064 1.74-.46.496-1.022.885-1.682 1.168-.66.283-1.394.425-2.203.425-.823 0-1.56-.142-2.214-.425-.653-.283-1.21-.67-1.672-1.157-.46-.488-.815-1.065-1.063-1.73-.25-.665-.373-1.387-.373-2.165zm2.47 0c0 1.06.252 1.903.756 2.526.504.624 1.203.935 2.097.935.894 0 1.593-.31 2.097-.934.504-.622.756-1.464.756-2.525 0-1.062-.252-1.9-.756-2.517-.504-.615-1.203-.923-2.097-.923-.894 0-1.593.308-2.097.923-.504.616-.756 1.455-.756 2.517zM145.09 21.928l-.213 1.975h-1.83c-.47 0-.88-.07-1.236-.213-.354-.14-.65-.332-.883-.573-.234-.24-.408-.524-.52-.85-.115-.325-.172-.68-.172-1.06V15.09h-1.597l.213-1.953h1.385V10l2.406-.254v3.39h2.47v1.955h-2.47v5.012c0 .44.015.782.044 1.03.028.247.1.428.213.54.113.115.29.185.532.213.24.03.574.043 1 .043h.66M50.723 21.928l-.213 1.975h-1.83c-.47 0-.88-.07-1.236-.213-.355-.14-.65-.332-.884-.573-.234-.24-.408-.524-.522-.85-.113-.325-.17-.68-.17-1.06V15.09H44.27l.214-1.953h1.384V10l2.406-.254v3.39h2.47v1.955h-2.47v5.012c0 .44.014.782.043 1.03.028.247.1.428.213.54.113.115.29.185.532.213.24.03.575.043 1 .043h.66"></path></g></svg>
+
+</a><ul class="site-nav-links">
+<li>
+<a class="site-nav-link" href="https://thoughtbot.com/blog/tags">All Topics</a>
+</li>
+<li>
+<a class="site-nav-link active" aria-current="page" href="https://thoughtbot.com/blog/design">Design</a>
+</li>
+<li>
+<a class="site-nav-link" href="https://thoughtbot.com/blog/web">Web</a>
+</li>
+<li>
+<a class="site-nav-link" href="https://thoughtbot.com/blog/ios">iOS</a>
+</li>
+<li>
+<a class="site-nav-link" href="https://thoughtbot.com/blog/android">Android</a>
+</li>
+<li>
+<a class="site-nav-link" href="https://thoughtbot.com/blog/search"><svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 310.42 310.42" role="img" aria-labelledby="ashc569hvftn2o400a7jjb4ho9nbq744"><title id="ashc569hvftn2o400a7jjb4ho9nbq744">Search</title>
+  <path d="M273.587 214.965c49.11-49.11 49.11-129.02 0-178.132-49.11-49.11-129.02-49.11-178.13 0C53.793 78.497 47.483 140.463 76.51 188.85c0 0 2.085 3.498-.73 6.312-16.066 16.064-64.264 64.263-64.264 64.263-12.79 12.79-15.836 30.675-4.493 42.02l1.953 1.95c11.343 11.346 29.23 8.302 42.02-4.49l64.127-64.127c2.95-2.95 6.448-.866 6.448-.866 48.39 29.026 110.356 22.717 152.02-18.947zM118.71 191.71c-36.287-36.288-36.286-95.332.002-131.62 36.288-36.287 95.332-36.288 131.62 0 36.287 36.287 36.287 95.332 0 131.62-36.29 36.286-95.332 36.286-131.62 0z" fill="#454547"></path>
+  <path d="M126.75 118.424c-1.69 0-3.406-.332-5.06-1.03-6.612-2.8-9.705-10.427-6.907-17.04 17.586-41.558 65.703-61.06 107.26-43.475 6.612 2.794 9.705 10.422 6.907 17.034-2.8 6.612-10.425 9.703-17.04 6.906-28.353-11.997-61.185 1.31-73.182 29.664-2.1 4.96-6.913 7.938-11.978 7.938z" fill="#454547"></path>
+</svg>
+
+</a></li>
+</ul>
+<a class="hiring-cta" onclick="analytics.track(&#39;Blog Hiring Button&#39;, { category: &#39;Click&#39; });" href="https://thoughtbot.com/jobs">We're hiring!</a>
+</nav>
+
+<div class="container">
+<article class="post text" data-url="/blog/designing-for-ios-taming-uibutton" id="main-content" itemscope="" itemtype="https://schema.org/CreativeWork" role="main">
+<header>
+<h1 class="title">
+Designing for iOS: Taming UIButton
+</h1>
+<div class="meta">
+<div class="meta-author">
+<a href="https://thoughtbot.com/blog/authors/reda-lemeden">Reda Lemeden</a>
+</div>
+<time class="meta-date" datetime="2019-03-06T20:15:44Z" itemprop="dateModified">
+October 12, 2012
+<span class="meta-updated">updated on</span>
+March 6, 2019
+</time>
+<ul class="meta-tag-list">
+<li class="meta-tag-item">
+<a href="https://thoughtbot.com/blog/tags/ios">ios</a>
+</li>
+<li class="meta-tag-item">
+<a href="https://thoughtbot.com/blog/tags/design">design</a>
+</li>
+</ul>
+
+</div>
+
+</header>
+<div class="post-body">
+<p><em><strong>Note</strong>: While the techniques outlined in this article are still applicable,
+the iOS design landscape has changed since iOS 7, making a lot of them
+superfluous. If you want to take a fresher look at designing a custom iOS button
+using Xcode and Swift, check out the new <a href="https://thoughtbot.com/blog/building-ios-interfaces-custom-button">Building iOS Interfaces</a> series.</em></p>
+
+<p>Regardless of the platform you are designing for, getting familiar with its
+technologies and frameworks is key to refining your design process; even a
+basic understanding of the technical environment and its constraints can help
+you streamline the transition from Photoshop comps to design implementation, or
+completely bypass the former where appropriate.</p>
+
+<p>In this tutorial, we’ll cover four techniques of varying levels of difficulty
+to draw a custom UIButton, the primary button class in iOS. If you are just
+getting started, I recommend reading Mike Rundle’s
+<a href="http://designthencode.com/scratch/">introduction</a> and giving
+<a href="http://www.hongkiat.com/blog/ios-development-guide-part1/">these</a>
+<a href="http://www.hongkiat.com/blog/ios-development-guide-part2-your-first-app/">tutorials</a>
+a go to get a more hands-on experience.</p>
+<h2 id="setup">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#setup">
+    Setup
+  </a>
+</h2>
+
+<p>Start by creating a single view application in Xcode using Apple’s default
+settings. In the file navigator, select <code>MainStoryboard.storyboard</code> then
+drag-and-drop a <em>Round Rect Button</em> from the bottom-left objects library to the
+view canvas. Center the button in the canvas and resize it to your liking, then
+make few copies of it as shown in the screenshot below.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbrxk3JgaZ1qatp4h.png" alt="Dran-and-drop UIButton"></p>
+
+<p>Make sure to choose the label font and color using the <em>Attribute inspector</em> in
+the right-hand side of the Xcode window.</p>
+<h2 id="painting-pixels">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#painting-pixels">
+    Painting Pixels
+  </a>
+</h2>
+
+<p>The most common and straightforward approach consists in using background
+images to customize the stock UI controls provided by Apple.</p>
+<h3 id="full-sized-assets">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#full-sized-assets">
+    Full-sized Assets
+  </a>
+</h3>
+
+<p><strong>Difficulty:</strong> ★☆☆☆☆</p>
+
+<p>The first option involves using a full-sized graphic as the background of your
+UIButton instance. To do so, design the button (normal and highlighted states)
+in your favorite graphic editor then export the assets as uncompressed PNGs in
+both standard and double resolutions.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbrxmxkiwJ1qatp4h.png" alt="Full-sized assets"></p>
+
+<p>Import the images to your project by dragging them into the <em>File navigator</em>.
+In <em>Interface builder</em>, change the button type to <code>custom</code> in the top-right
+Attributes Inspector.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbrxpdahzH1qatp4h.png" alt="Change button type"></p>
+
+<p>Then add your images as backgrounds for both the default and the highlighted
+states using the drop-down shown below.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbrxruinGL1qatp4h.png" alt="Change background"></p>
+
+<p>You can also set background images in code by control-dragging your button to
+the <code>@interface</code> section of the main view controller as an <code>IBOutlet</code>:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">fullSizeImage</span><span class="p">;</span>
+</code></pre></div>
+<p>… then calling the <code>setBackgroundImage</code> method inside <code>viewDidLoad</code> for each
+state:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">fullSizeImage</span> <span class="nf">setBackgroundImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"button.png"</span><span class="p">]</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">fullSizeImage</span> <span class="nf">setBackgroundImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"buttonHighlighted.png"</span><span class="p">]</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateHighlighted</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It is worthing noting at this point that anything drawn in code is not
+previewable in Interface builder. Run the app on the iOS simulator by hitting
+<code>cmd+R</code> to see the result.</p>
+<h3 id="advantages-of-full-sized-assets">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#advantages-of-full-sized-assets">
+    Advantages of full-sized assets
+  </a>
+</h3>
+
+<ul>
+<li>Absolute creative freedom.</li>
+<li>No coding prerequisites if using Interface Builder.</li>
+</ul>
+<h3 id="disadvantages-of-full-sized-assets">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#disadvantages-of-full-sized-assets">
+    Disadvantages of full-sized assets
+  </a>
+</h3>
+
+<ul>
+<li>Larger app bundles.</li>
+<li>Less reusable across the app (size-constrained.)</li>
+<li>Even minor edits require re-exporting the assets.</li>
+</ul>
+<h3 id="resizable-assets-ios-5">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#resizable-assets-ios-5">
+    Resizable Assets (iOS 5+)
+  </a>
+</h3>
+
+<p><strong>Difficulty:</strong> ★★★☆☆</p>
+
+<p>A recently introduced second option consists in using a resizable image as a
+button background after having set its resizable and non-resizable areas in
+code. Start by making a pill-shaped background image in your graphic editor.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbryfoiyuR1qatp4h.png" alt="Resizable background images"></p>
+
+<p>Next, you should instruct Xcode what areas should be stretched to fit the
+dimension of the button. For instance, you can prevent the four corners of the
+background image from being stretched using <code>cap insets</code>. To see this in
+action, import the assets into Xcode and create a resizable image object to be
+used with <code>setBackgroundImage</code> (inside <code>viewDidLoad</code>):</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="n">UIImage</span> <span class="o">*</span><span class="n">resizableButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"resizableButton.png"</span> <span class="p">]</span> <span class="nf">resizableImageWithCapInsets</span><span class="p">:</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">)];</span>
+<span class="n">UIImage</span> <span class="o">*</span><span class="n">resizableButtonHighlighted</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"resizableButtonHighlighted.png"</span> <span class="p">]</span> <span class="nf">resizableImageWithCapInsets</span><span class="p">:</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">)];</span>
+</code></pre></div>
+<p>The <code>UIEdgeInsets</code> argument takes four floats corresponding to the distance (in
+density-independent pixels) separating the caps from each side of the image in
+the following order: <code>top, left, bottom, right</code>.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbrylyAASt1qatp4h.png" alt="Cap insets"></p>
+
+<p>For the sake of clarity, the center area in the example above is much wider
+than it should actually be. In most cases, a 1pt stretchable area is what you
+should be aiming for.</p>
+
+<p>Unlike full-sized images, setting a resizable image as a background can only be
+done in code (same steps as the previous method):</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="c1">// Drag-and-drop the UIButton instance to the @interface section of your view controller</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">resizableImage</span><span class="p">;</span>
+
+<span class="c1">// Inside viewDidLoad</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">resizableImage</span> <span class="nf">setBackgroundImage</span><span class="p">:</span><span class="n">resizableButton</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">resizableImage</span> <span class="nf">setBackgroundImage</span><span class="p">:</span><span class="n">resizableButtonHighlighted</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateHighlighted</span><span class="p">];</span>
+</code></pre></div>
+<p>In iOS 6, Apple updated the <code>resizableImageWithCapInsets</code> method to accept a
+<code>resizingMode</code> argument that explicitly instructs Xcode which of the two
+available resizing modes to use: tiling or stretching. When unspecified, the
+former is used.</p>
+<h3 id="advantages-of-resizable-assets">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#advantages-of-resizable-assets">
+    Advantages of resizable assets
+  </a>
+</h3>
+
+<ul>
+<li>Lighter app bundles.</li>
+<li>Reusable assets across the app.</li>
+</ul>
+<h3 id="disadvantages-of-resizable-assets">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#disadvantages-of-resizable-assets">
+    Disadvantages of resizable assets
+  </a>
+</h3>
+
+<ul>
+<li>Edits involve re-exporting the assets and might involve resetting the cap insets as well.</li>
+</ul>
+<h2 id="unleash-the-calayer-within">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#unleash-the-calayer-within">
+    Unleash the CALayer Within
+  </a>
+</h2>
+
+<p><strong>Difficulty:</strong> ★★★★☆</p>
+
+<p><strong>Update</strong>: The code in this technique has been refactored for better
+performance with the help of <a href="https://twitter.com/kluivers">Joris Kluivers</a>.</p>
+
+<p>The <code>CALayer</code> (<em>Core Animation</em> layer) object is the fundamental drawing unit
+in iOS; a view draws itself into its layer before this latter appears on
+screen. You’d be surprised at how much you can accomplish without having to
+draw a single pixel in Photoshop.</p>
+
+<p>First, we need to create a UIButton subclass where our drawing code will end
+up. Hit <code>cmd+N</code> and create a new Objective-C class by subclassing <code>UIButton</code>.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbryzrM6Hs1qatp4h.png" alt="Subclassing UIButton"></p>
+
+<p>In Interface builder, set the class of the target button to <code>CBLayer</code> (or
+whatever you named your subclass) using the top-most field in the Identity
+inspector.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbryk5qEAc1qatp4h.png" alt="Set UIButton class"></p>
+
+<p>Go back to the implementation file of your custom button class (<code>.m</code> extension)
+and implement <code>initWithCoder</code>, a method that will get called on our button
+instance in order to unarchive it when the view loads. Between the
+<code>@implementation</code> and the <code>@end</code> directives:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">coder</span>
+<span class="p">{</span>
+    <span class="c1">// Our custom CALayer drawing will go here</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To better organize our code, we’ll split the different parts of the button
+(background, border, inner-glow, etc.) into separate properties and drawing
+methods, then call each from within <code>initWithCoder</code>. To do so, we’ll start by
+declaring the properties that will be used in this process above the
+<code>@implementation</code> directive:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">CBLayer</span> <span class="p">()</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CAGradientLayer</span> <span class="o">*</span><span class="n">backgroundLayer</span><span class="p">,</span> <span class="o">*</span><span class="n">highlightBackgroundLayer</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CALayer</span> <span class="o">*</span><span class="n">innerGlow</span><span class="p">;</span>
+
+<span class="k">@end</span>
+</code></pre></div>
+<p>We’ll implement four instance methods (a message that can be sent to a single
+button instance) to take care of drawing the button and setting its properties.
+Whenever using <code>CALayer</code>, remember to link the <code>QuartzCore</code> framework in the
+<em>Build phases</em> tab of the project manager:</p>
+
+<p><img src="http://media.tumblr.com/tumblr_mbs01jpcon1qatp4h.png" alt="Add Quartzcore framework"></p>
+
+<p>You’ll also need to import its header file in your subclass using this
+directive <code>#import</code>.</p>
+
+<p>Let’s start by drawing the button itself:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">drawButton</span>
+<span class="p">{</span>
+    <span class="c1">// Get the root layer (any UIView subclass comes with one)</span>
+    <span class="n">CALayer</span> <span class="o">*</span><span class="n">layer</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">layer</span><span class="p">;</span>
+
+    <span class="n">layer</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="n">f</span><span class="p">;</span>
+    <span class="n">layer</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">layer</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">77</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">43</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">].</span><span class="n">CGColor</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For the gradients, we’ll use the <code>CAGradientLayer</code> subclass made specifically
+for this purpose:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">drawBackgroundLayer</span>
+<span class="p">{</span>
+    <span class="c1">// Check if the property has been set already</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_backgroundLayer</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="c1">// Instantiate the gradient layer</span>
+        <span class="n">_backgroundLayer</span> <span class="o">=</span> <span class="p">[</span><span class="n">CAGradientLayer</span> <span class="nf">layer</span><span class="p">];</span>
+
+        <span class="c1">// Set the colors</span>
+        <span class="n">_backgroundLayer</span><span class="p">.</span><span class="n">colors</span> <span class="o">=</span> <span class="p">(@[</span>
+                                   <span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">94</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">82</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">52</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">].</span><span class="n">CGColor</span><span class="p">,</span>
+                                   <span class="p">(</span><span class="n">id</span><span class="p">)[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">91</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">55</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">].</span><span class="n">CGColor</span>
+                                   <span class="p">]);</span>
+
+        <span class="c1">// Set the stops</span>
+        <span class="n">_backgroundLayer</span><span class="p">.</span><span class="n">locations</span> <span class="o">=</span> <span class="p">(@[</span>
+                                      <span class="mf">@0.0f</span><span class="p">,</span>
+                                      <span class="mf">@1.0f</span>
+                                      <span class="p">]);</span>
+
+        <span class="c1">// Add the gradient to the layer hierarchy</span>
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">layer</span> <span class="nf">insertSublayer</span><span class="p">:</span><span class="n">_backgroundLayer</span> <span class="nf">atIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The highlighted state gradient can be set using a separate <code>-
+(void)drawHighlightBackgroundLayer</code> method that is identical to the one above,
+save for he color values.  To <abbr title="Don&#39;t Repeat Yourself">DRY</abbr> up your code, it is recommended that you move
+the layer drawing code to a separate
+<code>-(void)drawBackgroundLayerWithGradient:(NSArray)colors</code> method.</p>
+
+<p>Next, we will implement an instance method to set the <code>_innerGlow</code> property:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">drawInnerGlow</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_innerGlow</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Instantiate the innerGlow layer</span>
+        <span class="n">_innerGlow</span> <span class="o">=</span> <span class="p">[</span><span class="n">CALayer</span> <span class="nf">layer</span><span class="p">];</span>
+
+        <span class="n">_innerGlow</span><span class="p">.</span><span class="n">cornerRadius</span><span class="o">=</span> <span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="n">f</span><span class="p">;</span>
+        <span class="n">_innerGlow</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">_innerGlow</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIColor</span> <span class="nf">whiteColor</span><span class="p">]</span> <span class="nf">CGColor</span><span class="p">];</span>
+        <span class="n">_innerGlow</span><span class="p">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">layer</span> <span class="nf">insertSublayer</span><span class="p">:</span><span class="n">_innerGlow</span> <span class="nf">atIndex</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If we build and run the app at this stage, only the label will be visible on
+the button. To get our layers onto the screen, we need to call the layer
+methods from within <code>initWithCoder</code>.</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">coder</span>
+<span class="p">{</span>
+    <span class="c1">// Call the parent implementation of initWithCoder</span>
+  <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">initWithCoder</span><span class="p">:</span><span class="n">coder</span><span class="p">];</span>
+
+    <span class="c1">// Custom drawing methods</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">drawButton</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">drawInnerGlow</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">drawBackgroundLayer</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">drawHighlightBackgroundLayer</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>That doesn’t seem to be enough though; we also need to set the frame rectangles
+of our different layers and update them every time the button is tapped by
+implementing the <code>layoutSubviews</code> method:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">layoutSubviews</span>
+<span class="p">{</span>
+  <span class="c1">// Set inner glow frame (1pt inset)</span>
+  <span class="n">_innerGlow</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectInset</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// Set gradient frame (fill the whole button))</span>
+  <span class="n">_backgroundLayer</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">bounds</span><span class="p">;</span>
+
+  <span class="c1">// Set inverted gradient frame</span>
+  <span class="n">_highlightBackgroundLayer</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">bounds</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="n">super</span> <span class="nf">layoutSubviews</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Hit <code>cmd+R</code> to see our layers in action. We’ve got one little problem though:
+the button looks constantly pressed (highlighted) and does not visually react
+to user taps. Having a closer look at the code, the former appears to be a
+direct result of calling <code>drawHighlightBackgroundLayer</code> which draws the
+inverted gradient with a higher z-index (see <code>insertSublayer:layer
+atIndex:index</code>). To fix this, we need to initially hide the alternate
+background and make it only visible when the button is tapped. Inside
+<code>initWithCoder</code>, we’ll add the following line below our drawing methods:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="n">_highlightBackgroundLayer</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+</code></pre></div>
+<p>Then we’ll implement <code>setHighlighted</code>, a method that gets called whenever a
+<code>UIButton</code> is tapped:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setHighlighted</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">highlighted</span>
+<span class="p">{</span>
+    <span class="c1">// Hide/show inverted gradient</span>
+  <span class="n">_highlightBackgroundLayer</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">highlighted</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="n">super</span> <span class="nf">setHighlighted</span><span class="p">:</span><span class="n">highlighted</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>When using <code>CALayer</code>, properties are animated by default (cross-fade in this
+case). We can  disable the implicit animation inside <code>setHighlighted</code>:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setHighlighted</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">highlighted</span>
+<span class="p">{</span>
+  <span class="c1">// Disable implicit animations</span>
+  <span class="p">[</span><span class="n">CATransaction</span> <span class="nf">begin</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">CATransaction</span> <span class="nf">setDisableActions</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+
+    <span class="c1">// Hide/show inverted gradient</span>
+  <span class="n">_highlightBackgroundLayer</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">highlighted</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="n">CATransaction</span> <span class="nf">commit</span><span class="p">];</span>
+
+  <span class="p">[</span><span class="n">super</span> <span class="nf">setHighlighted</span><span class="p">:</span><span class="n">highlighted</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>With this we are good to go. One last thing that you may want to do is override
+the <code>UIButton</code> method <code>buttonWithType</code> in order to prevent inconsistent results
+if the button is instantiated in code.</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">CBLayer</span> <span class="o">*</span><span class="p">)</span><span class="nf">buttonWithType</span><span class="p">:(</span><span class="n">UIButtonType</span><span class="p">)</span><span class="nv">type</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">super</span> <span class="nf">buttonWithType</span><span class="p">:</span><span class="n">UIButtonTypeCustom</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="advantagesof-calayer-approach">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#advantagesof-calayer-approach">
+    Advantagesof CALayer approach
+  </a>
+</h3>
+
+<ul>
+<li>No graphics.</li>
+<li>Reusable and expandable code.</li>
+<li>Easily editable.</li>
+<li>Transitions are animatable.</li>
+</ul>
+<h3 id="disadvantages-of-calayer-approach">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#disadvantages-of-calayer-approach">
+    Disadvantages of CALayer approach
+  </a>
+</h3>
+
+<ul>
+<li>Difficulty to obtain certain effects such as inner shadows and glows.</li>
+<li>Occasional gradient banding (often on darker gradients).</li>
+<li>Resource hungry.</li>
+</ul>
+<h2 id="bezier-paths-and-beyond">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#bezier-paths-and-beyond">
+    Bezier Paths and Beyond
+  </a>
+</h2>
+
+<p><strong>Difficulty:</strong> ★★★★★</p>
+
+<p>In this last method, we will be using <code>drawRect</code> (base custom drawing method in
+iOS) and <em>Core Graphics</em> to design our custom button in code.</p>
+
+<p>Go ahead a create a new <code>UIButton</code> subclass then assign it to a button instance
+in Interface builder. All the code below should go inside <code>drawRect</code>.</p>
+
+<p>We’ll start by defining the color space and the <em>graphics context</em>, a blank
+canvas where our custom drawing will take place.</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="c1">// General Declarations</span>
+<span class="n">CGColorSpaceRef</span> <span class="n">colorSpace</span> <span class="o">=</span> <span class="n">CGColorSpaceCreateDeviceRGB</span><span class="p">();</span>
+<span class="n">CGContextRef</span> <span class="n">context</span> <span class="o">=</span> <span class="n">UIGraphicsGetCurrentContext</span><span class="p">();</span>
+</code></pre></div>
+<p>Next, we will define the colors and the gradients that will be used throughout
+our implementation:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="c1">// Color Declarations</span>
+<span class="n">UIColor</span> <span class="o">*</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">77</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">43</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">];</span>
+<span class="n">UIColor</span> <span class="o">*</span><span class="n">topColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">94</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">82</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">52</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">];</span>
+<span class="n">UIColor</span> <span class="o">*</span><span class="n">bottomColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">91</span><span class="n">f</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">55</span><span class="n">f</span> <span class="n">blue</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span> <span class="n">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">.</span><span class="mo">00</span><span class="n">f</span><span class="p">];</span>
+<span class="n">UIColor</span> <span class="o">*</span><span class="n">innerGlow</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithWhite</span><span class="p">:</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
+
+<span class="c1">// Gradient Declarations</span>
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">gradientColors</span> <span class="o">=</span> <span class="p">(@[</span>
+                           <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">topColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">,</span>
+                           <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">bottomColor</span><span class="p">.</span><span class="n">CGColor</span>
+                           <span class="p">]);</span>
+
+<span class="n">CGGradientRef</span> <span class="n">gradient</span> <span class="o">=</span> <span class="n">CGGradientCreateWithColors</span><span class="p">(</span><span class="n">colorSpace</span><span class="p">,</span> <span class="p">(</span><span class="n">__bridge</span> <span class="n">CFArrayRef</span><span class="p">)(</span><span class="n">gradientColors</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">highlightedGradientColors</span> <span class="o">=</span> <span class="p">(@[</span>
+                                      <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">bottomColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">,</span>
+                                      <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">topColor</span><span class="p">.</span><span class="n">CGColor</span>
+                                      <span class="p">]);</span>
+
+<span class="n">CGGradientRef</span> <span class="n">highlightedGradient</span> <span class="o">=</span> <span class="n">CGGradientCreateWithColors</span><span class="p">(</span><span class="n">colorSpace</span><span class="p">,</span> <span class="p">(</span><span class="n">__bridge</span> <span class="n">CFArrayRef</span><span class="p">)(</span><span class="n">highlightedGradientColors</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+</code></pre></div>
+<p>For the rounded rectangle shapes, we will be using <code>UIBezierPath</code>‘s
+<code>bezierPathWithRoundedRect</code> class method.</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="c1">// Draw rounded rectangle bezier path</span>
+<span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">roundedRectanglePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nf">bezierPathWithRoundedRect</span><span class="p">:</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">37</span><span class="p">)</span> <span class="nf">cornerRadius</span><span class="p">:</span> <span class="mi">4</span><span class="p">];</span>
+<span class="c1">// Use the bezier as a clipping path</span>
+<span class="p">[</span><span class="n">roundedRectanglePath</span> <span class="nf">addClip</span><span class="p">];</span>
+
+<span class="c1">// Use one of the two gradients depending on the state of the button</span>
+<span class="n">CGGradientRef</span> <span class="n">background</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">highlighted</span><span class="p">?</span> <span class="n">highlightedGradient</span> <span class="p">:</span> <span class="n">gradient</span><span class="p">;</span>
+
+<span class="c1">// Draw gradient within the path</span>
+<span class="n">CGContextDrawLinearGradient</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">background</span><span class="p">,</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// Draw border</span>
+<span class="p">[</span><span class="n">borderColor</span> <span class="nf">setStroke</span><span class="p">];</span>
+<span class="n">roundedRectanglePath</span><span class="p">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">[</span><span class="n">roundedRectanglePath</span> <span class="nf">stroke</span><span class="p">];</span>
+
+<span class="c1">// Draw Inner Glow</span>
+<span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">innerGlowRect</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nf">bezierPathWithRoundedRect</span><span class="p">:</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">277</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span> <span class="nf">cornerRadius</span><span class="p">:</span> <span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
+<span class="p">[</span><span class="n">innerGlow</span> <span class="nf">setStroke</span><span class="p">];</span>
+<span class="n">innerGlowRect</span><span class="p">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">[</span><span class="n">innerGlowRect</span> <span class="nf">stroke</span><span class="p">];</span>
+
+<span class="c1">// Cleanup</span>
+<span class="n">CGGradientRelease</span><span class="p">(</span><span class="n">gradient</span><span class="p">);</span>
+<span class="n">CGGradientRelease</span><span class="p">(</span><span class="n">highlightedGradient</span><span class="p">);</span>
+<span class="n">CGColorSpaceRelease</span><span class="p">(</span><span class="n">colorSpace</span><span class="p">);</span>
+</code></pre></div>
+<p>In order to get our button to change appearance when highlighted, we’ll have to
+force <code>drawRect</code> to be called whenever the button is tapped. This can be done
+through calling <code>setNeedsDisplay</code> inside <code>setHighlighted</code>:</p>
+<div class="highlight"><pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setHighlighted</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">highlighted</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="n">self</span> <span class="nf">setNeedsDisplay</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">super</span> <span class="nf">setHighlighted</span><span class="p">:</span><span class="n">highlighted</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you are not inclined to learn Core graphics and are willing to fork $99, you
+can use <a href="http://www.paintcodeapp.com/">PaintCode</a>, a “graphic editor” that
+generates the drawing code to go inside <code>drawRect</code>.</p>
+<h3 id="advantages-of-bezier-approach">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#advantages-of-bezier-approach">
+    Advantages of Bezier approach
+  </a>
+</h3>
+
+<ul>
+<li>Same as <code>CALayer</code>.</li>
+<li>More creative freedom.</li>
+</ul>
+<h3 id="disadvantages-of-bezier-approach">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#disadvantages-of-bezier-approach">
+    Disadvantages of Bezier approach
+  </a>
+</h3>
+
+<ul>
+<li>Gradient banding.</li>
+<li>Can get unwieldy pretty quickly.</li>
+</ul>
+
+<p><img src="http://media.tumblr.com/tumblr_mbs2ux7Pp21qatp4h.png" alt="Demo app"></p>
+
+<p>Get the demo app <a href="https://github.com/kaishin/custom-UIButton">here</a>.</p>
+
+<p><strong>Update</strong>: Andy Matuschak, a member of the UIKit team, was kind enough to
+<a href="https://news.ycombinator.com/item?id=4645585">point out</a> in this article’s HN
+thread that these techniques have different performance ramifications. This is
+will be most certainly the topic of a future article.</p>
+<h2 id="conclusion">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#conclusion">
+    Conclusion
+  </a>
+</h2>
+
+<p>Apple provides different ways to customize the look and feel of your iOS apps,
+and it’s only getting better with each major iOS release. Learning Objective-C
+and Core graphics is sure daunting for many designers, but it may be worthwhile
+considering how it can empower you and help you become more efficient on the
+long run.</p>
+<h2 id="what39s-next">
+  <a href="https://thoughtbot.com/blog/designing-for-ios-taming-uibutton#what39s-next">
+    What’s next
+  </a>
+</h2>
+
+<p>If you found this useful, you might also enjoy:</p>
+
+<ul>
+<li><a href="https://thoughtbot.com/blog/designing-for-ios-graphics-performance">Designing for iOS: Graphics &amp; Performance</a></li>
+<li><a href="https://thoughtbot.com/blog/designing-for-ios-blending-modes">Designing for iOS: Blending Modes</a></li>
+</ul>
+
+</div>
+<aside class="related-articles">
+<h2>If you enjoyed this post, you might also like:</h2>
+<ol>
+<li>
+<a href="https://thoughtbot.com/blog/android-canvas-drawarc-method-a-visual-guide">Android Canvas' drawArc Method: A Visual Guide</a>
+</li>
+<li>
+<a href="https://thoughtbot.com/blog/designing-for-ios-blending-modes">Designing for iOS: Blending Modes</a>
+</li>
+<li>
+<a href="https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide">Android ImageView ScaleType: A Visual Guide</a>
+</li>
+</ol>
+</aside>
+</article>
+
+</div>
+<section class="container">
+<div id="promoted">
+<div class="ads">
+<img alt="A developer working on a mobile application at their desk" class="ads__image" src="./11 Designing for iOS_ Taming UIButton_files/mobile-99472edec370e466c81cc92ee18de5ea81d07c1395c6db06bf41b977e846aba6.jpg">
+<div class="ads__body">
+<h3 class="ads__title">
+Mobile design and development services for every stage of your app
+</h3>
+<p>
+We design and build iOS, Android, and cross-platform React Native apps
+for startups and established businesses.
+</p>
+<a class="button" href="https://thoughtbot.com/services/mobile">Learn more about Mobile services</a>
+</div>
+</div>
+
+
+</div>
+
+</section>
+<div class="global-footer">
+<div class="container container-wide">
+<nav class="global-footer-link-section">
+<ul class="global-footer-link-list">
+<li>
+<a href="https://thoughtbot.com/services">Services
+</a></li>
+<li>
+<a href="https://thoughtbot.com/case-studies">Case Studies
+</a></li>
+<li>
+<a href="https://thoughtbot.com/resources">Resources
+</a></li>
+<li>
+<a href="https://thoughtbot.com/hire-us">Hire Us
+</a></li>
+</ul>
+<ul class="global-footer-link-list">
+<li>
+<a href="https://thoughtbot.com/our-company">Our Company
+</a></li>
+<li>
+<a href="https://thoughtbot.com/purpose">Purpose
+</a></li>
+<li>
+<a href="https://thoughtbot.com/blog">Blog
+</a></li>
+<li>
+<a href="https://thoughtbot.com/jobs">Join our team
+</a></li>
+</ul>
+<ul class="global-footer-link-list">
+<li>
+<a href="https://twitter.com/thoughtbot">Twitter
+</a></li>
+<li>
+<a href="https://github.com/thoughtbot">GitHub
+</a></li>
+<li>
+<a href="https://dribbble.com/thoughtbot">Dribbble
+</a></li>
+<li>
+<a href="https://www.instagram.com/thoughtbot/">Instagram
+</a></li>
+</ul>
+</nav>
+<footer class="global-footer-copywright-section">
+<p class="global-footer-copywright-prose">
+© 2020
+<a href="https://thoughtbot.com/">thoughtbot, inc.</a>
+The design of a robot and thoughtbot are registered trademarks of
+thoughtbot, inc.
+<a href="https://www.iubenda.com/privacy-policy/7827608">Privacy Policy</a>
+</p>
+</footer>
+</div>
+</div>
+
+
+  <script type="text/javascript" async="" src="./11 Designing for iOS_ Taming UIButton_files/5257758.js" id="hs-analytics"></script><script type="text/javascript" async="" src="./11 Designing for iOS_ Taming UIButton_files/analytics.js"></script><script type="text/javascript" async="" src="./11 Designing for iOS_ Taming UIButton_files/analytics.min.js"></script><script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+    analytics.load("wperrhev8f");
+    analytics.page();
+    }}();
+  </script>
+
+
+
+
+</body></html>

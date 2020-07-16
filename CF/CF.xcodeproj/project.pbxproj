@@ -161,14 +161,14 @@
 		BB28E84821A7B22D005FAFC8 /* CFCharacterSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFCharacterSet.c; path = ../../CFCharacterSet.c; sourceTree = "<group>"; };
 		BB28E84921A7B22D005FAFC8 /* CFNumberFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFNumberFormatter.c; path = ../../CFNumberFormatter.c; sourceTree = "<group>"; };
 		BB28E84A21A7B22D005FAFC8 /* CFDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFDictionary.c; sourceTree = "<group>"; };
-		BB28E84B21A7B22D005FAFC8 /* CFStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStream.c; path = ../../CFStream.c; sourceTree = "<group>"; };
-		BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamInternal.h; path = ../../CFStreamInternal.h; sourceTree = "<group>"; };
+		BB28E84B21A7B22D005FAFC8 /* CFStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFStream.c; sourceTree = "<group>"; };
+		BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFStreamInternal.h; sourceTree = "<group>"; };
 		BB28E84D21A7B22D005FAFC8 /* CFStringScanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringScanner.c; path = ../../CFStringScanner.c; sourceTree = "<group>"; };
 		BB28E84E21A7B22D005FAFC8 /* CFPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPriv.h; path = ../../CFPriv.h; sourceTree = "<group>"; };
 		BB28E84F21A7B22D005FAFC8 /* CFStringEncodingDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingDatabase.h; path = ../../CFStringEncodingDatabase.h; sourceTree = "<group>"; };
 		BB28E85021A7B22D005FAFC8 /* CFBigNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBigNumber.h; path = ../../CFBigNumber.h; sourceTree = "<group>"; };
 		BB28E85121A7B22D005FAFC8 /* CFBinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBinaryHeap.h; path = ../../CFBinaryHeap.h; sourceTree = "<group>"; };
-		BB28E85221A7B22D005FAFC8 /* CFSocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocket.c; path = ../../CFSocket.c; sourceTree = "<group>"; };
+		BB28E85221A7B22D005FAFC8 /* CFSocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFSocket.c; sourceTree = "<group>"; };
 		BB28E85321A7B22D005FAFC8 /* CFStringEncodingExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingExt.h; path = ../../CFStringEncodingExt.h; sourceTree = "<group>"; };
 		BB28E85421A7B22E005FAFC8 /* CFStringEncodings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStringEncodings.c; path = ../../CFStringEncodings.c; sourceTree = "<group>"; };
 		BB28E85521A7B22E005FAFC8 /* CFPlatformConverters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlatformConverters.c; path = ../../CFPlatformConverters.c; sourceTree = "<group>"; };
@@ -216,12 +216,12 @@
 		BB28E87F21A7B230005FAFC8 /* CFXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLNode.h; path = ../../CFXMLNode.h; sourceTree = "<group>"; };
 		BB28E88021A7B230005FAFC8 /* MakefileLinux */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MakefileLinux; path = ../../MakefileLinux; sourceTree = "<group>"; };
 		BB28E88121A7B230005FAFC8 /* CFBasicHashFindBucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFBasicHashFindBucket.m; sourceTree = "<group>"; };
-		BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = APPLE_LICENSE; path = ../../APPLE_LICENSE; sourceTree = "<group>"; };
+		BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APPLE_LICENSE; sourceTree = "<group>"; };
 		BB28E88321A7B230005FAFC8 /* CFError_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFError_Private.h; path = ../../CFError_Private.h; sourceTree = "<group>"; };
 		BB28E88421A7B230005FAFC8 /* CFLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLocale.h; path = ../../CFLocale.h; sourceTree = "<group>"; };
 		BB28E88521A7B230005FAFC8 /* CFByteOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFByteOrder.h; path = ../../CFByteOrder.h; sourceTree = "<group>"; };
 		BB28E88621A7B230005FAFC8 /* CFBinaryHeap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBinaryHeap.c; path = ../../CFBinaryHeap.c; sourceTree = "<group>"; };
-		BB28E88721A7B230005FAFC8 /* CFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStream.h; path = ../../CFStream.h; sourceTree = "<group>"; };
+		BB28E88721A7B230005FAFC8 /* CFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFStream.h; sourceTree = "<group>"; };
 		BB28E88821A7B230005FAFC8 /* CFUnicodePrecomposition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnicodePrecomposition.c; path = ../../CFUnicodePrecomposition.c; sourceTree = "<group>"; };
 		BB28E88921A7B230005FAFC8 /* CFXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLParser.h; path = ../../CFXMLParser.h; sourceTree = "<group>"; };
 		BB28E88A21A7B230005FAFC8 /* CFStorage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFStorage.c; path = ../../CFStorage.c; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		BB28E89B21A7B231005FAFC8 /* CFBundle_BinaryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBundle_BinaryTypes.h; sourceTree = "<group>"; };
 		BB28E89C21A7B231005FAFC8 /* README_CFLITE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README_CFLITE; path = ../../README_CFLITE; sourceTree = "<group>"; };
 		BB28E89D21A7B231005FAFC8 /* CFPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPlugIn.h; path = ../../CFPlugIn.h; sourceTree = "<group>"; };
-		BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamPriv.h; path = ../../CFStreamPriv.h; sourceTree = "<group>"; };
+		BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFStreamPriv.h; sourceTree = "<group>"; };
 		BB28E89F21A7B231005FAFC8 /* CFLogUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLogUtilities.h; path = ../../CFLogUtilities.h; sourceTree = "<group>"; };
 		BB28E8A021A7B231005FAFC8 /* CFOldStylePList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFOldStylePList.c; path = ../../CFOldStylePList.c; sourceTree = "<group>"; };
 		BB28E8A121A7B231005FAFC8 /* SymbolAliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SymbolAliases; path = ../../SymbolAliases; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		BB28E8A821A7B231005FAFC8 /* CFSystemDirectories.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSystemDirectories.c; path = ../../CFSystemDirectories.c; sourceTree = "<group>"; };
 		BB28E8A921A7B231005FAFC8 /* CFBag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFBag.c; path = ../../CFBag.c; sourceTree = "<group>"; };
 		BB28E8AA21A7B231005FAFC8 /* CFStringEncodingConverterPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStringEncodingConverterPriv.h; path = ../../CFStringEncodingConverterPriv.h; sourceTree = "<group>"; };
-		BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFStreamAbstract.h; path = ../../CFStreamAbstract.h; sourceTree = "<group>"; };
+		BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFStreamAbstract.h; sourceTree = "<group>"; };
 		BB28E8AC21A7B231005FAFC8 /* CoreFoundation_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreFoundation_Prefix.h; path = ../../CoreFoundation_Prefix.h; sourceTree = "<group>"; };
 		BB28E8AD21A7B231005FAFC8 /* CFRunLoop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFRunLoop.c; sourceTree = "<group>"; };
 		BB28E8AE21A7B231005FAFC8 /* CFBitVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFBitVector.h; path = ../../CFBitVector.h; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		BB28E8B821A7B231005FAFC8 /* CFPropertyList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPropertyList.c; path = ../../CFPropertyList.c; sourceTree = "<group>"; };
 		BB28E8B921A7B231005FAFC8 /* CFUnicodePrecomposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnicodePrecomposition.h; path = ../../CFUnicodePrecomposition.h; sourceTree = "<group>"; };
 		BB28E8BA21A7B231005FAFC8 /* CFTimeZone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFTimeZone.c; path = ../../CFTimeZone.c; sourceTree = "<group>"; };
-		BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSocketStream.c; path = ../../CFSocketStream.c; sourceTree = "<group>"; };
+		BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFSocketStream.c; sourceTree = "<group>"; };
 		BB28E8BC21A7B231005FAFC8 /* CFSet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFSet.c; path = ../../CFSet.c; sourceTree = "<group>"; };
 		BB28E8BD21A7B231005FAFC8 /* CFPlugIn_Instance.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFPlugIn_Instance.c; path = ../../CFPlugIn_Instance.c; sourceTree = "<group>"; };
 		BB28E8BE21A7B231005FAFC8 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		BB28E8C821A7B232005FAFC8 /* CFUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUtilities.c; path = ../../CFUtilities.c; sourceTree = "<group>"; };
 		BB28E8C921A7B232005FAFC8 /* CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUtilities.h; path = ../../CFUtilities.h; sourceTree = "<group>"; };
 		BB28E8CA21A7B232005FAFC8 /* CFUniCharPropertyDatabase.data */ = {isa = PBXFileReference; lastKnownFileType = file; name = CFUniCharPropertyDatabase.data; path = ../../CFUniCharPropertyDatabase.data; sourceTree = "<group>"; };
-		BB28E8CB21A7B232005FAFC8 /* CFSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSocket.h; path = ../../CFSocket.h; sourceTree = "<group>"; };
+		BB28E8CB21A7B232005FAFC8 /* CFSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFSocket.h; sourceTree = "<group>"; };
 		BB28E8CC21A7B232005FAFC8 /* CFString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFString.c; path = ../../CFString.c; sourceTree = "<group>"; };
 		BB28E8CD21A7B232005FAFC8 /* CFXMLInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFXMLInputStream.h; path = ../../CFXMLInputStream.h; sourceTree = "<group>"; };
 		BB28E8CE21A7B232005FAFC8 /* CFSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSet.h; path = ../../CFSet.h; sourceTree = "<group>"; };
@@ -366,7 +366,6 @@
 				BB28E93921A7C580005FAFC8 /* collection */,
 				BB28E93521A7B557005FAFC8 /* bundle */,
 				BB28E93121A7B36D005FAFC8 /* runloop */,
-				BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */,
 				BB28E8D321A7B232005FAFC8 /* CFApplicationPreferences.c */,
 				BB28E83221A7B22C005FAFC8 /* CFArray.c */,
 				BB28E83A21A7B22C005FAFC8 /* CFArray.h */,
@@ -432,17 +431,9 @@
 				BB28E8D421A7B232005FAFC8 /* CFPropertyList.h */,
 				BB28E8BC21A7B231005FAFC8 /* CFSet.c */,
 				BB28E8CE21A7B232005FAFC8 /* CFSet.h */,
-				BB28E85221A7B22D005FAFC8 /* CFSocket.c */,
-				BB28E8CB21A7B232005FAFC8 /* CFSocket.h */,
-				BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */,
 				BB28E85A21A7B22E005FAFC8 /* CFSortFunctions.c */,
 				BB28E88A21A7B230005FAFC8 /* CFStorage.c */,
 				BB28E87721A7B230005FAFC8 /* CFStorage.h */,
-				BB28E84B21A7B22D005FAFC8 /* CFStream.c */,
-				BB28E88721A7B230005FAFC8 /* CFStream.h */,
-				BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */,
-				BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */,
-				BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */,
 				BB28E8CC21A7B232005FAFC8 /* CFString.c */,
 				BB28E87421A7B22F005FAFC8 /* CFString.h */,
 				BB28E86221A7B22E005FAFC8 /* CFStringDefaultEncoding.h */,
@@ -558,6 +549,15 @@
 				BB28E93B21A7D8C9005FAFC8 /* CFRunLoop_Observers.c */,
 				BB28E94D21ABC3A8005FAFC8 /* CFRunLoop_Do.h */,
 				BB28E94E21ABC3A8005FAFC8 /* CFRunLoop_Do.c */,
+				BB28E88221A7B230005FAFC8 /* APPLE_LICENSE */,
+				BB28E85221A7B22D005FAFC8 /* CFSocket.c */,
+				BB28E8CB21A7B232005FAFC8 /* CFSocket.h */,
+				BB28E8BB21A7B231005FAFC8 /* CFSocketStream.c */,
+				BB28E84B21A7B22D005FAFC8 /* CFStream.c */,
+				BB28E88721A7B230005FAFC8 /* CFStream.h */,
+				BB28E8AB21A7B231005FAFC8 /* CFStreamAbstract.h */,
+				BB28E84C21A7B22D005FAFC8 /* CFStreamInternal.h */,
+				BB28E89E21A7B231005FAFC8 /* CFStreamPriv.h */,
 			);
 			path = runloop;
 			sourceTree = "<group>";
